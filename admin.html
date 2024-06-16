@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRSS | Home</title>
+    <link rel="stylesheet" href="navBar.css">
+    <link rel="stylesheet" href="council.css">
+    <link rel="icon" type="image/x-icon" href="media/images/srss-logo.jfif">
+</head>
+<body>
+    <nav class="navigation">
+        <img src="media/images/srss-og.png" alt="shaaban robert logo" id="logo-img">
+        <div class="menu">
+            <span id="srss"><b>Shaaban Robert Sec School</b></span>
+            <div class="horizontal_menu">
+                <ul type="none">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="notes.html">Notes</a></li>
+                    <li class="multi_menu"><a>login</a></li>
+                </ul>
+            </div>
+            <div class="vertical_menu">
+                <button><b>MENU</b></p></button>
+            </div>
+        </div>
+        <div class="dropdown_menu">
+            <ul type="none">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="notes.html">Notes</a></li>
+                <li><a href="index.php">Student</a></li>
+                <li><a href="council.html">Admin</a></li>
+        </div>
+    </nav>
+    <div class="sub_menu">
+        <ul>
+            <li><a href="council.html"><b>Admin</b></a></li>
+            <li><a href="index.php"><b>Student</b></a></li>
+        </ul>
+    </div>
+    <script>
+        let menubtn = document.querySelector('.vertical_menu');
+        let dropdownlist = document.querySelector('.dropdown_menu');
+        let multimenu = document.querySelector('.multi_menu');
+        let submenu = document.querySelector('.sub_menu');
+
+        menubtn.onclick = function(){
+            dropdownlist.classList.toggle('open');
+        }
+
+        multimenu.onclick = function(){
+            submenu.classList.toggle('open');
+        }
+    </script>
+    <div class="main">
+          <div class="row">
+               <div class="profile">
+                    <div class="photo">
+                         <img src="media\images\prefects\joel_julius.jpg" width="300px" height="250px">
+                    </div>
+               </div>
+          </div>
+    </div>
+     
+</body>
+</html>

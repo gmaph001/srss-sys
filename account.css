@@ -1,0 +1,237 @@
+*{
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+     font-size: 'Open Sans' ,sans-serif;
+     transition: 0.5s ease-in-out;
+}
+.navigation{
+     width: 100vw;
+     height: max-content;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     background-color: #07004a;
+     padding: 2%;
+     z-index: 100;
+     position: fixed;
+     margin-top: -10%;
+}
+.menu{
+     height: 30px;
+     width: 30px;
+     border-radius: 10px;
+     background-color: white;
+     cursor: pointer;
+     padding: 5px;
+}
+#heading{
+     color: white;
+     font-size: 250%;
+     width: 800px;
+     text-align: left;
+     font-family: Old English Text MT;
+}
+.title{
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     width: 80vw;
+}
+.logo{
+     width: 80px;
+}
+.body{
+     background-color: whitesmoke;
+     color: black;
+     margin-top: 10%;
+     padding: 1vh 2vw 1vh 0vw;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+}
+.sidebar{
+     display: none;
+}
+.sidebar.open{
+     display: block;
+     width: 12vw;
+     height: 45vh;
+     background-color: #07004a;
+     color: white;
+     z-index: 99;
+     left: 0;
+     padding: 2vh 1vw 2vh 2vw;
+     animation: open 1s ease-in-out normal both;
+     border-radius: 0 20px 20px 0;
+}
+.sidebar.open ul li{
+     margin-top: 2vh;
+     padding: 2%;
+}
+.sidebar.open a{
+     color: white;
+     text-decoration: none;
+     font-size: 14pt;
+     font-family: candara;
+     font-weight: bold;
+     transition: 0.3s ease-in-out;
+     animation: show 0.4s 1s ease-in-out normal both; 
+}
+.sidebar.open a:hover{
+     color: rgb(0, 191, 255);
+}
+.main{
+     width: 55vw;
+     margin: auto;
+}
+.update legend{
+     font-size: 18pt;
+     font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.update fieldset{
+     border: 5px solid black;
+     border-radius: 30px;
+     padding: 2%;
+     font-size: 14pt;
+     font-family: candara;
+}
+.update input{
+     width: 7vw;
+     border-radius: 15px;
+     border: 2px solid black;
+     padding: 2px 5px 2px 5px;
+     text-align: center;
+     font-size: 14pt;
+     font-family: Georgia, 'Times New Roman', Times, serif;
+     color: blue;
+     transition: 0.4s ease-in-out;
+     font-weight: bold;
+}
+.update input:hover{
+     width: 10vw;
+}
+.save{
+     background-color: blue;
+     color: white;
+     font-size: 14pt;
+     font-weight: bold;
+     font-family: Georgia, 'Times New Roman', Times, serif;
+     padding: 5px;
+     border-radius: 10px;
+     border: 3px solid black;
+     cursor: pointer;
+}
+.save:hover{
+     color: blue;
+     background-color: white;
+}
+.save:active{
+     color: red;
+}
+.profile{
+     width: 20vw;
+     height: max-content;
+     border: 3px solid black;
+     padding: 2%;
+     border-radius: 30px;
+     font-family: candara;
+     font-size: 14pt;
+}
+.profile input{
+     width: 15vw;
+     font-size: 14pt;
+}
+.photo{
+     width: 15vw;
+     height: 30vh;
+     border-radius: 20px;
+}
+.alert{
+     font-size: 08pt;
+     color: red;
+}
+#alert1, #alert2, #alert3, #alert4, #alert5{
+     font-size: 08pt;
+     color: red;
+}
+.footer{
+     background-color: #07004a;
+     font-size: 14pt;
+     font-family: 'Times New Roman', Times, serif;
+     color: white;
+     text-align: center;
+     padding: 5% 5% 2% 5%;
+}
+@keyframes open{
+     from{
+          width: 0;
+          padding: 0;
+     }
+     to{
+          width: 12vw;
+     }
+}
+@keyframes show{
+     from{
+          display: none;
+     }
+     to{
+          display: block;
+     }
+}
+@media(max-width: 850px){
+     .navigation{
+          margin-top: -28%;
+     }
+     .body{
+          margin-top: 28%;
+          display: flex;
+          flex-direction: column;
+          align-items: left;
+     }
+     .logo{
+          display: none;
+          width: 0px;
+     }
+     .title{
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 110vw;
+     }
+     #heading{
+          font-size: 250%;
+          margin-left: 10vw;
+     }
+     .main{
+          width: 80vw;
+     }
+     .sidebar.open{
+          width: 100vw;
+          height: 35vh;
+          border-radius: 0;
+     }
+     .update input{
+          width: max-content;
+     }
+     .profile{
+          margin-top: 2vh;
+          width: 80vw;
+          padding: 5%;
+          font-size: 14pt;
+     }
+     .photo{
+          width: 70vw;
+          height: 35vh;
+     }
+     @keyframes open{
+          from{
+               height: 0;
+               padding: 0;
+          }
+          to{
+               height: 35vh;
+          }
+     }
+}

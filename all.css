@@ -1,0 +1,37 @@
+.background-image1{
+    background-image:url("media/images/02.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 620px; 
+    padding: 20px;
+    margin: 100px auto 0 0;
+}
+.intro{
+    color: rgba(255, 5, 93, 0.996);
+    padding: 20px;
+    text-align: left;
+    width: 60%;
+    font-size: 28pt;
+    background-color: rgba(0, 0, 0, 0.573);
+    margin-top: 10%;
+    border-radius: 20px;
+}
+p{
+    font-size: 16pt;
+    color: rgb(255, 255, 255);
+}
+@media(max-width: 850px){
+    .background-image1{
+        margin: 150px auto 0 0;
+    }
+    .intro{
+        width: 80%;
+        margin: 20% auto;
+    }
+    fieldset{
+        width: 80%;
+    }
+    textarea{
+        width: 80%;
+    }
+}

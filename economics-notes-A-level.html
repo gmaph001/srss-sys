@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Economics-notes</title>
+     <link rel="stylesheet" type="text/css" href="navBar.css">
+     <link rel="stylesheet" type="text/css" href="chemistry.css">
+     <link rel="icon" type="image/x-icon" href="media/images/srss-logo.jfif">
+</head>
+<body>
+    <nav class="navigation">
+        <img src="media/images/srss-og.png" alt="shaaban robert logo" id="logo-img">
+        <div class="menu">
+            <span id="srss"><b>Shaaban Robert Sec School</b></span>
+            <div class="horizontal_menu">
+                <ul type="none">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="notes.html">Notes</a></li>
+                    <li class="multi_menu"><a>login</a></li>
+                </ul>
+            </div>
+            <div class="vertical_menu">
+                <button><b>MENU</b></p></button>
+            </div>
+        </div>
+        <div class="dropdown_menu">
+            <ul type="none">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="notes.html">Notes</a></li>
+                <li><a href="index.php">Student</a></li>
+                <li><a href="council.html">Admin</a></li>
+        </div>
+    </nav>
+    <div class="sub_menu">
+        <ul>
+            <li><a href="council.html"><b>Admin</b></a></li>
+            <li><a href="index.php"><b>Student</b></a></li>
+        </ul>
+    </div>
+    <script>
+        let menubtn = document.querySelector('.vertical_menu');
+        let dropdownlist = document.querySelector('.dropdown_menu');
+        let multimenu = document.querySelector('.multi_menu');
+        let submenu = document.querySelector('.sub_menu');
+
+        menubtn.onclick = function(){
+            dropdownlist.classList.toggle('open');
+        }
+
+        multimenu.onclick = function(){
+            submenu.classList.toggle('open');
+        }
+    </script>
+          <div class="options">
+               <h1 style="color: red; text-align: center; font-size: 40pt; font-family: Georgia, 'Times New Roman', Times, serif;">
+                    Choose the category you want:
+               </h1>
+               <div class="inorganic">
+                    <div class="notes">
+                         <a href="media\documents\adv-book-macro-economics.pdf" target="_blank"><b>Macro-Economics</b></a>
+                    </div>
+               </div>
+               <div class="general">
+                    <div class="notes">
+                         <a href="media\documents\adv-book-micro-economics.pdf" target="_blank"><b>Micro-Economics</b></a>
+                    </div>
+               </div>
+          </div>
+          <div class="footer">
+            <p>
+                For any inquiry and suggestions about this website, please leave your comment below:
+            </p><br>
+            <form action="https://formspree.io/f/mwkgkgbv" method="POST" name="myForm">
+                <fieldset>
+                    <label><b>Name:</b></label>&nbsp; <input type="text" name="name" id="fname"><br><br>
+                    <label><b>Email:</b></label>&nbsp; <input type="text" name="email" id="email"><br><br>
+                    <label><b>Suggestions:</b></label><br><br>
+                    <textarea name="suggestions" cols="15" rows="5" maxlength="500"></textarea><br><br>
+                    <button><b>Send</b></button>
+                </fieldset>
+            </form><br><br>
+            <p class="foot"><b>&copy; Shaaban Robert Secondary School 2023.</b></p>
+        </div>
+     </div>
+</body>
+</html>

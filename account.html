@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRSS | My Account</title>
+    <link rel="stylesheet" href="account.css">
+    <link rel="icon" type="image/x-icon" href="media/images/srss-logo.jfif">
+</head>
+<body>
+     <nav class="navigation">
+          <div class="title">
+               <div class="menubtn"><img src="media/images/icons/menu.png" class="menu" id="menu"></div>
+               <span id="heading"><b>Shaaban Robert Secondary School</b></span>
+          </div>
+          <img src="media/images/srss-og.png" class="logo">
+     </nav>
+     <div class="body">
+          <div class="sidebar">
+               <ul type="none">
+                    <li><a href="account.html">My Profile</a></li>
+                    <li><a href="security.html">Privacy & Security</a></li>
+                    <li><a href="user.html">My Account</a></li>
+                    <li><b><a href="home.html">Go back</a></b></li>
+               </ul>
+          </div>
+          <div class="main">
+               <form action="update.php" method="POST" name="update" class="update" enctype="multipart/form-data">
+                    <fieldset>
+                         <legend><b>My Profile</b></legend>
+                         <label><b>First Name: </b></label> <input type="text" name="firstname" placeholder="change"> <br><br>
+                         <label><b>Second Name: </b></label> <input type="text" name="secondname" placeholder="change"> <br><br>
+                         <label><b>Last Name: </b></label> <input type="text" name="lastname" placeholder="change"> <br><br>
+                         <label><b>Age: </b></label> <input type="number" name="age" placeholder="change"> <br><br>
+                         <label><b>Class: </b></label> <input type="number" name="class" placeholder="change"> <br><br>
+                         <label><b>Stream: </b></label> <input type="text" name="stream" placeholder="change"> <br><br>
+                         <button onclick="save()" class="save" name="save">Save</button> 
+                    </fieldset>
+               </form>
+          </div>
+          <div class="profile">
+               <img src="media/images/prof_pics/1711895902133.jpg" class="photo"><br><br>
+               <label><b>Upload your photo: </b></label><input type="file" name="photo"><br><br>
+               <button onclick="save()" class="save" name="save">Save</button>
+          </div>
+     </div>
+     <div class="footer">
+          <p>&copy; Shaaban Robert Secondary School 2023.</p>
+     </div>
+     <script src="account.js"></script>
+</body>
+</html>

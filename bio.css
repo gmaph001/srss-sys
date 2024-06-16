@@ -1,0 +1,169 @@
+.body{
+     background-color: antiquewhite;
+     width: 100%;
+     margin: 100px auto 0 0;
+}
+.classes{
+     margin-top: 10px;
+     padding: 15px;
+}
+.row{
+     margin-left: 5vb 0px;
+     padding: 10px;
+     display: flex;
+     justify-content: space-between;
+     margin-top: 10px;
+}
+.row .form1{
+     display: inline-block;
+}
+.form1{
+     background-color: red;
+     width: 300px;
+     height: 200px;
+     color: indigo;
+     padding: 50px;
+     text-align: center;
+     border-radius: 10px;
+     cursor: pointer;
+}
+.form1:hover{
+     transition: 0.7s ease;
+     zoom: 102% ;
+}
+.form1 a{
+     color: black;
+     text-decoration: none;
+     font-size: 28pt;
+}
+.form1 a:hover{
+     color: blue;
+}
+.form2{
+     background-color: orange;
+     width: 300px;
+     height: 200px;
+     color: green;
+     padding: 50px;
+     text-align: center;
+     border-radius: 10px;
+     cursor: pointer;
+}
+.form2:hover{
+
+     transition: 0.7s ease;
+     zoom: 102% ;
+}
+.form2 a{
+     color: black;
+     text-decoration: none;
+     font-size: 28pt;
+}
+.form2 a:hover{
+     color: indigo;
+}
+.form3{
+     background-color: yellow;
+     width: 300px;
+     height: 200px;
+     color: blue;
+     padding: 50px;
+     text-align: center;
+     border-radius: 10px;
+     cursor: pointer;
+}
+.form3:hover{
+     transition: 0.7s ease;
+     zoom: 102% ;
+}
+.form3 a{
+     color: black;
+     text-decoration: none;
+     font-size: 28pt;
+}
+.form3 a:hover{
+     color: green;
+}
+.form4{
+     background-color: green;
+     width: 300px;
+     height: 200px;
+     color: yellow;
+     padding: 50px;
+     text-align: center;
+     border-radius: 10px;
+     cursor: pointer;
+}
+.form4:hover{
+
+     transition: 0.7s ease;
+     zoom: 102% ;
+}
+.form4 a{
+     color: black;
+     text-decoration: none;
+     font-size: 28pt;
+}
+.form4 a:hover{
+     color: yellow;
+}
+.form5{
+     background-color: blue;
+     width: 300px;
+     height: 200px;
+     color: red;
+     padding: 50px;
+     text-align: center;
+     border-radius: 10px;
+     cursor: pointer;
+}
+.form5:hover{
+     transition: 0.7s ease;
+     zoom: 102%;
+}
+.form5 a{
+     color: black;
+     text-decoration: none;
+     font-size: 28pt;
+}
+.form5 a:hover{
+     color: red;
+}
+.form6{
+     background-color: indigo;
+     width: 300px;
+     height: 200px;
+     color: rgb(157, 52, 52);
+     padding: 50px;
+     text-align: center;
+     border-radius: 10px;
+     cursor: pointer;
+}
+.form6:hover{
+
+     transition: 0.7s ease;
+     zoom: 102% ;
+}
+.form6 a{
+     color: black;
+     text-decoration: none;
+     font-size: 28pt;
+}
+.form6 a:hover{
+     color: orange;
+}
+@media (max-width: 850px){
+     .row{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 20px;
+     }
+     .body{
+          margin: 210px auto 0 0;
+     }
+     .form1, .form2, .form3, .form4, .form5, .form6{
+          margin-top: 10px;
+     }
+}
