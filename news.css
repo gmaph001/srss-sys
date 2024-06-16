@@ -1,0 +1,107 @@
+.main{
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.body{
+    height: max-content;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    color: navy;
+    margin: 120px auto 0 0;
+}
+.update{
+    margin: auto;
+    width: fit-content;
+    background-color: rgb(94, 94, 255);
+    border-bottom: 10px solid rgb(68, 26, 26);
+    border-left: 10px solid rgb(68, 26, 26);
+    border-right: 10px solid rgb(68, 26, 26);
+    border-radius: 0px 0px 30px 30px;
+    font-size: 16pt;
+}
+h1#update{
+    color: red;
+}
+.updates{
+    height: max-content;
+    width: 100%;
+    background-image: url("media/images/news.jpg");
+    background-size: contain;
+    object-position: center;
+}
+.update_announcement{
+    margin: auto;
+    height: max-content;
+    width: 90%;
+    padding: 30px;
+    border-radius: 20px;
+    shape-image-threshold: calc(20px*10px);
+    text-align: center;
+    font-size: 16pt;
+}
+.announcement{
+    background-color: rgb(249, 241, 241);
+    width: 70%;
+    height: max-content;
+    margin: auto;
+    padding: 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.announcement:hover{
+    background-color: darkblue;
+}
+.announcement p{
+    color: rgb(0, 181, 27);
+    transition: 0.5s;
+}
+.announcement p:hover{
+    font-size: 102%;
+    color: white;
+}
+.announcements{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    margin-top: 20px;
+    height: max-content;
+}
+.announcements-words{
+    text-align: center;
+    margin: auto;
+    font-size: 16pt;
+    padding: 20px;
+}
+.announcements a img{
+    transition: 0.5s ease-in-out;
+}
+.announcements a img:hover{
+    rotate: 5deg;
+    height: 104%;
+    width: 102%;
+}
+.collectives{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+@media (max-width: 850px){
+    .announcements{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: max-content;
+    }
+    .body{
+        height: max-content;
+        margin: 175px auto 0 0;
+    }
+    .announcement{
+        width: 100%;
+        height: max-content;
+    }
+}

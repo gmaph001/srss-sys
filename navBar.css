@@ -1,0 +1,297 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 'Open Sans' ,sans-serif;
+    transition: 0.5s ease-in-out;
+}
+.navigation {
+    display: flex;
+    background-color: #07004a;
+    padding: 8px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0; /* Stick the navigation bar to the top */
+    z-index: 100; /* Ensure it's above other content */
+}
+
+#logo-img {
+    margin: 12px;
+    margin-left: 42px;
+    width: 80px;
+}
+
+#srss {
+    color: white;
+    font-size: 250%;
+    width: 800px;
+    text-align: left;
+    font-family: Old English Text MT;
+    margin-left: -15vw;
+}
+.menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+    font-family: Open sans, sans-serif;
+    font-weight: bold;
+}
+.horizontal_menu{
+    margin-left: 5%;
+    font-size: 300%;
+}
+.horizontal_menu ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navigation ul li a {
+    text-decoration: none;
+    padding: 12px;
+    font-size: 18px;
+    color: white;
+    margin-right: 48px;
+    transition: 0.3s ease-in-out;
+    border-radius: 12px;
+}
+
+.navigation ul li a:hover,
+.active {
+    color: rgb(0, 191, 255);
+    transition: 0.3s ease;
+}
+.multi_menu{
+    cursor: pointer;
+}
+.sub_menu{
+    display: none;
+    transition: 0.4s ease-in-out;
+}
+.sub_menu.open{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    z-index: 100;
+    margin-left: 80vw;
+    margin-right: 3%;
+    height: max-content;
+    padding: 10px;
+    background-color: #07004a;
+    transition: 0.4s ease-in-out;
+    border-radius: 0px 0px 15px 15px;
+}
+.sub_menu.open ul{
+    list-style: none;
+}
+.sub_menu.open ul li{
+    padding: 5px;
+}
+.sub_menu.open ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: 0.3s ease;
+}
+.sub_menu.open ul li a:hover{
+    color: rgb(0, 191, 255);
+    transition: 0.3s ease;
+}
+.vertical_menu{
+    display: none;
+    margin: 10px 10px ;
+}
+.vertical_menu button{
+    background-color: black;
+    color: whitesmoke;
+    padding: 5px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.dropdown_menu{
+    display: none;
+    width: 100%;
+    height: max-content;
+    transition: 0.7s ease-in-out;
+}
+.dp1{
+    display: none;
+}
+.dp{
+    height: 8vh;
+    width: 5vw;
+    border-radius: 50%;
+}
+.footer{
+    background-color: #07004a;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+.footer p{
+    font-size: 13pt;
+}
+p.foot{
+    text-align: center;
+}
+.footer fieldset{
+    padding: 20px;
+    border-radius: 30px;
+    border: 3px solid blue;
+    font-size: 12pt;
+    font-family: roboto, arial;
+    width: 50%;
+    text-align: left;
+    background-image: url("media/images/suggestions.jpg");
+    background-size: cover;
+    margin: auto;
+}
+input{
+    border: 1px solid red;
+    background-color: whitesmoke;
+    border-radius: 15px;
+    padding: 5px 10px 5px 10px;
+    font-size: 12pt;
+    font-weight: bold;
+}
+textarea{
+    width: 60%;
+    height: max-content;
+    padding: 10px;
+    border: 1px solid red;
+    border-radius: 20px;
+    font-size: 12pt;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: whitesmoke;
+    text-align: justify;
+    font-style: italic;
+}
+fieldset button{
+    background-color: rgb(0, 140, 255);
+    color: black;
+    padding: 5px;
+    border-radius: 15px;
+    cursor: pointer
+}
+fieldset button:hover{
+    zoom: 105%;
+    color: white;
+    background-color: black;
+    transition: 0.3s ease-in-out;
+}
+fieldset button:active{
+    zoom: 105%;
+    color: white;
+    background-color: black;
+}
+@media (max-width: 900px){
+    .navigation{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: max-content;
+        padding: 10px 0px 10px 0px;
+        text-align: center;
+        width: 100vw;
+    }
+    .menu{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 98vw;
+    }
+    .pics{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding-right: 5vw;
+    }
+    #srss{
+        text-align: left;
+        padding: 10px;
+        font-size: 150%;
+        margin-left: 5px;
+    }
+    .horizontal_menu{
+        display: none;
+    }
+    .vertical_menu{
+        display: block;
+        margin-left: 5%;
+        transition: 0.3s ease-in-out;
+    }
+    .vertical_menu button{
+        transition: 0.7s ease-in-out;
+    }
+    .vertical_menu button:hover,
+    .vertical_menu button:active{
+        background-color: goldenrod;
+        color: black;
+        transition: 0.3s ease-in-out;
+    }
+    .dropdown_menu.open{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        font-family: Brush Script Std;
+        font-size: 150%;
+        transition: 0.7s ease-in-out;
+    }
+    .dropdown_menu ul{
+        width: 100%;
+    }
+    .dropdown_menu ul li{
+        background-color: rgba(255, 255, 255, 0.4);
+        width: 100%;
+        height: fit-content;
+        margin-top: 2%;
+        text-align: center;
+    }
+    .dropdown_menu ul li a:hover,
+    .dropdown_menu ul li a:active{
+        color: orange;
+        transition: 0.2s ease-in-out;
+    }
+    .dp1{
+        display: block;
+    }
+    .dp{
+        height: 8vh;
+        width: 18vw;
+    }
+    .background-image1{
+        margin: 200px auto 0 0;
+        background-image:url("media/images/02.jpg");
+        background-size: cover;
+        width: 100%;
+        height: 850px; 
+        padding: 20px;
+    }
+    .background-image1{
+        margin: 200px auto 0 0;
+    }
+    fieldset{
+        width: 80%;
+    }
+    textarea{
+        width: 80%;
+    }
+    .footer{
+        background-color: #07004a;
+    }
+}
+p{
+    font-size: 16pt;
+    color: rgb(255, 255, 255);
+}

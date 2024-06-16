@@ -1,0 +1,229 @@
+body{
+     background-image: url("media/images/02.jpg");
+     background-size: cover;
+     font-size: 14pt;
+     font-family:Open Sans, sans-serif;
+     font-weight: bold;
+}
+.main{
+     height: max-content;
+     width: 70vw;
+     background-color: aliceblue;
+     border-radius: 40px;
+     border: 5px solid black;
+     padding: 20px;
+     margin: auto;
+     margin-top: 7%;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+}
+.title{
+     background-image: url("media/images/logo.jpg");
+     background-size: cover;
+     height: 150px;
+     width: 150px;
+     border-radius: 30%;
+     margin: auto;
+}
+fieldset{
+     border-radius: 20px;
+     padding: 12px;
+     width: 30vw;
+}
+input{
+     border: 3px solid red;
+     padding: 3px 7px 3px 10px;
+     border-radius: 15px;
+     font-family: roboto arial;
+     font-size: 14pt;
+     font-weight: bold;
+     color: blue;
+     text-align: center;
+}
+button{
+     background-color: blue;
+     color: white;
+     font-size: 14pt;
+     font-weight: bolder;
+     padding: 5px;
+     cursor: pointer;
+     border-radius: 10px;
+     margin-left: 45%;
+     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     transition: 0.5s ease-in-out;
+}
+button:hover{
+     background-color: white;
+     color: blue;
+}
+button:active{
+     background-color: red;
+     color: blue;
+     transition: 0.2s ease-in-out;
+     zoom: 105%;
+}
+p{
+     font-size: 14pt;
+     color: red;
+}
+#result, #result1, #result2, #result3, #result4, #result5, #result6, #result7, #result8,
+#ageresult, #strmresult{
+     font-size: 08pt;
+     color: red;
+}
+p.alert{
+     font-size: 14pt;
+     color: black;
+}
+a#alert{
+     color: red;
+}
+.userInfo{
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+}
+.user-inputs{
+     display: flex;
+     flex-direction: column;
+     align-items: left;
+     padding: 0px;
+     margin: 0px;
+}
+.user p, .mail p, .unique p{
+     font-size: 14pt;
+     color: black;
+}
+.inputs{
+     padding: 20px 0px 0px 0px;
+}
+#uname{
+     margin-top: 8px;
+}
+#pwd{
+     margin-top: 7px;
+}
+.photo{
+     background-image: url("media/images/notes.jpg");
+     background-size: cover;
+     border-radius: 30px;
+     height: 40vw;
+     width: 35vw;
+     animation: sliding 2s ease-in-out both normal;
+}
+.photo2{
+     background-image: url("media/images/admin.jpg");
+     background-size: cover;
+     border-radius: 30px;
+     height: 40vw;
+     width: 35vw;
+     transition: 0.5s ease-in-out;
+     animation: sliding 2s ease-in-out both normal; 
+}
+.forget{
+     transition: 0.3s ease-in-out;
+}
+.forget:hover{
+     color: red;
+}
+.links{
+     width: 100%;
+     padding: 0 10px 0 10px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+}
+textarea{
+     border: 3px solid red;
+     border-radius: 20px;
+     padding: 10px 30px;
+     font-size: 14pt;
+     font-family: Candara;
+     color: blue;
+}
+.photo3{
+     background-image: url("media/images/news.jpg");
+     background-size: cover;
+     border-radius: 30px;
+     height: 40vw;
+     width: 35vw;
+     transition: 0.5s ease-in-out;
+     animation: sliding 2s ease-in-out both normal; 
+}
+.list{
+     border: 2px solid red;
+     padding: 5px 10px;
+     border-radius: 20px;
+     align-items: center;
+     font-family: candara;
+     font-weight: bold;
+     font-size: 14pt;
+     justify-content: center;
+     cursor: pointer;
+}
+a{
+     background-color: blue;
+     color: white;
+     font-size: 12pt;
+     font-weight: bolder;
+     border-radius: 10px;
+     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     text-decoration: none;
+     color: white;
+     padding: 5px;
+     border: 2px solid black;
+     transition: 0.2s ease-in-out;
+}
+a:hover{
+     background-color: white;
+     color: blue;
+}
+a:active{
+     background-color: red;
+     color: blue;
+     transition: 0.2s ease-in-out;
+     zoom: 105%;
+}
+@keyframes sliding {
+     from{
+          width: 0vw;
+     }
+     to{
+          width: 35vw;
+     }
+}
+@media(max-width: 800px){
+     .main{
+          width: 85%;
+          height: max-content;
+          background-color: aliceblue;
+          border-radius: 40px;
+          border: 5px solid black;
+          padding: 20px;
+          margin: auto;
+          margin-top: 25%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+     }
+     .photo, .photo2, .photo3{
+          display: none;
+     }
+     fieldset{
+          width: 90%;
+     }
+     input{
+          width: 90%;
+          padding: 3px;
+          font-size: 12pt;
+     }
+     .user p, .mail p, .unique p{
+          font-size: 12pt;
+          color: black;
+     }
+     .photo{
+          display: none;
+     }
+}

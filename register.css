@@ -1,0 +1,65 @@
+*{
+     margin: 0;
+     padding: 0;
+}
+body{
+     font-family:Georgia, 'Times New Roman', Times, serif;
+     padding: 15% 0;
+}
+.register{
+     width: max-content;
+     height: max-content;
+     padding: 20px;
+     font-size: 120%;
+     border-radius: 30px;
+     background-color: green;
+     color: white;
+     margin: auto;
+}
+.signIn{
+     background-color: azure;
+     width: 30%;
+     border: 5px solid black;
+     border-radius: 20px;
+     margin-top: 2%;
+     height: max-content;
+     padding: 30px;
+}
+p.alert{
+     font-size: 14pt;
+     color: black;
+}
+a{
+     background-color: blue;
+     color: white;
+     font-size: 12pt;
+     font-weight: bolder;
+     border-radius: 10px;
+     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     text-decoration: none;
+     color: white;
+     padding: 5px;
+     border: 2px solid black;
+     transition: 0.2s ease-in-out;
+}
+a:hover{
+     background-color: white;
+     color: blue;
+}
+a:active{
+     background-color: red;
+     color: blue;
+     transition: 0.2s ease-in-out;
+     zoom: 105%;
+}
+.data{
+     background-color: black;
+     color: white;
+}
+table{
+     background-color: black;
+     padding: 20px;
+}
+table tr td{
+     padding: 5px;
+}

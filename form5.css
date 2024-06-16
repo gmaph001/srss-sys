@@ -1,0 +1,305 @@
+.body{
+     background-color: antiquewhite;
+     width: 100%;
+     margin: 120px auto 0 0;
+}
+.classes{
+     display: -ms-inline-grid;
+     justify-content: space-between;
+     margin-top: 10px;
+}
+.row{
+     margin-left: 5vb 0px;
+     padding: 10px;
+     display: flex;
+     justify-content: space-between;
+     margin-top: 10px;
+}
+.Computer{
+     background-color: red;
+     width: 300px;
+     height: 200px;
+     color: indigo;
+     padding: 50px;
+     text-align: center;
+     border-radius: 10px;
+     cursor: pointer;
+}
+.Computer:hover{
+     transition: 0.7s ease;
+     zoom: 102% ;
+}
+.Computer a{
+     color: black;
+     text-decoration: none;
+     font-size: 28pt;
+}
+.Computer a:hover{
+     color: blue;
+}
+.Physics{
+     background-color: orange;
+     width: 300px;
+     height: 200px;
+     color: green;
+     padding: 50px;
+     text-align: center;
+     border-radius: 10px;
+     cursor: pointer;
+}
+.Physics:hover{
+
+     transition: 0.7s ease;
+     zoom: 102% ;
+}
+.Physics a{
+     color: black;
+     text-decoration: none;
+     font-size: 28pt;
+}
+.Physics a:hover{
+     color: indigo;
+}
+.Mathematics{
+     background-color: yellow;
+     width: 300px;
+     height: 200px;
+     color: blue;
+     padding: 50px;
+     text-align: center;
+     border-radius: 10px;
+     cursor: pointer;
+}
+.Mathematics:hover{
+     transition: 0.7s ease;
+     zoom: 102% ;
+}
+.Mathematics a{
+     color: black;
+     text-decoration: none;
+     font-size: 28pt;
+}
+.Mathematics a:hover{
+     color: green;
+}
+.Chemistry{
+     background-color: green;
+     width: 300px;
+     height: 200px;
+     color: yellow;
+     padding: 50px;
+     text-align: center;
+     border-radius: 10px;
+     cursor: pointer;
+}
+.Chemistry:hover{
+
+     transition: 0.7s ease;
+     zoom: 102% ;
+}
+.Chemistry a{
+     color: black;
+     text-decoration: none;
+     font-size: 28pt;
+}
+.Chemistry a:hover{
+     color: yellow;
+}
+.Biology{
+     background-color: blue;
+     width: 300px;
+     height: 200px;
+     color: red;
+     padding: 50px;
+     text-align: center;
+     border-radius: 10px;
+     cursor: pointer;
+}
+.Biology:hover{
+     transition: 0.7s ease;
+     zoom: 102%;
+}
+.Biology a{
+     color: black;
+     text-decoration: none;
+     font-size: 28pt;
+}
+.Biology a:hover{
+     color: red;
+}
+.Geography{
+     background-color: indigo;
+     width: 300px;
+     height: 200px;
+     color: rgb(157, 52, 52);
+     padding: 50px;
+     text-align: center;
+     border-radius: 10px;
+     cursor: pointer;
+}
+.Geography:hover{
+
+     transition: 0.7s ease;
+     zoom: 102% ;
+}
+.Geography a{
+     color: black;
+     text-decoration: none;
+     font-size: 28pt;
+}
+.Geography a:hover{
+     color: orange;
+}
+.adv-mtc{
+     background-color: black;
+     width: 300px;
+     height: 200px;
+     color: white;
+     padding: 50px;
+     text-align: center;
+     border-radius: 10px;
+     cursor: pointer;
+}
+.adv-mtc:hover{
+     transition: 0.7s ease;
+     zoom: 102%;
+}
+.adv-mtc a{
+     color: white;
+     text-decoration: none;
+     font-size: 28pt;
+}
+.adv-mtc a:hover{
+     color: red;
+}
+.literature{
+     background-color: white;
+     width: 300px;
+     height: 200px;
+     color: rgb(157, 52, 52);
+     padding: 50px;
+     text-align: center;
+     border-radius: 10px;
+     cursor: pointer;
+}
+.literature:hover{
+
+     transition: 0.7s ease;
+     zoom: 102% ;
+}
+.literature a{
+     color: black;
+     text-decoration: none;
+     font-size: 28pt;
+}
+.literature a:hover{
+     color: yellow;
+}
+.kiswahili{
+     background-color: rgb(128, 0, 130);
+     width: 300px;
+     height: 200px;
+     color: rgb(157, 52, 52);
+     padding: 50px;
+     text-align: center;
+     border-radius: 10px;
+     cursor: pointer;
+}
+.kiswahili:hover{
+
+     transition: 0.7s ease;
+     zoom: 102% ;
+}
+.kiswahili a{
+     color: rgb(0, 0, 0);
+     text-decoration: none;
+     font-size: 28pt;
+}
+.kiswahili a:hover{
+     color: rgb(0, 187, 255);
+}
+.economics{
+     background-color: rgb(4, 0, 130);
+     width: 300px;
+     height: 200px;
+     color: rgb(157, 52, 52);
+     padding: 50px;
+     text-align: center;
+     border-radius: 10px;
+     cursor: pointer;
+}
+.economics:hover{
+
+     transition: 0.7s ease;
+     zoom: 102% ;
+}
+.economics a{
+     color: rgb(0, 0, 0);
+     text-decoration: none;
+     font-size: 28pt;
+}
+.economics a:hover{
+     color: rgb(0, 255, 47);
+}
+.accounts{
+     background-color: rgb(221, 255, 0);
+     width: 300px;
+     height: 200px;
+     color: rgb(157, 52, 52);
+     padding: 50px;
+     text-align: center;
+     border-radius: 10px;
+     cursor: pointer;
+}
+.accounts:hover{
+
+     transition: 0.7s ease;
+     zoom: 102% ;
+}
+.accounts a{
+     color: black;
+     text-decoration: none;
+     font-size: 28pt;
+}
+.accounts a:hover{
+     color: rgb(128, 255, 0);
+}
+.commerce{
+     background-color: indigo;
+     width: 300px;
+     height: 200px;
+     color: rgb(157, 52, 52);
+     padding: 50px;
+     text-align: center;
+     border-radius: 10px;
+     cursor: pointer;
+}
+.commerce:hover{
+
+     transition: 0.7s ease;
+     zoom: 102% ;
+}
+.commerce a{
+     color: black;
+     text-decoration: none;
+     font-size: 28pt;
+}
+.commerce a:hover{
+     color: orange;
+}
+@media (max-width: 850px){
+     .row{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 20px;
+     }
+     .body{
+          margin: 150px auto 0 0;
+     }
+     .accounts, .adv-mtc, .Biology, .Chemistry, .commerce, .Computer, .economics, .Geography, .kiswahili,
+     .literature, .Physics, .Mathematics{
+          margin-top: 10px;
+     }
+}

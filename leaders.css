@@ -1,0 +1,169 @@
+.body{
+     background-color: whitesmoke;
+     padding-top: 18vh;
+     height: 100vh;
+}
+.uploads{
+     height: 70vh;
+     width: 85vw;
+     margin: auto;
+     padding: 2vh 2vw 2vh 2vw;
+     background-color: rgba(180, 187, 214, 0.619);
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     animation: expand2 1s ease-in-out normal;
+     border-radius: 30px;
+}
+.notes{
+     background-image: url("media/images/notes.jpg");
+     background-size: cover;
+     height: 60vh;
+     width: 35vw;
+     border-radius: 30px;
+     color: black;
+     padding: 25vh 5vw 5vh 7vw;
+     transition: 0.5s ease-in-out;
+     animation: appear 2s ease-in-out 1 normal both;
+     animation-iteration-count: 1;
+}
+.news{
+     background-image: url("media/images/news.jpg");
+     background-size: cover;
+     height: 60vh;
+     width: 35vw;
+     border-radius: 30px;
+     color: black;
+     padding: 25vh 5vw 5vh 7vw;
+     transition: 0.5s ease-in-out;
+     animation: appear 2s ease-in-out normal both;
+     animation-iteration-count: 1;
+}
+.news:hover{
+     width: 38vw;
+}
+h2 a{
+     text-decoration: none;
+     color: black;
+     transition: 0.5s ease-in-out;
+     animation-iteration-count: 1;
+     animation: decoration 1.5s ease-in-out 3s infinite both normal;
+}
+h2 a:hover{
+     color: blue;
+     font-size: 100%;
+}
+h2{
+     background-color: rgba(180, 187, 214, 0.619);
+     border-radius: 20px;
+     padding: 10px;
+     display: block;
+     width: max-content;
+     transition: 0.5s ease-in-out;
+     animation: expand 3s ease-in-out normal both;
+     animation-iteration-count: 1;
+}
+h2:hover{
+     width: fit-content;
+}
+.head_news{
+     background-color: rgba(0, 51, 253, 0.619);
+     color: white;
+}
+@keyframes appear{
+     from{
+          width: 0px;
+          padding: 5vh 5vw 5vh 1vw;
+     }
+     to{
+          width: 35vw;
+     }
+}
+@keyframes expand {
+     from{
+          width: 5vw;
+          height: 5vh;
+     }
+     to{
+          width: max-content;
+          height: max-content;
+     }
+}
+@keyframes expand2{
+     from{
+          width: 0px;
+          margin-left: 0;
+     }
+     to{
+          width: 85vw;
+     }
+}
+@keyframes decoration{
+     from{
+          color: rgba(180, 187, 214, 0.619);
+     }
+     to{
+          color: blue;  
+     }
+}
+@media (max-width: 850px) {
+     .body{
+          padding-top: 25vh;
+     }
+     .uploads{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: max-content;
+     }   
+     .news{
+          margin-top: 1vh;
+          width: 80vw;
+          height: 30vh;
+          padding: 10vh 5vw 5vh 7vw;
+     }
+     .notes{
+          width: 80vw;
+          height: 30vh;
+          padding: 10vh 5vw 5vh 7vw;
+     }
+     @keyframes appear{
+          from{
+               width: 0px;
+               padding: 2vh 5vw 5vh 1vw;
+          }
+          to{
+               width: 80vw;
+          }
+     }
+     @keyframes expand {
+          from{
+               width: 0;
+               height: 5vh;
+          }
+          to{
+               width: 60vw;
+               height: max-content;
+          }
+     }
+     @keyframes expand2{
+          from{
+               width: 0px;
+               margin-left: 0;
+          }
+          to{
+               width: 85vw;
+          }
+     }
+     @keyframes decoration{
+          from{
+               color: rgba(180, 187, 214, 0);
+               font-size: 100%;
+          }
+          to{
+               color: blue;
+               font-size: 100%;  
+          }
+     }  
+}

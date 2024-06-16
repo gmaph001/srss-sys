@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRSS | Home</title>
+    <link rel="stylesheet" href="navBar.css">
+    <link rel="stylesheet" href="all.css">
+    <link rel="icon" type="image/x-icon" href="media/images/srss-logo.jfif">
+</head>
+<body>
+     <nav class="navigation">
+          <div class="pics">
+               <img src="media/images/srss-og.png" alt="shaaban robert logo" id="logo-img">
+               <a href="account.html" class="dp1"><img src="media/images/prof_pics/1711895902133.jpg" class='dp'></a>
+          </div>
+          <div class="menu">
+               <span id="srss"><b>Shaaban Robert Sec School</b></span>
+               <div class="horizontal_menu">
+                    <ul type="none">
+                         <li><a href='home.php?uname=$uname' class="home">Home</a></li>
+                         <li><a href='news.php?uname=$uname' class="news">News</a></li>
+                         <li><a href='notes.html?uname=$uname' class="notes">Notes</a></li>
+                         <li class="multi_menu"><a>login</a></li>
+                         <li><a href="account.html"><img src="media/images/prof_pics/1711895902133.jpg" width='50px' height='50px' class='dp'></a></li>
+                    </ul>
+               </div>
+               <div class="vertical_menu">
+                    <button><b>MENU</b></p></button>
+               </div>
+          </div>
+          <div class="dropdown_menu">
+               <ul type="none">
+                    <li><a href='home.php?uname=$uname' class=home>Home</a></li>
+                    <li><a href='news.php?uname=$uname' class=news>News</a></li>
+                    <li><a href='notes.html?uname=$uname' class=notes>Notes</a></li>
+                    <li><a href="index.php">Student</a></li>
+                    <li><a href="val_admin.php">Admin</a></li>
+          </div>
+     </nav>
+     <div class="sub_menu">
+          <ul>
+               <li><a href="val_admin.php"><b>Admin</b></a></li>
+               <li><a href="index.php"><b>Student</b></a></li>
+          </ul>
+     </div>
+          <div class="background-image1">
+               <div class="intro">
+                    <h2>About</h2>
+                    <p>This is an official website for Shaaban Robert Secondary School's teachers and students only. This is the website where all official school announcements are made. 
+                         It is also where students of Shaaban Robert Secondary School will get important materials to help them with their studies.
+                    </p>
+               </div>
+          </div>
+          <div class="footer">
+               <p>
+                    For any inquiry and suggestions about this website, please leave your comment below:
+               </p><br>
+               <form action="https://formspree.io/f/mwkgkgbv" method="POST" name="myForm">
+                    <fieldset>
+                         <label><b>Name:</b></label>&nbsp; <input type="text" name="name" id="fname"><br><br>
+                         <label><b>Email:</b></label>&nbsp; <input type="text" name="email" id="email"><br><br>
+                         <label><b>Suggestions:</b></label><br><br>
+                         <textarea name="suggestions" cols="15" rows="5" maxlength="500"></textarea><br><br>
+                         <button><b>Send</b></button>
+                    </fieldset>
+               </form><br><br>
+               <p class="foot"><b>&copy; Shaaban Robert Secondary School 2023.</b></p>
+          </div>
+     </div>
+     <script>
+          let menubtn = document.querySelector('.vertical_menu');
+          let dropdownlist = document.querySelector('.dropdown_menu');
+          let multimenu = document.querySelector('.multi_menu');
+          let submenu = document.querySelector('.sub_menu');
+
+          menubtn.onclick = function(){
+               dropdownlist.classList.toggle('open');
+          }
+
+          multimenu.onclick = function(){
+               submenu.classList.toggle('open');
+          }
+     </script>
+</body>
+</html>

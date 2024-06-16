@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Login-page</title>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+     <link rel="stylesheet" type="text/css" href="login-page.css">
+     <link rel="icon" type="image/x-icon" href="media/images/srss-logo.jfif">
+</head>
+<body>
+     <div class="main">
+          <div class="title"></div><br><br>
+          <div class="form">
+               <p class="alert">
+                    <i>"If you have not registered, sign up <a href="signUp-page.html" target="_blank" id="alert">here</a>" </i>
+               </p>
+               <form action="lookup.php" method="POST" name="login" enctype="multipart/form-data">
+                    <fieldset>
+                         <legend><b>Login</b></legend>
+                         <div class="userInfo">
+                              <div class="user-inputs">
+                                   <div class="user">
+                                        <p><b>Username: </b></p>
+                                   </div>
+                                   <div class="mail">
+                                        <p><b>Email: </b></p>
+                                   </div>
+                                   <div class="unique">
+                                        <p><b>Password: </b></p>
+                                   </div>
+                              </div>
+                              <div class="inputs">
+                                   <input type="text" name="username" id="uname"><br><br>
+                                   <input type="email" name="email" id="email"><br><br>
+                                   <input type="password" name="pword" id="pwd"><br><br>
+                              </div>
+                         </div>
+                    </fieldset><br><br>
+                    <button onclick="check()">Login</button>
+               </form>
+               <p class="alert">
+                    <i>
+                         "If you are an admin, <a href="council.html" id="alert">Login</a>"
+                    </i>
+               </p>
+          </div>
+     </div>
+     
+     <script>
+          function check(){
+               if(document.login.username.value==""){
+                    alert("Please enter your first name.");
+                    event.preventDefault();
+               }
+               if(document.login.email.value==""){
+                    alert("Please enter your second name.");
+                    event.preventDefault();
+               }
+               if(document.login.pword.value==""){
+                    alert("Please provide your password");
+                    event.preventDefault();
+               }
+          }
+     </script>
+</body>
+</html>
