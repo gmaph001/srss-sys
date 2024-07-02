@@ -247,6 +247,7 @@ fieldset button:active{
         font-family: Brush Script Std;
         font-size: 150%;
         transition: 0.7s ease-in-out;
+        animation: open 1.5s ease-in-out normal both;
     }
     .dropdown_menu ul{
         width: 100%;
@@ -257,6 +258,25 @@ fieldset button:active{
         height: fit-content;
         margin-top: 2%;
         text-align: center;
+        animation: display 1s 1.5s ease-in-out normal both;
+    }
+    @keyframes open{
+        from{
+            height: 0vh;
+        }
+        to{
+            height: 20vh;
+        }
+    }
+    @keyframes display{
+        from{
+            color: rgba(255, 255, 255, 0.4);
+            display: none;
+        }
+        to{
+            color: white;
+            display: block;
+        }
     }
     .dropdown_menu ul li a:hover,
     .dropdown_menu ul li a:active{

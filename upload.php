@@ -12,6 +12,9 @@
           <div class="title"></div><br><br>
           <div class="registration-success">
                <?php
+
+                    require_once "config.php";
+
                     if(isset($_POST['signup'])){
 
                          $teachername = $_POST['teachername'];
@@ -28,17 +31,9 @@
                          $foldername = "media/documents/" . $notes;
                          
                          move_uploaded_file($file, $foldername);
-                         
-                         $dbhost = "localhost";
-                         $dbuser = "root";
-                         $dbpass = "";
-                         $dbname = "students_info";
-
-                         $db = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
                          $query = "INSERT INTO $class(subjectname, teachername, notes) VALUES('$subjectname', '$teachername', '$notes')";
                               
-
                          $result = mysqli_query($db, $query);
 
                          if($result){

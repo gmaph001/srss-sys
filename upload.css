@@ -195,7 +195,7 @@ a:active{
 }
 @media(max-width: 800px){
      .main{
-          width: 85%;
+          width: 85vw;
           height: max-content;
           background-color: aliceblue;
           border-radius: 40px;
@@ -211,11 +211,17 @@ a:active{
      .photo, .photo2, .photo3{
           display: none;
      }
+     .form{
+          width: 78vw;
+     }
+     .upload{
+          width: 75vw;
+     }
      fieldset{
-          width: 90%;
+          width: 50vw;
      }
      input{
-          width: 90%;
+          width: max-content;
           padding: 3px;
           font-size: 12pt;
      }

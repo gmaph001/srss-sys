@@ -1,4 +1,14 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Login | PHP</title>
+     <link rel="stylesheet" type="text/css" href="register.css">
+     <link rel="icon" type="image/x-icon" href="media/images/srss-logo.jfif">
+</head>
+<body>
+     <div class="register">
           <?php
                $username = $_POST['username'];
                $email = $_POST['email'];
@@ -18,14 +28,27 @@
                     if ($result->num_rows > 0) {
                          $data = $result->fetch_assoc();
                          if($data['username'] === $username){
-                              if($data['password'] === $password){
-                                   header("location:home.php?uname=$username");
+                              if($data['email'] === $email){
+                                   if($data['password'] === $password){
+                                        header("location:home.php?uname=$username");
+                                   }
+                                   else{
+                                        echo "<p>Invalid password.</p>";
+                                   }
                               }
                               else{
-                                   echo "<p>Invalid username, email or password.</p>";
+                                   echo "<p>Invalid email.</p>";
                               }
                          }
+                         else{
+                              echo "<p>Invalid username.</p>";
+                         }
+                    }
+                    else{
+                         echo "<p>Error while confirming data!</p>";
                     }
                }
           ?>
-     
+     </div>
+</body>
+</html>     

@@ -36,7 +36,7 @@
                          $result = $stmtinsert->execute([$firstname, $secondname, $lastname, $username, $email, $password, $rank, $codename, $photo]);
                          if($result){
                               echo "<p>Successfully registered.</p><br>";
-                              echo "<p><i>You can now <a href='council.html'><b>login</b></a></i></p>";
+                              header('location:home.php?uname='.$username);
                          }
                          else{
                               echo "<p>There were errors while saving the data.</p>";

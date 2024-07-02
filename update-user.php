@@ -18,11 +18,31 @@
                if(isset($_POST['send'])){
                     $username = $_POST['username'];
                     $email = $_POST['email'];
-               
-                    $query = "UPDATE students SET username = '$username', email = '$email' WHERE username = '$uname'";
-                    
-                    $result = mysqli_query($db, $query);
-                    
+
+                    $ask = "SELECT * FROM students";
+                    $ask2 = "SELECT * FROM admin";
+
+                    $askresult = mysqli_query($db, $ask);
+                    $askresult2 = mysqli_query($db, $ask2);
+
+                    if($askresult){
+                         for($i=0; $i<mysqli_num_rows($askresult); $i++){
+                              $row = mysqli_fetch_array($askresult);
+                              if($row['username'] === $uname){
+                                   $query = "UPDATE students SET username = '$username', email = '$email' WHERE username = '$uname'";
+                                   $result = mysqli_query($db, $query);
+                              }
+                         }
+                    }
+                    if($askresult2){
+                         for($i=0; $i<mysqli_num_rows($askresult2); $i++){
+                              $row = mysqli_fetch_array($askresult2);
+                              if($row['username'] === $uname){
+                                   $query = "UPDATE admin SET username = '$username', email = '$email' WHERE username = '$uname'";
+                                   $result = mysqli_query($db, $query);
+                              }
+                         }               
+                    }
                     if($result){
                          echo "<p>Username & Email updated successfully!</p><br><br>";
                          $uname = $username;

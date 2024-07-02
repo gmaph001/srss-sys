@@ -10,17 +10,13 @@
 <body>
      <div class="register">
           <?php
+
+               require_once('config.php');
+
                $username = $_POST['username'];
                $codename = $_POST['codename'];
                $email = $_POST['email'];
                $password = $_POST['pass'];
-
-               $dbhost = "localhost";
-               $dbuser = "root";
-               $dbpass = "";
-               $dbname = "students_info";
-
-               $db = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
                $query = "SELECT * FROM admin";
 
@@ -32,28 +28,21 @@
                     for($i = 0; $i<mysqli_num_rows($result); $i++){
                          $row = mysqli_fetch_array($result);
                          if($row['username'] === $username && $row['codename'] === $codename && $row['email'] === $email && $row['password'] === $password){
-                              echo "<p>Login successfully!</p><br>";
-                              echo "<p>Welcome administrator!</p><br>";
-                              echo "<a href = 'home.php?uname=$username'>Enter</a><br>";
-                              if($codename == 'PRF'){
-                                   $validation = "prf";
-                              }else{
-                                   $validation = true;
-                              }
+                              $validation = true;
                               break;
                          }
                          else{
                               $validation = false;
                          }
                     }
-                    if($validation || $validation == "prf"){
-                         file_put_contents('is_admin.txt', $validation);
+                    if($validation){
+                         echo "<p>Login successfully!</p><br>";
+                         echo "<p>Welcome administrator!</p><br>";
+                         header('location:home.php?uname='.$username);
                     }
                     else{
                          echo '<p>Incorrect username, codename, email or password!</p><br>';
-                    }
-
-                    
+                    }                    
                }
                else{
                     echo "<p>User doesn't exist</p>";

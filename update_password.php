@@ -16,29 +16,58 @@
                $uname = $_GET['uname'];
 
                $query = "SELECT * FROM students";
+               $query2 = "SELECT * FROM admin";
 
                $result = mysqli_query($db, $query);
+               $result2 = mysqli_query($db, $query2);
 
                if($result){
                     for($i=0; $i<mysqli_num_rows($result); $i++){
                          $row = mysqli_fetch_array($result);
                          if($row['username'] === $uname){
                               $password = $row['password'];
+                              $validation = 1;
                          }
                     }
-                    if(isset($_POST['send'])){
-                         $oldpassword = $_POST['oldpassword'];
-                         $newpassword = $_POST['newpassword'];
-                    
-                         if($oldpassword !== $password){
-                              echo "<p>Not authorized due to incorrect old password!</p>";
+               }
+               if($result2){
+                    for($i=0; $i<mysqli_num_rows($result2); $i++){
+                         $row = mysqli_fetch_array($result2);
+                         if($row['username'] === $uname){
+                              $password = $row['password'];
+                              $validation = 0;
+                         }
+                    }
+               }
+               if(isset($_POST['send'])){
+                    $oldpassword = $_POST['oldpassword'];
+                    $newpassword = $_POST['newpassword'];
+               
+                    if($oldpassword !== $password){
+                         echo "<p>Not authorized due to incorrect old password!</p>";
+                    }
+                    else{
+                         if($validation == 1){
+                              $query3 = "UPDATE students SET password = '$newpassword' WHERE username = '$uname'";
+                         
+                              $result3 = mysqli_query($db, $query3);
+                         
+                              if($result3){
+                                   echo "<p>Password updated successfully!</p><br><br>";
+                                   echo "<p>You can <a href='security.php?uname=$uname'><b>Continue</b></a></p>";
+                              }
+                              else{
+                                   echo "<p>Error while updating password!</p><br><br>";
+                                   echo "<p>You can <a href='security.php?uname=$uname'><b>Go back</b></a></p>";
+
+                              }
                          }
                          else{
-                              $query2 = "UPDATE students SET password = '$newpassword' WHERE username = '$uname'";
+                              $query3 = "UPDATE admin SET password = '$newpassword' WHERE username = '$uname'";
                          
-                              $result2 = mysqli_query($db, $query2);
+                              $result3 = mysqli_query($db, $query3);
                          
-                              if($result2){
+                              if($result3){
                                    echo "<p>Password updated successfully!</p><br><br>";
                                    echo "<p>You can <a href='security.php?uname=$uname'><b>Continue</b></a></p>";
                               }

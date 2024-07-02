@@ -1,0 +1,24 @@
+.body{
+     margin-top: 10%;
+}
+.data{
+     margin-top: 2vh;
+}
+table{
+     border: 3px solid black;
+     border-radius: 20px;
+     font-size: 14pt;
+     padding: 1%;
+}
+td{
+     border: 2px solid black;
+     border-radius: 10px;
+     padding: 1vh 1vw;
+     width: max-content;
+}
+.header{
+     font-weight: bold;
+     font-family: Algerian;
+     color: red;
+     font-size: 16pt;
+}

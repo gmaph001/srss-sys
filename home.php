@@ -2,6 +2,7 @@
     require_once "config.php";
 
     $uname = $_GET['uname'];
+    $rank = 0;
 
     $query = "SELECT * FROM students";
     $query2 = "SELECT * FROM admin";
@@ -9,18 +10,16 @@
     $result = mysqli_query($db, $query);
     $result2 = mysqli_query($db, $query2);
 
-    
-    if($result){
+    if ($result) {
         for($i=0; $i<mysqli_num_rows($result); $i++){
-            $row= mysqli_fetch_array($result);
+            $row = mysqli_fetch_array($result);
 
             if($row['username'] === $uname){
                 $dp = $row['photo'];
-                $rank = 0;
             } 
         }
-    } 
-    else if($result2){
+    }
+    if($result2){
         for($i=0; $i<mysqli_num_rows($result2); $i++){
             $row = mysqli_fetch_array($result2);
 
@@ -47,10 +46,10 @@
             <img src="media/images/srss-og.png" alt="shaaban robert logo" id="logo-img">
             <?php 
                 if($rank == 0){
-                    echo "<a href='account.php?uname=$uname' class='dp1'><img src='$dp' class='dp'></a></li>";
+                    echo "<li><a href='account.php?uname=$uname' class='dp1'><img src='$dp' class='dp'></a></li>";
                 }
                 else{
-                    echo "<a href='account-admin.php?uname=$uname' class='dp1'><img src='$dp' class='dp'></a></li>";
+                    echo "<li><a href='account-admin.php?uname=$uname' class='dp1'><img src='$dp' class='dp'></a></li>";
                 }        
             ?>
         </div>
@@ -62,7 +61,16 @@
                     <li><?php echo "<a href='news.php?uname=$uname' class=news>News</a></li>";?>
                     <li><?php echo "<a href='notes.php?uname=$uname' class=notes>Notes</a></li>";?>
                     <li class="multi_menu"><a>login</a></li>
-                    <li><?php echo "<a href='account.php?uname=$uname'><img src='$dp' width='50px' height='50px' class='dp'></a></li>";?>
+                    <li>
+                        <?php 
+                            if($rank == 0){
+                                echo "<li><a href='account.php?uname=$uname' class='dp'><img src='$dp' class='dp'></a></li>";
+                            }
+                            else{
+                                echo "<li><a href='account-admin.php?uname=$uname' class='dp'><img src='$dp' class='dp'></a></li>";
+                            }        
+                        ?>
+                    </li>
                 </ul>
             </div>
             <div class="vertical_menu">

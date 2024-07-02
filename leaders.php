@@ -1,8 +1,30 @@
 <?php
-     $admin = file_get_contents('is_admin.txt');
-     if($admin){
-          require_once "config.php";
-          $uname = $_GET['uname'];
+
+     require_once "config.php";
+
+     $uname = $_GET['uname'];
+
+     $query = "SELECT * FROM admin";
+
+     $result = mysqli_query($db, $query);
+
+     if($result){
+
+          for($i=0; $i<mysqli_num_rows($result); $i++){
+               $row = mysqli_fetch_array($result);
+
+               if($row['username'] === $uname){
+                    $admin = 1;
+                    break;
+               }
+               else{
+                    $admin = 0;
+               }
+          }
+          if($admin == 0){
+               include "failed.php";
+          }
+          else{
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,9 +44,14 @@
                <span id="srss"><b>Shaaban Robert Sec School</b></span>
                <div class="horizontal_menu">
                     <ul type="none">
-                         <li><a href="upload_news.html">News</a></li>
-                         <li><a href="check.php">Notes</a></li>
-                         <li><a href="test.php">Users</a></li>
+                         <?php
+                              echo
+                                   "<li><a href='upload_news.php?uname=$uname'>News</a></li>
+                                   <li><a href='check.php?uname=$uname'>Notes</a></li>
+                                   <li><a href='users.php?uname=$uname'>Users</a></li>
+                                   <li><a href='home.php?uname=$uname'>Back</a></li>";
+
+                         ?>
                     </ul>
                </div>
                <div class="vertical_menu">
@@ -33,9 +60,14 @@
           </div>
           <div class="dropdown_menu">
                <ul type="none">
-                    <li><a href="upload_news.html">News</a></li>
-                    <li><a href="check.php">Notes</a></li>
-                    <li><a href="test.php">Users</a></li>
+                    <?php
+                         echo
+                              "<li><a href='upload_news.php?uname=$uname'>News</a></li>
+                              <li><a href='check.php?uname=$uname'>Notes</a></li>
+                              <li><a href='test.php?uname=$uname'>Users</a></li>
+                              <li><a href='home.php?uname=$uname'>Go back</a></li>";
+
+                    ?>
           </div>
      </nav>
      <script>
@@ -55,23 +87,17 @@
      <div class="body">
           <div class="uploads">
                <div class="notes">
-                    <h2><a href="check.php" class="check">Upload notes Now!!!</a></h2>
+                    <h2><?php echo "<a href='check.php?uname=$uname' class='check'>Upload notes Now!!!</a></h2>";?>
                </div>
                <div class="news">
-                    <h2><a href="upload_news.html" class="leaders">Upload some news Now!!!</a></h2>
+                    <h2><?php echo "<a href='upload_news.php?uname=$uname' class='leaders'>Upload some news Now!!!</a></h2>";?>
                </div>
           </div>
      </div>
      <script src="fetch.js"></script>
  </body>
  </html>
- <?php
-     }
-else if($admin == "prf"){
-     include 'leaders.php';
-}
-else{
-     include 'failed.php';
-}
-
+<?php
+          }
+     }   
 ?>

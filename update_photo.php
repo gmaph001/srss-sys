@@ -27,8 +27,8 @@
 
                move_uploaded_file($photo, $photoname);
 
-               for($i=0; $i<mysqli_num_rows($result1); $i++){
-                    $row = mysqli_fetch_array($result1);
+               for($i=0; $i<mysqli_num_rows($result2); $i++){
+                    $row = mysqli_fetch_array($result2);
 
                     if($row['username'] === $uname){
                          if($row['photo']===$photoname){
@@ -36,7 +36,7 @@
                               header('location: account.php?uname='.$uname);
                          }
                          else{
-                              $query3 = "UPDATE students SET photo = '$photoname' WHERE username = '$uname'";
+                              $query3 = "UPDATE admin SET photo = '$photoname' WHERE username = '$uname'";
                               $result3 = mysqli_query($db, $query3);
 
                               if($result3){
@@ -50,7 +50,7 @@
                     }
                }
           }
-          else{
+          if(isset($_POST['savephoto'])){
                $photo = $_FILES['photo']['tmp_name'];
                
                $dp = $_FILES['photo']['name'];
@@ -59,21 +59,21 @@
 
                move_uploaded_file($photo, $photoname);
 
-               for($i=0; $i<mysqli_num_rows($result2); $i++){
-                    $row = mysqli_fetch_array($result2);
+               for($i=0; $i<mysqli_num_rows($result1); $i++){
+                    $row = mysqli_fetch_array($result1);
 
                     if($row['username'] === $uname){
                          if($row['photo']===$photoname){
                               echo "Profile picture already exists";
-                              header('location: account.php?uname='.$uname);
+                              header('location: account-admin.php?uname='.$uname);
                          }
                          else{
                               $query4 = "UPDATE students SET photo = '$photoname' WHERE username = '$uname'";
                               $result4 = mysqli_query($db, $query4);
 
-                              if($result2){
+                              if($result4){
                                    echo "Profile picture updated successfully";
-                                   header('location: account.php?uname='.$uname);
+                                   header('location: account-admin.php?uname='.$uname);
                               }
                               else{
                                    echo "Error updating profile picture";

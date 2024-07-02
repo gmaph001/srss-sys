@@ -4,8 +4,10 @@
      $uname = $_GET['uname'];
 
      $query = "SELECT * FROM students";
+     $query2 = "SELECT * FROM admin";
 
      $result = mysqli_query($db, $query);
+     $result2 = mysqli_query($db, $query2);
 
      if($result){
           for($i=0; $i<mysqli_num_rows($result); $i++){
@@ -15,6 +17,19 @@
                     $password = $row['password'];
                     $username = $row['username'];
                     $email = $row['email'];
+                    $validation = 1;
+               }
+          }
+     }
+     if($result2){
+          for($i=0; $i<mysqli_num_rows($result2); $i++){
+               $row = mysqli_fetch_array($result2);
+
+               if($row['username'] === $uname){
+                    $password = $row['password'];
+                    $username = $row['username'];
+                    $email = $row['email'];
+                    $validation = 0;
                }
           }
      }
@@ -43,9 +58,17 @@
           <div class="sidebar">
                <ul type="none">
                     <?php
+
+                         if($validation == 0){
+                              echo "<li><a href='account-admin.php?uname=$uname'>My Profile</a></li>";
+                         }
+                         else{
+                              echo "<li><a href='account.php?uname=$uname'>My Profile</a></li>";
+                         }
+                    ?>
+                    <?php
                          echo 
-                              "<li><a href='account.php?uname=$uname'>My Profile</a></li>
-                              <li><a href='security.php?uname=$uname'>Privacy & Security</a></li>
+                              "<li><a href='security.php?uname=$uname'>Privacy & Security</a></li>
                               <li><b><a href='home.php?uname=$uname'>Go back</a></b></li>";
                     ?>
                </ul>

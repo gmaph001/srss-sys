@@ -65,7 +65,7 @@ p{
      color: red;
 }
 #result, #result1, #result2, #result3, #result4, #result5, #result6, #result7, #result8,
-#ageresult, #strmresult{
+#result9, #ageresult, #strmresult{
      font-size: 08pt;
      color: red;
 }
@@ -101,9 +101,31 @@ a#alert{
 #pwd{
      margin-top: 7px;
 }
+textarea{
+     border: 3px solid red;
+     border-radius: 20px;
+     padding: 10px 30px;
+     font-size: 14pt;
+     font-family: Candara;
+     color: blue;
+}
+.list{
+     border: 2px solid red;
+     padding: 5px 10px;
+     border-radius: 20px;
+     align-items: center;
+     font-family: candara;
+     font-weight: bold;
+     font-size: 14pt;
+     justify-content: center;
+     cursor: pointer;
+}
+.radio{
+     width: max-content;
+}
 @media(max-width: 800px){
      .main{
-          width: 85%;
+          width: 80vw;
           height: max-content;
           background-color: aliceblue;
           border-radius: 40px;
@@ -112,16 +134,25 @@ a#alert{
           margin: auto;
           margin-top: 25%;
      }
+     .userInfo{
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 75vw;
+     }
      fieldset{
-          width: 90%;
+          width: 75vw;
      }
      input{
-          width: 90%;
+          width: 40vw;
           padding: 3px;
           font-size: 12pt;
      }
      .user p, .mail p, .unique p{
           font-size: 12pt;
           color: black;
+     }
+     textarea{
+          width: 60vw;
      }
 }
