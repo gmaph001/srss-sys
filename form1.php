@@ -160,5 +160,43 @@ $uname = $_GET['uname'];
                </form><br><br>
                <p class="foot"><b>&copy; Shaaban Robert Secondary School 2023.</b></p>
            </div>
+           <?php
+        echo "
+            <div class='bottom'>
+                <div class='bottom-home'>
+                    <a href='home.php?uname=$uname' class='home'>
+                            <img src='media/icons/home.png' class='icon'>
+                    </a>
+                </div>
+                <div class='bottom-nav'>
+                    <ul type='none'>
+                            <li>
+                                <a href='news.php?uname=$uname' class='buttons'>
+                                    <img src='media/icons/news.png' class='icon'>  
+                                    <p>News</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href='notes.php?uname=$uname' class='buttons' id='left'>
+                                    <img src='media/icons/notes.png' class='icon'>  
+                                    <p>Notes</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href='assignment.php?uname=$uname' class='buttons' id='right'>
+                                    <img src='media/icons/assignment.png' class='icon'>  
+                                    <p>Assignments</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href='user.php?uname=$uname' class='buttons'>
+                                    <img src='media/icons/user.png' class='icon'>  
+                                    <p>Login</p>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>";
+    ?>
    </body>
    </html>

@@ -191,6 +191,9 @@ fieldset button:active{
     color: white;
     background-color: black;
 }
+.bottom{
+    display: none;
+}
 @media (max-width: 900px){
     .navigation{
         display: flex;
@@ -198,22 +201,23 @@ fieldset button:active{
         align-items: center;
         justify-content: center;
         height: max-content;
-        padding: 10px 0px 10px 0px;
+        padding: 5px 0px 5px 0px;
         text-align: center;
         width: 100vw;
     }
     .menu{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        display: none;
         width: 98vw;
     }
     .pics{
         display: flex;
         align-items: center;
         justify-content: space-between;
-        width: 100%;
-        padding-right: 5vw;
+        width: 97vw;
+        padding: 0vh 1vw 0vh 1vw;
+    }
+    #logo-img{
+        margin-left: 1vw;
     }
     #srss{
         text-align: left;
@@ -309,6 +313,66 @@ fieldset button:active{
     }
     .footer{
         background-color: #07004a;
+        padding-bottom: 12vh;
+    }
+    .bottom{
+        width: 100vw;
+        font-size: 08pt;
+        display: block;
+        position: fixed;
+        bottom: 0;
+    }
+    .bottom ul{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .bottom-nav{
+        background-color: #ffffff;
+        border-radius: 25px 25px 0px 0px;
+        padding: 2%;
+        border-top: 7px solid #07004a;
+    }
+    .buttons{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 08pt;
+    }
+    #left{
+        margin-left: -20vw;
+    }
+    #right{
+        margin-right: -20vw;
+    }
+    .icon{
+        width: 30px;
+        height: 30px;
+        padding: 2px;
+    }
+    .buttons p{
+        font-size: 12pt;
+        color: black;
+    }
+    .bottom-home{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: -7vh;
+    }
+    .home{
+        background-image: linear-gradient(180deg, #07004a00, #07004aba, #07004ad3, #07004a, #07004a);
+        border-radius: 20px 20px 50% 50%;
+        padding: 0 5% 5% 5%;
+    }
+    .home .icon{
+        background-color: rgb(255, 255, 255);
+        padding: 5px;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
     }
 }
 p{

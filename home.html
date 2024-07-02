@@ -69,20 +69,39 @@
           </div>
      </div>
      <div class="bottom">
-          <ul type="none">
-               <li>
-                    <a href='home.php' class="buttons">
-                         <img src="media/icons/home.png">  
-                         <p>Home</p>
-                    </a>
-               </li>
-               <li>
-                    <a href='home.php' class="buttons">
-                         <img src="media/icons/home.png">  
-                         <p>Home</p>
-                    </a>
-               </li>
-          </ul>
+          <div class="bottom-home">
+               <a href='home.php' class="home">
+                    <img src="media/icons/home.png" class="icon">
+               </a>
+          </div>
+          <div class="bottom-nav">
+               <ul type="none">
+                    <li>
+                         <a href='news.php' class="buttons">
+                              <img src="media/icons/news.png" class="icon">  
+                              <p>News</p>
+                         </a>
+                    </li>
+                    <li>
+                         <a href='notes.php' class="buttons" id="left">
+                              <img src="media/icons/notes.png" class="icon">  
+                              <p>Notes</p>
+                         </a>
+                    </li>
+                    <li>
+                         <a href='assignment.php' class="buttons" id="right">
+                              <img src="media/icons/assignment.png" class="icon">  
+                              <p>Assignments</p>
+                         </a>
+                    </li>
+                    <li>
+                         <a href='user.php' class="buttons">
+                              <img src="media/icons/user.png" class="icon">  
+                              <p>Login</p>
+                         </a>
+                    </li>
+               </ul>
+          </div>
      </div>
      <script>
           let menubtn = document.querySelector('.vertical_menu');

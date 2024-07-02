@@ -94,6 +94,32 @@
                </div>
           </div>
      </div>
+     <?php
+        echo "
+            <div class='bottom'>
+                <div class='bottom-home'>
+                    <a href='home.php?uname=$uname' class='home'>
+                            <img src='media/icons/home.png' class='icon'>
+                    </a>
+                </div>
+                <div class='bottom-nav'>
+                    <ul type='none'>
+                            <li>
+                                <a href='upload_news.php?uname=$uname' class='buttons'>
+                                    <img src='media/icons/news.png' class='icon'>  
+                                    <p>News</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href='check.php?uname=$uname' class='buttons'>
+                                    <img src='media/icons/notes.png' class='icon'>  
+                                    <p>Notes</p>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>";
+    ?>
      <script src="fetch.js"></script>
  </body>
  </html>

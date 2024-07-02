@@ -109,6 +109,7 @@ h2:hover{
 @media (max-width: 850px) {
      .body{
           padding-top: 25vh;
+          padding-bottom: 15vh;
      }
      .uploads{
           display: flex;
