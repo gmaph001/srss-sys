@@ -4,8 +4,10 @@
      $uname = $_GET['uname'];
 
      $query = "SELECT * FROM admin";
+     $query2 = "SELECT * FROM students";
 
      $result = mysqli_query($db, $query);
+     $result2 = mysqli_query($db, $query2);
 
      if($result){
           for($i=0; $i<mysqli_num_rows($result); $i++){
@@ -33,6 +35,7 @@
     <title>SRSS | My Account</title>
     <link rel="stylesheet" href="account.css">
     <link rel="icon" type="image/x-icon" href="media/images/srss-logo.jfif">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
      <nav class="navigation">
@@ -62,7 +65,7 @@
                                    <label><b>First Name: </b></label> $firstname <input type='text' name='firstname' placeholder='change'><br><br>
                                    <label><b>Second Name: </b></label> $secondname <input type='text' name='secondname' placeholder='change'><br><br>
                                    <label><b>Last Name: </b></label> $lastname <input type='text' name='lastname' placeholder='change'><br><br>
-                                   <label><b>Rank: </b></label> $rank <input type='number' name='age' placeholder='change'><br><br>
+                                   <label><b>Rank: </b></label> $rank <input type='number' name='rank' placeholder='change'><br><br>
                                    <label><b>Codename: </b></label> $codename <input type='text' name='codename' placeholder='change'><br><br>";
                ?>
                          <button onclick="save()" class="save" name="save">Save</button> 
@@ -81,6 +84,48 @@
                ?>
           </div>
      </div>
+     <div class="otherprofile">
+               <?php
+
+                    if($result2){
+                         for($i=0; $i<mysqli_num_rows($result2); $i++){
+                              $row = mysqli_fetch_array($result2);
+                              if($uname === $row['username']){
+                                   echo 
+                                        "
+                                           <a href='account.php?uname=$uname' class='save'>Edit your Student's profile.</a>  
+                                        ";
+                              }
+                         }
+                    }
+
+
+               ?>
+          </div>
+          <script>
+               function save() {
+                    if(document.upload.firstname.value == ""){
+                         alert("Please enter your first name");
+                         event.preventDefault();
+                    }
+                    if(document.upload.secondname.value == ""){
+                         alert("Please enter your second name");
+                         event.preventDefault();
+                    }
+                    if(document.upload.lastname.value == ""){
+                         alert("Please enter your last name");
+                         event.preventDefault();
+                    }
+                    if(document.upload.rank.value == ""){
+                         alert("Please enter your rank");
+                         event.preventDefault();
+                    }
+                    if(document.upload.codename.value == ""){
+                         alert("Please enter your codename");
+                         event.preventDefault();
+                    }
+               }
+          </script>
      <div class="footer">
           <p>&copy; Shaaban Robert Secondary School 2023.</p>
      </div>

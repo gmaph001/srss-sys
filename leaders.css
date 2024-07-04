@@ -19,7 +19,7 @@
      background-image: url("media/images/notes.jpg");
      background-size: cover;
      height: 60vh;
-     width: 35vw;
+     width: 25vw;
      border-radius: 30px;
      color: black;
      padding: 25vh 5vw 5vh 7vw;
@@ -31,7 +31,7 @@
      background-image: url("media/images/news.jpg");
      background-size: cover;
      height: 60vh;
-     width: 35vw;
+     width: 25vw;
      border-radius: 30px;
      color: black;
      padding: 25vh 5vw 5vh 7vw;
@@ -42,12 +42,25 @@
 .news:hover{
      width: 38vw;
 }
+.assignment{
+     background-image: url("media/images/assignment.jpg");
+     background-size: cover;
+     height: 60vh;
+     width: 25vw;
+     border-radius: 30px;
+     color: black;
+     padding: 25vh 5vw 5vh 7vw;
+     transition: 0.5s ease-in-out;
+     animation: appear 2s ease-in-out normal both;
+     animation-iteration-count: 1;
+}
 h2 a{
      text-decoration: none;
      color: black;
      transition: 0.5s ease-in-out;
      animation-iteration-count: 1;
      animation: decoration 1.5s ease-in-out 3s infinite both normal;
+     width: 50vw;
 }
 h2 a:hover{
      color: blue;
@@ -76,7 +89,7 @@ h2:hover{
           padding: 5vh 5vw 5vh 1vw;
      }
      to{
-          width: 35vw;
+          width: 25vw;
      }
 }
 @keyframes expand {
@@ -85,7 +98,7 @@ h2:hover{
           height: 5vh;
      }
      to{
-          width: max-content;
+          width: 15vw;
           height: max-content;
      }
 }
@@ -95,7 +108,7 @@ h2:hover{
           margin-left: 0;
      }
      to{
-          width: 85vw;
+          width: 90vw;
      }
 }
 @keyframes decoration{

@@ -6,9 +6,9 @@ menupic.onclick = function(){
      sidebar.classList.toggle('open');
 }
 
-// function badili(){
-//      if(document.update.firstname.value == ""){
-//           alert("Please input your first name!");
-//           event.preventDefault();
-//      }
-// }
+function badili(){
+     if(document.update.firstname.value == ""){
+          alert("Please input your first name!");
+          event.preventDefault();
+     }
+}

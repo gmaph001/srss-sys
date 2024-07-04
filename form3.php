@@ -59,7 +59,6 @@ $uname = $_GET['uname'];
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="navBar.css">
     <link rel="stylesheet" href="bio.css">
     <link rel="stylesheet" href="subjects.css">
@@ -85,6 +84,7 @@ $uname = $_GET['uname'];
                     <li><?php echo "<a href='home.php?uname=$uname' class=home>Home</a></li>";?>
                     <li><?php echo "<a href='news.php?uname=$uname' class=news>News</a></li>";?>
                     <li><?php echo "<a href='notes.php?uname=$uname' class=notes>Notes</a></li>";?>
+                    <li><?php echo "<a href='assignment.php?uname=$uname'>Assign</a>";?> </li>
                     <li class="multi_menu"><a>login</a></li>
                     <li>
                         <?php 

@@ -14,7 +14,6 @@
                require_once('config.php');
 
                $username = $_POST['username'];
-               $codename = $_POST['codename'];
                $email = $_POST['email'];
                $password = $_POST['pass'];
 
@@ -27,7 +26,7 @@
                if(mysqli_num_rows($result) > 0){
                     for($i = 0; $i<mysqli_num_rows($result); $i++){
                          $row = mysqli_fetch_array($result);
-                         if($row['username'] === $username && $row['codename'] === $codename && $row['email'] === $email && $row['password'] === $password){
+                         if($row['username'] === $username && $row['email'] === $email && $row['password'] === $password){
                               $validation = true;
                               break;
                          }

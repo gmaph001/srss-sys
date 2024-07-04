@@ -151,6 +151,15 @@ textarea{
      transition: 0.5s ease-in-out;
      animation: sliding 2s ease-in-out both normal; 
 }
+.photo4{
+     background-image: url("media/images/assignment.jpg");
+     background-size: cover;
+     border-radius: 30px;
+     height: 40vw;
+     width: 35vw;
+     transition: 0.5s ease-in-out;
+     animation: sliding 2s ease-in-out both normal;  
+}
 .list{
      border: 2px solid red;
      padding: 5px 10px;
@@ -185,6 +194,65 @@ a:active{
      transition: 0.2s ease-in-out;
      zoom: 105%;
 }
+.streams{
+     width: 25vw;
+}
+.alevel{
+     display: none;
+     width: 25vw;
+     height: max-content;
+}
+.olevel{
+     display: none;
+     width: 25vw;
+     height: max-content;
+}
+.alevel.open{
+     display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
+     column-gap: 10px;
+     width: 25vw;
+     margin-top: 2vh;
+     background-color: wheat;
+     border-radius: 15px;
+     padding: 5%;
+     height: max-content;
+}
+.olevel.open{
+     display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(20px, 1fr));
+     column-gap: 10px;
+     width: 25vw;
+     margin-top: 2vh;
+     background-color: wheat;
+     border-radius: 15px;
+     padding: 5%;
+     height: max-content;
+}
+.stream{
+     background-color: blue;
+     border: 2px solid black;
+     color: white;
+     font-size: 14pt;
+     font-weight: bolder;
+     padding: 5px;
+     cursor: pointer;
+     border-radius: 10px;
+     margin-left: 2vw;
+     margin-bottom: 5vh;
+     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     transition: 0.5s ease-in-out;
+}
+.stream:hover{
+     background-color: white;
+     color: blue;
+}
+.stream:active{
+     background-color: red;
+     color: blue;
+     transition: 0.2s ease-in-out;
+     zoom: 105%;
+}
 @keyframes sliding {
      from{
           width: 0vw;
@@ -195,7 +263,7 @@ a:active{
 }
 @media(max-width: 800px){
      .main{
-          width: 85vw;
+          width: 80vw;
           height: max-content;
           background-color: aliceblue;
           border-radius: 40px;
@@ -208,20 +276,21 @@ a:active{
           align-items: center;
           justify-content: center;
      }
-     .photo, .photo2, .photo3{
+     .photo, .photo2, .photo3, .photo4{
           display: none;
      }
      .form{
           width: 78vw;
+          padding: 2%;
      }
      .upload{
           width: 75vw;
      }
-     fieldset{
+     .form fieldset{
           width: 50vw;
      }
      input{
-          width: max-content;
+          width: fit-content;
           padding: 3px;
           font-size: 12pt;
      }
@@ -231,5 +300,11 @@ a:active{
      }
      .photo{
           display: none;
+     }
+}
+@media(max-width:400px){
+     .form fieldset{
+          width: 50vw;
+          margin-left: -4vw;
      }
 }

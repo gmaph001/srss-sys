@@ -1,0 +1,334 @@
+.body{
+     background-color: wheat;
+     padding: 18vh 2vw 2vh 2vw;
+}
+.assignments{
+     display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+     column-gap: 1vw;
+}
+.assign{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+     margin-top: 2vh;
+     background-color: antiquewhite;
+     padding: 2%;
+     border-radius: 30px;
+}
+.details{
+     background-color: rgb(203, 195, 248);
+     color: black;
+     width: 100%;
+     border-radius: 20px;
+     padding: 2%;
+     text-align: center;
+     margin-top: 2vh;
+}
+.subjectname{
+     width: max-content;
+     margin: auto;
+}
+.subjectname a{
+     background-color: black;
+     font-family: Algerian;
+     font-size: 24pt;
+     color: white;
+     padding: 5%;
+     width: max-content;
+     border-radius: 20px;
+     font-weight: bold;
+     text-align: center;
+}
+.subjectname a:hover{
+     color: yellow;
+     font-size: 32pt;
+}
+.subjectname p{
+     background-color: black;
+     font-family: Georgia, 'Times New Roman', Times, serif;
+     font-size: 24pt;
+     color: white;
+     padding: 3%;
+     width: max-content;
+     border-radius: 20px;
+     font-weight: bold;
+     text-align: center;
+}
+.dates{
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     margin-top: 2vh;
+}
+.assigned{
+     background-color: green;
+     padding: 2%;
+     border-radius: 10px;
+     font-size: 14pt;
+     color: white;
+     font-family: Candara;
+     font-weight: bold;
+}
+.due{
+     background-color: blue;
+     padding: 2%;
+     border-radius: 10px;
+     font-size: 14pt;
+     color: red;
+     font-family: Candara;
+     font-weight: bold;
+}
+.geography{
+     height: 250px;
+     width: 350px;
+     background-image: url("media/images/geography.jpg");
+     background-size: cover;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: 0.5s ease-in-out;
+     margin: auto;
+     border-radius: 50px 0px 50px 0px;
+}
+.geography:hover{
+     background-image: url("media/images/geography2.jpg");
+     background-size: cover;
+     border-radius: 0px 50px 0px 50px;
+}
+.geography p a{
+     color: white;
+     font-size: 20pt;
+     text-decoration: none;
+     transition: 0.5s ease-in-out;
+}
+.geography p a:hover{
+     color: yellow;
+     font-size: 32pt;
+}
+.computer{
+     height: 250px;
+     width: 350px;
+     background-image: url("media/images/computer.jpg");
+     background-size: cover;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: 0.5s ease-in-out;
+     margin: auto;
+     border-radius: 50px 0px 50px 0px;
+}
+.computer:hover{
+     background-image: url("media/images/computer2.jpg");
+     background-size: cover;
+     border-radius: 0px 50px 0px 50px;
+}
+.computer p a{
+     color: white;
+     font-size: 20pt;
+     text-decoration: none;
+     transition: 0.5s ease-in-out;
+     font-weight: bolder;
+}
+.computer p a:hover{
+     color: yellow;
+     font-size: 32pt;
+}
+.physics{
+     height: 250px;
+     width: 350px;
+     background-image: url("media/images/physics.jpg");
+     background-size: cover;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: 0.5s ease-in-out;
+     margin: auto;
+     border-radius: 50px 0px 50px 0px;    
+}
+.physics:hover{
+     background-image: url("media/images/physics2.jpg");
+     background-size: cover;
+     border-radius: 0px 50px 0px 50px;
+}
+.physics p a{
+     color: rgb(147, 87, 87);
+     text-decoration: none;
+     transition: 0.5s ease-in-out;
+     font-size: 20pt;
+}
+.physics p a:hover{
+     color: rgb(0, 0, 0);
+     font-size: 32pt;
+}
+.biology{
+     height: 250px;
+     width: 350px;
+     background-image: url("media/images/biology.jpg");
+     background-size: cover;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: 0.5s ease-in-out;
+     margin: auto;
+     border-radius: 50px 0px 50px 0px;
+}
+.biology:hover{
+     background-image: url("media/images/biology2.jpg");
+     background-size: cover;
+     border-radius: 0px 50px 0px 50px;
+}
+.chemistry{
+     height: 250px;
+     width: 350px;
+     background-image: url("media/images/chemistry.jpg");
+     background-size: cover;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: 0.5s ease-in-out;
+     margin: auto;
+     border-radius: 50px 0px 50px 0px;
+}
+.chemistry:hover{
+     background-image: url("media/images/chemistry2.jpg");
+     background-size: cover;
+     border-radius: 0px 50px 0px 50px;
+}
+.history{
+     height: 250px;
+     width: 350px;
+     background-image: url("media/images/history.jpg");
+     background-size: cover;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: 0.5s ease-in-out;
+     margin: auto;
+     border-radius: 50px 0px 50px 0px;
+}
+.history:hover{
+     background-image: url("media/images/history2.jpg");
+     background-size: cover;
+     border-radius: 0px 50px 0px 50px;
+}
+.civics{
+     height: 250px;
+     width: 350px;
+     background-image: url("media/images/civics.jpg");
+     background-size: cover;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: 0.5s ease-in-out;
+     margin: auto;
+     border-radius: 50px 0px 50px 0px;
+}
+.civics:hover{
+     background-image: url("media/images/civics2.jpg");
+     background-size: cover;
+     border-radius: 0px 50px 0px 50px;
+}
+.maths{
+     height: 250px;
+     width: 350px;
+     background-image: url("media/images/mathematics.jpg");
+     background-size: cover;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: 0.5s ease-in-out;
+     margin: auto;
+     border-radius: 50px 0px 50px 0px;
+}
+.maths:hover{
+     background-image: url("media/images/mathematics2.jpg");
+     background-size: cover;
+     border-radius: 0px 50px 0px 50px;
+}
+.english{
+     height: 250px;
+     width: 350px;
+     background-image: url("media/images/english.jpg");
+     background-size: cover;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: 0.5s ease-in-out;
+     margin: auto;
+     border-radius: 50px 0px 50px 0px;
+}
+.english:hover{
+     background-image: url("media/images/english2.jpg");
+     background-size: cover;
+     border-radius: 0px 50px 0px 50px;
+}
+.kiswahili{
+     height: 250px;
+     width: 350px;
+     background-image: url("media/images/kiswahili.jpg");
+     background-size: cover;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: 0.5s ease-in-out;
+     margin: auto;
+     border-radius: 50px 0px 50px 0px;
+}
+.kiswahili:hover{
+     background-image: url("media/images/kiswahili2.jpg");
+     background-size: cover;
+     border-radius: 0px 50px 0px 50px;
+}
+.accounts{
+     height: 250px;
+     width: 350px;
+     background-image: url("media/images/accounts.jpg");
+     background-size: cover;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: 0.5s ease-in-out;
+     margin: auto;
+     border-radius: 50px 0px 50px 0px;
+}
+.accounts:hover{
+     background-image: url("media/images/accounts2.jpg");
+     background-size: cover;
+     border-radius: 0px 50px 0px 50px;
+}
+.commerce{
+     height: 250px;
+     width: 350px;
+     background-image: url("media/images/commerce.jpg");
+     background-size: cover;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: 0.5s ease-in-out;
+     margin: auto;
+     border-radius: 50px 0px 50px 0px;
+}
+.commerce:hover{
+     background-image: url("media/images/commerce2.jpg");
+     background-size: cover;
+     border-radius: 0px 50px 0px 50px;
+}
+.economics{
+     height: 250px;
+     width: 350px;
+     background-image: url("media/images/economics.jpg");
+     background-size: cover;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: 0.5s ease-in-out;
+     margin: auto;
+     border-radius: 50px 0px 50px 0px;
+}
+.economics:hover{
+     background-image: url("media/images/economics2.jpg");
+     background-size: cover;
+     border-radius: 0px 50px 0px 50px;
+}

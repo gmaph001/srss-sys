@@ -167,6 +167,16 @@
      font-size: 08pt;
      color: red;
 }
+.otherprofile{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     padding: 5%;
+     background-color: whitesmoke;
+}
+.otherprofile a{
+     text-decoration: none;
+}
 .footer{
      background-color: #07004a;
      font-size: 14pt;
@@ -195,6 +205,7 @@
 @media(max-width: 850px){
      .navigation{
           margin-top: -25%;
+          width: 98vw;
      }
      .body{
           margin-top: 25%;

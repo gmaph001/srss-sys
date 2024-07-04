@@ -65,6 +65,7 @@
     <link rel="stylesheet" href="navBar.css">
     <link rel="stylesheet" href="news.css">
     <link rel="icon" type="image/x-icon" href="media/images/srss-logo.jfif">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
 <nav class="navigation">
@@ -86,6 +87,7 @@
                     <li><?php echo "<a href='home.php?uname=$uname' class=home>Home</a></li>";?>
                     <li><?php echo "<a href='news.php?uname=$uname' class=news>News</a></li>";?>
                     <li><?php echo "<a href='notes.php?uname=$uname' class=notes>Notes</a></li>";?>
+                    <li><?php echo "<a href='assignment.php?uname=$uname'>Assign</a>";?> </li>
                     <li class="multi_menu"><a>login</a></li>
                     <li>
                         <?php 
@@ -112,27 +114,13 @@
                 <li><?php echo "<a href='leaders.php?uname=$uname'>Admin</a></li>";?>
         </div>
     </nav>
-    <div class="sub_menu">
-        <ul>
-            <li><?php echo "<a href='leaders.php?uname=$uname'>Admin</a></li>";?>
-            <li><a href="index.php"><b>Student</b></a></li>
-        </ul>
-    </div>
-    <script>
-        let menubtn = document.querySelector('.vertical_menu');
-        let dropdownlist = document.querySelector('.dropdown_menu');
-        let multimenu = document.querySelector('.multi_menu');
-        let submenu = document.querySelector('.sub_menu');
-
-        menubtn.onclick = function(){
-            dropdownlist.classList.toggle('open');
-        }
-
-        multimenu.onclick = function(){
-            submenu.classList.toggle('open');
-        }
-    </script>
         <div class="body">
+            <div class="sub_menu">
+                <ul>
+                    <li><?php echo "<a href='leaders.php?uname=$uname'>Admin</a></li>";?>
+                    <li><a href="index.php"><b>login</b></a></li>
+                </ul>
+            </div>
             <div class="updates">
                 <div class="update_photo">
                     
@@ -232,5 +220,19 @@
                 </div>
             </div>";
     ?>
+    <script>
+        let menubtn = document.querySelector('.vertical_menu');
+        let dropdownlist = document.querySelector('.dropdown_menu');
+        let multimenu = document.querySelector('.multi_menu');
+        let submenu = document.querySelector('.sub_menu');
+
+        menubtn.onclick = function(){
+            dropdownlist.classList.toggle('open');
+        }
+
+        multimenu.onclick = function(){
+            submenu.classList.toggle('open');
+        }
+    </script>
 </body>
 </html>

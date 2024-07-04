@@ -85,6 +85,7 @@ $uname = $_GET['uname'];
                     <li><?php echo "<a href='home.php?uname=$uname' class=home>Home</a></li>";?>
                     <li><?php echo "<a href='news.php?uname=$uname' class=news>News</a></li>";?>
                     <li><?php echo "<a href='notes.php?uname=$uname' class=notes>Notes</a></li>";?>
+                    <li><?php echo "<a href='assignment.php?uname=$uname'>Assign</a>";?> </li>
                     <li class="multi_menu"><a>login</a></li>
                     <li>
                         <?php 

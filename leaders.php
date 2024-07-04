@@ -92,6 +92,9 @@
                <div class="news">
                     <h2><?php echo "<a href='upload_news.php?uname=$uname' class='leaders'>Upload some news Now!!!</a></h2>";?>
                </div>
+               <div class="assignment">
+                    <h2><?php echo "<a href='check2.php?uname=$uname' class='leaders'>Upload assignments Now!!!</a></h2>";?>
+               </div>
           </div>
      </div>
      <?php

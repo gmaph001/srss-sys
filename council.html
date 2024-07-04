@@ -16,8 +16,6 @@
                             <legend><b>Administrator</b></legend>
                             <label><b>Username: </b></label> <input type="text" name="username" id="uname"><br>
                             <p id="result"></p><br>
-                            <label><b>Codename: </b></label> <input type="text" name="codename" id="cname"><br>
-                            <p id="result2"></p><br>
                             <label><b>Email: </b></label> <input type="email" name="email" id="email"><br>
                             <p id="result3"></p><br>
                             <label><b>Password: </b></label> <input type="password" name="pass" id="p-word"><br>
@@ -41,11 +39,6 @@
 
                 if(document.admin.username.value == ""){
                         document.getElementById("result").innerHTML = result;
-                        event.preventDefault();
-                }
-
-                if(document.admin.codename.value == ""){
-                        document.getElementById("result2").innerHTML = result;
                         event.preventDefault();
                 }
 

@@ -19,7 +19,7 @@
           $file = $_FILES['photo']['tmp_name'];
 
           $photo = 'media/images/prof_pics/' . $prof;
-          $foldername = "media/images/prof_pics" . $prof;
+          $foldername = "media/images/prof_pics/" . $prof;
 
           move_uploaded_file($file, $foldername);
 
