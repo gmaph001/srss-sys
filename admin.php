@@ -25,18 +25,33 @@
                          $codename = $_POST['stream'];
                          $photofile = $_FILES['photo']['tmp_name'];
                          $dp = $_FILES['photo']['name'];
+                         $userkey = rand(100000000, 999999999);
+
+                         $query = "SELECT * FROM students";
+
+                         $reference = mysqli_query($db, $query);
+
+                         if($reference){
+                              for($i=0; $i<mysqli_num_rows($reference); $i++){
+                                   $row = mysqli_fetch_array($reference);
+
+                                   if($userkey === $row['userkey']){
+                                        $userkey = rand(100000000, 999999999);
+                                   }
+                              }
+                         }
 
                          $foldername = "media/images/prof_pics/" . $dp;
                          $photo = 'media/images/prof_pics/' . $dp;
 
                          move_uploaded_file($photofile, $foldername);
 
-                         $sql = "INSERT INTO admin (firstname, secondname, lastname, username, email, password, rank, codename, photo) VALUES (?,?,?,?,?,?,?,?,?)";
+                         $sql = "INSERT INTO admin (firstname, secondname, lastname, username, email, password, rank, codename, photo, userkey) VALUES (?,?,?,?,?,?,?,?,?,?)";
                          $stmtinsert = $db->prepare($sql);
-                         $result = $stmtinsert->execute([$firstname, $secondname, $lastname, $username, $email, $password, $rank, $codename, $photo]);
+                         $result = $stmtinsert->execute([$firstname, $secondname, $lastname, $username, $email, $password, $rank, $codename, $photo, $userkey]);
                          if($result){
                               echo "<p>Successfully registered.</p><br>";
-                              header('location:home.php?uname='.$username);
+                              header('location:home.php?uname='.$userkey);
                          }
                          else{
                               echo "<p>There were errors while saving the data.</p>";

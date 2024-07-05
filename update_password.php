@@ -24,7 +24,7 @@
                if($result){
                     for($i=0; $i<mysqli_num_rows($result); $i++){
                          $row = mysqli_fetch_array($result);
-                         if($row['username'] === $uname){
+                         if($row['userkey'] === $uname){
                               $password = $row['password'];
                               $validation = 1;
                          }
@@ -33,7 +33,7 @@
                if($result2){
                     for($i=0; $i<mysqli_num_rows($result2); $i++){
                          $row = mysqli_fetch_array($result2);
-                         if($row['username'] === $uname){
+                         if($row['userkey'] === $uname){
                               $password = $row['password'];
                               $validation = 0;
                          }
@@ -48,7 +48,7 @@
                     }
                     else{
                          if($validation == 1){
-                              $query3 = "UPDATE students SET password = '$newpassword' WHERE username = '$uname'";
+                              $query3 = "UPDATE students SET password = '$newpassword' WHERE userkey = '$uname'";
                          
                               $result3 = mysqli_query($db, $query3);
                          
@@ -63,7 +63,7 @@
                               }
                          }
                          else{
-                              $query3 = "UPDATE admin SET password = '$newpassword' WHERE username = '$uname'";
+                              $query3 = "UPDATE admin SET password = '$newpassword' WHERE userkey = '$uname'";
                          
                               $result3 = mysqli_query($db, $query3);
                          

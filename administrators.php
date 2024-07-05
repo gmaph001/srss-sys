@@ -27,6 +27,7 @@
                     for($i = 0; $i<mysqli_num_rows($result); $i++){
                          $row = mysqli_fetch_array($result);
                          if($row['username'] === $username && $row['email'] === $email && $row['password'] === $password){
+                              $userkey = $row['userkey'];
                               $validation = true;
                               break;
                          }
@@ -37,7 +38,7 @@
                     if($validation){
                          echo "<p>Login successfully!</p><br>";
                          echo "<p>Welcome administrator!</p><br>";
-                         header('location:home.php?uname='.$username);
+                         header('location:home.php?uname='.$userkey);
                     }
                     else{
                          echo '<p>Incorrect username, codename, email or password!</p><br>';

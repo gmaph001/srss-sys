@@ -4,14 +4,16 @@
      $uname = $_GET['uname'];
 
      $query = "SELECT * FROM students";
+     $query2 = "SELECT * FROM admin";
 
      $result = mysqli_query($db, $query);
+     $result2 = mysqli_query($db, $query2);
 
      if($result){
           for($i=0; $i<mysqli_num_rows($result); $i++){
                $row = mysqli_fetch_array($result);
 
-               if($row['username'] === $uname){
+               if($row['userkey'] === $uname){
                     $firstname = $row['firstname'];
                     $secondname = $row['secondname'];
                     $lastname = $row['lastname'];
@@ -83,6 +85,24 @@
                ?>
           </div>
      </div>
+     <div class="otherprofile">
+               <?php
+
+                    if($result2){
+                         for($i=0; $i<mysqli_num_rows($result2); $i++){
+                              $row = mysqli_fetch_array($result2);
+                              if($uname === $row['userkey']){
+                                   echo 
+                                        "
+                                           <a href='account-admin.php?uname=$uname' class='save'>Edit your Admin profile.</a>  
+                                        ";
+                              }
+                         }
+                    }
+
+
+               ?>
+          </div>
      <div class="footer">
           <p>&copy; Shaaban Robert Secondary School 2023.</p>
      </div>

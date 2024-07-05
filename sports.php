@@ -37,7 +37,7 @@ $uname = $_GET['uname'];
         for($i=0; $i<mysqli_num_rows($result); $i++){
             $row = mysqli_fetch_array($result);
  
-            if($row['username'] === $uname){
+            if($row['userkey'] === $uname){
                 $dp = $row['photo'];
             } 
         }
@@ -46,7 +46,7 @@ $uname = $_GET['uname'];
         for($i=0; $i<mysqli_num_rows($result2); $i++){
             $row = mysqli_fetch_array($result2);
  
-            if($row['username'] === $uname){
+            if($row['userkey'] === $uname){
                 $dp = $row['photo'];
                 $rank = $row['rank'];
             }

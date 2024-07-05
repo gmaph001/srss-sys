@@ -332,3 +332,17 @@
      background-size: cover;
      border-radius: 0px 50px 0px 50px;
 }
+@media(max-width: 800px){
+     .assignments{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+     }
+     .geography, .history, .maths, .english, .kiswahili, .civics, .computer, .commerce, .accounts, 
+     .chemistry, .biology, .physics, .economics{
+          margin-top: 10px;
+          height: 200px;
+          width: 300px;
+     }
+}

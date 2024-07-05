@@ -30,7 +30,8 @@
                          if($data['username'] === $username){
                               if($data['email'] === $email){
                                    if($data['password'] === $password){
-                                        header("location:home.php?uname=$username");
+                                        $userkey = $data['userkey'];
+                                        header("location:home.php?uname=$userkey");
                                    }
                                    else{
                                         echo "<p>Invalid password.</p>";

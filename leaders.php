@@ -13,7 +13,7 @@
           for($i=0; $i<mysqli_num_rows($result); $i++){
                $row = mysqli_fetch_array($result);
 
-               if($row['username'] === $uname){
+               if($row['userkey'] === $uname){
                     $admin = 1;
                     break;
                }

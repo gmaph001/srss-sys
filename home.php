@@ -14,7 +14,7 @@
         for($i=0; $i<mysqli_num_rows($result); $i++){
             $row = mysqli_fetch_array($result);
 
-            if($row['username'] === $uname){
+            if($row['userkey'] === $uname){
                 $dp = $row['photo'];
             } 
         }
@@ -23,7 +23,7 @@
         for($i=0; $i<mysqli_num_rows($result2); $i++){
             $row = mysqli_fetch_array($result2);
 
-            if($row['username'] === $uname){
+            if($row['userkey'] === $uname){
                 $dp = $row['photo'];
                 $rank = $row['rank'];
             }
@@ -61,7 +61,7 @@
                     <li><?php echo "<a href='home.php?uname=$uname' class=home>Home</a></li>";?>
                     <li><?php echo "<a href='news.php?uname=$uname' class=news>News</a></li>";?>
                     <li><?php echo "<a href='notes.php?uname=$uname' class=notes>Notes</a></li>";?>
-                    <li><?php echo "<a href='assignment.php?uname=$uname'>Assign</a>";?> </li>
+                    <li><?php echo "<a href='check3.php?uname=$uname'>Assign</a>";?> </li>
                     <li class="multi_menu"><a>login</a></li>
                     <li>
                         <?php 

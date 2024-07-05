@@ -142,6 +142,11 @@ h2:hover{
           height: 30vh;
           padding: 10vh 5vw 5vh 7vw;
      }
+     .assignment{
+          width: 80vw;
+          height: 30vh;
+          padding: 10vh 5vw 5vh 7vw;
+     }
      @keyframes appear{
           from{
                width: 0px;

@@ -14,7 +14,7 @@
         for($i=0; $i<mysqli_num_rows($result); $i++){
             $row = mysqli_fetch_array($result);
 
-            if($row['username'] === $uname){
+            if($row['userkey'] === $uname){
                 $dp = $row['photo'];
             } 
         }
@@ -23,7 +23,7 @@
         for($i=0; $i<mysqli_num_rows($result2); $i++){
             $row = mysqli_fetch_array($result2);
 
-            if($row['username'] === $uname){
+            if($row['userkey'] === $uname){
                 $dp = $row['photo'];
                 $rank = $row['rank'];
             }
@@ -195,7 +195,7 @@
                             </p>
                             <center>
                                 <?php 
-                                    echo "<button><a href='form5.php?uname=$uname'><b>Form 6</b></a></button>";
+                                    echo "<button><a href='form6.php?uname=$uname'><b>Form 6</b></a></button>";
                                 ?>
                             </center>
                         </div>

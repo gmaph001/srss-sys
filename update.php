@@ -15,10 +15,9 @@
           $age = $_POST['age'];
           $class = $_POST['class'];
           $stream = $_POST['stream'];
-          $photo = $_FILES['photo']['tmp_name'];
 
           $query = "UPDATE students SET firstname = '$firstname', secondname = '$secondname', lastname = '$lastname', 
-                    age = '$age', form = '$class', stream = '$stream', photo = '$photoname' WHERE username = '$uname'";
+                    age = '$age', form = '$class', stream = '$stream' WHERE userkey = '$uname'";
 
           $result = mysqli_query($db, $query);
 
@@ -50,7 +49,7 @@
                          header('location: account.php?uname='.$uname);
                     }
                     else{
-                         $query2 = "UPDATE students SET photo = '$photoname' WHERE username = '$uname'";
+                         $query2 = "UPDATE students SET photo = '$photoname' WHERE userkey = '$uname'";
                          $result2 = mysqli_query($db, $query2);
 
                          if($result2){

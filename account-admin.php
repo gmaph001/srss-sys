@@ -13,7 +13,7 @@
           for($i=0; $i<mysqli_num_rows($result); $i++){
                $row = mysqli_fetch_array($result);
 
-               if($row['username'] === $uname){
+               if($row['userkey'] === $uname){
                     $firstname = $row['firstname'];
                     $secondname = $row['secondname'];
                     $lastname = $row['lastname'];
@@ -50,7 +50,7 @@
                <ul type="none">
                     <?php
                          echo 
-                              "<li><a href='account.php?uname=$uname'>My Profile</a></li>
+                              "<li><a href='account-admin.php?uname=$uname'>My Profile</a></li>
                               <li><a href='security.php?uname=$uname'>Privacy & Security</a></li>
                               <li><b><a href='home.php?uname=$uname'>Go back</a></b></li>";
                     ?>
@@ -59,14 +59,19 @@
           <div class="main">
                <?php
                     echo
-                         "<form action='update.php?uname=$uname' method='POST' name='update' class='update' enctype='multipart/form-data'>
+                         "<form action='update2.php?uname=$uname' method='POST' name='update' class='update' enctype='multipart/form-data'>
                          <fieldset>
                          <legend><b>My Profile</b></legend> 
-                                   <label><b>First Name: </b></label> $firstname <input type='text' name='firstname' placeholder='change'><br><br>
-                                   <label><b>Second Name: </b></label> $secondname <input type='text' name='secondname' placeholder='change'><br><br>
-                                   <label><b>Last Name: </b></label> $lastname <input type='text' name='lastname' placeholder='change'><br><br>
-                                   <label><b>Rank: </b></label> $rank <input type='number' name='rank' placeholder='change'><br><br>
-                                   <label><b>Codename: </b></label> $codename <input type='text' name='codename' placeholder='change'><br><br>";
+                                   <label><b>First Name: </b></label> $firstname <input type='text' name='firstname' placeholder='change'><br>
+                                   <p id='alert' class='alert'></p><br>
+                                   <label><b>Second Name: </b></label> $secondname <input type='text' name='secondname' placeholder='change'><br>
+                                   <p id='alert2' class='alert'></p><br>
+                                   <label><b>Last Name: </b></label> $lastname <input type='text' name='lastname' placeholder='change'><br>
+                                   <p id='alert3' class='alert'></p><br>
+                                   <label><b>Rank: </b></label> $rank <input type='number' name='rank' placeholder='change'><br>
+                                   <p id='alert4' class='alert'></p><br>
+                                   <label><b>Codename: </b></label> $codename <input type='text' name='codename' placeholder='change'><br>
+                                   <p id='alert5' class='alert'></p><br>";
                ?>
                          <button onclick="save()" class="save" name="save">Save</button> 
                     </fieldset>
@@ -90,7 +95,7 @@
                     if($result2){
                          for($i=0; $i<mysqli_num_rows($result2); $i++){
                               $row = mysqli_fetch_array($result2);
-                              if($uname === $row['username']){
+                              if($uname === $row['userkey']){
                                    echo 
                                         "
                                            <a href='account.php?uname=$uname' class='save'>Edit your Student's profile.</a>  

@@ -13,7 +13,7 @@
           for($i=0; $i<mysqli_num_rows($result); $i++){
                $row = mysqli_fetch_array($result);
 
-               if($row['username'] === $uname){
+               if($row['userkey'] === $uname){
                     $admin = $row['codename'];
                     if($admin == "PRF"){
                          include 'failed.php';

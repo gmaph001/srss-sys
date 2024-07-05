@@ -22,7 +22,7 @@
           for($i=0; $i<mysqli_num_rows($result2); $i++){
                $student = mysqli_fetch_array($result2);
 
-               if($uname === $student['username']){
+               if($uname === $student['userkey']){
                     $class = $student['form'];
                     $stream = $student['stream'];
                     $dp = $student['photo'];
