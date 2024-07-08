@@ -110,10 +110,10 @@
                                         </div>
                                         <div class='dates'>
                                              <div class='assigned'>
-                                                  $assign
+                                                  Assigned: $assign
                                              </div>
                                              <div class='due'>
-                                                  $due
+                                                  Due: $due
                                              </div>
                                         </div>
                                    </div>

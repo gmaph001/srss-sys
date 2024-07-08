@@ -2,6 +2,9 @@
 
      require_once "config.php";
 
+     error_reporting(0);
+
+
      if(isset($_POST['upload'])){
 
           $teacher = $_POST['teacher'];
@@ -11,15 +14,39 @@
           $assigned = $_POST['assigned'];
           $due = $_POST['due'];
           $stream = [];
+          $stream2 = [];
           $n = 0;
+          $valid = true;
+          $errors = false;
           
-          for($i=1; $i<=$streams; $i++){
-               $stream[$i] = $_POST['stream'.$i];
-               $n++;
+          try {
+               for($i=1; $i<11; $i++){
+                    if($_POST['stream'.$i] === ""){
+                         $valid = false;
+                    }
+                    else{
+                         $valid = true;
+                         $n++;
+                    }
+
+                    if($valid){
+                         $stream[$i] = $_POST['stream'.$i];
+                    }
+                    
+               } 
+          } catch (error $error) {
+               $errors = true;
           }
 
-          for($j=1; $j<=$n; $j++){
-               echo $stream[$j];
+          for($j=1; $j<$n; $j++){
+               if($stream === ""){
+                    $errors = true;
+               }
+               else{
+                    $stream2[$j] = $stream[$j];
+                    echo $stream[$j];
+               }
+               
           }
 
           $file = $_FILES['assignment']['tmp_name'];
@@ -31,14 +58,16 @@
           move_uploaded_file($file, $foldername);
 
           for($k=1; $k<=$n; $k++){
-               $query = "INSERT INTO assignments (subject, teacher, assignment, class, stream, assign_date, due_date) VALUES ('$subject', '$teacher', '$assignment', '$class', '$stream[$k]', '$assigned', '$due')";
-               $result = mysqli_query($db, $query);
+               if($stream2[$k] != NULL){
+                    $query = "INSERT INTO assignments (subject, teacher, assignment, class, stream, assign_date, due_date) VALUES ('$subject', '$teacher', '$assignment', '$class', '$stream2[$k]', '$assigned', '$due')";
+                    $result = mysqli_query($db, $query);
 
-               if($result){
-                    echo "Your assignment to $stream[$k] is uploaded successfully";
-               }
-               else{
-                    echo "Upload for $stream[$k] failed!";
-               }
+                    if($result){
+                         echo "Your assignment to $stream2[$k] is uploaded successfully";
+                    }
+                    else{
+                         echo "Upload for $stream2[$k] failed!";
+                    }
+               } 
           }
      }

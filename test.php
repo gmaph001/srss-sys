@@ -6,6 +6,7 @@
      <title>Registration | PHP</title>
      <link rel="icon" type="image/x-icon" href="media/images/srss-logo.jfif">
      <link rel="stylesheet" type="text/css" href="register.css">
+     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
      <center>

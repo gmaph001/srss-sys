@@ -13,6 +13,7 @@
      <link rel="icon" type="image/x-icon" href="media/images/srss-logo.jfif">
      <link rel="stylesheet" type="text/css" href="navBar.css">
      <link rel="stylesheet" type="text/css" href="users.css">
+     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
      <nav class="navigation">

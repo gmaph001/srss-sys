@@ -194,7 +194,7 @@ fieldset button:active{
 .bottom{
     display: none;
 }
-@media (max-width: 900px){
+@media (max-width: 1000px){
     .navigation{
         display: flex;
         flex-direction: column;
@@ -291,8 +291,8 @@ fieldset button:active{
         display: block;
     }
     .dp{
-        height: 8vh;
-        width: 18vw;
+        height: 80px;
+        width: 85px;
     }
     .background-image1{
         margin: 200px auto 0 0;

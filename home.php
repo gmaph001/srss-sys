@@ -88,35 +88,34 @@
                 <li><?php echo "<a href='leaders.php?uname=$uname'>Admin</a></li>";?>
         </div>
     </nav>
-    <div class="sub_menu">
-        <ul>
-            <li><?php echo "<a href='leaders.php?uname=$uname'>Admin</a></li>";?>
-            <li><a href="index.php"><b>login</b></a></li>
-        </ul>
+    <div class="background-image1">
+        <div class="sub_menu">
+            <ul>
+                <li><?php echo "<a href='leaders.php?uname=$uname'>Admin</a></li>";?>
+                <li><a href="index.php"><b>login</b></a></li>
+            </ul>
+        </div>
+        <div class="intro">
+            <h2>About</h2>
+            <p>This is an official website for Shaaban Robert Secondary School's teachers and students only. This is the website where all official school announcements are made. 
+                It is also where students of Shaaban Robert Secondary School will get important materials to help them with their studies.
+            </p>
+        </div>
     </div>
-        <div class="background-image1">
-            <div class="intro">
-                <h2>About</h2>
-                <p>This is an official website for Shaaban Robert Secondary School's teachers and students only. This is the website where all official school announcements are made. 
-                    It is also where students of Shaaban Robert Secondary School will get important materials to help them with their studies.
-                </p>
-            </div>
-        </div>
-        <div class="footer">
-            <p>
-                For any inquiry and suggestions about this website, please leave your comment below:
-            </p><br>
-            <form action="https://formspree.io/f/mwkgkgbv" method="POST" name="myForm">
-                <fieldset>
-                    <label><b>Name:</b></label>&nbsp; <input type="text" name="name" id="fname"><br><br>
-                    <label><b>Email:</b></label>&nbsp; <input type="text" name="email" id="email"><br><br>
-                    <label><b>Suggestions:</b></label><br><br>
-                    <textarea name="suggestions" cols="15" rows="5" maxlength="500"></textarea><br><br>
-                    <button><b>Send</b></button>
-                </fieldset>
-            </form><br><br>
-            <p class="foot"><b>&copy; Shaaban Robert Secondary School 2023.</b></p>
-        </div>
+    <div class="footer">
+        <p>
+            For any inquiry and suggestions about this website, please leave your comment below:
+        </p><br>
+        <form action="https://formspree.io/f/mwkgkgbv" method="POST" name="myForm">
+            <fieldset>
+                <label><b>Name:</b></label>&nbsp; <input type="text" name="name" id="fname"><br><br>
+                <label><b>Email:</b></label>&nbsp; <input type="text" name="email" id="email"><br><br>
+                <label><b>Suggestions:</b></label><br><br>
+                <textarea name="suggestions" cols="15" rows="5" maxlength="500"></textarea><br><br>
+                <button><b>Send</b></button>
+            </fieldset>
+        </form><br><br>
+        <p class="foot"><b>&copy; Shaaban Robert Secondary School 2023.</b></p>
     </div>
     <?php
         echo "

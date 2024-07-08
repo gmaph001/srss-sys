@@ -44,13 +44,28 @@
                     </fieldset><br><br>
                     <fieldset>
                          <legend><b>Photo</b></legend>
-                         <label><b>Your photo: </b></label><input type="file" name="photo" id="pic" placeholder="upload your photo"><br>
+                         <label><b>Your photo: </b></label><input type="file" name="photo" id="pic" placeholder="upload your photo" onchange="check()" accept=".png,.jpg,.jpeg"><br>
+                         <p id="dpresult"></p><br>
                     </fieldset><br><br>
                     <button onclick="send()" name="signup" id="signUp">Sign Up</button><br><br>
                </form>
           </div>
      </div>
      <script>
+          function check(){
+               let photo = document.getElementById("pic");
+               let photoresponse = "*Please, your file should be less than 2MB!*";
+               let size = Math.round((photo.files[0].size)/1024/1024);
+               let returnvalue = true;
+
+               if(size>2){
+                    document.getElementById("dpresult").innerHTML = photoresponse;
+                    event.preventDefault();
+                    returnvalue = false;
+               }
+
+               return returnvalue;
+          }
 
           function send(){
                
@@ -67,6 +82,8 @@
                let pass = '*Please enter more than 9 characters!*';
                let comb = '*Please enter the correct stream!*';
                let confirm = '*Please recheck your password!*';
+               let dpresult = "*You cannot submit form with file this large!*";
+               let picresponse = check();
 
                if(document.login.firstname.value=="") //code to check if the user has not entered his/her first name
                {
@@ -147,7 +164,11 @@
                     document.getElementById("ageresult").innerHTML = ageresult;
                     event.preventDefault();    
                }
-               
+
+               if(!picresponse){
+                    document.getElementById("dpresult").innerHTML = dpresult;
+                    event.preventDefault();
+               }
           }
 
           
