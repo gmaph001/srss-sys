@@ -222,7 +222,7 @@ fieldset button:active{
     #srss{
         text-align: left;
         padding: 10px;
-        font-size: 150%;
+        font-size: 100%;
         margin-left: 5px;
     }
     .horizontal_menu{
@@ -313,7 +313,7 @@ fieldset button:active{
     }
     .footer{
         background-color: #07004a;
-        padding-bottom: 12vh;
+        padding-bottom: 15vh;
     }
     .bottom{
         width: 100vw;

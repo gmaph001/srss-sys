@@ -344,6 +344,9 @@
      .assign{
           width: 85vw;
      }
+     .subjectname{
+          font-size: 18pt;
+     }
      .geography, .history, .mathematics, .english, .kiswahili, .civics, .computer, .commerce, .accounts, 
      .chemistry, .biology, .physics, .economics{
           margin-top: 10px;

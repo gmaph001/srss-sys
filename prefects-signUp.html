@@ -46,30 +46,34 @@
                     </fieldset><br><br>
                     <fieldset>
                          <legend><b>Photo</b></legend>
-                         <label><b>Your photo: </b></label><input type="file" name="photo" id="pic" placeholder="upload your photo" onchange="check()" accept=".png,.jpg,.jpeg"><br>
+                         <label><b>Your photo: </b></label><input type="file" name="photo" id="pic" placeholder="upload your photo" value="" onchange="check()" accept=".png,.jpg,.jpeg"><br>
                          <p id="dpresult"></p><br>
                     </fieldset><br><br>
-                    <button onclick="send()" name="signup" id="signUp">Sign Up</button><br><br>
+                    <button onclick="sendprof()" name="signup" id="signUp">Sign Up</button><br><br>
                </form>
           </div>
      </div>
      <script>
           function check(){
                let photo = document.getElementById("pic");
-               let photoresponse = "*Please, your file should be less than 2MB!*";
-               let size = Math.round((photo.files[0].size)/1024/1024);
-               let returnvalue = true;
-
-               if(size>2){
-                    document.getElementById("dpresult").innerHTML = photoresponse;
-                    event.preventDefault();
-                    returnvalue = false;
+               if(document.admin.photo.value == ""){
+                    document.getElementById("dpresult").innerHTML = "Please upload a photo";
+                    
                }
-
-               return returnvalue;
+               else{
+                    let photoresponse = "*Please, your file should be less than 2MB!*";
+                    let size = Math.round((photo.files[0].size)/1024/1024);
+                    let returnvalue = true;
+                    if(size>2){
+                         document.getElementById("dpresult").innerHTML = photoresponse;
+                         event.preventDefault();
+                         returnvalue = false;
+                    }
+                    return returnvalue;
+               }
           }
 
-          function send(){
+          function sendprof(){
                
                let a = document.getElementById("e-pword").value; //Enter password representation
                let b = document.getElementById("c-pword").value; //Confirm password representation
@@ -86,6 +90,7 @@
                let comb = '*Please enter the correct codename!*';
                let confirm = '*Please recheck your password!*';
                let dpresult = "*You cannot submit form with file this large!*";
+               let rank = "*The rank is not known!*";
                let picresponse = check();
 
                if(document.admin.firstname.value=="") //code to check if the user has not entered his/her first name
@@ -129,6 +134,14 @@
                if(document.admin.secret.value.length<9) // code to make sure that the number of characters entered in password are 9 characters
                {
                     document.getElementById('result6').innerHTML = pass;
+                    event.preventDefault();
+               }
+               if(document.admin.rank.value==""){
+                    document.getElementById('result8').innerHTML = alert;
+                    event.preventDefault();
+               }
+               if(document.admin.rank.value>7 || document.admin.rank.value<0){
+                    document.getElementById('result8').innerHTML = alert;
                     event.preventDefault();
                }
                if(document.admin.age.value=="" || e<0 || e>22){

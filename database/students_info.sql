@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2024 at 09:59 AM
+-- Generation Time: Jul 08, 2024 at 08:06 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -37,18 +37,27 @@ CREATE TABLE `admin` (
   `password` varchar(255) NOT NULL,
   `rank` int(1) NOT NULL,
   `codename` varchar(500) NOT NULL,
-  `photo` varchar(500) DEFAULT NULL
+  `photo` varchar(500) DEFAULT NULL,
+  `OTP` int(6) DEFAULT NULL,
+  `userkey` int(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `admin`
+-- Table structure for table `assignments`
 --
 
-INSERT INTO `admin` (`admin_ID`, `firstname`, `secondname`, `lastname`, `username`, `email`, `password`, `rank`, `codename`, `photo`) VALUES
-(4, 'ABDUL-HABIB', 'MOHAMMED', 'MADDY', 'abby_maddy', 'abdulhabib01@gmail.com', 'abby_maddy', 6, 'PRF', NULL),
-(5, 'fatna', 'omary', 'temba', 'fatnaTemba', 'fatnatemba@gmail.com', '123456789', 5, 'TEA', NULL),
-(1, 'GEORGE', 'GODSON', 'MAPHOLE', 'gmaph__001', 'gmaph001@gmail.com', 'SRSS14552', 7, 'PRGM', NULL),
-(3, 'OMAR', 'MOHAMMED', 'MATUMBO', 'omz', 'omar00@gmail.com', 'passwords', 7, 'PRGM', NULL);
+CREATE TABLE `assignments` (
+  `assign_ID` int(11) NOT NULL,
+  `teacher` text NOT NULL,
+  `subject` text NOT NULL,
+  `assignment` text NOT NULL,
+  `class` int(1) NOT NULL,
+  `stream` text NOT NULL,
+  `assign_date` date NOT NULL,
+  `due_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -88,13 +97,6 @@ CREATE TABLE `form3` (
   `teachername` varchar(255) NOT NULL,
   `notes` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `form3`
---
-
-INSERT INTO `form3` (`id`, `subjectname`, `teachername`, `notes`) VALUES
-(1, 'BIOLOGY', 'JOANES', 'Biology f 3 Study notes.pdf');
 
 -- --------------------------------------------------------
 
@@ -154,6 +156,28 @@ CREATE TABLE `news` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `prefects`
+--
+
+CREATE TABLE `prefects` (
+  `prefect_ID` int(11) NOT NULL,
+  `firstname` text NOT NULL,
+  `secondname` text NOT NULL,
+  `lastname` text NOT NULL,
+  `age` int(50) NOT NULL,
+  `username` text NOT NULL,
+  `email` varchar(400) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `class` int(1) NOT NULL,
+  `stream` varchar(3) NOT NULL,
+  `rank` varchar(50) NOT NULL,
+  `photo` varchar(300) NOT NULL,
+  `userkey` int(9) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `students`
 --
 
@@ -168,16 +192,10 @@ CREATE TABLE `students` (
   `form` int(1) NOT NULL,
   `stream` varchar(3) NOT NULL,
   `age` int(2) NOT NULL,
-  `photo` varchar(500) DEFAULT NULL
+  `photo` varchar(500) DEFAULT NULL,
+  `OTP` int(6) DEFAULT NULL,
+  `userkey` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `students`
---
-
-INSERT INTO `students` (`Students_ID`, `firstname`, `secondname`, `lastname`, `username`, `email`, `password`, `form`, `stream`, `age`, `photo`) VALUES
-(1, 'GEORGE', 'GODSON', 'MAPHOLE', 'gmaph__001', 'gmaph001@gmail.com', 'SRSS14552', 5, 'PMC', 19, 'media/images/prof_pics/1711895902133.jpg'),
-(2, 'OMAR', 'MOHAMMED', 'MATUMBO', 'omz', 'omar00@gmail.com', 'passwords', 5, 'PMC', 19, 'media/images/prof_pics/wallpaperflare.com_wallpaper (3).jpg');
 
 --
 -- Indexes for dumped tables
@@ -189,6 +207,12 @@ INSERT INTO `students` (`Students_ID`, `firstname`, `secondname`, `lastname`, `u
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`username`),
   ADD UNIQUE KEY `id` (`admin_ID`);
+
+--
+-- Indexes for table `assignments`
+--
+ALTER TABLE `assignments`
+  ADD PRIMARY KEY (`assign_ID`);
 
 --
 -- Indexes for table `form1`
@@ -233,6 +257,12 @@ ALTER TABLE `news`
   ADD PRIMARY KEY (`news_no`);
 
 --
+-- Indexes for table `prefects`
+--
+ALTER TABLE `prefects`
+  ADD PRIMARY KEY (`prefect_ID`,`username`(50));
+
+--
 -- Indexes for table `students`
 --
 ALTER TABLE `students`
@@ -247,7 +277,13 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `admin_ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `assignments`
+--
+ALTER TABLE `assignments`
+  MODIFY `assign_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `form1`
@@ -265,7 +301,7 @@ ALTER TABLE `form2`
 -- AUTO_INCREMENT for table `form3`
 --
 ALTER TABLE `form3`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `form4`
@@ -292,10 +328,16 @@ ALTER TABLE `news`
   MODIFY `news_no` int(255) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `prefects`
+--
+ALTER TABLE `prefects`
+  MODIFY `prefect_ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `Students_ID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Students_ID` int(255) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

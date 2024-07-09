@@ -205,7 +205,7 @@
 @media(max-width: 850px){
      .navigation{
           margin-top: -25%;
-          width: 98vw;
+          width: 100vw;
      }
      .body{
           margin-top: 25%;
@@ -224,7 +224,7 @@
           width: 110vw;
      }
      #heading{
-          font-size: 250%;
+          font-size: 24pt;
           margin-left: 10vw;
      }
      .main{
@@ -238,7 +238,10 @@
           position: fixed;
      }
      .update input{
-          width: max-content;
+          width: 70vw;
+     }
+     .update input:hover{
+          width: 75vw;
      }
      .update-photo input{
           width: 70vw;
