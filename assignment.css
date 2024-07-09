@@ -11,6 +11,60 @@
      column-gap: 1vw;
      padding-top: 2vh;
 }
+.notification{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     padding: 1vh 2vw 1vh 2vw;
+     border-radius: 15px 0px 0px 15px;
+     font-family: Candara;
+     font-size: 10pt;
+     position: right;
+     margin-left: 75vw;
+     right: 0;
+     width: 20vw;
+     animation: shift 2s ease-in-out normal both;
+     background-color: aliceblue;
+     border: 5px solid rgb(255, 215, 141);
+}
+#notifheader{
+     color: red;
+     text-align: left;
+     font-weight: bold;
+     font-size: 12pt;
+     width: 100%;
+     animation: write 2s 1s ease-in-out normal both;
+}
+#notification{
+     color: black;
+     font-size: 10pt;
+     width: 100%;
+     animation: write 2s 1s ease-in-out normal both;
+}
+@keyframes shift{
+     from{
+          top: 0;
+          padding: 0.5%;
+          color: rgba(255, 255, 255, 0);
+          margin-left: 0;
+          margin-right: 0;
+     }
+     to{
+          padding: 1vh 2vw 1vh 2vw;
+          margin-left: 75vw;
+          top: 20vh;
+     }
+}
+@keyframes write{
+     from{
+          font-size: 0pt;
+          width: 0;
+     }
+     to{
+          font-size: 12pt;
+          width: 100%;
+     }
+}
 .assign{
      display: flex;
      align-items: center;
