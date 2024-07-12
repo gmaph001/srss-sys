@@ -62,12 +62,12 @@
                          "<form action='update.php?uname=$uname' method='POST' name='update' class='update' enctype='multipart/form-data'>
                          <fieldset>
                          <legend><b>My Profile</b></legend> 
-                                   <label><b>First Name: </b></label> $firstname <input type='text' name='firstname' placeholder='change'><br><br>
-                                   <label><b>Second Name: </b></label> $secondname <input type='text' name='secondname' placeholder='change'><br><br>
-                                   <label><b>Last Name: </b></label> $lastname <input type='text' name='lastname' placeholder='change'><br><br>
-                                   <label><b>Age: </b></label> $age <input type='number' name='age' placeholder='change'><br><br>
-                                   <label><b>Class: </b></label> $class <input type='number' name='class' placeholder='change'><br><br>
-                                   <label><b>Stream: </b></label> $stream <input type='text' name='stream' placeholder='change'><br><br>";
+                                   <label><b>First Name: </b></label> <input type='text' name='firstname' value='$firstname' placeholder='change'><br><br>
+                                   <label><b>Second Name: </b></label> <input type='text' name='secondname' value='$secondname' placeholder='change'><br><br>
+                                   <label><b>Last Name: </b></label> <input type='text' name='lastname' value='$lastname' placeholder='change'><br><br>
+                                   <label><b>Age: </b></label> <input type='number' name='age' value='$age' placeholder='change'><br><br>
+                                   <label><b>Class: </b></label> <input type='number' name='class' value='$class' placeholder='change'><br><br>
+                                   <label><b>Stream: </b></label> <input type='text' name='stream' value='$stream' placeholder='change'><br><br>";
                ?>
                          <button onclick="save()" class="save" name="save">Save</button> 
                     </fieldset>

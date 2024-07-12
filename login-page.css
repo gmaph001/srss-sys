@@ -120,6 +120,19 @@ textarea{
      justify-content: center;
      cursor: pointer;
 }
+.links{
+     width: 100%;
+     padding: 0 10px 0 10px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+}
+.forget{
+     transition: 0.3s ease-in-out;
+}
+.forget:hover{
+     color: red;
+}
 .radio{
      width: max-content;
 }

@@ -15,6 +15,9 @@
                require_once "config.php";
 
                $uname = $_GET['uname'];
+               $valid = 0;
+               $valid1 = 0;
+               $valid2 = false;
 
                $query = "SELECT * FROM students";
                $query2 = "SELECT * FROM admin";
@@ -27,7 +30,7 @@
                          $row = mysqli_fetch_array($result);
                          if($row['userkey'] === $uname){
                               $password = $row['password'];
-                              $validation = 1;
+                              $valid = 1;
                          }
                     }
                }
@@ -36,7 +39,7 @@
                          $row = mysqli_fetch_array($result2);
                          if($row['userkey'] === $uname){
                               $password = $row['password'];
-                              $validation = 0;
+                              $valid1 = 1;
                          }
                     }
                }
@@ -48,35 +51,51 @@
                          echo "<p>Not authorized due to incorrect old password!</p>";
                     }
                     else{
-                         if($validation == 1){
-                              $query3 = "UPDATE students SET password = '$newpassword' WHERE userkey = '$uname'";
+                         if($valid1 == 1 && $valid == 1){
+                              $query3 = "UPDATE admin SET password = '$newpassword' WHERE userkey = '$uname'";
+                              $query4 = "UPDATE students SET password = '$newpassword' WHERE userkey = '$uname'";
                          
                               $result3 = mysqli_query($db, $query3);
+                              $result4 = mysqli_query($db, $query4);
                          
-                              if($result3){
-                                   echo "<p>Password updated successfully!</p><br><br>";
-                                   echo "<p>You can <a href='security.php?uname=$uname'><b>Continue</b></a></p>";
+                              if($result3 && $result4){
+                                   $valid2 = true;
                               }
                               else{
-                                   echo "<p>Error while updating password!</p><br><br>";
-                                   echo "<p>You can <a href='security.php?uname=$uname'><b>Go back</b></a></p>";
-
+                                   $valid2 = false;
                               }
                          }
                          else{
-                              $query3 = "UPDATE admin SET password = '$newpassword' WHERE userkey = '$uname'";
-                         
-                              $result3 = mysqli_query($db, $query3);
-                         
-                              if($result3){
-                                   echo "<p>Password updated successfully!</p><br><br>";
-                                   echo "<p>You can <a href='security.php?uname=$uname'><b>Continue</b></a></p>";
+                              if($valid == 1){
+                                   $query4 = "UPDATE students SET password = '$newpassword' WHERE userkey = '$uname'";
+                              
+                                   $result4 = mysqli_query($db, $query4);
+                              
+                                   if($result4){
+                                        $valid2 = true;
+                                   }
+                                   else{
+                                        $valid2 = false;
+                                   }
                               }
-                              else{
-                                   echo "<p>Error while updating password!</p><br><br>";
-                                   echo "<p>You can <a href='security.php?uname=$uname'><b>Go back</b></a></p>";
-
+                              if($valid1 == 1){
+                                   $query3 = "UPDATE admin SET password = '$newpassword' WHERE userkey = '$uname'";
+                                   $result3 = mysqli_query($db, $query3);
+                                   if($result3){
+                                        $valid2 = true;
+                                   }
+                                   else{
+                                        $valid2 = false;
+                                   }
                               }
+                         }
+                         if($valid2){
+                              echo "<p>Password updated successfully!</p><br><br>";
+                              echo "<p>You can <a href='security.php?uname=$uname'><b>Continue</b></a></p>";
+                         }
+                         else{
+                              echo "<p>Error while updating password!</p><br><br>";
+                              echo "<p>You can <a href='security.php?uname=$uname'><b>Go back</b></a></p>";
                          }
                     }
                }

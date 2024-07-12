@@ -62,15 +62,15 @@
                          "<form action='update2.php?uname=$uname' method='POST' name='update' class='update' enctype='multipart/form-data'>
                          <fieldset>
                          <legend><b>My Profile</b></legend> 
-                                   <label><b>First Name: </b></label> $firstname <input type='text' name='firstname' placeholder='change'><br>
+                                   <label><b>First Name: </b></label> <input type='text' name='firstname'value='$firstname' placeholder='change'><br>
                                    <p id='alert' class='alert'></p><br>
-                                   <label><b>Second Name: </b></label> $secondname <input type='text' name='secondname' placeholder='change'><br>
+                                   <label><b>Second Name: </b></label> <input type='text' name='secondname' value='$secondname' placeholder='change'><br>
                                    <p id='alert2' class='alert'></p><br>
-                                   <label><b>Last Name: </b></label> $lastname <input type='text' name='lastname' placeholder='change'><br>
+                                   <label><b>Last Name: </b></label> <input type='text' name='lastname' value='$lastname' placeholder='change'><br>
                                    <p id='alert3' class='alert'></p><br>
-                                   <label><b>Rank: </b></label> $rank <input type='number' name='rank' placeholder='change'><br>
+                                   <label><b>Rank: </b></label> <input type='number' name='rank' value='$rank' placeholder='change'><br>
                                    <p id='alert4' class='alert'></p><br>
-                                   <label><b>Codename: </b></label> $codename <input type='text' name='codename' placeholder='change'><br>
+                                   <label><b>Codename: </b></label> <input type='text' name='codename' value='$codename' placeholder='change'><br>
                                    <p id='alert5' class='alert'></p><br>";
                ?>
                          <button onclick="save()" class="save" name="save">Save</button> 

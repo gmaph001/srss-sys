@@ -3,7 +3,7 @@
 
 .body{
      background-color: wheat;
-     padding: 18vh 2vw 2vh 2vw;
+     padding: 20vh 2vw 2vh 2vw;
 }
 .assignments{
      display: grid;
@@ -24,8 +24,11 @@
      right: 0;
      width: 20vw;
      animation: shift 2s ease-in-out normal both;
+     animation: beauty 0.5s 2s ease-in-out infinite normal both;
      background-color: aliceblue;
      border: 5px solid rgb(255, 215, 141);
+     position: fixed;
+     bottom: 3vh;
 }
 #notifheader{
      color: red;
@@ -40,10 +43,10 @@
      font-size: 10pt;
      width: 100%;
      animation: write 2s 1s ease-in-out normal both;
+     animation: beauty 0.5s 2s ease-in-out infinite normal both;
 }
 @keyframes shift{
      from{
-          top: 0;
           padding: 0.5%;
           color: rgba(255, 255, 255, 0);
           margin-left: 0;
@@ -52,7 +55,6 @@
      to{
           padding: 1vh 2vw 1vh 2vw;
           margin-left: 75vw;
-          top: 20vh;
      }
 }
 @keyframes write{
@@ -63,6 +65,16 @@
      to{
           font-size: 12pt;
           width: 100%;
+     }
+}
+@keyframes beauty{
+     from{
+          background-color: rgb(255, 255, 255);
+          color: rgb(0, 0, 0)
+     }
+     to{
+          background-color: rgb(0, 1, 76);
+          color: rgb(255, 255, 255);
      }
 }
 .assign{
@@ -398,6 +410,17 @@
      .assign{
           width: 85vw;
      }
+     .notification{
+          width: 70vw;
+          bottom: 75vh;
+          animation: beauty 0.5s 2s ease-in-out infinite normal both;
+     }
+     /* #notifheader{
+          animation: beauty 2s 1s ease-in-out infinite normal both;
+     } */
+     #notification{
+          animation: beauty 0.5s 2s ease-in-out infinite normal both;
+     }
      .subjectname{
           font-size: 18pt;
      }
@@ -410,5 +433,27 @@
      }
      .due, .assigned{
           font-size: 12pt;
+     }
+     @keyframes shift{
+          from{
+               padding: 0.5%;
+               color: rgba(255, 255, 255, 0);
+               margin-left: 0;
+               margin-right: 0;
+          }
+          to{
+               padding: 1vh 2vw 1vh 2vw;
+               margin-left: 30vw;
+          }
+     }
+     @keyframes beauty{
+          from{
+               background-color: rgb(255, 255, 255);
+               color: rgb(0, 0, 0)
+          }
+          to{
+               background-color: rgb(0, 1, 76);
+               color: rgb(255, 255, 255);
+          }
      }
 }

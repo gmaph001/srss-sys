@@ -97,19 +97,23 @@
      font-family: candara;
 }
 .update input{
-     width: 7vw;
+     width: fit-content;
      border-radius: 15px;
-     border: 2px solid black;
-     padding: 2px 5px 2px 5px;
-     text-align: center;
+     border: 2px solid rgba(0, 0, 0, 0);
+     padding: 10px 5px 2px 5px;
+     text-align: left;
      font-size: 14pt;
-     font-family: Georgia, 'Times New Roman', Times, serif;
-     color: blue;
+     font-family: Candara;
+     color: rgb(106, 0, 0);
      transition: 0.4s ease-in-out;
      font-weight: bold;
+     background-color: whitesmoke;
+     cursor: pointer;
 }
 .update input:hover{
-     width: 10vw;
+     border: 2px solid rgb(0, 0, 0);
+     background-color: aliceblue;
+     color: blue;
 }
 .update-photo input{
      width: 15vw;

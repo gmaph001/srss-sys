@@ -10,12 +10,15 @@
      $result = mysqli_query($db, $query);
      $result2 = mysqli_query($db, $query2);
 
+     
      $assignment_no;
      $assignment;
      $subjectname;
      $subject;
      $due;
      $assign;
+     $day = date('Y-m-d');
+     $today = filter_var($day, FILTER_SANITIZE_NUMBER_INT);
      $subject_no = 0;
 
      if($result2){
@@ -87,7 +90,7 @@
           <div class="assignments">
                <?php
                     for($i=0; $i<mysqli_num_rows($result); $i++){
-                         $row = mysqli_fetch_assoc($result);
+                         $row = mysqli_fetch_array($result);
                          if($class === $row['class'] && $stream === $row['stream']){
                               $assignment_no = $row['assign_ID'];
                               $assignment = $row['assignment'];
@@ -95,6 +98,18 @@
                               $subjectname = strtolower($row['subject']);
                               $assign = $row['assign_date'];
                               $due = $row['due_date'];
+
+                              $date = filter_var($due, FILTER_SANITIZE_NUMBER_INT);
+
+                              if($today<=$date){
+                                   $subject_no++;
+                                   echo "
+                                             <script>
+                                                  let due = document.querySelector('due');
+                                                  due.style.color = black;
+                                             </script>
+                                        ";
+                              }
                           
                          echo 
                          "
@@ -124,7 +139,21 @@
                     }
                ?>
           </div>
+          <?php
+               if($subject_no>0){
+                    echo
+                         "
+                              <div class='notification'>
+                                   <div class='header'>
+                                        <p id='notifheader'>Notification</p>
+                                        <p id='notification'>Your have $subject_no pending assignments!</p>
+                                   </div>
+                              </div>
+                         ";
+               }
+          ?>
      </div>
+     
      <div class="footer">
                <p>
                     For any inquiry and suggestions about this website, please leave your comment below:

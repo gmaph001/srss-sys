@@ -39,6 +39,10 @@
                               </div>
                          </div>
                     </fieldset><br><br>
+                    <div class="links">
+                         <a href="admin_signup.html" target="_blank" class="forget">Sign Up</a>
+                         <a href="forget.html" target="_blank" class="forget">Forget Password?</a>
+                    </div><br>
                     <button onclick="check()">Login</button>
                </form>
                <p class="alert">
