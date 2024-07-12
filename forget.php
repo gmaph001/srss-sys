@@ -4,6 +4,7 @@
      $number = rand(100000, 999999);
      use PHPMailer\PHPMailer\PHPMailer;
      use PHPMailer\PHPMailer\Exception;
+     require 'vendor/autoload.php';
 
      echo $number;
      $from = "gmaph001@gmail.com";
@@ -27,26 +28,19 @@
                     if($result3){
                          $firstname = $row['firstname'];
                          $uname = $row['userkey'];
-                         require 'PHPMailer/src/Exception.php';
-                         require 'PHPMailer/src/PHPMailer.php';
-                         require 'PHPMailer/src/SMTP.php';
 
                          //Create an instance; passing `true` enables exceptions
                          $mail = new PHPMailer(true);
 
                          try {
-                         //Server settings
-                         // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-                         $mail->isSMTP();                                            //Send using SMTP
-                         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-
-                         $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-                         $mail->Username   = 'gmaph001@gmail.com';                     //SMTP username
-                         $mail->Password   = 'buybcbyznywjakcc';                               //SMTP password
-
-                         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //ENCRYPTION_SMTPS - Enable implicit TLS encryption
-                         $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-
+                              $mail->SMTPDebug = 2;                   // Enable verbose debug output
+                              $mail->isSMTP();                        // Set mailer to use SMTP
+                              $mail->Host       = 'smtp.gmail.com;';    // Specify main SMTP server
+                              $mail->SMTPAuth   = true;               // Enable SMTP authentication
+                              $mail->Username   = 'gmaph001@gmail.com';     // SMTP username
+                              $mail->Password   = 'lawbnavxoveqlehp';         // SMTP password
+                              $mail->SMTPSecure = 'tls';              // Enable TLS encryption, 'ssl' also accepted
+                              $mail->Port       = 587;                // TCP port to connect to
                          //Recipients
                          $mail->setFrom('gmaph001@gmail.com', 'SRSS SYS');
                          $mail->addAddress($email, 'Joe User');     //Add a recipient
@@ -103,7 +97,7 @@
 
                          $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
                          $mail->Username   = 'gmaph001@gmail.com';                     //SMTP username
-                         $mail->Password   = 'buybcbyznywjakcc';                               //SMTP password
+                         $mail->Password   = 'lawbnavxoveqlehp';                               //SMTP password
 
                          $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //ENCRYPTION_SMTPS - Enable implicit TLS encryption
                          $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`

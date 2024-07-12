@@ -127,6 +127,29 @@ textarea{
      justify-content: space-between;
      align-items: center;
 }
+.links a{
+     background-color: blue;
+     color: white;
+     font-size: 12pt;
+     font-weight: bolder;
+     border-radius: 10px;
+     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     text-decoration: none;
+     color: white;
+     padding: 5px;
+     border: 2px solid black;
+     transition: 0.2s ease-in-out;
+}
+.links a:hover{
+     background-color: white;
+     color: blue;
+}
+.links a:active{
+     background-color: red;
+     color: blue;
+     transition: 0.2s ease-in-out;
+     zoom: 105%;
+}
 .forget{
      transition: 0.3s ease-in-out;
 }
