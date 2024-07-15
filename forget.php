@@ -3,6 +3,7 @@
 
      $number = rand(100000, 999999);
      use PHPMailer\PHPMailer\PHPMailer;
+     use PHPMailer\PHPMailer\SMTP;
      use PHPMailer\PHPMailer\Exception;
      require 'vendor/autoload.php';
 
@@ -39,7 +40,7 @@
                               $mail->SMTPAuth   = true;               // Enable SMTP authentication
                               $mail->Username   = 'gmaph001@gmail.com';     // SMTP username
                               $mail->Password   = 'lawbnavxoveqlehp';         // SMTP password
-                              $mail->SMTPSecure = 'tls';              // Enable TLS encryption, 'ssl' also accepted
+                              $mail->SMTPSecure = 'ssl';              // Enable TLS encryption, 'ssl' also accepted
                               $mail->Port       = 587;                // TCP port to connect to
                          //Recipients
                          $mail->setFrom('gmaph001@gmail.com', 'SRSS SYS');
