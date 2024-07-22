@@ -38,16 +38,16 @@
                          try {
                               // $mail->SMTPDebug = 2;                   // Enable verbose debug output
                               $mail->isSMTP();                        // Set mailer to use SMTP
-                              $mail->Host       = 'smtp.gmail.com;';    // Specify main SMTP server
+                              $mail->Host       = 'smtp.gmail.com';    // Specify main SMTP server
                               $mail->SMTPAuth   = true;               // Enable SMTP authentication
 
-                              $mail->Username   = 'gmaph001@gmail.com';     // SMTP username
-                              $mail->Password   = 'wstpgljlagtleqee';         // SMTP password
+                              $mail->Username   = 'gmaphtechnologies@gmail.com';     // SMTP username
+                              $mail->Password   = 'ckraitdtzwhqitpo';         // SMTP password
                               $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption - ENCRYPTION_SMTPS - 465
                               $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
                               //Recipients
-                              $mail->setFrom('gmaph001@gmail.com', 'SRSS SYS');
+                              $mail->setFrom('gmaphtechnologies@gmail.com','SRSS SYS');
                               $mail->addAddress($email);     //Add a recipient
 
                               //Content
@@ -95,19 +95,18 @@
                          try {
                          //Server settings
                          // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-                         $mail->isSMTP();                                            //Send using SMTP
-                         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+                         $mail->isSMTP();                        // Set mailer to use SMTP
+                              $mail->Host       = 'smtp.gmail.com';    // Specify main SMTP server
+                              $mail->SMTPAuth   = true;               // Enable SMTP authentication
 
-                         $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-                         $mail->Username   = 'gmaph001@gmail.com';                     //SMTP username
-                         $mail->Password   = 'lawbnavxoveqlehp';                               //SMTP password
+                              $mail->Username   = 'gmaphtechnologies@gmail.com';     // SMTP username
+                              $mail->Password   = 'ckraitdtzwhqitpo';         // SMTP password
+                              $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption - ENCRYPTION_SMTPS - 465
+                              $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
-                         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //ENCRYPTION_SMTPS - Enable implicit TLS encryption
-                         $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-
-                         //Recipients
-                         $mail->setFrom('gmaph001@gmail.com', 'SRSS SYS');
-                         $mail->addAddress($email, 'Joe User');     //Add a recipient
+                              //Recipients
+                              $mail->setFrom('gmaphtechnologies@gmail.com','SRSS SYS');
+                              $mail->addAddress($email);     //Add a recipient
 
                          //Content
                          $mail->isHTML(true);                                  //Set email format to HTML

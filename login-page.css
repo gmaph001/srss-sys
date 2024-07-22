@@ -29,7 +29,7 @@ fieldset{
      width: 80%;
 }
 input{
-     border: 3px solid red;
+     border: 1px solid rgb(0, 0, 0);
      padding: 3px 7px 3px 10px;
      border-radius: 15px;
      font-family: roboto arial;
@@ -37,9 +37,10 @@ input{
      font-weight: bold;
      color: blue;
      text-align: center;
+     background-color: rgba(245, 245, 245, 0.673);
 }
 button{
-     background-color: blue;
+     background-color: rgb(125, 125, 147);
      color: white;
      font-size: 14pt;
      font-weight: bolder;
@@ -51,8 +52,8 @@ button{
      transition: 0.5s ease-in-out;
 }
 button:hover{
-     background-color: white;
-     color: blue;
+     background-color: rgb(255, 255, 255);
+     color: rgb(117, 117, 149);
 }
 button:active{
      background-color: red;

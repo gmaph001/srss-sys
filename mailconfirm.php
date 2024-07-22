@@ -39,9 +39,24 @@
                          }
                     }
                }
-               else{
-                    echo "Error";
+               if($result2){
+                    for($i=0; $i<mysqli_num_rows($result2); $i++){
+                         $row = mysqli_fetch_array($result2);
+     
+                         if($uname === $row['userkey']){
+                              if($otp === $row['OTP']){
+                                   header("location: resetpass.php?uname=$uname");
+                                   echo "You can now reset your password!";
+                              }
+                              else{
+                                   echo "<p>Invalid OTP</p><br>";
+                                   echo "<p>Please <a href='mail.php?uname=$uname'>try again!</a></p>";
+     
+                              }
+                         }
+                    }
                }
+               echo "<p>ERROR!</p>";
           ?>
      </div>
 </body>
