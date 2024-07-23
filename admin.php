@@ -49,13 +49,18 @@
                          $sql = "INSERT INTO admin (firstname, secondname, lastname, username, email, password, rank, codename, photo, userkey) VALUES (?,?,?,?,?,?,?,?,?,?)";
                          $stmtinsert = $db->prepare($sql);
                          $result = $stmtinsert->execute([$firstname, $secondname, $lastname, $username, $email, $password, $rank, $codename, $photo, $userkey]);
-                         if($result){
-                              echo "<p>Successfully registered.</p><br>";
-                              header('location:home.php?uname='.$userkey);
+                         if($codename === "TEA" || $codename === "DM"){
+                              header("location:teacher.php?uname=".$userkey);
                          }
                          else{
-                              echo "<p>There were errors while saving the data.</p>";
-                         }    
+                              if($result){
+                                   echo "<p>Successfully registered.</p><br>";
+                                   header('location:home.php?uname='.$userkey);
+                              }
+                              else{
+                                   echo "<p>There were errors while saving the data.</p>";
+                              }    
+                         }
                     }
                ?>
           </div>

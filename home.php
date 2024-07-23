@@ -140,7 +140,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href='assignment.php?uname=$uname' class='buttons' id='right'>
+                                <a href='check3.php?uname=$uname' class='buttons' id='right'>
                                     <img src='media/icons/assignment.png' class='icon'>  
                                     <p>Assignments</p>
                                 </a>

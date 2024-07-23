@@ -107,7 +107,7 @@ $uname = $_GET['uname'];
                 <li><?php echo "<a href='home.php?uname=$uname' class=home>Home</a></li>";?>
                 <li><?php echo "<a href='news.php?uname=$uname' class=news>News</a></li>";?>
                 <li><?php echo "<a href='notes.php?uname=$uname' class=notes>Notes</a></li>";?>
-                <li><?php echo "<a href='assignment.php?uname=$uname'>Assign</a>";?> </li>
+                <li><?php echo "<a href='check3.php?uname=$uname'>Assign</a>";?> </li>
                 <li><a href="index.php">Student</a></li>
                 <li><?php echo "<a href='leaders.php?uname=$uname'>Admin</a></li>";?>
         </div>
@@ -184,7 +184,7 @@ $uname = $_GET['uname'];
                                 </a>
                             </li>
                             <li>
-                                <a href='assignment.php?uname=$uname' class='buttons' id='right'>
+                                <a href='check3.php?uname=$uname' class='buttons' id='right'>
                                     <img src='media/icons/assignment.png' class='icon'>  
                                     <p>Assignments</p>
                                 </a>

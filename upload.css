@@ -32,7 +32,7 @@ fieldset{
      width: 30vw;
 }
 input{
-     border: 3px solid red;
+     border: 1px solid rgb(0, 0, 0);
      padding: 3px 7px 3px 10px;
      border-radius: 15px;
      font-family: roboto arial;
@@ -40,9 +40,10 @@ input{
      font-weight: bold;
      color: blue;
      text-align: center;
+     background-color: rgba(245, 245, 245, 0.673);
 }
 button{
-     background-color: blue;
+     background-color: rgb(125, 125, 147);
      color: white;
      font-size: 14pt;
      font-weight: bolder;
@@ -54,8 +55,8 @@ button{
      transition: 0.5s ease-in-out;
 }
 button:hover{
-     background-color: white;
-     color: blue;
+     background-color: rgb(255, 255, 255);
+     color: rgb(117, 117, 149);
 }
 button:active{
      background-color: red;
@@ -207,6 +208,21 @@ a:active{
      width: 25vw;
      height: max-content;
 }
+.business{
+     display: none;
+     width: 25vw;
+     height: max-content;
+}
+.science{
+     display: none;
+     width: 25vw;
+     height: max-content;
+}
+.art{
+     display: none;
+     width: 25vw;
+     height: max-content;
+}
 .alevel.open{
      display: grid;
      grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
@@ -221,6 +237,40 @@ a:active{
 .olevel.open{
      display: grid;
      grid-template-columns: repeat(auto-fill, minmax(20px, 1fr));
+     column-gap: 10px;
+     width: 25vw;
+     margin-top: 2vh;
+     background-color: wheat;
+     border-radius: 15px;
+     padding: 5%;
+     height: max-content;
+}
+.science.open{
+     display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
+     column-gap: 10px;
+     width: 25vw;
+     margin-top: 2vh;
+     background-color: wheat;
+     border-radius: 15px;
+     padding: 5%;
+     height: max-content;
+}
+.art.open{
+     display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
+     column-gap: 10px;
+     width: 25vw;
+     margin-top: 2vh;
+     background-color: wheat;
+     border-radius: 15px;
+     padding: 5%;
+     height: max-content;
+}
+
+.business.open{
+     display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
      column-gap: 10px;
      width: 25vw;
      margin-top: 2vh;
@@ -282,6 +332,18 @@ a:active{
      .form{
           width: 78vw;
           padding: 2%;
+     }
+     .subjects{
+          width: 70vw;
+     }
+     .science.open, .art.open, .business.open{
+          width: 90%;
+          column-gap: 50px;
+     }
+     .subject{
+          width: 20px;
+          height: 20px;
+          border: 2px solid black;
      }
      .upload{
           width: 75vw;
