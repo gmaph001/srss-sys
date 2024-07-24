@@ -69,7 +69,7 @@
                     <?php
                          echo 
                               "<li><a href='security.php?uname=$uname'>Privacy & Security</a></li>
-                              <li><b><a href='home.php?uname=$uname'>Go back</a></b></li>";
+                              <li><b><a href='home.php?uname=$uname'>Home</a></b></li>";
                     ?>
                </ul>
           </div>
@@ -150,6 +150,14 @@
                               
                          }
                     </script>
+                    <div class="delete">
+                         <h2>Delete Account</h2>
+                         <p>
+                              You can delete your account here. 
+                              <span style="color: red;"><i>Please, do not do this unintentionally!</i></span>
+                              <?php echo "<a href='delete.php?uname=$uname' target='_blank'><b>DELETE</b></a>";?>
+                         </p>
+                    </div>
                </div>
           </div>
      </div>

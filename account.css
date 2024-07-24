@@ -100,15 +100,14 @@
      width: fit-content;
      border-radius: 15px;
      border: 2px solid rgba(0, 0, 0, 0);
-     padding: 10px 5px 2px 5px;
+     padding: 5px 10px 5px 10px;
      text-align: left;
      font-size: 14pt;
      font-family: Candara;
-     color: rgb(106, 0, 0);
+     color: rgb(80, 0, 0);
      transition: 0.4s ease-in-out;
      font-weight: bold;
-     background-color: whitesmoke;
-     cursor: pointer;
+     background-color: white;
 }
 .update input:hover{
      border: 2px solid rgb(0, 0, 0);
