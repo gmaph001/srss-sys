@@ -7,7 +7,7 @@
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Upload News</title>
-     <link rel="stylesheet" type="text/css" href="login-page.css">
+     <link rel="stylesheet" type="text/css" href="upload.css">
      <link rel="icon" type="image/x-icon" href="media/images/srss-logo.jfif">
      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>

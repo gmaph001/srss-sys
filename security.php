@@ -153,8 +153,8 @@
                     <div class="delete">
                          <h2>Delete Account</h2>
                          <p>
-                              You can delete your account here. 
-                              <span style="color: red;"><i>Please, do not do this unintentionally!</i></span>
+                              You can delete your account here. <br><br>
+                              <span style="color: red;"><i>Please, do not do this unintentionally!</i></span><br><br>
                               <?php echo "<a href='delete.php?uname=$uname' target='_blank'><b>DELETE</b></a>";?>
                          </p>
                     </div>

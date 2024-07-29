@@ -8,7 +8,7 @@
     width: 100%;
     background-color: rgb(255, 255, 255);
     color: navy;
-    padding-top: 18vh;
+    padding-top: 17vh;
 }
 .update{
     margin: auto;
@@ -19,6 +19,7 @@
     border-right: 10px solid rgb(68, 26, 26);
     border-radius: 0px 0px 30px 30px;
     font-size: 16pt;
+    padding-top: 2vh;
 }
 h1#update{
     color: red;
@@ -88,7 +89,12 @@ h1#update{
     align-items: center;
     justify-content: center;
 }
-@media (max-width: 850px){
+@media(max-width:1100px){
+    .body{
+        padding-top: 10vh;
+    }
+}
+@media (max-width: 800px){
     .announcements{
         display: flex;
         flex-direction: column;
@@ -98,10 +104,13 @@ h1#update{
     }
     .body{
         height: max-content;
-        margin: 175px auto 0 0;
+        padding-top: 12vh;
     }
     .announcement{
         width: 100%;
         height: max-content;
+    }
+    .updates{
+        padding-top: 2vh;
     }
 }

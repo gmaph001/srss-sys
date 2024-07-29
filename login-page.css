@@ -129,7 +129,7 @@ textarea{
      align-items: center;
 }
 .links a{
-     background-color: blue;
+     background-color: rgb(125, 125, 147);
      color: white;
      font-size: 12pt;
      font-weight: bolder;
@@ -142,8 +142,8 @@ textarea{
      transition: 0.2s ease-in-out;
 }
 .links a:hover{
-     background-color: white;
-     color: blue;
+     background-color: rgb(255, 255, 255);
+     color: rgb(117, 117, 149);
 }
 .links a:active{
      background-color: red;

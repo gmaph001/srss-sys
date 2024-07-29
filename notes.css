@@ -1,7 +1,7 @@
 .body{
      background-color: antiquewhite;
      width: 100%;
-     padding-top: 18vh;
+     padding-top: 17vh;
 }
 .classes{
      margin-top: 10px;
@@ -165,7 +165,7 @@
      cursor: pointer;
      margin: auto 3%;
 }
-@media (max-width: 650px){
+@media (max-width: 750px){
      .row{
           display: flex;
           flex-direction: column;
@@ -174,7 +174,7 @@
           padding: 20px;
      }
      .body{
-          margin: 160px auto 0 0;
+          padding-top: 15vh;
      }
      .form1, .form2, .form3, .form4, .form5, .form6{
           margin: 5% 5%;

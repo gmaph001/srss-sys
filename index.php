@@ -47,7 +47,7 @@
                </form>
                <p class="alert">
                     <i>
-                         "If you are an admin, <a href="council.html" id="alert">Login</a>"
+                         "If you are an admin, <a href="admin-login.html" id="alert">Login</a>"
                     </i>
                </p>
           </div>

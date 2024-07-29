@@ -150,7 +150,7 @@ p.foot{
     background-color: rgb(85, 158, 183);
     border: 2px solid rgb(85, 158, 183);
     margin: auto;
-    box-shadow: 5px 10px 15px rgba(85, 159, 183, 0.496);
+    box-shadow: 0px 0px 10px 10px rgba(85, 159, 183, 0.496);
 }
 input{
     border: 1px solid rgb(0, 0, 0);
@@ -198,6 +198,11 @@ fieldset button:active{
 }
 .bottom{
     display: none;
+}
+@media(max-width: 1100px){
+    #srss{
+        font-size: 200%;
+    }
 }
 @media (max-width: 1000px){
     .navigation{
@@ -365,12 +370,13 @@ fieldset button:active{
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: -7vh;
+        margin-bottom: -60px;
     }
     .home{
-        background-image: linear-gradient(180deg, #07004a00, #07004aba, #07004ad3, #07004a, #07004a);
-        border-radius: 20px 20px 50% 50%;
-        padding: 0 5% 5% 5%;
+        /* background-image: linear-gradient(180deg, #07004a00, #07004aa2, #07004ad3, #07004a, #07004a); */
+        background-color: #07004a;
+        border-radius: 50%;
+        padding: 7px;
     }
     .home .icon{
         background-color: rgb(255, 255, 255);

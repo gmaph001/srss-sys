@@ -136,12 +136,13 @@ a#alert{
      align-items: center;
 }
 textarea{
-     border: 3px solid red;
+     border: 1px solid rgb(0, 0, 0);
      border-radius: 20px;
      padding: 10px 30px;
      font-size: 14pt;
      font-family: Candara;
      color: blue;
+     width: 25vw;
 }
 .photo3{
      background-image: url("media/images/news.jpg");
@@ -162,7 +163,7 @@ textarea{
      animation: sliding 2s ease-in-out both normal;  
 }
 .list{
-     border: 2px solid red;
+     border: 1px solid rgb(0, 0, 0);
      padding: 5px 10px;
      border-radius: 20px;
      align-items: center;
@@ -311,7 +312,7 @@ a:active{
           width: 35vw;
      }
 }
-@media(max-width: 800px){
+@media(max-width: 1100px){
      .main{
           width: 80vw;
           height: max-content;
@@ -362,6 +363,9 @@ a:active{
      }
      .photo{
           display: none;
+     }
+     textarea{
+          width: 60vw;
      }
 }
 @media(max-width:400px){
