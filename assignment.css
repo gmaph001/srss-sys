@@ -27,7 +27,6 @@
      animation: beauty 0.5s 2s ease-in-out infinite normal both;
      background-color: aliceblue;
      border: 5px solid rgb(255, 215, 141);
-     position: fixed;
      bottom: 3vh;
 }
 #notifheader{
