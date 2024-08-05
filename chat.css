@@ -41,7 +41,7 @@ body{
 }
 .sent{
      right: 1vw;
-     background-color: rgb(101, 243, 66);
+     background-color: rgb(66, 66, 243);
      color: rgb(255, 255, 255);
      border-radius: 10px;
      padding: 15px;
@@ -55,7 +55,7 @@ body{
 }
 .received{
      left: 1vw;
-     background-color: rgb(66, 66, 243);
+     background-color: rgb(101, 243, 66);
      color: black;
      border-radius: 10px;
      padding: 15px;
@@ -91,7 +91,33 @@ body{
      overflow-x: hidden;
      padding: 1vh 2vw 1vh 2vw;
 }
+.sendbtn{
+     width: 45px;
+     height: 45px;
+     padding: 10px;
+     background-color: rgb(255, 255, 255);
+     border-radius: 20px;
+     border: none;
+     cursor: pointer;
+}
+.sendbtn:hover{
+     background-color:rgb(101, 243, 66);
+}
+.sendpic{
+     width: 25px;
+     height: 25px;
+}
 @keyframes right {
+     from{
+          width: 0;
+          padding: 0;
+     }
+     to{
+          width: 7vw;
+          padding: 15px;
+     }
+}
+@keyframes left {
      from{
           width: 0;
           padding: 0;
@@ -108,7 +134,7 @@ body{
      }
      to{
           font-size: 13pt;
-          color: rgb(0, 0, 0);
+          color: white;
      }
 }
 @keyframes appear2{
@@ -118,6 +144,6 @@ body{
      }
      to{
           font-size: 13pt;
-          color: rgb(255, 255, 255);
+          color: rgb(0, 0, 0);
      }
 }

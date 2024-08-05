@@ -150,13 +150,24 @@
                               
                          }
                     </script>
-                    <div class="delete">
+                    <div class="delete" id="delete">
                          <h2>Delete Account</h2>
                          <p>
                               You can delete your account here. <br><br>
-                              <span style="color: red;"><i>Please, do not do this unintentionally!</i></span><br><br>
-                              <?php echo "<a href='delete.php?uname=$uname' target='_blank'><b>DELETE</b></a>";?>
+                              <span><i>Please, do not do this unintentionally!</i></span><br><br>
+                              <button popovertarget="delete-popup" class="sureness"><b>DELETE</b></button>
                          </p>
+                    </div>
+                    <div popover id="delete-popup">
+                         <div class="thibitisha">
+                              <p>
+                                   Are you sure, you want to delete your account?
+                              </p><br><br>
+                              <p class="choice">
+                                   <span><?php echo "<a href='delete.php?uname=$uname' id='yes'>Yes</a></span>";?>
+                                   <span><a href="security.html" id="no">No</a> </span>
+                              </p>
+                         </div>
                     </div>
                </div>
           </div>
