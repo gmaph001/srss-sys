@@ -52,7 +52,8 @@
                          echo 
                               "<li><a href='account.php?uname=$uname'>My Profile</a></li>
                               <li><a href='security.php?uname=$uname'>Privacy & Security</a></li>
-                              <li><b><a href='home.php?uname=$uname'>Home</a></b></li>";
+                              <li><b><a href='home.php?uname=$uname'>Home</a></b></li>
+                              <li><b><a href='chat.php?uname=$uname'>Suggestions</a></b></li>";
                     ?>
                </ul>
           </div>

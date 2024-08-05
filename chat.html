@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>SRSS | Chat</title>
+     <link rel="stylesheet" type="text/css" href="chat.css">
+</head>
+<body>
+     <div class="navigation">
+          <img src="media/images/srss-og.png" alt="shaaban robert logo" id="logo-img">
+          <a href="account.html" class="dp1"><img src="media/images/prof_pics/1711895902133.jpg" class='dp'></a>
+     </div>
+     <div class="body">
+          <div class="textarea">
+               <p class="sent">
+                    <span class="send">Sent!</span>
+               </p><br>
+               <p class="received">
+                    <span class="receive">Received!</span>
+               </p><br>
+          </div>
+          <div class="message">
+               <form action="message.php?uname=$uname" method="POST" enctype="multipart/form-data" name="meseji" class="sms">
+                    <input type="text" name="ujumbe" class="msg">
+                    <button onclick="msg()" class="send" id="go">Send</button>
+               </form>
+          </div>
+     </div>
+     <script>
+          function msg(){
+               if(document.meseji.ujumbe.value == ""){
+                    alert("Sorry! You cannot send an empty suggestion!");
+                    event.preventDefault();
+               }
+          }
+     </script>
+</body>
+</html>

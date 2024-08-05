@@ -1,0 +1,123 @@
+*{
+     margin: 0;
+     padding: 0;
+     transition: all 0.4s ease-in-out;
+}
+body{
+     overflow-x: hidden;
+}
+.navigation{
+     top: 0;
+     position: fixed;
+     background-color: #07004a;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 8px;
+     width: 100vw;
+}
+#logo-img {
+     margin: 12px;
+     margin-left: 42px;
+     width: 80px;
+}
+.dp{
+     height: 8vh;
+     width: 5vw;
+     border-radius: 50%;
+     margin-right: 2vw;
+}
+.body{
+     padding-top: 15vh;
+     background-color: wheat;
+     height: max-content;
+}
+.textarea{
+     background-color: rgb(74, 74, 74);
+     padding: 2%;
+     border-bottom: 2px solid black;
+     position: relative;
+     min-height: 70vh;
+}
+.sent{
+     right: 1vw;
+     background-color: rgb(101, 243, 66);
+     color: rgb(255, 255, 255);
+     border-radius: 10px;
+     padding: 15px;
+     width: 7vw;
+     position: absolute;
+     animation: right 1s ease-in normal both;
+}
+.send{
+     font-size: 14pt;
+     animation: appear1 1s ease-in normal both;
+}
+.received{
+     left: 1vw;
+     background-color: rgb(66, 66, 243);
+     color: black;
+     border-radius: 10px;
+     padding: 15px;
+     width: 7vw;
+     position: absolute;
+     margin-top: 2vh;
+     animation: right 1s ease-in normal both;
+}
+.receive{
+     font-size: 14pt;
+     animation: appear2 1s ease-in normal both;
+}
+.message{
+     bottom: 0;
+     position: fixed;
+     width: 97vw;
+     background-color: rgb(196, 196, 196);
+}
+.sms{
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     background-color: rgb(196, 196, 196);
+     padding: 2%;
+     width: 96vw;
+     padding: 2vh 5vw 1vh 2vw;
+}
+.msg{
+     background-color: rgb(255, 255, 255);
+     width: 87vw;
+     border: 2px solid black;
+     border-radius: 10px;
+     overflow-x: hidden;
+     padding: 1vh 2vw 1vh 2vw;
+}
+@keyframes right {
+     from{
+          width: 0;
+          padding: 0;
+     }
+     to{
+          width: 7vw;
+          padding: 15px;
+     }
+}
+@keyframes appear1{
+     from{
+          font-size: 0pt;
+          color: rgb(66, 66, 243);
+     }
+     to{
+          font-size: 13pt;
+          color: rgb(0, 0, 0);
+     }
+}
+@keyframes appear2{
+     from{
+          font-size: 0pt;
+          color: rgb(66, 66, 243);
+     }
+     to{
+          font-size: 13pt;
+          color: rgb(255, 255, 255);
+     }
+}
