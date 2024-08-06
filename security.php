@@ -155,7 +155,7 @@
                          <p>
                               You can delete your account here. <br><br>
                               <span><i>Please, do not do this unintentionally!</i></span><br><br>
-                              <button popovertarget="delete-popup" class="sureness"><b>DELETE</b></button>
+                              <button popovertarget="delete-popup" class="sureness" onclick="popoff('on')"><b>DELETE</b></button>
                          </p>
                     </div>
                     <div popover id="delete-popup">
@@ -165,7 +165,7 @@
                               </p><br><br>
                               <p class="choice">
                                    <span><?php echo "<a href='delete.php?uname=$uname' id='yes'>Yes</a></span>";?>
-                                   <span><a href="security.html" id="no">No</a> </span>
+                                   <span><?php echo "<a id='no' onclick='popoff('off')'>No</a> </span>";?>
                               </p>
                          </div>
                     </div>
@@ -176,5 +176,18 @@
           <p>&copy; Shaaban Robert Secondary School 2023.</p>
      </div>
      <script src="account.js"></script>
+     <script src="pop.js">
+          function popoff(e){
+               let pop = document.querySelector(".popup");
+               if(e=='off'){
+                    pop.style.display = "none";
+               }
+               else{
+                    pop.style.display = "block";
+               }
+               
+          }
+          
+     </script>
 </body>
 </html>
