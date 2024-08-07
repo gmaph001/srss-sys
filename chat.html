@@ -14,10 +14,12 @@
      <div class="body">
           <div class="textarea">
                <p class="sent">
-                    <span class="send">Sent!</span>
+                    <span class="send">Sent!</span><br>
+                    <span class="time">09:10 am</span>
                </p><br>
                <p class="received">
-                    <span class="receive">Received!</span>
+                    <span class="receive">Received!</span><br>
+                    <span class="time2">09:10 am</span>
                </p><br>
           </div>
           <div class="message">
@@ -28,6 +30,12 @@
           </div>
      </div>
      <script>
+
+          let time = document.querySelector('.time');
+          let time2 = document.querySelector('.time2');
+          let message1 = document.querySelector('.received');
+          let message2 = document.querySelector('.sent');
+
           function msg(){
                if(document.meseji.ujumbe.value == ""){
                     alert("Sorry! You cannot send an empty suggestion!");
@@ -35,7 +43,13 @@
                }
           }
 
-          alert(Date())
+          message.onclick = function(){
+               time.classList.toggle('open');
+          }
+
+          message2.onclick = function(){
+               time2.classList.toggle('open');
+          }
      </script>
 </body>
 </html>

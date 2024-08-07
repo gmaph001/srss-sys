@@ -33,7 +33,9 @@ body{
      height: max-content;
 }
 .textarea{
-     background-color: rgb(74, 74, 74);
+     background-image: url("media/images/chat-wallpaper2.jpg");
+     background-size: cover;
+     background-position: center;
      padding: 2%;
      border-bottom: 2px solid black;
      position: relative;
@@ -58,15 +60,26 @@ body{
      background-color: rgb(101, 243, 66);
      color: black;
      border-radius: 10px;
-     padding: 15px;
+     padding: 15px 15px 5px 15px;
      width: 7vw;
      position: absolute;
      margin-top: 2vh;
+     cursor: pointer;
      animation: right 1s ease-in normal both;
 }
 .receive{
      font-size: 14pt;
      animation: appear2 1s ease-in normal both;
+}
+.time, .time2{
+     display: none;
+     /* animation: appear3 1s ease-in normal both; */
+}
+.time.open, .time2.open{
+     display: block;
+     font-size: 10pt;
+     margin-top: 1vh;
+     color: white;
 }
 .message{
      bottom: 0;
@@ -114,7 +127,7 @@ body{
      }
      to{
           width: 7vw;
-          padding: 15px;
+          padding: 5px 15px 5px 15px;
      }
 }
 @keyframes left {
@@ -145,5 +158,25 @@ body{
      to{
           font-size: 13pt;
           color: rgb(0, 0, 0);
+     }
+}
+@keyframes appear3{
+     from{
+          font-size: 0pt;
+          color: rgb(66, 66, 243);
+     }
+     to{
+          font-size: 08pt;
+          color: rgb(15, 0, 77);
+     }
+}
+@keyframes appear4{
+     from{
+          font-size: 0pt;
+          color: rgb(66, 66, 243);
+     }
+     to{
+          font-size: 10pt;
+          color: rgb(245, 0, 135);
      }
 }
