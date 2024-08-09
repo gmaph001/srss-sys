@@ -158,14 +158,14 @@
                               <button popovertarget="delete-popup" class="sureness" onclick="popoff('on')"><b>DELETE</b></button>
                          </p>
                     </div>
-                    <div popover id="delete-popup">
+                    <div class="popup" popover id="delete-popup">
                          <div class="thibitisha">
                               <p>
                                    Are you sure, you want to delete your account?
                               </p><br><br>
                               <p class="choice">
                                    <span><?php echo "<a href='delete.php?uname=$uname' id='yes'>Yes</a></span>";?>
-                                   <span><?php echo "<a id='no' onclick='popoff('off')'>No</a> </span>";?>
+                                   <span><a onclick="popoff('off')" id="no">No</a> </span>
                               </p>
                          </div>
                     </div>
@@ -176,18 +176,6 @@
           <p>&copy; Shaaban Robert Secondary School 2023.</p>
      </div>
      <script src="account.js"></script>
-     <script src="pop.js">
-          function popoff(e){
-               let pop = document.querySelector(".popup");
-               if(e=='off'){
-                    pop.style.display = "none";
-               }
-               else{
-                    pop.style.display = "block";
-               }
-               
-          }
-          
-     </script>
+     <script src="pop.js"></script>
 </body>
 </html>

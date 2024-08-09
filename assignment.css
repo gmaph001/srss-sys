@@ -12,6 +12,7 @@
      padding-top: 2vh;
 }
 .notification{
+     position: fixed;
      display: flex;
      align-items: center;
      justify-content: center;
@@ -43,38 +44,6 @@
      width: 100%;
      animation: write 2s 1s ease-in-out normal both;
      animation: beauty 0.5s 2s ease-in-out infinite normal both;
-}
-@keyframes shift{
-     from{
-          padding: 0.5%;
-          color: rgba(255, 255, 255, 0);
-          margin-left: 0;
-          margin-right: 0;
-     }
-     to{
-          padding: 1vh 2vw 1vh 2vw;
-          margin-left: 75vw;
-     }
-}
-@keyframes write{
-     from{
-          font-size: 0pt;
-          width: 0;
-     }
-     to{
-          font-size: 12pt;
-          width: 100%;
-     }
-}
-@keyframes beauty{
-     from{
-          background-color: rgb(255, 255, 255);
-          color: rgb(0, 0, 0)
-     }
-     to{
-          background-color: rgb(0, 1, 76);
-          color: rgb(255, 255, 255);
-     }
 }
 .assign{
      display: flex;
@@ -399,6 +368,74 @@
      background-size: cover;
      border-radius: 30px;
 }
+@keyframes shift{
+     from{
+          padding: 0.5%;
+          color: rgba(255, 255, 255, 0);
+          margin-left: 0;
+          margin-right: 0;
+     }
+     to{
+          padding: 1vh 2vw 1vh 2vw;
+          margin-left: 75vw;
+     }
+}
+@keyframes write{
+     from{
+          font-size: 0pt;
+          width: 0;
+     }
+     to{
+          font-size: 12pt;
+          width: 100%;
+     }
+}
+@keyframes beauty{
+     from{
+          background-color: rgb(255, 255, 255);
+          color: rgb(0, 0, 0)
+     }
+     to{
+          background-color: rgb(0, 1, 76);
+          color: rgb(255, 255, 255);
+     }
+}
+@media(max-width: 1100px){
+     .body{
+          padding-top: 15vh;
+     }
+     .notification{
+          position: fixed;
+          width: 30vw;
+          bottom: 82vh;
+          animation: beauty 0.5s 2s ease-in-out infinite normal both;
+     }
+     #notification{
+          animation: beauty 0.5s 2s ease-in-out infinite normal both;
+     }
+     @keyframes shift{
+          from{
+               padding: 0.5%;
+               color: rgba(255, 255, 255, 0);
+               margin-left: 0;
+               margin-right: 0;
+          }
+          to{
+               padding: 1vh 1vw 1vh 2vw;
+               margin-left: 30vw;
+          }
+     }
+     @keyframes beauty{
+          from{
+               background-color: rgb(255, 255, 255);
+               color: rgb(0, 0, 0)
+          }
+          to{
+               background-color: rgb(0, 1, 76);
+               color: rgb(255, 255, 255);
+          }
+     }
+}
 @media(max-width: 800px){
      .assignments{
           display: flex;
@@ -410,13 +447,11 @@
           width: 85vw;
      }
      .notification{
+          position: fixed;
           width: 70vw;
           bottom: 75vh;
           animation: beauty 0.5s 2s ease-in-out infinite normal both;
      }
-     /* #notifheader{
-          animation: beauty 2s 1s ease-in-out infinite normal both;
-     } */
      #notification{
           animation: beauty 0.5s 2s ease-in-out infinite normal both;
      }

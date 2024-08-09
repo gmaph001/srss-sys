@@ -15,6 +15,21 @@ body{
      justify-content: space-between;
      padding: 8px;
      width: 100vw;
+     z-index: 100;
+}
+.menu{
+     width: 20px;
+     height: 20px;
+     padding: 5px;
+     border-radius: 10px;
+     background-color: whitesmoke;
+     cursor: pointer;
+     box-shadow: 0px 0px 5px 5px rgba(255, 255, 255, 0.47);
+     transition: 0.5s ease-in-out;
+}
+.menu:hover{
+     background-color: rgba(255, 255, 255, 0.819);
+     box-shadow: 0px 0px 10px 5px rgb(255, 0, 255);
 }
 #logo-img {
      margin: 12px;
@@ -28,17 +43,71 @@ body{
      margin-right: 2vw;
 }
 .body{
-     padding-top: 15vh;
+     padding-top: 16vh;
      background-color: wheat;
      height: max-content;
-}
-.textarea{
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
      background-image: url("media/images/chat-wallpaper2.jpg");
      background-size: cover;
      background-position: center;
+}
+.chats{
+     display: none;
+}
+.chats.open{
+     display: block;
+     left: 0;
+     z-index: 99;
+     width: 20vw;
+     background-color: black;
+     min-height: 38vw;
+     margin-top: 2vh;
+     animation: slide 1.5s ease-in normal both;
+}
+.chat{
+     border: 3px solid rgb(136, 136, 136);
+     background-color: rgba(0, 0, 142, 0.674);
+     color: white;
+     padding: 2%;
+     border-radius: 15px;
+     margin-top: 2vh;
+     width: 15vw;
+     align-items: center;
+     justify-content: space-between;
+     animation: jioneshe 1s 1.5s ease-in normal both;
+}
+.chat-dp{
+     width: 60px;
+     height: 55px;
+     border-radius: 50%;
+     animation: jioneshe2 2s 1s ease-in normal both;
+}
+.chat a{
+     text-decoration: none;
+}
+.details{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     padding: 1vh 2vw 1vh 2vw;
+     animation: jioneshe2 2s 1s ease-in normal both;
+}
+.username{
+     color: white;
+     font-size: 14pt;
+     animation: jioneshe2 2s 1s ease-in normal both;
+}
+.username:hover{
+     color: rgb(0, 255, 0);
+}
+.textarea{
      padding: 2%;
      border-bottom: 2px solid black;
      position: relative;
+     width: 95vw;
      min-height: 70vh;
 }
 .sent{
@@ -47,7 +116,10 @@ body{
      color: rgb(255, 255, 255);
      border-radius: 10px;
      padding: 15px;
+     margin-bottom: 200px;
+     cursor: pointer;
      width: 7vw;
+     box-shadow: 0px 0px 5px 5px rgba(66, 66, 243, 0.674);
      position: absolute;
      animation: right 1s ease-in normal both;
 }
@@ -61,10 +133,11 @@ body{
      color: black;
      border-radius: 10px;
      padding: 15px 15px 5px 15px;
-     width: 7vw;
+     min-width: 7vw;
      position: absolute;
      margin-top: 2vh;
      cursor: pointer;
+     box-shadow: 0px 0px 5px 5px rgba(101, 243, 66, 0.56);
      animation: right 1s ease-in normal both;
 }
 .receive{
@@ -73,17 +146,23 @@ body{
 }
 .time, .time2{
      display: none;
-     /* animation: appear3 1s ease-in normal both; */
 }
-.time.open, .time2.open{
+.time.open{
      display: block;
      font-size: 10pt;
      margin-top: 1vh;
      color: white;
 }
+.time2.open{
+     display: block;
+     font-size: 10pt;
+     margin-top: 1vh;
+     color: black;
+}
 .message{
      bottom: 0;
      position: fixed;
+     z-index: 100;
      width: 97vw;
      background-color: rgb(196, 196, 196);
 }
@@ -120,13 +199,32 @@ body{
      width: 25px;
      height: 25px;
 }
+@keyframes slide {
+     from{
+          width: 0;
+          padding: 0;
+     }
+     to{
+          width: 20vw;
+          padding: 0vh 2vw 1vh 2vw;
+     }
+}
+@keyframes jioneshe{
+     from{
+          display: none;
+     }
+     to{
+          display: flex;
+     }
+}
 @keyframes right {
      from{
           width: 0;
           padding: 0;
      }
      to{
-          width: 7vw;
+          min-width: 7vw;
+          max-width: 30vw;
           padding: 5px 15px 5px 15px;
      }
 }
@@ -136,7 +234,8 @@ body{
           padding: 0;
      }
      to{
-          width: 7vw;
+          min-width: 7vw;
+          max-width: 30vw;
           padding: 15px;
      }
 }
