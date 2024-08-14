@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRSS | News-Sports</title>
+    <link rel="stylesheet" href="navBar.css">
+    <link rel="stylesheet" href="sports.css">
+    <link rel="icon" type="image/x-icon" href="media/images/srss-logo.jfif">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+     <nav class="navigation">
+          <div class="pics">
+               <img src="media/images/srss-og.png" alt="shaaban robert logo" id="logo-img">
+               <a href="account.html" class="dp1"><img src="media/images/prof_pics/1711895902133.jpg" class='dp'></a>
+          </div>
+          <div class="menu">
+               <span id="srss">Shaaban Robert Sec School</span>
+               <div class="horizontal_menu">
+                    <ul type="none">
+                         <li><a href='home.php?uname=$uname' class="home">Home</a></li>
+                         <li><a href='news.php?uname=$uname' class="news">News</a></li>
+                         <li><a href='notes.html?uname=$uname' class="notes">Notes</a></li>
+                         <li class="multi_menu"><a>login</a></li>
+                         <li><a href="account.html"><img src="media/images/prof_pics/1711895902133.jpg" width='50px' height='50px' class='dp'></a></li>
+                    </ul>
+               </div>
+               <div class="vertical_menu">
+                    <button><b>MENU</b></p></button>
+               </div>
+          </div>
+          <div class="dropdown_menu">
+               <ul type="none">
+                    <li><a href='home.php?uname=$uname' class=home>Home</a></li>
+                    <li><a href='news.php?uname=$uname' class=news>News</a></li>
+                    <li><a href='notes.html?uname=$uname' class=notes>Notes</a></li>
+                    <li><a href="index.html">Student</a></li>
+                    <li><a href="val_admin.php">Admin</a></li>
+          </div>
+     </nav>
+     <div class="sub_menu">
+          <ul>
+               <li><a href="val_admin.php"><b>Admin</b></a></li>
+               <li><a href="index.html"><b>Student</b></a></li>
+          </ul>
+     </div>
+     <div class="heading">
+          <div class="heading-wrd">
+               <p>Sports!!!</p>
+          </div>
+     </div>
+     <div class="body">
+          <div class="announcements">
+               <div class="announcement01">
+                    <img src="media/images/sports.jpg" class="pic1">
+               </div>
+              <div class="announcement-wrd01">
+                    <p>
+                         <b>
+                              <p>Welcome all to the ICT Week!</p><br>
+                         </b>
+                    </p>
+                    <p class="date">
+                         <b>(09-12-2022)</b>
+                    </p>
+             </div>
+          </div>
+     </div>
+     <div class="footer">
+          <p>
+               For any inquiry and suggestions about this website, please leave your comment below:
+          </p><br>
+          <form action="https://formspree.io/f/mwkgkgbv" method="POST" name="myForm">
+               <fieldset>
+                    <label><b>Name:</b></label>&nbsp; <input type="text" name="name" id="fname"><br><br>
+                    <label><b>Email:</b></label>&nbsp; <input type="text" name="email" id="email"><br><br>
+                    <label><b>Suggestions:</b></label><br><br>
+                    <textarea name="suggestions" cols="15" rows="5" maxlength="500"></textarea><br><br>
+                    <button><b>Send</b></button>
+               </fieldset>
+          </form><br><br>
+          <p class="foot"><b>&copy; Shaaban Robert Secondary School 2023.</b></p>
+     </div>
+     <div class="bottom">
+          <div class="bottom-home">
+               <a href='home.php' class="home">
+                    <img src="media/icons/home.png" class="icon">
+               </a>
+          </div>
+          <div class="bottom-nav">
+               <ul type="none">
+                    <li>
+                         <a href='news.php' class="buttons">
+                              <img src="media/icons/news.png" class="icon">  
+                              <p>News</p>
+                         </a>
+                    </li>
+                    <li>
+                         <a href='notes.php' class="buttons" id="left">
+                              <img src="media/icons/notes.png" class="icon">  
+                              <p>Notes</p>
+                         </a>
+                    </li>
+                    <li>
+                         <a href='assignment.php' class="buttons" id="right">
+                              <img src="media/icons/assignment.png" class="icon">  
+                              <p>Assignments</p>
+                         </a>
+                    </li>
+                    <li>
+                         <a href='user.php' class="buttons">
+                              <img src="media/icons/user.png" class="icon">  
+                              <p>Login</p>
+                         </a>
+                    </li>
+               </ul>
+          </div>
+     </div>
+     <script>
+          let menubtn = document.querySelector('.vertical_menu');
+          let dropdownlist = document.querySelector('.dropdown_menu');
+          let multimenu = document.querySelector('.multi_menu');
+          let submenu = document.querySelector('.sub_menu');
+
+          menubtn.onclick = function(){
+               dropdownlist.classList.toggle('open');
+          }
+
+          multimenu.onclick = function(){
+               submenu.classList.toggle('open');
+          }
+     </script>
+</body>
+</html>

@@ -9,7 +9,7 @@ body{
 .navigation{
      top: 0;
      position: fixed;
-     background-color: #07004a;
+     background-color: #0c0079;
      display: flex;
      align-items: center;
      justify-content: space-between;
@@ -106,19 +106,32 @@ body{
 .textarea{
      padding: 2%;
      border-bottom: 2px solid black;
-     position: relative;
+     /* position: relative; */
      width: 95vw;
      min-height: 70vh;
 }
+.chat-block{
+     width: 87vw;
+     position: relative;
+     height: max-content;
+     margin-bottom: 3vh;
+     padding: 2% 5%;
+}
+.note{
+     text-align: center;
+     font-weight: bold;
+     font-size: 32pt;
+     color: white; 
+}
 .sent{
      right: 1vw;
-     background-color: rgb(66, 66, 243);
+     background-color: #0f0099;
      color: rgb(255, 255, 255);
      border-radius: 10px;
      padding: 15px;
      margin-bottom: 200px;
      cursor: pointer;
-     width: 7vw;
+     min-width: 7vw;
      box-shadow: 0px 0px 5px 5px rgba(66, 66, 243, 0.674);
      position: absolute;
      animation: right 1s ease-in normal both;
@@ -129,7 +142,7 @@ body{
 }
 .received{
      left: 1vw;
-     background-color: rgb(101, 243, 66);
+     background-color: rgb(164, 164, 164);
      color: black;
      border-radius: 10px;
      padding: 15px 15px 5px 15px;

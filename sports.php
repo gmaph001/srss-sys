@@ -7,44 +7,31 @@ $uname = $_GET['uname'];
 
     $result = mysqli_query($db, $query);
 
-    $news = [];
-
     $empty;
+    $full = 0;
 
-    if(mysqli_num_rows($result) > 0){        
-        for($i = 0; $i<mysqli_num_rows($result); $i++){
-            $row = mysqli_fetch_array($result);
-
-            if($row['news_class'] === "sports"){
-                $news[$i] = $row['news_main'];
-            }
-        }
-    }
-    else{
-        $news = ["There is no any new announcement in this category!"];
-    }
 
     $uname = $_GET['uname'];
     $rank = 0;
  
-    $query = "SELECT * FROM students";
-    $query2 = "SELECT * FROM admin";
+    $query2 = "SELECT * FROM students";
+    $query3 = "SELECT * FROM admin";
  
-    $result = mysqli_query($db, $query);
     $result2 = mysqli_query($db, $query2);
+    $result3 = mysqli_query($db, $query3);
  
-    if ($result) {
-        for($i=0; $i<mysqli_num_rows($result); $i++){
-            $row = mysqli_fetch_array($result);
+    if ($result2) {
+        for($i=0; $i<mysqli_num_rows($result2); $i++){
+            $row = mysqli_fetch_array($result2);
  
             if($row['userkey'] === $uname){
                 $dp = $row['photo'];
             } 
         }
     }
-    if($result2){
-        for($i=0; $i<mysqli_num_rows($result2); $i++){
-            $row = mysqli_fetch_array($result2);
+    if($result3){
+        for($i=0; $i<mysqli_num_rows($result3); $i++){
+            $row = mysqli_fetch_array($result3);
  
             if($row['userkey'] === $uname){
                 $dp = $row['photo'];
@@ -141,37 +128,46 @@ $uname = $_GET['uname'];
         <div class="body">
             <div class="announcements">
                 <div class="announcement01">
-                        <div class="pic1">
-                        </div>
+                    <img src="media/images/sports.jpg" class="pic1">
                 </div>
                 <div class="announcement-wrd01">
-                    <p>
-                        <b>
-                            <?php
-                                for($i=0; $i<sizeof($news); $i++){
-                                    echo "<p>$news[$i]</p><br>";
+                    <?php
+                        if($result){        
+                            for($i = 0; $i<mysqli_num_rows($result); $i++){
+                                $row = mysqli_fetch_array($result);
+                    
+                                if($row['news_class'] === "sports"){
+                                    $news = $row['news_main'];
+                                    $date = $row['news_date'];
+                                    echo 
+                                        "
+                                        <p>
+                                            <b>
+                                                $news
+                                            </b>
+                                        </p>
+                                        <p class='date'>
+                                            <b>
+                                                ($date)
+                                            </b>
+                                        </p><br><br>
+                                        ";
                                 }
-                            ?>
-                        </b>
-                    </p>
+                            }
+                        }
+                        else{
+                            $news = "There is no any new announcement in this category!";
+                            echo 
+                                "
+                                <p>
+                                    <b>
+                                        $news
+                                    </b>
+                                </p>
+                                ";
+                        }
+                    ?>
                </div>
-            </div>
-            <div class="announcements">
-                <div class="announcement02">
-                        <div class="pic2">
-                        </div>
-                </div>
-                <div class="announcement-wrd02">
-                    <p>
-                        <b>
-                            <?php
-                                for($i=0; $i<sizeof($news); $i++){
-                                    echo "<p>$news[$i]</p><br>";
-                                }
-                            ?>
-                        </b>
-                    </p>
-                </div>
             </div>
         </div>
         </div>

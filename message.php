@@ -48,8 +48,35 @@
                               echo "Error sending message";
                          }
                     }
+               }
+          }
+          else{
+               if($result2){
+                    for($i=0; $i<mysqli_num_rows($result2); $i++){
+                         $row = mysqli_fetch_array($result2);
+          
+                         if("HM" === $row['codename']){
+                              $username = $row['username'];
+                              date_default_timezone_set('Africa/Nairobi');
+                              $time = date("h:i a");
+                              $date = date("Ymd");
+                              $query3 = "INSERT INTO chat(kutoka, ujumbe, kwenda, muda, tarehe) VALUES('$username', '$message', '$headmaster', '$time', '$date')";
+                              $result3 = mysqli_query($db, $query3);
 
+                              if($result3){
+                                   echo "Message sent";
+                                   echo "<br>";
+                                   echo $time;
+                                   echo "<br>";
+                                   echo $date;
 
+                                   header("location: chat.php?uname=".$uname);
+                              }
+                              else{
+                                   echo "Error sending message";
+                              }
+                         }
+                    }
                }
           }
      }

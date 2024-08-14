@@ -41,22 +41,35 @@
                </div>
           </div>
           <div class="textarea">
-               <p class="sent">
-                    <span class="send">Sent!</span><br>
-                    <span class="time">09:10 am</span>
-               </p><br>
-               <p class="received">
-                    <span class="receive">Received!</span><br>
-                    <span class="time2">09:10 am</span>
-               </p><br>
-               <p class="sent">
-                    <span class="send">Sent!</span><br>
-                    <span class="time">09:10 am</span>
-               </p><br>
+               <div class="chat-block">
+                    <p class="note">
+                         Welcome to SRSS-Chat box!
+                    </p><br><br>
+               </div>
+               <div class="chat-block">
+                    <p class="sent" onclick="show(this)">
+                         <span class="send">Sent!</span><br>
+                         <span class="time">09:10 am</span>
+                    </p><br><br>
+                    <p class="received" onclick="show1(this)">
+                         <span class="receive">Received!</span><br>
+                         <span class="time2">09:10 am</span>
+                    </p><br><br>
+               </div>
+               <div class="chat-block">
+                    <p class="sent" onclick="show(this)">
+                         <span class="send">Sent!</span><br>
+                         <span class="time">09:10 am</span>
+                    </p><br><br>
+                    <p class="received" onclick="show1(this)">
+                         <span class="receive">Received!</span><br>
+                         <span class="time2">09:10 am</span>
+                    </p><br><br>
+               </div>
           </div>
           <div class="message">
                <form action="message.php?uname=$uname" method="POST" enctype="multipart/form-data" name="meseji" class="sms">
-                    <input type="text" name="ujumbe" class="msg">
+                    <input type="text" name="ujumbe" class="msg" placeholder="Place your suggestions here...">
                     <button onclick="msg()" class="sendbtn" id="go" name="send"><img src="media/icons/send-button.png" class="sendpic"></button>
                </form>
           </div>
@@ -99,12 +112,16 @@
                }
           }
 
-          message1.onclick = function(){
-               time.classList.toggle('open');
-          }
+          // message1.onclick = function(){
+          //      time.classList.toggle('open');
+          // }
 
-          message2.onclick = function(){
-               time2.classList.toggle('open');
+          // message2.onclick = function(){
+          //      time2.classList.toggle('open');
+          // }
+
+          function show(e){
+              time.classList.toggle('open');
           }
      </script>
 </body>

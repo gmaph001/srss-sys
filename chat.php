@@ -12,6 +12,7 @@
      $result3 = mysqli_query($db, $query3);
 
      $present = false;
+     $mess;
 
      if($result){
           for($i = 0; $i<mysqli_num_rows($result); $i++){
@@ -25,8 +26,13 @@
      if($result3){
           for($i=0; $i<mysqli_num_rows($result3); $i++){
                $row = mysqli_fetch_array($result3);
-               if($row['rank'] === 1){
+               if($row['codename'] === "HM"){
                     $sender = $row['username'];
+                    $dp = $row['photo'];
+
+                    if($username ==""){
+                         $sender = $username;
+                    }
                }
           }
      }
@@ -53,40 +59,37 @@
                               $row = mysqli_fetch_array($result2);
                               if($username === $row['kutoka']){
                                    $message = $row['ujumbe'];
+                                   $mess = $message;
                                    $time = $row['muda'];
                                         echo
-                                             "<p class='sent'>
-                                                  <span class='send'>$message</span>
-                                                  <span class='time'>$time</span>
-                                             </p><br>";
+                                             "
+                                             <div class='chat-block'>
+                                                  <p class='sent'>
+                                                       <span class='send'>$message</span>
+                                                       <span class='time'>$time</span>
+                                                  </p><br><br>
+                                             
+                                             ";
+                              }
+                              if($sender === $row['kwenda']){
+                                   $message = $row['message'];
+                                        echo
+                                             "
+                                                  <p class='received'>
+                                                       <span class='receive'>$message</span>
+                                                       <span class='time2'>$time</span>
+                                                  </p><br><br>
+                                             </div>
+                                             ";
                               }
                          }
-                    }
-                    // if($result2){
-                    //      for($i=0; $i<mysqli_num_rows($result2); $i++){
-                    //           $row = mysqli_fetch_array($result2);
-                    //           if($sender === $row['kwenda']){
-                    //                $message = $row['message'];
-                    //                     echo
-                    //                          "<p class='received'>
-                    //                               <span class='receive'>$message</span>
-                    //                               <span class='time2'>$time</span>
-                    //                          </p><br>";
-                    //           }
-                    //           else{
-                    //                echo
-                    //                     "<p class='received'>
-                    //                          <span style='display: none;'>message</span>
-                    //                     </p><br>";
-                    //           }
-                    //      }
-                    // }
-                    
+                    }                    
                ?>
           </div>
           <div class="message">
                <?php echo "<form action='message.php?uname=$uname' method='POST' enctype='multipart/form-data' name='meseji' class='sms'>";?>
                     <input type="text" name="ujumbe" class="msg">
+                    <?php echo "<input type='text' id='mess' style='display: none;' value='$message'>";?>
                     <button onclick="msg()" class="sendbtn" id="go" name="send"><img src="media/icons/send-button.png" class="sendpic"></button>
                </form>
           </div>
@@ -136,6 +139,12 @@
           // message2.onclick = function(){
           //      time2.classList.toggle('open');
           // }
+
+          let timeValue = document.getElementById("time").value;
+          let msgval = document.getElementById("mess").value;
+
+          console.log(msgval);
+
      </script>
 </body>
 </html>

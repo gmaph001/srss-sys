@@ -7,11 +7,11 @@
 }
 .navigation {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #07004a;
     padding: 8px;
     width: 100%;
-    justify-content: space-between;
-    align-items: center;
     position: fixed;
     top: 0;
     z-index: 100;
