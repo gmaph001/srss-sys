@@ -76,7 +76,7 @@ body{
      width: 15vw;
      align-items: center;
      justify-content: space-between;
-     animation: jioneshe 1s 1.5s ease-in normal both;
+     animation: jioneshe 1s 1.6s ease-in normal both;
 }
 .chat-dp{
      width: 60px;
@@ -111,7 +111,7 @@ body{
      min-height: 70vh;
 }
 .chat-block{
-     width: 87vw;
+     width: 92%;
      position: relative;
      height: max-content;
      margin-bottom: 3vh;

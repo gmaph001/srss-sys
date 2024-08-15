@@ -135,23 +135,29 @@ $uname = $_GET['uname'];
                         if($result){        
                             for($i = 0; $i<mysqli_num_rows($result); $i++){
                                 $row = mysqli_fetch_array($result);
+                                if($full<100){
+                                    $full++;
                     
-                                if($row['news_class'] === "sports"){
-                                    $news = $row['news_main'];
-                                    $date = $row['news_date'];
-                                    echo 
-                                        "
-                                        <p>
-                                            <b>
-                                                $news
-                                            </b>
-                                        </p>
-                                        <p class='date'>
-                                            <b>
-                                                ($date)
-                                            </b>
-                                        </p><br><br>
-                                        ";
+                                    if($row['news_class'] === "sports"){
+                                        $news = $row['news_main'];
+                                        $date = $row['news_date'];
+                                        echo 
+                                            "
+                                            <p>
+                                                <b>
+                                                    $news
+                                                </b>
+                                            </p>
+                                            <p class='date'>
+                                                <b>
+                                                    ($date)
+                                                </b>
+                                            </p><br><br>
+                                            ";
+                                    }
+                                }
+                                else{
+                                    break;
                                 }
                             }
                         }

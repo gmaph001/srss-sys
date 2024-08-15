@@ -19,11 +19,12 @@
                          $announcer_name = $_POST['announcer_name'];
                          $announcer_rank = $_POST['announcer_rank'];
                          $news_class = $_POST['news_class'];
+                         $headline = $_POST['headline'];
                          $news = $_POST['news'];
                          $news_date = $_POST['date'];
                          $update = $_POST['update'];
 
-                         $query = "INSERT INTO news(announcer_rank, announcer_name, news_class, news_main, news_date, news_updates) VALUES('$announcer_rank', '$announcer_name', '$news_class', '$news', '$news_date', '$update')";
+                         $query = "INSERT INTO news(announcer_rank, announcer_name, news_class, headline, news_main, news_date, news_updates) VALUES('$announcer_rank', '$announcer_name', '$news_class', '$headline' '$news', '$news_date', '$update')";
                                   
                          $result = mysqli_query($db, $query);
 
@@ -31,8 +32,7 @@
                               require_once "config.php";
                               $uname = $_GET['uname'];
                               echo "<p>Upload Successful</p>";
-                              echo "<p>You can now continue as normal user!</p>";
-                              echo "<p><a href='home.php?uname=$uname'>User</a></p><br>";
+                              echo "<p>You can now continue as normal <a href='news.php?uname=$uname'>User</a>!</p>";
                          }
                          else{
 

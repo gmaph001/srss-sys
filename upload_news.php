@@ -30,8 +30,10 @@
                               <option value="sports">SPORTS</option>
                          </select><br>
                          <p id="result3"></p><br>
-                         <label><b>News: </b></label><br>
-                         <textarea cols="40" rows="10" name="news"></textarea><br>
+                         <label><b>News: </b></label><br><br>
+                         <input type="text" name="headline" id="hline" placeholder="headline"><br>
+                         <p id="headmiss"></p><br>
+                         <textarea cols="40" rows="10" name="news" class="news_exp" placeholder="Insert the details of the news here..."></textarea><br>
                          <p id="result4"></p><br>
                          <label>
                               Is this news an update?
@@ -56,6 +58,9 @@
           let result4 = "Please input news!";
           let result5 = "Please tell us if it is an update!";
           let result6 = "Please input date!";
+          let headmiss = "Please insert your headline!";
+
+          let headline = document.getElementById("hline").value.length;
 
           let news_date;
 
@@ -75,6 +80,8 @@
 
           function send(){
 
+               console.log(headline);
+
                if(document.upload.announcer_name.value == ""){
                     document.getElementById("result").innerHTML = result;
                     event.preventDefault();
@@ -90,10 +97,20 @@
                     event.preventDefault();
                }
 
+               if(document.upload.headline.value == ""){
+                    document.getElementById("headmiss").innerHTML = headmiss;
+               }
+
+               if(document.upload.headline.value.length>100){
+                    document.getElementById("headmiss").innerHTML = "Headline is too long!";
+               }
+
                if(document.upload.news.value == ""){
                     document.getElementById("result4").innerHTML = result4;
                     event.preventDefault();
                }
+
+
                if(document.upload.update.value == ""){
                     document.getElementById("result5").innerHTML = result5;
                     event.preventDefault();
