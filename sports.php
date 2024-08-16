@@ -4,7 +4,6 @@ require_once "config.php";
 $uname = $_GET['uname'];
 
     $query = "SELECT * FROM news";
-
     $result = mysqli_query($db, $query);
 
     $empty;
@@ -54,7 +53,7 @@ $uname = $_GET['uname'];
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-<nav class="navigation">
+    <nav class="navigation">
         <div class="pics">
             <img src="media/images/srss-og.png" alt="shaaban robert logo" id="logo-img">
             <?php 
@@ -99,13 +98,135 @@ $uname = $_GET['uname'];
                 <li><a href="index.php">Student</a></li>
                 <li><?php echo "<a href='leaders.php?uname=$uname'>Admin</a></li>";?>
         </div>
-    </nav>
-    <div class="sub_menu">
-        <ul>
-            <li><?php echo "<a href='leaders.php?uname=$uname'>Admin</a></li>";?>
-            <li><a href="index.php"><b>Student</b></a></li>
-        </ul>
+    </nav>        
+    <div class="body">
+        <div class="sub_menu">
+            <ul>
+                <li><?php echo "<a href='leaders.php?uname=$uname'>Admin</a></li>";?>
+                <li><a href="index.php"><b>Student</b></a></li>
+            </ul>
+        </div>
+        <div class="update">
+                    <?php
+                        if($result){
+                            for($i=0; $i<mysqli_num_rows($result); $i++){
+                                $row = mysqli_fetch_array($result);
+
+                                if($row['news_class'] === "sports"){
+                                    if($row['news_updates'] === "important"){
+                                        $headline = $row['headline'];
+                                        $photo = $row['news_photo'];
+                                        echo 
+                                            "
+                                                <div class='updatednews'>   
+                                                    <div class='updatephoto'>
+                                                        <img src='$photo' class='updatepic'>
+                                                    </div>
+                                                    <div class='update-headline'>
+                                                        <p>
+                                                            <a href='newsInfo.php?uname=$uname'>$headline</a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class='read-more'>
+                                                    <div class='read-more'>
+                                                        <a href='newsInfo.php?uname=$uname' class='read-more-button'>Read More...</a>
+                                                    </div>
+                                                </div>
+                                            ";
+                                    }
+                                }
+                            }
+                        }
+                    ?>
+        </div>
+        <div class="other-news">
+            <?php
+
+                if($result){
+                    for($i=0; $i<mysqli_num_rows($result); $i++){
+                        $row = mysqli_fetch_array($result);
+                        if($row['news_class'] === "sports"){
+                            $headline = $row['headline'];
+                            $date = $row['news_date'];
+                            $photo = $row['news_photo'];
+
+                            echo 
+                                "
+                                    <a href='newsInfo.php?uname=$uname' class='news-link'>
+                                        <div class='news'>
+                                            <img src='$photo' class='news-photo'>
+                                            <div class='news-headline'>
+                                                <p class='headline'>
+                                                    $headline
+                                                </p>
+                                                <p class='news-date'>
+                                                    $date
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                ";
+                        }
+                    }
+                }
+
+            ?>
+        </div>
     </div>
+    <div class="footer">
+        <p>
+            For any inquiry and suggestions about this website, please leave your comment below:
+        </p><br>
+        <form action="https://formspree.io/f/mwkgkgbv" method="POST" name="myForm">
+            <fieldset>
+                <label><b>Name:</b></label>&nbsp; <input type="text" name="name" id="fname"><br><br>
+                <label><b>Email:</b></label>&nbsp; <input type="text" name="email" id="email"><br><br>
+                <label><b>Suggestions:</b></label><br><br>
+                <textarea name="suggestions" cols="15" rows="5" maxlength="500"></textarea><br><br>
+                <button><b>Send</b></button>
+            </fieldset>
+        </form><br><br>
+        <p class="foot"><b>&copy; Shaaban Robert Secondary School 2023.</b></p>
+    </div>
+    <?php
+    echo "
+        <div class='bottom'>
+            <div class='bottom-home'>
+                <a href='home.php?uname=$uname' class='home'>
+                        <img src='media/icons/home.png' class='icon'>
+                </a>
+            </div>
+            <div class='bottom-nav'>
+                <ul type='none'>
+                        <li>
+                            <a href='news.php?uname=$uname' class='buttons'>
+                                <img src='media/icons/news.png' class='icon'>  
+                                <p>News</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href='notes.php?uname=$uname' class='buttons' id='left'>
+                                <img src='media/icons/notes.png' class='icon'>  
+                                <p>Notes</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href='check3.php?uname=$uname' class='buttons' id='right'>
+                                <img src='media/icons/assignment.png' class='icon'>  
+                                <p>Assignments</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href='user.php?uname=$uname' class='buttons'>
+                                <img src='media/icons/user.png' class='icon'>  
+                                <p>Login</p>
+                            </a>
+                        </li>
+                </ul>
+            </div>
+        </div>";
+    ?>
     <script>
         let menubtn = document.querySelector('.vertical_menu');
         let dropdownlist = document.querySelector('.dropdown_menu');
@@ -120,115 +241,5 @@ $uname = $_GET['uname'];
             submenu.classList.toggle('open');
         }
     </script>
-        <div class="heading">
-          <div class="heading-wrd">
-               <p>Sports!!!</p>
-          </div>
-        </div>
-        <div class="body">
-            <div class="announcements">
-                <div class="announcement01">
-                    <img src="media/images/sports.jpg" class="pic1">
-                </div>
-                <div class="announcement-wrd01">
-                    <?php
-                        if($result){        
-                            for($i = 0; $i<mysqli_num_rows($result); $i++){
-                                $row = mysqli_fetch_array($result);
-                                if($full<100){
-                                    $full++;
-                    
-                                    if($row['news_class'] === "sports"){
-                                        $news = $row['news_main'];
-                                        $date = $row['news_date'];
-                                        echo 
-                                            "
-                                            <p>
-                                                <b>
-                                                    $news
-                                                </b>
-                                            </p>
-                                            <p class='date'>
-                                                <b>
-                                                    ($date)
-                                                </b>
-                                            </p><br><br>
-                                            ";
-                                    }
-                                }
-                                else{
-                                    break;
-                                }
-                            }
-                        }
-                        else{
-                            $news = "There is no any new announcement in this category!";
-                            echo 
-                                "
-                                <p>
-                                    <b>
-                                        $news
-                                    </b>
-                                </p>
-                                ";
-                        }
-                    ?>
-               </div>
-            </div>
-        </div>
-        </div>
-        <div class="footer">
-            <p>
-                For any inquiry and suggestions about this website, please leave your comment below:
-            </p><br>
-            <form action="https://formspree.io/f/mwkgkgbv" method="POST" name="myForm">
-                <fieldset>
-                    <label><b>Name:</b></label>&nbsp; <input type="text" name="name" id="fname"><br><br>
-                    <label><b>Email:</b></label>&nbsp; <input type="text" name="email" id="email"><br><br>
-                    <label><b>Suggestions:</b></label><br><br>
-                    <textarea name="suggestions" cols="15" rows="5" maxlength="500"></textarea><br><br>
-                    <button><b>Send</b></button>
-                </fieldset>
-            </form><br><br>
-            <p class="foot"><b>&copy; Shaaban Robert Secondary School 2023.</b></p>
-        </div>
-        <?php
-        echo "
-            <div class='bottom'>
-                <div class='bottom-home'>
-                    <a href='home.php?uname=$uname' class='home'>
-                            <img src='media/icons/home.png' class='icon'>
-                    </a>
-                </div>
-                <div class='bottom-nav'>
-                    <ul type='none'>
-                            <li>
-                                <a href='news.php?uname=$uname' class='buttons'>
-                                    <img src='media/icons/news.png' class='icon'>  
-                                    <p>News</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href='notes.php?uname=$uname' class='buttons' id='left'>
-                                    <img src='media/icons/notes.png' class='icon'>  
-                                    <p>Notes</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href='check3.php?uname=$uname' class='buttons' id='right'>
-                                    <img src='media/icons/assignment.png' class='icon'>  
-                                    <p>Assignments</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href='user.php?uname=$uname' class='buttons'>
-                                    <img src='media/icons/user.png' class='icon'>  
-                                    <p>Login</p>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>";
-    ?>
    </body>
    </html>

@@ -1,0 +1,21 @@
+body{
+     overflow-x: hidden;
+}
+.body{
+     padding: 25vh 20vw 15vh 20vw;
+     background-image: url("media/images/instagram-background.jpg");
+     background-size: cover;
+     background-position: center;
+}
+.details{
+     background-color: aliceblue;
+     color: black;
+     font-family: candara;
+     font-size: 14pt;
+     padding: 5%;
+     border-radius: 30px;
+     box-shadow: 0px 0px 15px 15px rgba(169, 101, 101, 0.542);
+}
+.details p{
+     color: black;
+}
