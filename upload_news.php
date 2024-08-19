@@ -76,6 +76,11 @@
           let headline = document.getElementById("hline").value.length;
           let photo = document.getElementById("photo");
           let n = 1;
+          let news = document.upload.news.value;
+
+          if(news.includes("'")){
+               
+          }
 
           let news_date;
           console.log(n);

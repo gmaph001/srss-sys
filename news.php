@@ -142,7 +142,7 @@
                                     }
                                     else{
                                         $news = "There is no any new announcement in this category!";
-                                        echo "<p>$news</p><br>";
+                                        echo "<p><a href='#'>$news</a></p><br>";
                                     }
                                 ?>
                             </b>
