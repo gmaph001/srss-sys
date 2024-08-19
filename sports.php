@@ -6,6 +6,30 @@ $uname = $_GET['uname'];
     $query = "SELECT * FROM news";
     $result = mysqli_query($db, $query);
 
+    $size = 0;
+
+    $headline = [];
+    $news = [];
+    $photo = [];
+    $news_id = [];
+
+    if($result){
+        for($i=0; $i<mysqli_num_rows($result); $i++){
+            $row = mysqli_fetch_array($result);
+            
+            if($row['news_class'] === "sports"){
+                if($row['news_updates'] === "important"){
+                    $size++;
+                    $headline[$size] = $row['headline'];
+                    $news[$size] = $row['news_main'];
+                    $photo[$size] = $row['news_photo'];
+                    $news_id[$size] = $row['news_no'];
+                }
+            }
+        }
+    }
+
+
     $empty;
     $full = 0;
 
@@ -48,7 +72,7 @@ $uname = $_GET['uname'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SRSS | News-Sports</title>
     <link rel="stylesheet" href="navBar.css">
-    <link rel="stylesheet" href="sports.css">
+    <link rel="stylesheet" href="news-category.css">
     <link rel="icon" type="image/x-icon" href="media/images/srss-logo.jfif">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
@@ -108,54 +132,49 @@ $uname = $_GET['uname'];
         </div>
         <div class="update">
                     <?php
-                        if($result){
-                            for($i=0; $i<mysqli_num_rows($result); $i++){
-                                $row = mysqli_fetch_array($result);
-
-                                if($row['news_class'] === "sports"){
-                                    if($row['news_updates'] === "important"){
-                                        $headline = $row['headline'];
-                                        $photo = $row['news_photo'];
-                                        echo 
-                                            "
-                                                <div class='updatednews'>   
-                                                    <div class='updatephoto'>
-                                                        <img src='$photo' class='updatepic'>
-                                                    </div>
-                                                    <div class='update-headline'>
-                                                        <p>
-                                                            <a href='newsInfo.php?uname=$uname'>$headline</a>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div class='read-more'>
-                                                    <div class='read-more'>
-                                                        <a href='newsInfo.php?uname=$uname' class='read-more-button'>Read More...</a>
-                                                    </div>
-                                                </div>
-                                            ";
-                                    }
+                            for($i=sizeof($headline); $i>0; $i--){
+                                echo 
+                                    "
+                                    <div class='updated'>
+                                        <div class='updatednews'>   
+                                            <div class='updatephoto'>
+                                                <img src='$photo[$i]' class='updatepic'>
+                                            </div><br>
+                                            <div class='update-headline'>
+                                                <p>
+                                                    <a href='newsInfo.php?uname=$uname&&news=$news_id[$i]'>$headline[$i]</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class='read-more'>
+                                            <div class='read-more'>
+                                                    <a href='newsInfo.php?uname=$uname&&news=$news_id[$i]' class='read-more-button'>Read More ...</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    ";   
                                 }
-                            }
-                        }
                     ?>
         </div>
         <div class="other-news">
             <?php
-
+                $query = "SELECT * FROM news";
+                $result = mysqli_query($db, $query);
                 if($result){
                     for($i=0; $i<mysqli_num_rows($result); $i++){
                         $row = mysqli_fetch_array($result);
+
                         if($row['news_class'] === "sports"){
                             $headline = $row['headline'];
                             $date = $row['news_date'];
                             $photo = $row['news_photo'];
+                            $news = $row['news_no'];
 
                             echo 
                                 "
-                                    <a href='newsInfo.php?uname=$uname' class='news-link'>
+                                    <a href='newsInfo.php?uname=$uname&&news=$news' class='news-link'>
                                         <div class='news'>
-                                            <img src='$photo' class='news-photo'>
+                                            <button><img src='$photo' class='news-photo'></button>
                                             <div class='news-headline'>
                                                 <p class='headline'>
                                                     $headline
@@ -170,7 +189,15 @@ $uname = $_GET['uname'];
                         }
                     }
                 }
-
+                else{
+                    echo 
+                        "
+                            <p class='headline'>
+                                There is no any news!
+                            </p>
+                                                
+                        ";
+                }
             ?>
         </div>
     </div>

@@ -3,39 +3,38 @@
     require_once "config.php";
 
     $query = "SELECT * FROM news";
-
     $result = mysqli_query($db, $query);
 
+    $size = 0;
+    $n = 0;
+
+    $headline = [];
     $news = [];
 
-    $empty;
-
-    if(mysqli_num_rows($result) > 0){        
-        for($i = 0; $i<mysqli_num_rows($result); $i++){
+    if($result){
+        for($i=0; $i<mysqli_num_rows($result); $i++){
             $row = mysqli_fetch_array($result);
 
             if($row['news_updates'] === "important"){
-                $news[$i] = $row['news_main'];
+                $size++;
+                $headline[$size] = $row['headline'];
+                $news[$size] = $row['news_class'];
             }
-            $empty = $news;
         }
-    }
-    else{
-        $news = ["There is no any new announcement in this category!"];
-    }
+    }    
 
     $uname = $_GET['uname'];
     $rank = 0;
 
-    $query = "SELECT * FROM students";
+    $query1 = "SELECT * FROM students";
     $query2 = "SELECT * FROM admin";
 
-    $result = mysqli_query($db, $query);
+    $result1 = mysqli_query($db, $query1);
     $result2 = mysqli_query($db, $query2);
 
-    if ($result) {
-        for($i=0; $i<mysqli_num_rows($result); $i++){
-            $row = mysqli_fetch_array($result);
+    if ($result1) {
+        for($i=0; $i<mysqli_num_rows($result1); $i++){
+            $row = mysqli_fetch_array($result1);
 
             if($row['userkey'] === $uname){
                 $dp = $row['photo'];
@@ -130,8 +129,20 @@
                         <p>
                             <b>
                                 <?php
-                                    for($i=0; $i<sizeof($news); $i++){
-                                        echo "<p>$news[$i]</p><br>";
+                                    if(sizeof($headline) > 0){        
+                                        for($i = sizeof($headline); $i>0; $i--){
+                                            if($n != 5){
+                                                echo "<p><a href='$news[$i].php?uname=$uname'>$headline[$i]</a></p><br>";
+                                                $n++;
+                                            }
+                                            else{
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    else{
+                                        $news = "There is no any new announcement in this category!";
+                                        echo "<p>$news</p><br>";
                                     }
                                 ?>
                             </b>

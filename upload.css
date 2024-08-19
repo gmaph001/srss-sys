@@ -304,6 +304,33 @@ a:active{
      transition: 0.2s ease-in-out;
      zoom: 105%;
 }
+.upload-photo{
+     display: none;
+}
+.upload-photo.open{
+     display: block;
+}
+.upload-photo.close{
+     display: none;
+}
+.photo-input{
+     display: none;
+}
+.photo-input.open{
+     display: block;
+}
+.photo-input.close{
+     display: none;
+}
+#resul8{
+     display: none;
+}
+#result8.open{
+     display: block;
+}
+#result8.close{
+     display: none;
+}
 @keyframes sliding {
      from{
           width: 0vw;

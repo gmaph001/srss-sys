@@ -19,3 +19,8 @@ body{
 .details p{
      color: black;
 }
+@media(max-width: 800px){
+     .body{
+          padding: 25vh 10vw 10vh 10vw
+     }
+}

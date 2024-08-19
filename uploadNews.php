@@ -13,8 +13,8 @@
           <div class="title"></div><br><br>
           <div class="registration-success">
                <?php
-                    require_once "config.php";
                     if(isset($_POST['upload'])){
+                         require_once ("config.php");
 
                          $announcer_name = $_POST['announcer_name'];
                          $announcer_rank = $_POST['announcer_rank'];
@@ -23,8 +23,17 @@
                          $news = $_POST['news'];
                          $news_date = $_POST['date'];
                          $update = $_POST['update'];
+                         $photo = $_FILES['photo']['name'];
+                         $news_photo = $_FILES['photo']['tmp_name'];
 
-                         $query = "INSERT INTO news(announcer_rank, announcer_name, news_class, headline, news_main, news_date, news_updates) VALUES('$announcer_rank', '$announcer_name', '$news_class', '$headline' '$news', '$news_date', '$update')";
+                         $news_pic = 'media/images/news/'.$photo;
+                         $folder = "media/images/news/".$photo;
+
+                         move_uploaded_file($news_photo, $folder);
+
+                         echo $news_pic;
+
+                         $query = "INSERT INTO news(announcer_rank, announcer_name, news_class, headline, news_main, news_date, news_updates, news_photo) VALUES('$announcer_rank', '$announcer_name', '$news_class', '$headline', '$news', '$news_date', '$update', '$news_pic')";
                                   
                          $result = mysqli_query($db, $query);
 

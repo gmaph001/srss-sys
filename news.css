@@ -54,11 +54,12 @@ h1#update{
 .announcement:hover{
     background-color: darkblue;
 }
-.announcement p{
+.announcement p a{
     color: rgb(0, 181, 27);
+    text-decoration: none;
     transition: 0.5s;
 }
-.announcement p:hover{
+.announcement p a:hover{
     font-size: 102%;
     color: white;
 }
