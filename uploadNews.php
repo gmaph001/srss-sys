@@ -33,16 +33,7 @@
 
                          echo $news_pic;
 
-                         $size = strlen($news);
-
-                         for($i=0; $i<$size; $i++){
-                              echo $news[$i]."<br>";
-                              if($news[$i] === "'"){
-                                   $news[$i] = '\'';
-                                   echo $news[$i];
-                              }
-                         }
-                         echo $news;
+                         
                          $news = mysqli_real_escape_string($db, $news);
 
                          $query = "INSERT INTO news(announcer_rank, announcer_name, news_class, headline, news_main, news_date, news_updates, news_photo) VALUES('$announcer_rank', '$announcer_name', '$news_class', '$headline', '$news', '$news_date', '$update', '$news_pic')";

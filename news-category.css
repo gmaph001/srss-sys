@@ -3,7 +3,7 @@ body{
 }
 .body{
      padding-top: 17vh;
-     background-color: aliceblue;
+     background-color: rgba(90, 178, 255, 0.616);
 }
 .update{
      display: flex;
@@ -73,7 +73,7 @@ body{
      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
      column-gap: 1vw;
      padding: 2%;
-     background-color: whitesmoke;
+     background-color: rgb(194, 194, 255);
      color: black;
 }
 .news-link{
