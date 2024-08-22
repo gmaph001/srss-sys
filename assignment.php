@@ -10,16 +10,25 @@
      $result = mysqli_query($db, $query);
      $result2 = mysqli_query($db, $query2);
 
+     $size = 0;
+
      
-     $assignment_no;
-     $assignment;
-     $subjectname;
-     $subject;
-     $due;
-     $assign;
-     $day = date('Y-m-d');
-     $today = filter_var($day, FILTER_SANITIZE_NUMBER_INT);
+     $assignment_no[$size] = [];
+     $assignment[$size] = [];
+     $subjectname[$size] = [];
+     $subject[$size] = [];
+     $due[$size] = [];
+     $assign[$size] = [];
+     $date = date_default_timezone_set('Africa/Nairobi');
+     if($date){
+          $day = date('Y-m-d');
+          $today = filter_var($day, FILTER_SANITIZE_NUMBER_INT);
+     }
+     else{
+          $today = "Error in timezone";
+     }
      $subject_no = 0;
+
 
      if($result2){
           for($i=0; $i<mysqli_num_rows($result2); $i++){
@@ -35,13 +44,28 @@
      else{
           header('location:home.php?uname='.$uname);
      }
+
+     if($result){
+          for($i=0; $i<mysqli_num_rows($result); $i++){
+               $row = mysqli_fetch_array($result);
+               if($class === $row['class'] && $stream === $row['stream']){
+                    $size++;
+                    $assignment_no[$size] = $row['assign_ID'];
+                    $assignment[$size] = $row['assignment'];
+                    $subject[$size] = strtoupper($row['subject']);
+                    $subjectname[$size] = strtolower($row['subject']);
+                    $due[$size] = $row['due_date'];
+                    $assign[$size] = $row['assign_date'];
+               }
+          }
+     }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SRSS | Home</title>
+    <title>SRSS | Assignments</title>
     <link rel="stylesheet" href="navBar.css">
     <link rel="stylesheet" href="assignment.css">
     <link rel="icon" type="image/x-icon" href="media/images/srss-logo.jfif">
@@ -89,17 +113,9 @@
           </div>
           <div class="assignments">
                <?php
-                    for($i=0; $i<mysqli_num_rows($result); $i++){
-                         $row = mysqli_fetch_array($result);
-                         if($class === $row['class'] && $stream === $row['stream']){
-                              $assignment_no = $row['assign_ID'];
-                              $assignment = $row['assignment'];
-                              $subject = strtoupper($row['subject']);
-                              $subjectname = strtolower($row['subject']);
-                              $assign = $row['assign_date'];
-                              $due = $row['due_date'];
-
-                              $date = filter_var($due, FILTER_SANITIZE_NUMBER_INT);
+                    if($size > 0){
+                         for($i=$size; $i>0; $i--){
+                              $date = filter_var($due[$i], FILTER_SANITIZE_NUMBER_INT);
 
                               if($today<=$date){
                                    $subject_no++;
@@ -114,28 +130,27 @@
                          echo 
                          "
                               <div class='assign'>
-                                   <div class='$subjectname'>
+                                   <div class='$subjectname[$i]'>
                                         <div class='subjectname'>
-                                             <a href='$assignment' target='_blank' style='text-decoration: none'>$subject</a>
+                                             <a href='$assignment[$i]' target='_blank' style='text-decoration: none'>$subject[$i]</a>
                                         </div>
                                    </div>
                                    <div class='details'>
                                         <div class='subjectname'>
-                                             <p>Assignment ID: $assignment_no</p>
+                                             <p>Assignment ID: $assignment_no[$i]</p>
                                         </div>
                                         <div class='dates'>
                                              <div class='assigned'>
-                                                  Assigned: $assign
+                                                  Assigned: $assign[$i]
                                              </div>
                                              <div class='due'>
-                                                  Due: $due
+                                                  Due: $due[$i]
                                              </div>
                                         </div>
                                    </div>
                               </div>
                          ";
                          }
-                         
                     }
                ?>
           </div>
@@ -147,6 +162,7 @@
                                    <div class='header'>
                                         <p id='notifheader'>Notification</p>
                                         <p id='notification'>Your have $subject_no pending assignments!</p>
+                                        <p id='notification'>Today's date is $today</p>
                                    </div>
                               </div>
                          ";

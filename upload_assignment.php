@@ -4,6 +4,8 @@
 
      error_reporting(0);
 
+     $uname = $_GET['uname'];
+
 
      if(isset($_POST['upload'])){
 
@@ -64,10 +66,18 @@
 
                     if($result){
                          echo "Your assignment to $stream2[$k] is uploaded successfully";
+                         $errors = true;
                     }
                     else{
                          echo "Upload for $stream2[$k] failed!";
                     }
                } 
           }
+
+          // if($errors){
+          //      header('location:home.php?uname='.$uname);
+          // }
+          // else{
+          //      echo "Upload for $stream2[$k] failed!"; 
+          // }
      }
