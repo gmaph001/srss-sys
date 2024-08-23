@@ -15,6 +15,17 @@
      $result1 = mysqli_query($db, $query1);
      $result2 = mysqli_query($db, $query2);
 
+     if($result){
+          for($i=0; $i<mysqli_num_rows($result); $i++){
+               $row = mysqli_fetch_array($result);
+               if($news === $row['news_no']){
+                    $news_main = $row['news_main'];
+                    $announcerID = $row['announcer_ID'];
+                    $announcerName = $row['announcer_name'];
+               }
+          }
+     }
+
      if ($result1) {
           for($i=0; $i<mysqli_num_rows($result1); $i++){
                $row = mysqli_fetch_array($result1);
@@ -31,6 +42,31 @@
                if($row['userkey'] === $uname){
                     $dp = $row['photo'];
                     $rank = $row['rank'];
+               }
+               if($row['userkey'] === $announcerID){
+                    $dp2 = $row['photo'];
+                    $rank2 = $row['rank'];
+                    if($rank2 == 1){
+                         $announcer_rank = "HEADMASTER";
+                    }
+                    else if($rank2 == 2){
+                         $announcer_rank = "DEPUTY HEADMISTRESS";
+                    }
+                    else if($rank2 == 3){
+                         $announcer_rank = "ACADEMIC COORDINATOR";
+                    }
+                    else if($rank2 == 4){
+                         $announcer_rank = "DISCIPLINE MASTER";
+                    }
+                    else if($rank2 == 5){
+                         $announcer_rank = "TEACHER";
+                    }
+                    else if($rank2 == 6){
+                         $announcer_rank = "PREFECT";
+                    }
+                    else{
+                         $announcer_rank = "DEVELOPER";
+                    }
                }
           }
      }
@@ -104,18 +140,22 @@
           </div>
           <div class="details">
                <?php
-                    if($result){
-                         for($i=0; $i<mysqli_num_rows($result); $i++){
-                              $row = mysqli_fetch_array($result);
-                              if($news === $row['news_no']){
-                                   $news_main = $row['news_main'];
-                                   echo 
-                                        "
-                                        <p>$news_main</p>
-                                        ";
-                              }
-                         }
-                    }
+                    echo 
+                         "
+                         <p class='announcer'>
+                              <img src='$dp2' class='announcer-pic'>
+                         </p><br>
+                         <center>
+                              <p class='main-news'>
+                                   $news_main
+                              </p>
+                         </center><br>
+                         <p class='remarks'>
+                              <i>By $announcerName</i><br>
+                              $announcer_rank.
+                         </p>
+                         ";
+                             
                ?>
           </div>
      </div>

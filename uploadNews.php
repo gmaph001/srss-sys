@@ -16,8 +16,23 @@
                     if(isset($_POST['upload'])){
                          require_once ("config.php");
 
-                         $announcer_name = $_POST['announcer_name'];
-                         $announcer_rank = $_POST['announcer_rank'];
+                         $uname = $_GET['uname'];
+
+                         $query1 = "SELECT *  FROM admin";
+                         $result1 = mysqli_query($db, $query1);
+
+                         if($result1){
+                              for($i=0; $i<mysqli_num_rows($result1); $i++){
+                                   $row = mysqli_fetch_array($result1);
+                                   if($uname === $row['userkey']){
+                                        $firstname = $row['firstname'];
+                                        $lastname  = $row['lastname'];
+                                        $announcer_name = "$firstname $lastname";
+                                        $announcer_rank = $row['rank'];
+                                   }
+                              }
+                         }
+
                          $news_class = $_POST['news_class'];
                          $headline = $_POST['headline'];
                          $news = $_POST['news'];
@@ -25,24 +40,21 @@
                          $update = $_POST['update'];
                          $photo = $_FILES['photo']['name'];
                          $news_photo = $_FILES['photo']['tmp_name'];
+                         $announcerID = $uname;
 
                          $news_pic = 'media/images/news/'.$photo;
                          $folder = "media/images/news/".$photo;
 
                          move_uploaded_file($news_photo, $folder);
 
-                         echo $news_pic;
-
                          
                          $news = mysqli_real_escape_string($db, $news);
 
-                         $query = "INSERT INTO news(announcer_rank, announcer_name, news_class, headline, news_main, news_date, news_updates, news_photo) VALUES('$announcer_rank', '$announcer_name', '$news_class', '$headline', '$news', '$news_date', '$update', '$news_pic')";
+                         $query = "INSERT INTO news(announcer_rank, announcer_name, news_class, headline, news_main, news_date, news_updates, news_photo, announcer_ID) VALUES('$announcer_rank', '$announcer_name', '$news_class', '$headline', '$news', '$news_date', '$update', '$news_pic', '$announcerID')";
                                   
                          $result = mysqli_query($db, $query);
 
                          if($result){
-                              require_once "config.php";
-                              $uname = $_GET['uname'];
                               echo "<p>Upload Successful</p>";
                               echo "<p>You can now continue as normal <a href='news.php?uname=$uname'>User</a>!</p>";
                          }

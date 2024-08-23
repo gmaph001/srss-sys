@@ -18,10 +18,6 @@
                <?php echo "<form action='uploadNews.php?uname=$uname' method='POST' name='upload' class='upload' enctype='multipart/form-data'>";?>
                <fieldset>
                          <legend><b>Upload notes</b></legend>
-                         <label><b>Announcer's name: </b></label> <input type="text" name="announcer_name" id="tname"><br>
-                         <p id="result"></p><br>
-                         <label><b>Announcer's rank: </b></label> <input type="text" name="announcer_rank" id="sname"><br>
-                         <p id="result2"></p><br>
                          <label><b>Class of news: </b></label> 
                          <select name="news_class" class="list">
                               <option value="none">SELECT</option>
@@ -63,8 +59,6 @@
           </div>
      </div>
      <script>
-          let result = "Please insert your name!";
-          let result2 = "Please input your rank!";
           let result3 = "Please input the right class!";
           let result4 = "Please input news!";
           let result5 = "Please tell us if it is an update!";
@@ -157,16 +151,6 @@
           function send(){
 
                console.log(headline);
-
-               if(document.upload.announcer_name.value == ""){
-                    document.getElementById("result").innerHTML = result;
-                    event.preventDefault();
-               }
-
-               if(document.upload.announcer_rank.value == ""){
-                    document.getElementById("result2").innerHTML = result2;
-                    event.preventDefault();
-               }
 
                if(document.upload.news_class.value == "none"){
                     document.getElementById("result3").innerHTML = result3;
