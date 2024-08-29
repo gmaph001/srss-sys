@@ -16,10 +16,10 @@
                if($row['userkey'] === $uname){
                     $admin = $row['codename'];
                     if($admin == "PRF"){
-                         include 'failed.php';
+                         include "failed.php?uname=$uname";
                     }
                     else{
-                         include 'upload.html';
+                         include "upload.html";
                     }
                }
           }

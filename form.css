@@ -1,0 +1,94 @@
+*{
+     margin: 0;
+     padding: 0;
+     transition: all 0.4s ease-in-out;
+}
+body{
+     overflow-x: hidden;
+     background-image: url("media/images/instagram-background.jpg");
+     background-size: cover;
+     background-position: center;
+}
+.body{
+     padding: 20vh 35vw;
+     width: 100vw;
+     min-height: 60vh;
+}
+.form{
+     background-color: aliceblue;
+     color: black;
+     padding: 2%;
+     width: fit-content;
+     border-radius: 20px;
+}
+form{
+     width: max-content;
+     margin: auto;
+}
+.input{
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     width: 20vw;
+     background-color: rgb(221, 221, 221);
+     margin-top: 2vh;
+     padding: 5px;
+     border: 2px solid black;
+     border-radius: 5px;
+}
+.input:hover, .input:focus:active{
+     border: 2px solid blue;
+}
+input{
+     border: none;
+     width: 15vw;
+     background-color: transparent;
+     font-size: 14pt;
+}
+input:focus{
+     border: none;
+     outline: none;
+}
+.input .icon{
+     width: 30px;
+     height: 30px;
+}
+.input .pass{
+     cursor: pointer;
+}
+.alert{
+     color: red;
+     font-size: 08pt;
+}
+.sendbtn{
+     margin-top: 2vh;
+     background-color: rgb(17, 0, 255);
+     color: white;
+     width: 21vw;
+     border-radius: 5px;
+     border: none;
+     font-size: 14pt;
+     padding: 2%;
+     cursor: pointer;
+}
+.sendbtn:hover{
+     background-color: rgb(0, 105, 0);
+}
+@media(max-width: 1100px){
+     .body{
+          width: 90vw;
+          padding: 20vh 5vw;
+     }
+     .form{
+          padding: 3%;
+     }
+     .input{
+          width: 80vw;
+     }
+     input{
+          width: 50vw;
+     }
+     .sendbtn{
+          width: 100%;
+     }
+}

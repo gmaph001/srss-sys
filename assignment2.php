@@ -10,30 +10,39 @@
      $result = mysqli_query($db, $query);
      $result2 = mysqli_query($db, $query2);
 
+     $size = 0;
+
      
-     $assignment_no;
-     $assignment;
-     $subjectname;
-     $subject;
-     $due;
-     $assign;
-     $day = date('Y-m-d');
-     $today = filter_var($day, FILTER_SANITIZE_NUMBER_INT);
+     $assignment_no[$size] = [];
+     $assignment[$size] = [];
+     $subjectname[$size] = [];
+     $subject[$size] = [];
+     $due[$size] = [];
+     $assign[$size] = [];
+     $date = date_default_timezone_set('Africa/Nairobi');
+     if($date){
+          $day = date('Y-m-d');
+          $today = filter_var($day, FILTER_SANITIZE_NUMBER_INT);
+     }
+     else{
+          $today = "Error in timezone";
+     }
      $subject_no = 0;
-     $rank;
+
+
 
      if($result2){
           for($i=0; $i<mysqli_num_rows($result2); $i++){
                $admin = mysqli_fetch_array($result2);
 
                if($uname === $admin['userkey']){
-                    $subject = $admin['subject'];
+                    $somo = $admin['subject'];
                     $dp = $admin['photo'];
                     $rank = $admin['rank'];
                }
           }
           if($rank <= 3){
-               $subject = "ALL";
+               $somo = "ALL";
           }
      }
      else{
@@ -44,13 +53,40 @@
                header('location:home.php?uname='.$uname);
           }
      }
+
+     if($result){
+          for($i=0; $i<mysqli_num_rows($result); $i++){
+               $row = mysqli_fetch_array($result);
+
+               if($somo === $row['subject']){
+                    $assignment_no[$size] = $row['assign_ID'];
+                    $assignment[$size] = $row['assignment'];
+                    $subject[$size] = strtoupper($row['subject']);
+                    $subjectname[$size] = strtolower($row['subject']);
+                    $assign[$size] = $row['assign_date'];
+                    $due[$size] = $row['due_date'];
+
+                    $size++;
+               }
+               elseif ($somo === "ALL") {
+                    $assignment_no[$size] = $row['assign_ID'];
+                    $assignment[$size] = $row['assignment'];
+                    $subject[$size] = strtoupper($row['subject']);
+                    $subjectname[$size] = strtolower($row['subject']);
+                    $assign[$size] = $row['assign_date'];
+                    $due[$size] = $row['due_date'];
+
+                    $size++;
+               }
+          }
+     }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SRSS | Home</title>
+    <title>SRSS | Assignments</title>
     <link rel="stylesheet" href="navBar.css">
     <link rel="stylesheet" href="assignment.css">
     <link rel="icon" type="image/x-icon" href="media/images/srss-logo.jfif">
@@ -98,101 +134,43 @@
           </div>
           <div class="assignments">
                <?php
-                    // echo "$subject";
-                    // echo "$rank";
-                    if($subject === "ALL"){
-                         for($i=0; $i<mysqli_num_rows($result); $i++){
-                              $row = mysqli_fetch_array($result);
-                                   $assignment_no = $row['assign_ID'];
-                                   $assignment = $row['assignment'];
-                                   $subject = strtoupper($row['subject']);
-                                   $subjectname = strtolower($row['subject']);
-                                   $assign = $row['assign_date'];
-                                   $due = $row['due_date'];
+                    if($size > 0){
+                         for($i=$size-1; $i>0; $i--){
+                              $date = filter_var($due[$i], FILTER_SANITIZE_NUMBER_INT);
 
-                                   $date = filter_var($due, FILTER_SANITIZE_NUMBER_INT);
-
-                                   if($today<=$date){
-                                        $subject_no++;
-                                        echo "
-                                                  <script>
-                                                       let due = document.querySelector('due');
-                                                       due.style.color = black;
-                                                  </script>
-                                             ";
-                                   }
-                                   echo 
-                                   "
-                                        <div class='assign'>
-                                             <div class='$subjectname'>
-                                                  <div class='subjectname'>
-                                                       <a href='$assignment' target='_blank' style='text-decoration: none'>$subject</a>
-                                                  </div>
-                                             </div>
-                                             <div class='details'>
-                                                  <div class='subjectname'>
-                                                       <p>Assignment ID: $assignment_no</p>
-                                                  </div>
-                                                  <div class='dates'>
-                                                       <div class='assigned'>
-                                                            Assigned: $assign
-                                                       </div>
-                                                       <div class='due'>
-                                                            Due: $due
-                                                       </div>
-                                                  </div>
-                                             </div>
+                              if($today<=$date){
+                                   $subject_no++;
+                                   echo "
+                                             <script>
+                                                  let due = document.querySelector('due');
+                                                  due.style.color = black;
+                                             </script>
+                                        ";
+                              }
+                          
+                         echo 
+                         "
+                              <div class='assign'>
+                                   <div class='$subjectname[$i]'>
+                                        <div class='subjectname'>
+                                             <a href='$assignment[$i]' target='_blank' style='text-decoration: none'>$subject[$i]</a>
                                         </div>
-                                   ";
-                              }   
-                    }
-                    else{
-                         for($i=0; $i<mysqli_num_rows($result); $i++){
-                              $row = mysqli_fetch_array($result);
-                              if($subject === $row['subject']){
-                                   $assignment_no = $row['assign_ID'];
-                                   $assignment = $row['assignment'];
-                                   $subject = strtoupper($row['subject']);
-                                   $subjectname = strtolower($row['subject']);
-                                   $assign = $row['assign_date'];
-                                   $due = $row['due_date'];
-     
-                                   $date = filter_var($due, FILTER_SANITIZE_NUMBER_INT);
-     
-                                   if($today<=$date){
-                                        $subject_no++;
-                                        echo "
-                                                  <script>
-                                                       let due = document.querySelector('due');
-                                                       due.style.color = black;
-                                                  </script>
-                                             ";
-                                   }
-                               
-                              echo 
-                              "
-                                   <div class='assign'>
-                                        <div class='$subjectname'>
-                                             <div class='subjectname'>
-                                                  <a href='$assignment' target='_blank' style='text-decoration: none'>$subject</a>
-                                             </div>
+                                   </div>
+                                   <div class='details'>
+                                        <div class='subjectname'>
+                                             <p>Assignment ID: $assignment_no[$i]</p>
                                         </div>
-                                        <div class='details'>
-                                             <div class='subjectname'>
-                                                  <p>Assignment ID: $assignment_no</p>
+                                        <div class='dates'>
+                                             <div class='assigned'>
+                                                  Assigned: $assign[$i]
                                              </div>
-                                             <div class='dates'>
-                                                  <div class='assigned'>
-                                                       Assigned: $assign
-                                                  </div>
-                                                  <div class='due'>
-                                                       Due: $due
-                                                  </div>
+                                             <div class='due'>
+                                                  Due: $due[$i]
                                              </div>
                                         </div>
                                    </div>
-                              ";
-                              }
+                              </div>
+                         ";
                          }
                     }
                ?>
@@ -204,7 +182,7 @@
                               <div class='notification'>
                                    <div class='header'>
                                         <p id='notifheader'>Notification</p>
-                                        <p id='notification'>Your have $subject_no pending assignments!</p>
+                                        <p id='notification'>There are $subject_no new assignments, not due yet!</p>
                                    </div>
                               </div>
                          ";

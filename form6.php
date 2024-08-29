@@ -7,18 +7,20 @@ $uname = $_GET['uname'];
 
      $result = mysqli_query($db, $query);
 
-     $subject = [];
+     $size = 0;
 
-     $subjectname = [];
+     $notes[$size] = [];
+     $id[$size] = [];
+     $subjectname[$size] = [];
 
 
-     if(mysqli_num_rows($result) > 0){
-          $rows = mysqli_fetch_array($result);
+     if($result){
           for($i=0; $i<mysqli_num_rows($result); $i++){
-
-               $subject[$i] = $rows["notes"];
-               $subjectname[$i] = strtolower($rows["subjectname"]);
-
+                $rows = mysqli_fetch_array($result);
+                $id[$size] = $rows['id'];
+                $notes[$size] = $rows['notes'];
+                $subjectname[$size] = strtolower($rows['subjectname']);
+                $size++;
           }
      }
 
@@ -113,35 +115,23 @@ $uname = $_GET['uname'];
                 <li><?php echo "<a href='leaders.php?uname=$uname'>Admin</a></li>";?>
         </div>
     </nav>
-    <div class="sub_menu">
-        <ul>
-            <li><?php echo "<a href='leaders.php?uname=$uname'>Admin</a></li>";?>
-            <li><a href="index.php"><b>Student</b></a></li>
-        </ul>
-    </div>
-      <script>
-          let menubtn = document.querySelector('.vertical_menu');
-          let dropdownlist = document.querySelector('.dropdown_menu');
-          let multimenu = document.querySelector('.multi_menu');
-          let submenu = document.querySelector('.sub_menu');
-  
-          menubtn.onclick = function(){
-              dropdownlist.classList.toggle('open');
-          }
-  
-          multimenu.onclick = function(){
-              submenu.classList.toggle('open');
-          }
-      </script>
         <div class="body">
+            <div class="sub_menu">
+                <ul>
+                    <li><?php echo "<a href='leaders.php?uname=$uname'>Admin</a></li>";?>
+                    <li><a href="index.php"><b>Student</b></a></li>
+                </ul>
+            </div>
           <div class="classes">
                <div class="row">
                     <?php
-                         for($i=0; $i<sizeof($subject); $i++){
-                              echo "<div class='$subjectname[$i]'>
-                                        <a href='media/documents/$subject[$i]' target='_blank' id='subject'>$subjectname[$i]</a>'
-                                   </div>";       
-                         }
+                        if($size>0){
+                            for($i=$size-1; $i>=0; $i--){
+                                echo "<div class='$subjectname[$i]'>
+                                            <a href='media/documents/$notes[$i]' target='_blank' id='subject'>$subjectname[$i] $id[$i]</a>'
+                                    </div>";       
+                            }
+                        }
                     ?>
                </div>
           </div>
@@ -199,4 +189,18 @@ $uname = $_GET['uname'];
                         </div>";
                 ?>
    </body>
+   <script>
+          let menubtn = document.querySelector('.vertical_menu');
+          let dropdownlist = document.querySelector('.dropdown_menu');
+          let multimenu = document.querySelector('.multi_menu');
+          let submenu = document.querySelector('.sub_menu');
+  
+          menubtn.onclick = function(){
+              dropdownlist.classList.toggle('open');
+          }
+  
+          multimenu.onclick = function(){
+              submenu.classList.toggle('open');
+          }
+      </script>
    </html>

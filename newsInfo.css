@@ -6,11 +6,14 @@
 body{
      overflow-x: hidden;
 }
-.body{
-     padding: 25vh 20vw 15vh 20vw;
+.main{
+     padding-top: 15vh;
      background-image: url("media/images/instagram-background.jpg");
      background-size: cover;
      background-position: center;
+}
+.body{
+     padding: 15vh 20vw 15vh 20vw;
 }
 .details{
      background-color: aliceblue;
@@ -19,6 +22,7 @@ body{
      font-size: 14pt;
      padding: 5%;
      border-radius: 30px;
+     height: max-content;
      box-shadow: 0px 0px 15px 15px rgba(169, 101, 101, 0.542);
 }
 .details p{
@@ -38,8 +42,20 @@ body{
      border: 3px solid #438bff;
      box-shadow: 0px 0px 5px 5px #438bffa0;
 }
+.habari{
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 2%;
+     width: 100%;
+}
+.newsphoto{
+     width: 20vw;
+     height: 100%;
+     border-radius: 20px;
+}
 .main-news{
-     width: 60%;
+     width: 40%;
      margin: 0 auto;
      text-align: justify;
      font-family: baskerville;
@@ -52,5 +68,18 @@ body{
 @media(max-width: 800px){
      .body{
           padding: 25vh 10vw 10vh 10vw
+     }
+     .habari{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+     }
+     .newsphoto{
+          width: 100%
+     }
+     .main-news{
+          width: 100%;
+          margin-top: 2vh;
      }
 }

@@ -22,6 +22,7 @@
                     $news_main = $row['news_main'];
                     $announcerID = $row['announcer_ID'];
                     $announcerName = $row['announcer_name'];
+                    $newsphoto = $row['news_photo'];
                }
           }
      }
@@ -78,7 +79,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SRSS | News-Sports</title>
+    <title>SRSS | News-Info</title>
     <link rel="stylesheet" href="navBar.css">
     <link rel="stylesheet" href="newsInfo.css">
     <link rel="icon" type="image/x-icon" href="media/images/srss-logo.jfif">
@@ -131,32 +132,35 @@
                     <li><?php echo "<a href='leaders.php?uname=$uname'>Admin</a></li>";?>
           </div>
      </nav>
-     <div class="body">
+     <div class="main">
           <div class="sub_menu">
                <ul>
                     <li><?php echo "<a href='leaders.php?uname=$uname'>Admin</a></li>";?>
                     <li><a href="index.php"><b>login</b></a></li>
                </ul>
           </div>
-          <div class="details">
-               <?php
-                    echo 
-                         "
-                         <p class='announcer'>
-                              <img src='$dp2' class='announcer-pic'>
-                         </p><br>
-                         <center>
-                              <p class='main-news'>
-                                   $news_main
+          <div class="body">
+               <div class="details">
+                    <?php
+                         echo 
+                              "
+                              <p class='announcer'>
+                                   <img src='$dp2' class='announcer-pic'>
+                              </p><br>
+                              <div class='habari'>
+                                   <a href='$newsphoto' target='_blank'><img src='$newsphoto' class='newsphoto'></a>
+                                   <p class='main-news'>
+                                        $news_main
+                                   </p>
+                              </div><br>
+                              <p class='remarks'>
+                                   <i>By $announcerName</i><br>
+                                   $announcer_rank.
                               </p>
-                         </center><br>
-                         <p class='remarks'>
-                              <i>By $announcerName</i><br>
-                              $announcer_rank.
-                         </p>
-                         ";
-                             
-               ?>
+                              ";
+                              
+                    ?>
+               </div>
           </div>
      </div>
      <div class="footer">

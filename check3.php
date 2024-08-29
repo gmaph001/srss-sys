@@ -11,7 +11,6 @@
      $result2 = mysqli_query($db, $query2);
 
      $validation1 = false;
-     $validation2 = false;
 
      if($result){
 
@@ -24,23 +23,24 @@
           }
      }
      else{
-
           if($result2){
                for($i=0; $i<mysqli_num_rows($result2); $i++){
                     $row = mysqli_fetch_array($result2);
      
                     if($row['userkey'] === $uname){
-                         $validation2 = true;
+                         if($row['rank']<6){
+                              $validation1 = false;
+                         }
                     }
                }
           }
      }
 
      if($validation1){
-          include "assignment.php";
+          header("location:assignment.php?uname=$uname");
      }
      else{
-          include "assignment2.php";
+          header("location:assignment2.php?uname=$uname");
      }
      // else{
      //      include "failed.php";

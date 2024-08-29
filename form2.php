@@ -7,55 +7,58 @@ $uname = $_GET['uname'];
 
      $result = mysqli_query($db, $query);
 
-     $subject = [];
+     $size = 0;
 
-     $subjectname = [];
+     $notes[$size] = [];
+     $id[$size] = [];
+     $subjectname[$size] = [];
 
 
-     if(mysqli_num_rows($result) > 0){
-          $rows = mysqli_fetch_array($result);
+     if($result){
           for($i=0; $i<mysqli_num_rows($result); $i++){
-
-               $subject[$i] = $rows["notes"];
-               $subjectname[$i] = strtolower($rows["subjectname"]);
-
+                $rows = mysqli_fetch_array($result);
+                $id[$size] = $rows['id'];
+                $notes[$size] = $rows['notes'];
+                $subjectname[$size] = strtolower($rows['subjectname']);
+                $size++;
           }
      }
-     $uname = $_GET['uname'];
-     $rank = 0;
+
+    $uname = $_GET['uname'];
+    $rank = 0;
  
-     $query = "SELECT * FROM students";
-     $query2 = "SELECT * FROM admin";
+    $query = "SELECT * FROM students";
+    $query2 = "SELECT * FROM admin";
  
-     $result = mysqli_query($db, $query);
-     $result2 = mysqli_query($db, $query2);
+    $result = mysqli_query($db, $query);
+    $result2 = mysqli_query($db, $query2);
  
-     if ($result) {
-         for($i=0; $i<mysqli_num_rows($result); $i++){
-             $row = mysqli_fetch_array($result);
+    if ($result) {
+        for($i=0; $i<mysqli_num_rows($result); $i++){
+            $row = mysqli_fetch_array($result);
  
-             if($row['userkey'] === $uname){
-                 $dp = $row['photo'];
-             } 
-         }
-     }
-     if($result2){
-         for($i=0; $i<mysqli_num_rows($result2); $i++){
-             $row = mysqli_fetch_array($result2);
+            if($row['userkey'] === $uname){
+                $dp = $row['photo'];
+            } 
+        }
+    }
+    if($result2){
+        for($i=0; $i<mysqli_num_rows($result2); $i++){
+            $row = mysqli_fetch_array($result2);
  
-             if($row['userkey'] === $uname){
-                 $dp = $row['photo'];
-                 $rank = $row['rank'];
-             }
-         }
-     }
+            if($row['userkey'] === $uname){
+                $dp = $row['photo'];
+                $rank = $row['rank'];
+            }
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form 2 | Notes</title>
+    <title>Form 6 | Notes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
@@ -85,6 +88,7 @@ $uname = $_GET['uname'];
                     <li><?php echo "<a href='home.php?uname=$uname' class=home>Home</a></li>";?>
                     <li><?php echo "<a href='news.php?uname=$uname' class=news>News</a></li>";?>
                     <li><?php echo "<a href='notes.php?uname=$uname' class=notes>Notes</a></li>";?>
+                    <li><?php echo "<a href='check3.php?uname=$uname'>Assign</a>";?> </li>
                     <li class="multi_menu"><a>login</a></li>
                     <li>
                         <?php 
@@ -107,42 +111,27 @@ $uname = $_GET['uname'];
                 <li><?php echo "<a href='home.php?uname=$uname' class=home>Home</a></li>";?>
                 <li><?php echo "<a href='news.php?uname=$uname' class=news>News</a></li>";?>
                 <li><?php echo "<a href='notes.php?uname=$uname' class=notes>Notes</a></li>";?>
-                <li><?php echo "<a href='check3.php?uname=$uname'>Assign</a>";?> </li>
                 <li><a href="index.php">Student</a></li>
                 <li><?php echo "<a href='leaders.php?uname=$uname'>Admin</a></li>";?>
         </div>
     </nav>
-    <div class="sub_menu">
-        <ul>
-            <li><?php echo "<a href='leaders.php?uname=$uname'>Admin</a></li>";?>
-            <li><a href="index.php"><b>Student</b></a></li>
-        </ul>
-    </div>
-      <script>
-          let menubtn = document.querySelector('.vertical_menu');
-          let dropdownlist = document.querySelector('.dropdown_menu');
-          let multimenu = document.querySelector('.multi_menu');
-          let submenu = document.querySelector('.sub_menu');
-  
-          menubtn.onclick = function(){
-              dropdownlist.classList.toggle('open');
-          }
-  
-          multimenu.onclick = function(){
-              submenu.classList.toggle('open');
-          }
-      </script>
         <div class="body">
+            <div class="sub_menu">
+                <ul>
+                    <li><?php echo "<a href='leaders.php?uname=$uname'>Admin</a></li>";?>
+                    <li><a href="index.php"><b>Student</b></a></li>
+                </ul>
+            </div>
           <div class="classes">
                <div class="row">
                     <?php
-                         for($i=0; $i<sizeof($subject); $i++){
-
-                              echo "<div class='$subjectname[$i]'>
-                                        <a href='media/documents/$subject[$i]' target='_blank' id='subject'>$subjectname[$i]</a>'
-                                   </div>";
-                                   
-                         }
+                        if($size>0){
+                            for($i=$size-1; $i>=0; $i--){
+                                echo "<div class='$subjectname[$i]'>
+                                            <a href='media/documents/$notes[$i]' target='_blank' id='subject'>$subjectname[$i] $id[$i]</a>'
+                                    </div>";       
+                            }
+                        }
                     ?>
                </div>
           </div>
@@ -162,42 +151,56 @@ $uname = $_GET['uname'];
                <p class="foot"><b>&copy; Shaaban Robert Secondary School 2023.</b></p>
            </div>
            <?php
-        echo "
-            <div class='bottom'>
-                <div class='bottom-home'>
-                    <a href='home.php?uname=$uname' class='home'>
-                            <img src='media/icons/home.png' class='icon'>
-                    </a>
-                </div>
-                <div class='bottom-nav'>
-                    <ul type='none'>
-                            <li>
-                                <a href='news.php?uname=$uname' class='buttons'>
-                                    <img src='media/icons/news.png' class='icon'>  
-                                    <p>News</p>
+                    echo "
+                        <div class='bottom'>
+                            <div class='bottom-home'>
+                                <a href='home.php?uname=$uname' class='home'>
+                                        <img src='media/icons/home.png' class='icon'>
                                 </a>
-                            </li>
-                            <li>
-                                <a href='notes.php?uname=$uname' class='buttons' id='left'>
-                                    <img src='media/icons/notes.png' class='icon'>  
-                                    <p>Notes</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href='check3.php?uname=$uname' class='buttons' id='right'>
-                                    <img src='media/icons/assignment.png' class='icon'>  
-                                    <p>Assignments</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href='user.php?uname=$uname' class='buttons'>
-                                    <img src='media/icons/user.png' class='icon'>  
-                                    <p>Login</p>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>";
-    ?>
+                            </div>
+                            <div class='bottom-nav'>
+                                <ul type='none'>
+                                        <li>
+                                            <a href='news.php?uname=$uname' class='buttons'>
+                                                <img src='media/icons/news.png' class='icon'>  
+                                                <p>News</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href='notes.php?uname=$uname' class='buttons' id='left'>
+                                                <img src='media/icons/notes.png' class='icon'>  
+                                                <p>Notes</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href='check3.php?uname=$uname' class='buttons' id='right'>
+                                                <img src='media/icons/assignment.png' class='icon'>  
+                                                <p>Assignments</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href='user.php?uname=$uname' class='buttons'>
+                                                <img src='media/icons/user.png' class='icon'>  
+                                                <p>Login</p>
+                                            </a>
+                                        </li>
+                                </ul>
+                            </div>
+                        </div>";
+                ?>
    </body>
+   <script>
+          let menubtn = document.querySelector('.vertical_menu');
+          let dropdownlist = document.querySelector('.dropdown_menu');
+          let multimenu = document.querySelector('.multi_menu');
+          let submenu = document.querySelector('.sub_menu');
+  
+          menubtn.onclick = function(){
+              dropdownlist.classList.toggle('open');
+          }
+  
+          multimenu.onclick = function(){
+              submenu.classList.toggle('open');
+          }
+      </script>
    </html>

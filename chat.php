@@ -12,7 +12,13 @@
      $result3 = mysqli_query($db, $query3);
 
      $present = false;
-     $mess;
+     $size = 0;
+     $size2 = 0;
+     $size3 = 0;
+     $size4 = 0;
+     $messagesent[$size1] = [];
+     $messagereceived[$size2] = [];
+     $messagetimesend[$size3] = [];
 
      if($result){
           for($i = 0; $i<mysqli_num_rows($result); $i++){
@@ -28,10 +34,31 @@
                $row = mysqli_fetch_array($result3);
                if($row['codename'] === "HM"){
                     $sender = $row['username'];
-                    $dp = $row['photo'];
+                    $dp1 = $row['photo'];
+                    $rank = $row['rank'];
 
                     if($username ==""){
                          $sender = $username;
+                    }
+               }
+          }
+     }
+
+     if($result2){
+          for($i=0; $i<mysqli_num_rows($result2); $i++){
+               $row = mysqli_fetch_array($result2);
+               if($username === $row['kutoka']){
+                    $messagesent[$size] = $row['ujumbe'];
+                    $messagetimesend[$size3] = $row['muda'];
+                    $size++;
+                    $size3++;
+               }
+               else{
+                    if($username === $sender){
+                         $messagereceived[$size2] = $row['ujumbe'];
+                         $messagetimesend[$size3] = $row['muda'];
+                         $size2++;
+                         $size3++;
                     }
                }
           }
@@ -48,40 +75,57 @@
 </head>
 <body>
      <div class="navigation">
-          <img src="media/images/srss-og.png" alt="shaaban robert logo" id="logo-img">
-          <?php echo "<a href='account.php?uname=$uname' class='dp1'><img src='$dp' class='dp'></a>";?>
+          <img src="media/images/icons/menu.png" class="menu">
+          <?php
+               echo "<img src='$dp1' id='logo-img'>";
+               if($rank == 0){
+                   echo "<li><a href='account.php?uname=$uname' class='dp'><img src='$dp' class='dp'></a></li>";
+               }
+               else{
+                   echo "<li><a href='account-admin.php?uname=$uname' class='dp'><img src='$dp' class='dp'></a></li>";
+               }        
+          ?>
      </div>
      <div class="body">
+     <div class="chats">
+               <div class="chat">
+                    <img src="media/images/prof_pics/earth.jpg" class="chat-dp">
+                    <a href="chat-block.html">
+                         <div class="details">
+                              <p class="username">Username</p>
+                         </div>
+                    </a>
+               </div>
+               <div class="chat">
+                    <img src="media/images/prof_pics/IMG_20180819_121654 (2).jpg" class="chat-dp">
+                    <a href="chat-block.html">
+                         <div class="details">
+                              <p class="username">Username</p>
+                         </div>
+                    </a>
+               </div>
+               <div class="chat">
+                    <img src="media/images/prof_pics/pexels-azim-islam-460924-1188037.jpg" class="chat-dp">
+                    <a href="chat-block.html">
+                         <div class="details">
+                              <p class="username">Username</p>
+                         </div>
+                    </a>
+               </div>
+          </div>
           <div class="textarea">
                <?php
-                    if($result2){
-                         for($i=0; $i<mysqli_num_rows($result2); $i++){
-                              $row = mysqli_fetch_array($result2);
-                              if($username === $row['kutoka']){
-                                   $message = $row['ujumbe'];
-                                   $mess = $message;
-                                   $time = $row['muda'];
-                                        echo
-                                             "
-                                             <div class='chat-block'>
-                                                  <p class='sent'>
-                                                       <span class='send'>$message</span>
-                                                       <span class='time'>$time</span>
-                                                  </p><br><br>
-                                             
-                                             ";
-                              }
-                              if($sender === $row['kwenda']){
-                                   $message = $row['message'];
-                                        echo
-                                             "
-                                                  <p class='received'>
-                                                       <span class='receive'>$message</span>
-                                                       <span class='time2'>$time</span>
-                                                  </p><br><br>
-                                             </div>
-                                             ";
-                              }
+                    if($size>0){
+                         for($i=$size; $i>=0; $i++){
+                              echo
+                                   "
+                                   <div class='chat-block'>
+                                        <p class='sent'>
+                                             <span class='send'>$messagesent[$i]</span>
+                                             <span class='time'>$messagetimesend[$i]</span>
+                                        </p><br><br>
+                                   
+                                   ";
                          }
                     }                    
                ?>
@@ -104,26 +148,26 @@
           let message2 = document.querySelector('.received');
           let n = 0;
 
-          // function clicked(n){
-          //      if(n%2 == 0){
-          //           return true;
-          //      }
-          //      else{
-          //           return false;
-          //      }
-          // }
+          function clicked(n){
+               if(n%2 == 0){
+                    return true;
+               }
+               else{
+                    return false;
+               }
+          }
 
-          // menu.onclick = function(){
-          //      chat.classList.toggle('open');
-          //      n++;
-          //      if(clicked(n)){
-          //           menu.src = "media/images/icons/menu.png";
-          //      }
-          //      else{
-          //           menu.src = "media/images/icons/remove.png";
-          //      }
+          menu.onclick = function(){
+               chat.classList.toggle('open');
+               n++;
+               if(clicked(n)){
+                    menu.src = "media/images/icons/menu.png";
+               }
+               else{
+                    menu.src = "media/images/icons/remove.png";
+               }
 
-          // }
+          }
 
           function msg(){
                if(document.meseji.ujumbe.value == ""){
@@ -132,19 +176,17 @@
                }
           }
 
-          message1.onclick = function(){
-               time.classList.toggle('open');
-          }
+          // message1.onclick = function(){
+          //      time.classList.toggle('open');
+          // }
 
           // message2.onclick = function(){
           //      time2.classList.toggle('open');
           // }
 
-          let timeValue = document.getElementById("time").value;
-          let msgval = document.getElementById("mess").value;
-
-          console.log(msgval);
-
+          function show(e){
+              time.classList.toggle('open');
+          }
      </script>
 </body>
 </html>

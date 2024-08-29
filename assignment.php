@@ -161,8 +161,7 @@
                               <div class='notification'>
                                    <div class='header'>
                                         <p id='notifheader'>Notification</p>
-                                        <p id='notification'>Your have $subject_no pending assignments!</p>
-                                        <p id='notification'>Today's date is $today</p>
+                                        <p id='notification'>You have $subject_no pending assignments!</p>
                                    </div>
                               </div>
                          ";
