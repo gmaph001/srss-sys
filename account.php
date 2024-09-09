@@ -60,7 +60,7 @@
           <div class="main">
                <?php
                     echo
-                         "<form action='update.php?uname=$uname' method='POST' name='update' class='update' enctype='multipart/form-data'>
+                         "<form action='update.php?uname=$uname' method='POST' name='upload' class='update' enctype='multipart/form-data'>
                          <fieldset>
                          <legend><b>My Profile</b></legend> 
                                    <label><b>First Name: </b></label> <input type='text' name='firstname' value='$firstname' placeholder='change'><br><br>
@@ -79,8 +79,8 @@
                     echo
                          "<form action='update_photo.php?uname=$uname' method='POST' name='update' class='update' enctype='multipart/form-data'>
                               <img src='$photo' class='photo' width='200px' height='250px'><br><br>
-                              <label><b>Upload your photo: </b></label><input type='file' name='photo'><br><br>
-                              <button onclick='savephoto()' class='save' name='savephoto'>Save</button>                                          
+                              <label><b>Upload your photo: </b></label><input type='file' id='pic' name='photo' value='none'><br><br>
+                              <button onclick='photosubmit()' class='save' name='savephoto'>Save</button>                                          
                          </form>";
                          
                ?>
@@ -105,8 +105,47 @@
                ?>
           </div>
      <div class="footer">
-          <p>&copy; Shaaban Robert Secondary School 2023.</p>
+          <p>&copy; Shaaban Robert Secondary School 2024.</p>
      </div>
      <script src="account.js"></script>
+     <script>
+               let result = "*Please fill this field!*";
+               let result2 = "*File too large to be submitted!*";
+
+               function photosize(){
+                    let photo = document.getElementById("pic");
+                    let returnvalue = true;
+                    if(document.update.photo.value == ""){
+                         document.getElementById("alert6").innerHTML = result;
+                         event.preventDefault();
+                    }
+                    else{
+                         let photoresponse = "*Please, your file should be less than 2MB!*";
+                         let size = Math.round((photo.files[0].size)/1024/1024);
+                         if(size>2){
+                              document.getElementById("alert6").innerHTML = photoresponse;
+                              event.preventDefault();
+                              returnvalue = false;
+                         }
+                         else{
+                              document.getElementById("alert6").innerHTML = "";
+                              returnvalue = true;
+                         }
+                         return returnvalue;
+                    }
+               }
+
+               function photosubmit(){
+                    if(document.update.photo.value == ""){
+                         document.getElementById("alert6").innerHTML = result;
+                         event.preventDefault();
+                    }
+                    else{
+                         if(!photosize()){
+                              document.getElementById("alert6").innerHTML = result2;
+                         }
+                    }
+               }
+          </script>
 </body>
 </html>

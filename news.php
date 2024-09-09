@@ -10,6 +10,7 @@
 
     $headline = [];
     $news = [];
+    $id[$size] = [];
 
     if($result){
         for($i=0; $i<mysqli_num_rows($result); $i++){
@@ -19,6 +20,7 @@
                 $size++;
                 $headline[$size] = $row['headline'];
                 $news[$size] = $row['news_class'];
+                $id[$size] = $row['news_no'];
             }
         }
     }    
@@ -132,7 +134,7 @@
                                     if(sizeof($headline) > 0){        
                                         for($i = sizeof($headline); $i>0; $i--){
                                             if($n != 5){
-                                                echo "<p><a href='$news[$i].php?uname=$uname'>$headline[$i]</a></p><br>";
+                                                echo "<p><a href='newsInfo.php?uname=$uname&&news=$id[$i]'>$headline[$i]</a></p><br>";
                                                 $n++;
                                             }
                                             else{
@@ -190,7 +192,7 @@
                     <button><b>Send</b></button>
                 </fieldset>
             </form><br><br>
-            <p class="foot"><b>&copy; Shaaban Robert Secondary School 2023.</b></p>
+            <p class="foot"><b>&copy; Shaaban Robert Secondary School 2024.</b></p>
         </div>
     </div>
     <?php

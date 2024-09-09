@@ -54,14 +54,13 @@
      <script>
           function check(){
                let photo = document.getElementById("pic");
+               let returnvalue = true;
                if(document.login.photo.value == ""){
-                    document.getElementById("dpresult").innerHTML = "Please upload a photo";
-                    event.preventDefault();
+                    return returnvalue;
                }
                else{
                     let photoresponse = "*Please, your file should be less than 2MB!*";
                     let size = Math.round((photo.files[0].size)/1024/1024);
-                    let returnvalue = true;
                     if(size>2){
                          document.getElementById("dpresult").innerHTML = photoresponse;
                          event.preventDefault();

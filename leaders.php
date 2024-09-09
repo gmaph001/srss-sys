@@ -48,7 +48,8 @@
                               echo
                                    "<li><a href='upload_news.php?uname=$uname'>News</a></li>
                                    <li><a href='check.php?uname=$uname'>Notes</a></li>
-                                   <li><a href='users.php?uname=$uname'>Users</a></li>
+                                   <li><a href='check2.php?uname=$uname'>Assignments</a></li>
+                                   <li><a href='check5.php?uname=$uname'>Users</a></li>
                                    <li><a href='home.php?uname=$uname'>Back</a></li>";
 
                          ?>
@@ -64,7 +65,8 @@
                          echo
                               "<li><a href='upload_news.php?uname=$uname'>News</a></li>
                               <li><a href='check.php?uname=$uname'>Notes</a></li>
-                              <li><a href='test.php?uname=$uname'>Users</a></li>
+                              <li><a href='check2.php?uname=$uname'>Assignments</a></li>
+                              <li><a href='check5.php?uname=$uname'>Users</a></li>
                               <li><a href='home.php?uname=$uname'>Go back</a></li>";
 
                     ?>

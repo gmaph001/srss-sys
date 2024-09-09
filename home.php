@@ -66,10 +66,10 @@
                     <li>
                         <?php 
                             if($rank == 0){
-                                echo "<li><a href='account.php?uname=$uname' class='dp'><img src='$dp' class='dp'></a></li>";
+                                echo "<a href='account.php?uname=$uname' class='dp'><img src='$dp' class='dp'></a>";
                             }
                             else{
-                                echo "<li><a href='account-admin.php?uname=$uname' class='dp'><img src='$dp' class='dp'></a></li>";
+                                echo "<a href='account-admin.php?uname=$uname' class='dp'><img src='$dp' class='dp'></a>";
                             }        
                         ?>
                     </li>
@@ -115,7 +115,7 @@
                 <button><b>Send</b></button>
             </fieldset>
         </form><br><br>
-        <p class="foot"><b>&copy; Shaaban Robert Secondary School 2023.</b></p>
+        <p class="foot"><b>&copy; Shaaban Robert Secondary School 2024.</b></p>
     </div>
     <?php
         echo "

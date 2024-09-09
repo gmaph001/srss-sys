@@ -19,6 +19,42 @@
           $prof = $_FILES['photo']['name'];
           $file = $_FILES['photo']['tmp_name'];
 
+          if($file == ""){
+               $profile = 'media/images/prof_pics/login.png';
+               echo $profile;
+               echo "<br>";
+          }
+          else{
+               $profile = 'media/images/prof_pics/' . $prof;
+               $foldername = "media/images/prof_pics/" . $prof;
+               move_uploaded_file($file, $foldername);
+          }
+
+          $date = date_default_timezone_set('Africa/Nairobi');
+          $default = 21000000000;
+
+          if($date){
+               $year = Date('Y');
+               $week = Date('W');
+               $day = Date('d');
+               $hour = Date('h');
+               $min = Date('m');
+               $sec = Date('s');
+
+               $tarehe = ((((($year*$week*7)+$day)*24)+$hour)*60)+$min;
+               echo $tarehe;
+               echo "<br>";
+               echo $day;
+               echo "<br>";
+               echo $week;
+               echo "<br>";
+               echo $year;
+               echo "<br>";
+          }
+          if($tarehe>$default){
+               $tarehe-=$default;
+          }
+
           $query1 = "SELECT * FROM prefects";
           $reference1 = mysqli_query($db, $query1);
           $query2 = "SELECT * FROM admin";
@@ -26,7 +62,7 @@
           $query3 = "SELECT * FROM students";
           $reference3 = mysqli_query($db, $query3);
 
-          if($reference1 && $resference2 && $reference3){
+          if($reference1 && $reference2 && $reference3){
                for($i=0; $i<mysqli_num_rows($reference1); $i++){
                     $row = mysqli_fetch_array($reference1);
 
@@ -50,22 +86,17 @@
                }
           }
 
-          $photo = 'media/images/prof_pics/' . $prof;
-          $foldername = "media/images/prof_pics/" . $prof;
+          $query = "INSERT INTO prefects (firstname, secondname, lastname, age, username, email, password, class, stream, rank, photo, userkey) VALUES ('$firstname', '$secondname', '$lastname', '$age', '$username', '$email', '$password', '$class', '$stream', '$rank', '$profile', '$userkey')";
 
-          move_uploaded_file($file, $foldername);
+          $query2 = "INSERT INTO admin (firstname, secondname, lastname, username, email, password, rank, codename, photo, userkey) VALUES ('$firstname', '$secondname', '$lastname', '$username', '$email', '$password', '$position', '$codename', '$profile', '$userkey')";
 
-          $query = "INSERT INTO prefects (firstname, secondname, lastname, age, username, email, password, class, stream, rank, photo, userkey) VALUES ('$firstname', '$secondname', '$lastname', '$age', '$username', '$email', '$password', '$class', '$stream', '$rank', '$photo', '$userkey')";
-
-          $query2 = "INSERT INTO admin (firstname, secondname, lastname, username, email, password, rank, codename, photo, userkey) VALUES ('$firstname', '$secondname', '$lastname', '$username', '$email', '$password', '$position', '$codename', '$photo', '$userkey')";
-
-          $query3 = "INSERT INTO students (firstname, secondname, lastname, username, email, password, form, stream, age, photo, userkey) VALUES ('$firstname', '$secondname', '$lastname', '$username', '$email', '$password', '$class', '$stream', '$age', '$photo', '$userkey')";
+          $query3 = "INSERT INTO students (firstname, secondname, lastname, username, email, password, form, stream, age, photo, userkey, tarehe) VALUES ('$firstname', '$secondname', '$lastname', '$username', '$email', '$password', '$class', '$stream', '$age', '$profile', '$userkey', '$tarehe')";
 
           $result = mysqli_query($db, $query);
           $result2 = mysqli_query($db, $query2);
           $result3 = mysqli_query($db, $query3);
 
-          if($result || $result2 || $result3){
+          if($result && $result2 && $result3){
                echo "Prefect successfully registered!";
                header('location:prefects-signUp.html');
           }

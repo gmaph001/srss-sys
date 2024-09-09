@@ -22,11 +22,3 @@ menupic.onclick = function(){
      }
 
 }
-
-
-function badili(){
-     if(document.update.firstname.value == ""){
-          alert("Please input your first name!");
-          event.preventDefault();
-     }
-}

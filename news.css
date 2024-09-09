@@ -62,6 +62,7 @@ h1#update{
 .announcement p a:hover{
     font-size: 102%;
     color: white;
+    text-decoration: underline;
 }
 .announcements{
     display: flex;

@@ -1,7 +1,7 @@
 .body{
-     background-color: rgb(255, 255, 255);
+     background-color: antiquewhite;
      width: 100%;
-     padding-top: 5vh;
+     padding-top: 15vh;
      font-family: Open sans, sans-serif;
 }
 .classes{
@@ -15,6 +15,30 @@
      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
      gap: 2vw;
      margin-top: 10px;
+}
+.file{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     background-color: rgba(0, 0, 0, 0.434);
+     padding: 4% 2%;
+     border-radius: 30px;
+     width: 400px;
+}
+.topic{
+     background-color: black;
+     font-size: 14pt;
+     font-family: Candara;
+     margin-top: 2vh;
+     padding: 2% 5%;
+     border-radius: 15px;
+     text-align: center;
+     font-weight: bold;
+     max-width: 100%;
+}
+#head{
+     color: rgb(0, 244, 224);
 }
 .subj{
      background-color: black;
@@ -64,12 +88,12 @@
      justify-content: center;
      transition: 0.5s ease-in-out;
      margin: auto;
-     border-radius: 50px 0px 50px 0px;
+     border-radius: 30px;
 }
 .geography:hover{
      background-image: url("media/images/geography2.jpg");
      background-size: cover;
-     border-radius: 0px 50px 0px 50px;
+     border-radius: 30px;
 }
 .geography p a{
      color: white;
@@ -91,12 +115,12 @@
      justify-content: center;
      transition: 0.5s ease-in-out;
      margin: auto;
-     border-radius: 50px 0px 50px 0px;
+     border-radius: 30px;
 }
 .computer:hover{
      background-image: url("media/images/computer2.jpg");
      background-size: cover;
-     border-radius: 0px 50px 0px 50px;
+     border-radius: 30px;
 }
 .computer p a{
      color: white;
@@ -119,12 +143,12 @@
      justify-content: center;
      transition: 0.5s ease-in-out;
      margin: auto;
-     border-radius: 50px 0px 50px 0px;    
+     border-radius: 30px;
 }
 .physics:hover{
      background-image: url("media/images/physics2.jpg");
      background-size: cover;
-     border-radius: 0px 50px 0px 50px;
+     border-radius: 30px;
 }
 .physics p a{
      color: rgb(147, 87, 87);
@@ -146,12 +170,12 @@
      justify-content: center;
      transition: 0.5s ease-in-out;
      margin: auto;
-     border-radius: 50px 0px 50px 0px;
+     border-radius: 30px;
 }
 .biology:hover{
      background-image: url("media/images/biology2.jpg");
      background-size: cover;
-     border-radius: 0px 50px 0px 50px;
+     border-radius: 30px;
 }
 .chemistry{
      height: 250px;
@@ -163,12 +187,12 @@
      justify-content: center;
      transition: 0.5s ease-in-out;
      margin: auto;
-     border-radius: 50px 0px 50px 0px;
+     border-radius: 30px;
 }
 .chemistry:hover{
      background-image: url("media/images/chemistry2.jpg");
      background-size: cover;
-     border-radius: 0px 50px 0px 50px;
+     border-radius: 30px;
 }
 .history{
      height: 250px;
@@ -180,12 +204,12 @@
      justify-content: center;
      transition: 0.5s ease-in-out;
      margin: auto;
-     border-radius: 50px 0px 50px 0px;
+     border-radius: 30px;
 }
 .history:hover{
      background-image: url("media/images/history2.jpg");
      background-size: cover;
-     border-radius: 0px 50px 0px 50px;
+     border-radius: 30px;
 }
 .civics{
      height: 250px;
@@ -197,12 +221,12 @@
      justify-content: center;
      transition: 0.5s ease-in-out;
      margin: auto;
-     border-radius: 50px 0px 50px 0px;
+     border-radius: 30px;
 }
 .civics:hover{
      background-image: url("media/images/civics2.jpg");
      background-size: cover;
-     border-radius: 0px 50px 0px 50px;
+     border-radius: 30px;
 }
 .mathematics{
      height: 250px;
@@ -214,12 +238,12 @@
      justify-content: center;
      transition: 0.5s ease-in-out;
      margin: auto;
-     border-radius: 50px 0px 50px 0px;
+     border-radius: 30px;
 }
 .mathematics:hover{
      background-image: url("media/images/mathematics2.jpg");
      background-size: cover;
-     border-radius: 0px 50px 0px 50px;
+     border-radius: 30px;
 }
 .english{
      height: 250px;
@@ -231,12 +255,12 @@
      justify-content: center;
      transition: 0.5s ease-in-out;
      margin: auto;
-     border-radius: 50px 0px 50px 0px;
+     border-radius: 30px;
 }
 .english:hover{
      background-image: url("media/images/english2.jpg");
      background-size: cover;
-     border-radius: 0px 50px 0px 50px;
+     border-radius: 30px;
 }
 .kiswahili{
      height: 250px;
@@ -248,12 +272,12 @@
      justify-content: center;
      transition: 0.5s ease-in-out;
      margin: auto;
-     border-radius: 50px 0px 50px 0px;
+     border-radius: 30px;
 }
 .kiswahili:hover{
      background-image: url("media/images/kiswahili2.jpg");
      background-size: cover;
-     border-radius: 0px 50px 0px 50px;
+     border-radius: 30px;
 }
 .accounts{
      height: 250px;
@@ -265,12 +289,12 @@
      justify-content: center;
      transition: 0.5s ease-in-out;
      margin: auto;
-     border-radius: 50px 0px 50px 0px;
+     border-radius: 30px;
 }
 .accounts:hover{
      background-image: url("media/images/accounts2.jpg");
      background-size: cover;
-     border-radius: 0px 50px 0px 50px;
+     border-radius: 30px;
 }
 .commerce{
      height: 250px;
@@ -282,12 +306,12 @@
      justify-content: center;
      transition: 0.5s ease-in-out;
      margin: auto;
-     border-radius: 50px 0px 50px 0px;
+     border-radius: 30px;
 }
 .commerce:hover{
      background-image: url("media/images/commerce2.jpg");
      background-size: cover;
-     border-radius: 0px 50px 0px 50px;
+     border-radius: 30px;
 }
 .economics{
      height: 250px;
@@ -299,12 +323,12 @@
      justify-content: center;
      transition: 0.5s ease-in-out;
      margin: auto;
-     border-radius: 50px 0px 50px 0px;
+     border-radius: 30px;
 }
 .economics:hover{
      background-image: url("media/images/economics2.jpg");
      background-size: cover;
-     border-radius: 0px 50px 0px 50px;
+     border-radius: 30px;
 }
 #subject{
      text-decoration: none;
@@ -336,8 +360,8 @@
           justify-content: center;
           padding: 20px;
      }
-     .body{
-          margin: 210px auto 0 0;
+     .file{
+          width: 90vw;
      }
      .geography, .history, .maths, .english, .kiswahili, .civics, .computer, .commerce, .accounts, 
      .chemistry, .biology, .physics, .economics{

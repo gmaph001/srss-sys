@@ -182,7 +182,7 @@
                          <button><b>Send</b></button>
                     </fieldset>
                </form><br><br>
-               <p class="foot"><b>&copy; Shaaban Robert Secondary School 2023.</b></p>
+               <p class="foot"><b>&copy; Shaaban Robert Secondary School 2024.</b></p>
           </div>
      </div>
      <?php

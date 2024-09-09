@@ -7,67 +7,44 @@
      <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-     <link rel="stylesheet" type="text/css" href="login-page.css">
+     <link rel="stylesheet" type="text/css" href="index.css">
      <link rel="icon" type="image/x-icon" href="media/images/srss-logo.jfif">
 </head>
 <body>
      <div class="main">
           <div class="title"></div><br><br>
-          <div class="form">
-               <p class="alert">
-                    <i>"If you have not registered, sign up <a href="signUp-page.html" target="_blank" id="alert">here</a>" </i>
-               </p>
-               <form action="lookup.php" method="POST" name="login" enctype="multipart/form-data">
-                    <fieldset>
-                         <legend><b>Login</b></legend>
-                         <div class="userInfo">
-                              <div class="user-inputs">
-                                   <div class="user">
-                                        <p><b>Username: </b></p>
-                                   </div>
-                                   <div class="mail">
-                                        <p><b>Email: </b></p>
-                                   </div>
-                                   <div class="unique">
-                                        <p><b>Password: </b></p>
-                                   </div>
-                              </div>
-                              <div class="inputs">
-                                   <input type="text" name="username" id="uname"><br><br>
-                                   <input type="email" name="email" id="email"><br><br>
-                                   <input type="password" name="pword" id="pwd"><br><br>
-                              </div>
+          <div class="body">
+               <div class="form">
+                    <form name='form' action='lookup.php' method='POST' enctype='multipart/form-data'>
+                         <div class="input">
+                              <input type="text" name="uname" id="fname" placeholder="Username">
+                              <img src="media/icons/profile.png" class="icon">
                          </div>
-                    </fieldset><br><br>
-                    <div class="links">
-                         <a href="signUp-page.html" target="_blank" class="forget">Sign Up</a>
-                         <a href="forget.html" target="_blank" class="forget">Forget Password?</a>
-                    </div><br>
-                    <button onclick="check()">Login</button>
-               </form>
-               <p class="alert">
+                         <p id="result1" class="alert"></p><br>
+                         <div class="input">
+                              <input type="email" name="email" id="email" placeholder="Email">
+                              <img src="media/icons/email.png" class="icon">
+                         </div>
+                         <p id="result2" class="alert"></p><br>
+                         <div class="input">
+                              <input type="password" name="pass" id="pword" placeholder="Password">
+                              <img src="media/icons/hidden.png" class="icon pass">
+                         </div>
+                         <p id="result3" class="alert"></p><br>
+                         <button class="sendbtn" onclick="tuma()" name="login">Login</button>
+                    </form>
+               </div>
+               <div class="links">
+                    <a href="signUp-page.html" target="_blank" class="forget">Sign Up</a>
+                    <a href="forget.html" target="_blank" class="forget">Forget Password?</a>
+               </div><br>
+               <p class="heads-up">
                     <i>
-                         "If you are an admin, <a href="admin-login.html" id="alert">Login</a>"
+                         "If you are an admin, sign up <a href="admin_signup.html">here</a>"
                     </i>
-               </p>
+               </p><br>
           </div>
      </div>
-     
-     <script>
-          function check(){
-               if(document.login.username.value==""){
-                    alert("Please enter your first name.");
-                    event.preventDefault();
-               }
-               if(document.login.email.value==""){
-                    alert("Please enter your second name.");
-                    event.preventDefault();
-               }
-               if(document.login.pword.value==""){
-                    alert("Please provide your password");
-                    event.preventDefault();
-               }
-          }
-     </script>
+     <script src="form.js"></script>
 </body>
 </html>

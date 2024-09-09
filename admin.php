@@ -27,7 +27,18 @@
                          $dp = $_FILES['photo']['name'];
                          $userkey = rand(100000000, 999999999);
 
-                         $query = "SELECT * FROM students";
+                         if($photofile == ""){
+                              $profile = 'media/images/prof_pics/login.png';
+                              echo $profile;
+                              echo "<br>";
+                         }
+                         else{
+                              $profile = 'media/images/prof_pics/' . $dp;
+                              $foldername = "media/images/prof_pics/" . $dp;
+                              move_uploaded_file($file, $foldername);
+                         }
+
+                         $query = "SELECT * FROM admin";
 
                          $reference = mysqli_query($db, $query);
 
@@ -41,14 +52,9 @@
                               }
                          }
 
-                         $foldername = "media/images/prof_pics/" . $dp;
-                         $photo = 'media/images/prof_pics/' . $dp;
-
-                         move_uploaded_file($photofile, $foldername);
-
                          $sql = "INSERT INTO admin (firstname, secondname, lastname, username, email, password, rank, codename, photo, userkey) VALUES (?,?,?,?,?,?,?,?,?,?)";
                          $stmtinsert = $db->prepare($sql);
-                         $result = $stmtinsert->execute([$firstname, $secondname, $lastname, $username, $email, $password, $rank, $codename, $photo, $userkey]);
+                         $result = $stmtinsert->execute([$firstname, $secondname, $lastname, $username, $email, $password, $rank, $codename, $profile, $userkey]);
                          if($codename === "TEA" || $codename === "DM"){
                               header("location:teacher.php?uname=".$userkey);
                          }

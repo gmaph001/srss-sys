@@ -173,7 +173,7 @@
           </div>
      </div>
      <div class="footer">
-          <p>&copy; Shaaban Robert Secondary School 2023.</p>
+          <p>&copy; Shaaban Robert Secondary School 2024.</p>
      </div>
      <script src="account.js"></script>
      <script src="pop.js"></script>

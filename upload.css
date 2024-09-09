@@ -122,18 +122,31 @@ a#alert{
      transition: 0.5s ease-in-out;
      animation: sliding 2s ease-in-out both normal; 
 }
+.links{
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     width: 100%;
+}
+.links a{
+     text-decoration: none;
+     background-color: transparent;
+     border: none;
+     font-weight: normal;
+}
+.links a:hover{
+     background-color: transparent;
+}
 .forget{
-     transition: 0.3s ease-in-out;
+     margin-top: 2vh;
+     text-decoration: none;
+     font-size: 14pt;
+     color: blue;
 }
 .forget:hover{
      color: red;
-}
-.links{
-     width: 100%;
-     padding: 0 10px 0 10px;
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
+     text-decoration: underline;
+     text-decoration-line: overline;
 }
 textarea{
      border: 1px solid rgb(0, 0, 0);

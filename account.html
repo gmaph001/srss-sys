@@ -26,31 +26,80 @@
                </ul>
           </div>
           <div class="main">
-               <form action="update.php" method="POST" name="update" class="update" enctype="multipart/form-data">
+               <form action="update.php" method="POST" name="upload" class="update" enctype="multipart/form-data">
                     <fieldset>
-                         <legend><b>My Profile</b></legend>
-                         <label><b>First Name: </b></label> <input type="text" name="firstname" placeholder="change"> <br><br>
-                         <label><b>Second Name: </b></label> <input type="text" name="secondname" placeholder="change"> <br><br>
-                         <label><b>Last Name: </b></label> <input type="text" name="lastname" placeholder="change"> <br><br>
-                         <label><b>Age: </b></label> <input type="number" name="age" placeholder="change"> <br><br>
-                         <label><b>Class: </b></label> <input type="number" name="class" placeholder="change"> <br><br>
-                         <label><b>Stream: </b></label> <input type="text" name="stream" placeholder="change"> <br><br>
+                         <label><b>First Name: </b></label> <input type='text' name='firstname' placeholder='change'><br>
+                                   <p id='alert' class='alert'></p><br>
+                                   <label><b>Second Name: </b></label> <input type='text' name='secondname' placeholder='change'><br>
+                                   <p id='alert2' class='alert'></p><br>
+                                   <label><b>Last Name: </b></label> <input type='text' name='lastname' placeholder='change'><br>
+                                   <p id='alert3' class='alert'></p><br>
+                                   <label><b>Rank: </b></label> <input type='number' name='rank' placeholder='change'><br>
+                                   <p id='alert4' class='alert'></p><br>
+                                   <label><b>Codename: </b></label> <input type='text' name='codename' placeholder='change'><br>
+                                   <p id='alert5' class='alert'></p><br>
                          <button onclick="save()" class="save" name="save">Save</button> 
                     </fieldset>
                </form>
           </div>
           <div class="profile">
-               <img src="media/images/prof_pics/1711895902133.jpg" class="photo"><br><br>
-               <label><b>Upload your photo: </b></label><input type="file" name="photo"><br><br>
-               <button onclick="save()" class="save" name="save">Save</button>
+               <form name="update" class='update-photo' >
+                    <img src="media/images/prof_pics/IMG_20180819_121654 (2).jpg" class='photo' width='200px' height='250px'><br><br>
+                    <label><b>Upload your photo: </b></label><input type='file' name="photo" id="pic" onchange="photosize()"><br>
+                    <p id="alert6" class='alert'></p><br>
+                    <button onclick="photosubmit()" class='save' name='savephoto'>Save</button>                                          
+               </form>
           </div>
      </div>
      <div class="otherprofile">
           <a href="account.php?uname=$uname" class="save">Edit your Student's profile.</a>  
      </div>
      <div class="footer">
-          <p>&copy; Shaaban Robert Secondary School 2023.</p>
+          <p>&copy; Shaaban Robert Secondary School 2024.</p>
      </div>
      <script src="account.js"></script>
+     <script>
+          let result = "*Please fill this field!*";
+          let result2 = "*File too large to be submitted!*";
+
+          function photosize(){
+               let photo = document.getElementById("pic");
+               let returnvalue = true;
+               if(document.update.photo.value == ""){
+                    document.getElementById("alert6").innerHTML = result;
+                    event.preventDefault();
+               }
+               else{
+                    let photoresponse = "*Please, your file should be less than 2MB!*";
+                    let size = Math.round((photo.files[0].size)/1024/1024);
+                    if(size>2){
+                         document.getElementById("alert6").innerHTML = photoresponse;
+                         event.preventDefault();
+                         returnvalue = false;
+                    }
+                    else{
+                         document.getElementById("alert6").innerHTML = "";
+                         returnvalue = true;
+                    }
+                    return returnvalue;
+               }
+          }
+
+          function photosubmit(){
+               if(document.update.photo.value == ""){
+                    document.getElementById("alert6").innerHTML = result;
+                    event.preventDefault();
+               }
+               else{
+                    if(!photosize()){
+                         document.getElementById("alert6").innerHTML = result2;
+                         event.preventDefault();
+                    }
+                    else{
+                         document.getElementById("alert6").innerHTML = result;
+                    }
+               }
+          }
+     </script>
 </body>
 </html>

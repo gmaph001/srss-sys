@@ -1,52 +1,82 @@
+<?php
+     $uname = $_GET['uname'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Upload Notes</title>
-     <link rel="stylesheet" type="text/css" href="login-page.css">
+     <link rel="stylesheet" type="text/css" href="upload.css">
      <link rel="icon" type="image/x-icon" href="media/images/srss-logo.jfif">
      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>     
      <div class="main">
-          <div class="title"></div><br><br>
-          <div class="registration-success">
-               <?php
-
-                    require_once "config.php";
-
-                    if(isset($_POST['signup'])){
-
-                         $teachername = $_POST['teachername'];
-                         $subjectname = strtoupper($_POST['subjectname']);
-                         $class = 'form'.$_POST['class'];
-                         
-                         $notes = $_FILES["notes"]["name"];
-                         $file_type = $_FILES['notes']['type'];
-
-                         echo  $file_type;
-
-                         $file = $_FILES['notes']['tmp_name'];
-
-                         $foldername = "media/documents/" . $notes;
-                         
-                         move_uploaded_file($file, $foldername);
-
-                         $query = "INSERT INTO $class(subjectname, teachername, notes) VALUES('$subjectname', '$teachername', '$notes')";
-                              
-                         $result = mysqli_query($db, $query);
-
-                         if($result){
-                              echo "<p>Upload Successful</p>";
-
-                         }else{
-
-                              echo "<p>Upload Failed</p>";
-                         }
-                    }
-               ?>
+          <div class="form">
+               <div class="title"></div><br><br>
+               <?php echo "<form action='upload_notes.php?uname=$uname' method='POST' name='upload' enctype='multipart/form-data'>";?>
+                    <fieldset>
+                         <legend><b>Upload notes</b></legend>
+                         <label><b>Teacher's name: </b></label> <input type="text" name="teachername" id="tname"><br>
+                         <p id="result"></p><br>
+                         <label><b>Subject's name: </b></label> <input type="text" name="subjectname" id="sname"><br>
+                         <p id="result2"></p><br>
+                         <label><b>Topic: </b></label> <input type="text" name="topic" id="tpname"><br>
+                         <p id="result5"></p><br>
+                         <label><b>Class: </b></label> <input type="number" name="class" id="form"><br>
+                         <p id="result3"></p><br>
+                         <label><b>Notes: </b></label> <input type="file" name="notes" id="file" style="border: none; background-color: whitesmoke;"><br>
+                         <p id="result4"></p><br>
+                    </fieldset><br><br>
+                    <button onclick="send()" name="signup" id="signUp">Upload</button><br><br>
+               </form>
+          </div>
+          <div class="photo">
+               
           </div>
      </div>
+     <script>
+          let result = "Please insert your name Dear Teacher!";
+          let result2 = "Please input your subject!";
+          let result3 = "Please input the right class!";
+          let result4 = "Please input notes!";
+          let result5 = "Please input the topic";
+
+          let a = "GEOGRAPHY";
+
+          function send(){
+
+               if(document.upload.teachername.value == ""){
+                    document.getElementById("result").innerHTML = result;
+                    event.preventDefault();
+               }
+
+               if(document.upload.subjectname.value == ""){
+                    document.getElementById("result2").innerHTML = result2;
+                    event.preventDefault();
+               }
+
+               if(document.upload.topic.value == ""){
+                    document.getElementById("result5").innerHTML = result5;
+                    event.preventDefault();
+               }
+
+               if(document.upload.class.value == ""){
+                    document.getElementById("result3").innerHTML = result3;
+                    event.preventDefault();
+
+                    if(document.upload.class.value > 6 || document.upload.class.value < 1){
+                         document.getElementById("result3").innerHTML = result3;
+                         event.preventDefault();
+                    }
+               }
+
+               if(document.upload.notes.value == ""){
+                    document.getElementById("result4").innerHTML = result4;
+                    event.preventDefault();
+               }
+          }
+     </script>
 </body>
 </html>

@@ -3,6 +3,28 @@
      require_once "config.php";
 
      $uname = $_GET['uname'];
+
+     $query = "SELECT * FROM admin";
+     $result = mysqli_query($db, $query);
+
+     if($result){
+          for($i=0; $i<mysqli_num_rows($result); $i++){
+               $row = mysqli_fetch_array($result);
+
+               if($uname === $row['userkey']){
+                    if($row['rank'] != 7){
+                         header("location:failed.php?uname=$uname");
+                    }
+                    else{
+                         continue;
+                    }
+               }
+          }
+     }
+     else{
+          header("location:failed.php?uname=$uname");
+     }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

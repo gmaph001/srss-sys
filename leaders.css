@@ -121,8 +121,8 @@ h2:hover{
 }
 @media (max-width: 850px) {
      .body{
-          padding-top: 25vh;
-          padding-bottom: 15vh;
+          padding: 25vh 2vw 10vh 2vw;
+          height: max-content;
      }
      .uploads{
           display: flex;
@@ -138,11 +138,13 @@ h2:hover{
           padding: 10vh 5vw 5vh 7vw;
      }
      .notes{
+          margin-top: 1vh;
           width: 80vw;
           height: 30vh;
           padding: 10vh 5vw 5vh 7vw;
      }
      .assignment{
+          margin-top: 1vh;
           width: 80vw;
           height: 30vh;
           padding: 10vh 5vw 5vh 7vw;
