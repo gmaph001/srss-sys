@@ -82,6 +82,7 @@
           let time2 = document.querySelector('.time2');
           let message1 = document.querySelector('.sent');
           let message2 = document.querySelector('.received');
+          let message = document.querySelector('.message');
           let n = 0;
 
           function clicked(n){
@@ -95,12 +96,16 @@
 
           menu.onclick = function(){
                chat.classList.toggle('open');
+               message.style.display = "none";
+               chat.style.height = "81vh";
                n++;
                if(clicked(n)){
                     menu.src = "media/images/icons/menu.png";
+                    message.style.display = "block";
                }
                else{
                     menu.src = "media/images/icons/remove.png";
+                    message.style.display = "none";
                }
 
           }

@@ -14,10 +14,28 @@
           $lastname = $_POST['lastname'];
           $age = $_POST['age'];
           $class = $_POST['class'];
-          $stream = $_POST['stream'];
+          $stream = strtoupper($_POST['stream']);
+
+          $date = date_default_timezone_set('Africa/Nairobi');
+          if($date){
+               $year = Date('Y');
+                              
+               if($class<5){
+                    $period = 5-$class;
+                    $year+=$period;
+
+                    $expire = Date("$year-01-01");
+               }
+               else{
+                    $period = $class-4;
+                    $year+=$period;
+
+                    $expire = Date("$year-06-01");
+               }
+          }
 
           $query = "UPDATE students SET firstname = '$firstname', secondname = '$secondname', lastname = '$lastname', 
-                    age = '$age', form = '$class', stream = '$stream' WHERE userkey = '$uname'";
+                    age = '$age', form = '$class', stream = '$stream', tarehe = '$expire' WHERE userkey = '$uname'";
 
           $result = mysqli_query($db, $query);
 

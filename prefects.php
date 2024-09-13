@@ -21,8 +21,6 @@
 
           if($file == ""){
                $profile = 'media/images/prof_pics/login.png';
-               echo $profile;
-               echo "<br>";
           }
           else{
                $profile = 'media/images/prof_pics/' . $prof;
@@ -31,28 +29,21 @@
           }
 
           $date = date_default_timezone_set('Africa/Nairobi');
-          $default = 21000000000;
-
           if($date){
                $year = Date('Y');
-               $week = Date('W');
-               $day = Date('d');
-               $hour = Date('h');
-               $min = Date('m');
-               $sec = Date('s');
+               
+               if($form<5){
+                    $period = 5-$form;
+                    $year+=$period;
 
-               $tarehe = ((((($year*$week*7)+$day)*24)+$hour)*60)+$min;
-               echo $tarehe;
-               echo "<br>";
-               echo $day;
-               echo "<br>";
-               echo $week;
-               echo "<br>";
-               echo $year;
-               echo "<br>";
-          }
-          if($tarehe>$default){
-               $tarehe-=$default;
+                    $expire = Date("$year-01-01");
+               }
+               else{
+                    $period = $form-4;
+                    $year+=$period;
+
+                    $expire = Date("$year-06-01");
+               }
           }
 
           $query1 = "SELECT * FROM prefects";
@@ -90,7 +81,7 @@
 
           $query2 = "INSERT INTO admin (firstname, secondname, lastname, username, email, password, rank, codename, photo, userkey) VALUES ('$firstname', '$secondname', '$lastname', '$username', '$email', '$password', '$position', '$codename', '$profile', '$userkey')";
 
-          $query3 = "INSERT INTO students (firstname, secondname, lastname, username, email, password, form, stream, age, photo, userkey, tarehe) VALUES ('$firstname', '$secondname', '$lastname', '$username', '$email', '$password', '$class', '$stream', '$age', '$profile', '$userkey', '$tarehe')";
+          $query3 = "INSERT INTO students (firstname, secondname, lastname, username, email, password, form, stream, age, photo, userkey, tarehe) VALUES ('$firstname', '$secondname', '$lastname', '$username', '$email', '$password', '$class', '$stream', '$age', '$profile', '$userkey', '$expire')";
 
           $result = mysqli_query($db, $query);
           $result2 = mysqli_query($db, $query2);

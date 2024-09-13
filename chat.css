@@ -35,6 +35,7 @@ body{
      margin: 12px;
      margin-left: 42px;
      width: 80px;
+     height: 75px;
      border-radius: 50%;
 }
 .dp{
@@ -158,26 +159,25 @@ body{
      font-size: 14pt;
      animation: appear2 1s ease-in normal both;
 }
-.time, .time2{
-     display: none;
-}
-.time.open{
+.time{
      display: block;
      font-size: 10pt;
      margin-top: 1vh;
      color: white;
+     animation: appear3 1s ease-in normal both;
 }
-.time2.open{
+.time2{
      display: block;
      font-size: 10pt;
      margin-top: 1vh;
      color: black;
+     animation: appear4 1s ease-in normal both;
 }
 .message{
      bottom: 0;
      position: fixed;
      z-index: 100;
-     width: 97vw;
+     width: 99vw;
      background-color: rgb(196, 196, 196);
 }
 .sms{
@@ -280,7 +280,7 @@ body{
      }
      to{
           font-size: 08pt;
-          color: rgb(15, 0, 77);
+          color: rgb(255, 255, 255);
      }
 }
 @keyframes appear4{
@@ -289,7 +289,7 @@ body{
           color: rgb(66, 66, 243);
      }
      to{
-          font-size: 10pt;
-          color: rgb(245, 0, 135);
+          font-size: 08pt;
+          color: rgb(0, 0, 0);
      }
 }

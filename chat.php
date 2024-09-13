@@ -16,7 +16,7 @@
      $size2 = 0;
      $size3 = 0;
      $size4 = 0;
-     $messagesent[$size1] = [];
+     $messagesent[$size] = [];
      $messagereceived[$size2] = [];
      $messagetimesend[$size3] = [];
 
@@ -33,13 +33,10 @@
           for($i=0; $i<mysqli_num_rows($result3); $i++){
                $row = mysqli_fetch_array($result3);
                if($row['codename'] === "HM"){
-                    $sender = $row['username'];
+                    $username = $row['username'];
                     $dp1 = $row['photo'];
+                    $dp = $dp1;
                     $rank = $row['rank'];
-
-                    if($username ==""){
-                         $sender = $username;
-                    }
                }
           }
      }
@@ -54,11 +51,12 @@
                     $size3++;
                }
                else{
-                    if($username === $sender){
+                    if($username === $row['kwenda']){
                          $messagereceived[$size2] = $row['ujumbe'];
                          $messagetimesend[$size3] = $row['muda'];
                          $size2++;
                          $size3++;
+                         echo $size2;
                     }
                }
           }
@@ -87,7 +85,7 @@
           ?>
      </div>
      <div class="body">
-     <div class="chats">
+          <div class="chats">
                <div class="chat">
                     <img src="media/images/prof_pics/earth.jpg" class="chat-dp">
                     <a href="chat-block.html">
@@ -115,25 +113,48 @@
           </div>
           <div class="textarea">
                <?php
-                    if($size>0){
-                         for($i=$size; $i>=0; $i++){
-                              echo
-                                   "
-                                   <div class='chat-block'>
-                                        <p class='sent'>
-                                             <span class='send'>$messagesent[$i]</span>
-                                             <span class='time'>$messagetimesend[$i]</span>
-                                        </p><br><br>
-                                   
-                                   ";
+
+                    if($size>0 || $size2>0){
+                         if($size>0){
+                              for($i=$size-1; $i>=0; $i--){
+                                   echo
+                                        "
+                                        <div class='chat-block'>
+                                             <p class='sent'>
+                                                  <span class='send'>$messagesent[$i]</span>
+                                                  <span class='time'>$messagetimesend[$i]</span>
+                                             </p><br><br>
+                                             ";
+                              }
                          }
-                    }                    
+                         if($size2>0){
+                              for($i=$size2-1; $i>=0; $i--){
+                                   echo 
+                                        "
+                                             <p class='received'>
+                                                       <span class='receive'>$messagereceived[$i]</span>
+                                                       <span class='time2'>$messagetimesend[$i]</span>
+                                                  </p><br><br>
+                                             </div>
+                                        ";
+                              }
+                         }
+                    }
+                    else{
+                         echo
+                              "
+                                   <div class='chat-block'>
+                                        <p class='note'>
+                                             Welcome to SRSS-Chat box!
+                                        </p><br><br>
+                                   </div>
+                              ";
+                    }                   
                ?>
           </div>
           <div class="message">
                <?php echo "<form action='message.php?uname=$uname' method='POST' enctype='multipart/form-data' name='meseji' class='sms'>";?>
-                    <input type="text" name="ujumbe" class="msg">
-                    <?php echo "<input type='text' id='mess' style='display: none;' value='$message'>";?>
+                    <input type="text" name="ujumbe" class="msg" placeholder="Type your message here...">
                     <button onclick="msg()" class="sendbtn" id="go" name="send"><img src="media/icons/send-button.png" class="sendpic"></button>
                </form>
           </div>
@@ -146,6 +167,7 @@
           let time2 = document.querySelector('.time2');
           let message1 = document.querySelector('.sent');
           let message2 = document.querySelector('.received');
+          let message = document.querySelector('.message');
           let n = 0;
 
           function clicked(n){
@@ -159,12 +181,16 @@
 
           menu.onclick = function(){
                chat.classList.toggle('open');
+               message.style.display = "none";
+               chat.style.height = "81vh";
                n++;
                if(clicked(n)){
                     menu.src = "media/images/icons/menu.png";
+                    message.style.display = "block";
                }
                else{
                     menu.src = "media/images/icons/remove.png";
+                    message.style.display = "none";
                }
 
           }

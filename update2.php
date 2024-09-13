@@ -13,7 +13,7 @@
           $secondname = $_POST['secondname'];
           $lastname = $_POST['lastname'];
           $rank = $_POST['rank'];
-          $codename = $_POST['codename'];
+          $codename = strtoupper($_POST['codename']);
 
           $query = "UPDATE admin SET firstname = '$firstname', secondname = '$secondname', lastname = '$lastname', 
                     rank = '$rank', codename = '$codename' WHERE userkey = '$uname'";

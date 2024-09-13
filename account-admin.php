@@ -73,7 +73,7 @@
                                    <label><b>Codename: </b></label> <input type='text' name='codename' value='$codename' placeholder='change'><br>
                                    <p id='alert5' class='alert'></p><br>";
                ?>
-                         <button onclick="save()" class="save" name="save">Save</button> 
+                         <button onclick="sasisha()" class="save" name="save">Save</button> 
                     </fieldset>
                </form>
           </div>
@@ -111,6 +111,59 @@
           <script>
                let result = "*Please fill this field!*";
                let result2 = "*File too large to be submitted!*";
+               let rankres = "*Please insert correct rank!*";
+               let stream = ['HM', 'DHM', 'AM', 'DM', 'TEA', 'PRF', 'PRGM'];
+               let valid = true;
+               let strmresult = "*Please insert the correct codename!*";
+
+               function sasisha(){
+                    if(document.upload.rank.value == 0){
+                         document.getElementById("alert4").innerHTML = result;
+                         event.preventDefault();
+                    }
+                    else{
+                         if(document.upload.rank.value<0 || document.upload.rank.value>7){
+                              document.getElementById("alert4").innerHTML = rankres;
+                              event.preventDefault();
+                         }
+                    }
+
+                    if(document.upload.firstname.value == ""){
+                         document.getElementById("alert").innerHTML = result;
+                         event.preventDefault();
+                    }
+
+                    if(document.upload.secondname.value == ""){
+                         document.getElementById("alert2").innerHTML = result;
+                         event.preventDefault();
+                    }
+
+                    if(document.upload.lastname.value == ""){
+                         document.getElementById("alert3").innerHTML = result;
+                         event.preventDefault();
+                    }
+
+                    if(document.upload.codename.value == ""){
+                         document.getElementById("alert5").innerHTML = result;
+                         event.preventDefault();
+                    }
+                    else{
+                         for(let i=0; i<stream.length; i++){
+                              if(document.upload.codename.value == stream[i]){
+                                   valid = true;
+                                   break;
+                              }
+                              else{
+                                   valid = false;
+                              }
+                         }
+
+                         if(!valid){
+                              document.getElementById("alert5").innerHTML = strmresult;
+                              event.preventDefault();
+                         }
+                    }
+               }
 
                function photosize(){
                     let photo = document.getElementById("pic");

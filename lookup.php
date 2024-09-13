@@ -37,25 +37,7 @@
                     $date = date_default_timezone_set('Africa/Nairobi');
                     $default = 21000000000;
                     if($date){
-                         $year = Date('Y');
-                         $week = Date('W');
-                         $day = Date('d');
-                         $hour = Date('h');
-                         $min = Date('m');
-                         $sec = Date('s');
-
-                         $tarehe = ((((($year*$week*7)+$day)*24)+$hour)*60)+$min;
-                         echo $tarehe;
-                         echo "<br>";
-                         echo $day;
-                         echo "<br>";
-                         echo $week;
-                         echo "<br>";
-                         echo $year;
-                         echo "<br>";
-                    }
-                    if($tarehe>$default){
-                         $tarehe-=$default;
+                         $today = Date("Y-m-d");
                     }
 
                     if($result){
@@ -72,47 +54,46 @@
                                    if($email === $row['email']){
                                         if($password === $row['password']){
                                              $userkey = $row['userkey'];
-                                             if($row['form']<5){
-                                                  $remainingtime = $tarehe-$row['tarehe'];
-                                                  $year = 525960;
-                                                  $timelimit = (5-$row['form'])*$year;
-                                                  if($remainingtime >= $timelimit){
-                                                       
-                                                       $delquery = "DELETE FROM students WHERE userkey = '$userkey'";
-                                                       $delresult = mysqli_query($db, $delquery);
+                                             $yr = "";
+                                             $leo = intval(Date('Y'));
+                                             for($i=0; $i<4; $i++){
+                                                  $yr.=$row['tarehe'][$i];
+                                             }
+                                             $yr = intval($yr);
 
-                                                       if($delresult){
-                                                            echo "<p>User account expired!</p>";
-                                                       }
-                                                       else{
-                                                            echo "<p>Error while deleting account</p>";
-                                                       }
+                                             $mwezi = "";
+                                             for($i=5; $i<7; $i++){
+                                                  $mwezi.=$row['tarehe'][$i];
+                                             }
+                                             $mwezi = intval($mwezi);
+
+                                             $mon = intval(Date('m'));
+                                             if($today === $row['tarehe']){
+                                                  $delquery = "DELETE FROM students WHERE userkey = '$userkey'";
+                                                  $delresult = mysqli_query($db, $delquery);
+
+                                                  if($delresult){
+                                                       echo "<p>Account Expired!</p>";
+                                                       break;
                                                   }
                                                   else{
-                                                       header("location:home.php?uname=$userkey");
+                                                       echo "<p>Error in account expiry!</p>";
+                                                  }
+                                             }
+                                             elseif($leo>=$yr && $mon>=$mwezi){
+                                                  $delquery = "DELETE FROM students WHERE userkey = '$userkey'";
+                                                  $delresult = mysqli_query($db, $delquery);
+
+                                                  if($delresult){
+                                                       echo "<p>Account Expired!</p>";
+                                                       break;
+                                                  }
+                                                  else{
+                                                       echo "<p>Error in account expiry!</p>";
                                                   }
                                              }
                                              else{
-                                                  if($row['form']>4){
-                                                       $remainingtime = $tarehe-$row['tarehe'];
-                                                       $year = 525960;
-                                                       $timelimit = (7-$row['form'])*$year;
-                                                       if($remainingtime >= $timelimit){
-                                                            
-                                                            $delquery = "DELETE FROM students WHERE userkey = '$userkey'";
-                                                            $delresult = mysqli_query($db, $delquery);
-
-                                                            if($delresult){
-                                                                 echo "<p>User account expired!</p>";
-                                                            }
-                                                            else{
-                                                                 echo "<p>Error while deleting account</p>";
-                                                            }
-                                                       }
-                                                       else{
-                                                            header("location:home.php?uname=$userkey");
-                                                       }
-                                                  }
+                                                  header("location:home.php?uname=$userkey");
                                              }
                                         }
                                         else{

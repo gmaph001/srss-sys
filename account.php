@@ -63,14 +63,20 @@
                          "<form action='update.php?uname=$uname' method='POST' name='upload' class='update' enctype='multipart/form-data'>
                          <fieldset>
                          <legend><b>My Profile</b></legend> 
-                                   <label><b>First Name: </b></label> <input type='text' name='firstname' value='$firstname' placeholder='change'><br><br>
-                                   <label><b>Second Name: </b></label> <input type='text' name='secondname' value='$secondname' placeholder='change'><br><br>
-                                   <label><b>Last Name: </b></label> <input type='text' name='lastname' value='$lastname' placeholder='change'><br><br>
-                                   <label><b>Age: </b></label> <input type='number' name='age' value='$age' placeholder='change'><br><br>
-                                   <label><b>Class: </b></label> <input type='number' name='class' value='$class' placeholder='change'><br><br>
-                                   <label><b>Stream: </b></label> <input type='text' name='stream' value='$stream' placeholder='change'><br><br>";
+                                   <label><b>First Name: </b></label> <input type='text' name='firstname' value='$firstname' placeholder='change'><br>
+                                   <p id='alert' class='alert'></p><br>
+                                   <label><b>Second Name: </b></label> <input type='text' name='secondname' value='$secondname' placeholder='change'><br>
+                                   <p id='alert2' class='alert'></p><br>
+                                   <label><b>Last Name: </b></label> <input type='text' name='lastname' value='$lastname' placeholder='change'><br>
+                                   <p id='alert3' class='alert'></p><br>
+                                   <label><b>Age: </b></label> <input type='number' name='age' value='$age' placeholder='change'><br>
+                                   <p id='alert4' class='alert'></p><br>
+                                   <label><b>Class: </b></label> <input type='number' name='class' value='$class' placeholder='change'><br>
+                                   <p id='alert5' class='alert'></p><br>
+                                   <label><b>Stream: </b></label> <input type='text' name='stream' value='$stream' placeholder='change'><br>
+                                   <p id='alert6' class='alert'></p><br>";
                ?>
-                         <button onclick="save()" class="save" name="save">Save</button> 
+                         <button onclick="sasisha()" class="save" name="save">Save</button> 
                     </fieldset>
                </form>
           </div>
@@ -79,7 +85,8 @@
                     echo
                          "<form action='update_photo.php?uname=$uname' method='POST' name='update' class='update' enctype='multipart/form-data'>
                               <img src='$photo' class='photo' width='200px' height='250px'><br><br>
-                              <label><b>Upload your photo: </b></label><input type='file' id='pic' name='photo' value='none'><br><br>
+                              <label><b>Upload your photo: </b></label><input type='file' id='pic' name='photo' value='none'><br>
+                              <p id='alert7' class='alert'></p><br>
                               <button onclick='photosubmit()' class='save' name='savephoto'>Save</button>                                          
                          </form>";
                          
@@ -111,6 +118,71 @@
      <script>
                let result = "*Please fill this field!*";
                let result2 = "*File too large to be submitted!*";
+               let classres = "*Please insert correct class!*";
+               let stream = ['T', 'K', 'U', 'E', 'A', 'B', 'PCM', 'PMC', 'PGM', 'PCB', 'CBG', 'ECA', 'EGM', 'HKL', 'HGL', 'HGE'];
+               let valid = true;
+               let strmresult = "*Please insert the correct codename!*";
+               let ageresult = "*Age not acceptable!*";
+
+               function sasisha(){
+                    if(document.upload.class.value == 0){
+                         document.getElementById("alert5").innerHTML = result;
+                         event.preventDefault();
+                    }
+                    else{
+                         if(document.upload.class.value<0 || document.upload.class.value>6){
+                              document.getElementById("alert5").innerHTML = classres;
+                              event.preventDefault();
+                         }
+                    }
+
+                    if(document.upload.firstname.value == ""){
+                         document.getElementById("alert").innerHTML = result;
+                         event.preventDefault();
+                    }
+
+                    if(document.upload.secondname.value == ""){
+                         document.getElementById("alert2").innerHTML = result;
+                         event.preventDefault();
+                    }
+
+                    if(document.upload.lastname.value == ""){
+                         document.getElementById("alert3").innerHTML = result;
+                         event.preventDefault();
+                    }
+
+                    if(document.upload.stream.value == 0){
+                         document.getElementById("alert6").innerHTML = result;
+                         event.preventDefault();
+                    }
+                    else{
+                         for(let i=0; i<stream.length; i++){
+                              if(document.upload.stream.value == stream[i]){
+                                   valid = true;
+                                   break;
+                              }
+                              else{
+                                   valid = false;
+                              }
+                         }
+
+                         if(!valid){
+                              document.getElementById("alert6").innerHTML = strmresult;
+                              event.preventDefault();
+                         }
+                    }
+
+                    if(document.upload.age.value == 0){
+                         document.getElementById("alert4").innerHTML = result;
+                         event.preventDefault();
+                    }
+                    else{
+                         if(document.upload.age.value<12 || document.upload.age.value>22){
+                              document.getElementById("alert4").innerHTML = ageresult;
+                              event.preventDefault();
+                         }
+                    }
+               }
 
                function photosize(){
                     let photo = document.getElementById("pic");
@@ -137,12 +209,12 @@
 
                function photosubmit(){
                     if(document.update.photo.value == ""){
-                         document.getElementById("alert6").innerHTML = result;
+                         document.getElementById("alert7").innerHTML = result;
                          event.preventDefault();
                     }
                     else{
                          if(!photosize()){
-                              document.getElementById("alert6").innerHTML = result2;
+                              document.getElementById("alert7").innerHTML = result2;
                          }
                     }
                }

@@ -30,35 +30,28 @@
                          }
                          
                          $date = date_default_timezone_set('Africa/Nairobi');
-                         $default = 21000000000;
                          if($date){
                               $year = Date('Y');
-                              $week = Date('W');
-                              $day = Date('d');
-                              $hour = Date('h');
-                              $min = Date('m');
-                              $sec = Date('s');
+                              
+                              if($form<5){
+                                   $period = 5-$form;
+                                   $year+=$period;
 
-                              $tarehe = ((((($year*$week*7)+$day)*24)+$hour)*60)+$min;
-                              echo $tarehe;
-                              echo "<br>";
-                              echo $day;
-                              echo "<br>";
-                              echo $week;
-                              echo "<br>";
-                              echo $year;
-                              echo "<br>";
-                         }
-                         if($tarehe>$default){
-                              $tarehe-=$default;
-                         }
+                                   $expire = Date("$year-01-01");
+                              }
+                              else{
+                                   $period = $form-4;
+                                   $year+=$period;
 
-                         echo $tarehe;
-                         echo "<br>";
+                                   $expire = Date("$year-06-01");
+                              }
+                         }
 
                          $query = "SELECT * FROM students";
+                         $query2 = "SELECT * FROM admin";
 
                          $reference = mysqli_query($db, $query);
+                         $reference2 = mysqli_query($db, $query2);
 
                          if($reference){
                               for($i=0; $i<mysqli_num_rows($reference); $i++){
@@ -70,9 +63,19 @@
                               }
                          }
 
+                         if($reference2){
+                              for($i=0; $i<mysqli_num_rows($reference2); $i++){
+                                   $row = mysqli_fetch_array($reference2);
+
+                                   if($userkey === $row['userkey']){
+                                        $userkey = rand(100000000, 999999999);
+                                   }
+                              }
+                         }
+
                          $sql = "INSERT INTO students (firstname, secondname, lastname, username, email, password, form, stream, age, photo, userkey, tarehe) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
                          $stmtinsert = $db->prepare($sql);
-                         $result = $stmtinsert->execute([$firstname, $secondname, $lastname, $username, $email, $password, $form, $stream, $age, $profile, $userkey, $tarehe]);
+                         $result = $stmtinsert->execute([$firstname, $secondname, $lastname, $username, $email, $password, $form, $stream, $age, $profile, $userkey, $expire]);
                          if($result){
                               header("location:home.php?uname=$userkey");
                               echo $tarehe;
