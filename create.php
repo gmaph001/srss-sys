@@ -40,7 +40,7 @@
                                    $expire = Date("$year-01-01");
                               }
                               else{
-                                   $period = $form-4;
+                                   $period = 7-$form;
                                    $year+=$period;
 
                                    $expire = Date("$year-06-01");

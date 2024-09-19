@@ -27,7 +27,7 @@
                     $expire = Date("$year-01-01");
                }
                else{
-                    $period = $class-4;
+                    $period = 7-$class;
                     $year+=$period;
 
                     $expire = Date("$year-06-01");

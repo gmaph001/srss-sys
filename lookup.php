@@ -19,9 +19,11 @@
 
                     $query = "SELECT * FROM students";
                     $query2 = "SELECT * FROM admin";
+                    $query3 = "SELECT * FROM prefects";
 
                     $result = mysqli_query($db, $query);
                     $result2 = mysqli_query($db, $query2);
+                    $result3 = mysqli_query($db, $query3);
 
                     $valid = true;
                     $uvalid = true;
@@ -123,6 +125,50 @@
                                    if($email === $row['email']){
                                         if($password === $row['password']){
                                              $userkey = $row['userkey'];
+                                             if($row['codename'] === "PRF"){
+                                                  $userkey = $row['userkey'];
+                                             $yr = "";
+                                             $leo = intval(Date('Y'));
+                                             for($i=0; $i<4; $i++){
+                                                  $yr.=$row['tarehe'][$i];
+                                             }
+                                             $yr = intval($yr);
+
+                                             $mwezi = "";
+                                             for($i=5; $i<7; $i++){
+                                                  $mwezi.=$row['tarehe'][$i];
+                                             }
+                                             $mwezi = intval($mwezi);
+
+                                             $mon = intval(Date('m'));
+                                             if($today === $row['tarehe']){
+                                                  $delquery = "DELETE FROM students WHERE userkey = '$userkey'";
+                                                  $delresult = mysqli_query($db, $delquery);
+
+                                                  if($delresult){
+                                                       echo "<p>Account Expired!</p>";
+                                                       break;
+                                                  }
+                                                  else{
+                                                       echo "<p>Error in account expiry!</p>";
+                                                  }
+                                             }
+                                             elseif($leo>=$yr && $mon>=$mwezi){
+                                                  $delquery = "DELETE FROM students WHERE userkey = '$userkey'";
+                                                  $delresult = mysqli_query($db, $delquery);
+
+                                                  if($delresult){
+                                                       echo "<p>Account Expired!</p>";
+                                                       break;
+                                                  }
+                                                  else{
+                                                       echo "<p>Error in account expiry!</p>";
+                                                  }
+                                             }
+                                             else{
+                                                  header("location:home.php?uname=$userkey");
+                                             }
+                                             }
                                              header("location:home.php?uname=$userkey");
                                         }
                                         else{

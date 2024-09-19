@@ -31,15 +31,18 @@
           $date = date_default_timezone_set('Africa/Nairobi');
           if($date){
                $year = Date('Y');
+
+               $year2 = $year+1;
+               $expire2 = Date("$year2-01-01");
                
-               if($form<5){
-                    $period = 5-$form;
+               if($class<5){
+                    $period = 5-$class;
                     $year+=$period;
 
                     $expire = Date("$year-01-01");
                }
                else{
-                    $period = $form-4;
+                    $period = 7-$class;
                     $year+=$period;
 
                     $expire = Date("$year-06-01");
@@ -77,7 +80,7 @@
                }
           }
 
-          $query = "INSERT INTO prefects (firstname, secondname, lastname, age, username, email, password, class, stream, rank, photo, userkey) VALUES ('$firstname', '$secondname', '$lastname', '$age', '$username', '$email', '$password', '$class', '$stream', '$rank', '$profile', '$userkey')";
+          $query = "INSERT INTO prefects (firstname, secondname, lastname, age, username, email, password, class, stream, rank, photo, userkey, expire) VALUES ('$firstname', '$secondname', '$lastname', '$age', '$username', '$email', '$password', '$class', '$stream', '$rank', '$profile', '$userkey', '$expire2')";
 
           $query2 = "INSERT INTO admin (firstname, secondname, lastname, username, email, password, rank, codename, photo, userkey) VALUES ('$firstname', '$secondname', '$lastname', '$username', '$email', '$password', '$position', '$codename', '$profile', '$userkey')";
 
@@ -89,7 +92,7 @@
 
           if($result && $result2 && $result3){
                echo "Prefect successfully registered!";
-               header('location:prefects-signUp.html');
+               // header('location:prefects-signUp.html');
           }
           else{
                echo "There was an error while registering the student!";
