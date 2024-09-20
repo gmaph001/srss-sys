@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Sep 04, 2024 at 07:31 PM
+-- Host: localhost
+-- Generation Time: Sep 20, 2024 at 02:58 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -467,6 +467,22 @@ INSERT INTO `students` (`Students_ID`, `firstname`, `secondname`, `lastname`, `u
 (23, 'Nassor', 'Mohammed', 'Munir', 'nassor_munir', 'nassor@gmail.com', 'nassor_munir', 6, 'PCM', 20, 'media/images/prof_pics/pexels-azim-islam-460924-1188037.jpg', NULL, 558984056, 734472489),
 (2, 'Omar', 'Mohammed', 'Matumbo', 'omz', 'coolomar42@gmail.com', 'oozers12345', 6, 'PMC', 20, 'media/images/prof_pics/wallpaperflare.com_wallpaper (4).jpg', NULL, 959152665, 734472369);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `suggestions`
+--
+
+CREATE TABLE `suggestions` (
+  `suggest_ID` int(11) NOT NULL,
+  `user_ID` int(9) NOT NULL,
+  `firstname` varchar(255) NOT NULL,
+  `secondname` varchar(500) NOT NULL,
+  `lastname` varchar(500) NOT NULL,
+  `username` varchar(1000) NOT NULL,
+  `suggestions` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Indexes for dumped tables
 --
@@ -546,6 +562,12 @@ ALTER TABLE `students`
   ADD UNIQUE KEY `id` (`Students_ID`);
 
 --
+-- Indexes for table `suggestions`
+--
+ALTER TABLE `suggestions`
+  ADD PRIMARY KEY (`suggest_ID`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -620,6 +642,12 @@ ALTER TABLE `prefects`
 --
 ALTER TABLE `students`
   MODIFY `Students_ID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT for table `suggestions`
+--
+ALTER TABLE `suggestions`
+  MODIFY `suggest_ID` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
