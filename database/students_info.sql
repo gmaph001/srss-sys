@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 20, 2024 at 02:58 PM
+-- Generation Time: Sep 28, 2024 at 08:22 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -449,7 +449,7 @@ CREATE TABLE `students` (
   `photo` varchar(500) DEFAULT NULL,
   `OTP` int(6) DEFAULT NULL,
   `userkey` int(20) NOT NULL,
-  `tarehe` int(50) NOT NULL
+  `tarehe` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -457,15 +457,15 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`Students_ID`, `firstname`, `secondname`, `lastname`, `username`, `email`, `password`, `form`, `stream`, `age`, `photo`, `OTP`, `userkey`, `tarehe`) VALUES
-(3, 'MUHADDITHA', 'YUSUPH', 'SULEIMAN', '@_muhyy', 'muhy@gmail.com', 'muhadditha100%', 6, 'PCM', 20, 'media/images/prof_pics/wp3998050-5k-wallpapers.jpg', NULL, 362587771, 734472369),
-(1, 'GEORGE', 'GODSON', 'MAPHOLE', 'gmaph__001', 'gmaph001@gmail.com', 'SRSS14552', 6, 'PMC', 20, 'media/images/prof_pics/wallpaperflare.com_wallpaper (3).jpg', NULL, 657806248, 734472369),
-(6, 'INNOCENT', 'MATHIAS', 'NGOWI', 'inno_math', 'innocent@gmail.com', 'inno_math', 6, 'PCM', 20, 'media/images/prof_pics/earth.jpg', NULL, 315285343, 734472369),
-(7, 'JOSHUA', 'JOHN', 'MARTIN', 'joshua_john', 'joshua@gmail.com', 'joshua_john', 6, 'PMC', 20, 'media/images/prof_pics/wallpaperflare.com_wallpaper (28).jpg', NULL, 636558955, 734472369),
-(22, 'KARISHMA', 'PUNIT', 'CHHATBAR', 'kari_punit', 'karishma@gmail.com', 'kari_punit', 6, 'PMC', 20, 'media/images/prof_pics/login.png', NULL, 525855277, 734472489),
-(5, 'MARCELO', 'SAMWEL', 'PENGO', 'marc_sam', 'marcelosamwel@gmail.com', 'marcelosamwel', 6, 'PCM', 20, 'media/images/prof_pics/wallpaperflare.com_wallpaper (25).jpg', NULL, 500111943, 734472369),
-(4, 'NAHIR', 'NAZIR', 'VIRSAM', 'nahir_nazir', 'nahirvirsam@gmail.com', 'nahir_nazir', 6, 'PCM', 20, 'media/images/prof_pics/red-car.jpg', NULL, 720861492, 734472369),
-(23, 'Nassor', 'Mohammed', 'Munir', 'nassor_munir', 'nassor@gmail.com', 'nassor_munir', 6, 'PCM', 20, 'media/images/prof_pics/pexels-azim-islam-460924-1188037.jpg', NULL, 558984056, 734472489),
-(2, 'Omar', 'Mohammed', 'Matumbo', 'omz', 'coolomar42@gmail.com', 'oozers12345', 6, 'PMC', 20, 'media/images/prof_pics/wallpaperflare.com_wallpaper (4).jpg', NULL, 959152665, 734472369);
+(3, 'MUHADDITHA', 'YUSUPH', 'SULEIMAN', '@_muhyy', 'muhy@gmail.com', 'muhadditha100%', 6, 'PCM', 20, 'media/images/prof_pics/wp3998050-5k-wallpapers.jpg', NULL, 362587771, '2025-06-01'),
+(1, 'GEORGE', 'GODSON', 'MAPHOLE', 'gmaph__001', 'gmaph001@gmail.com', 'SRSS14552', 6, 'PMC', 20, 'media/images/prof_pics/wallpaperflare.com_wallpaper (3).jpg', NULL, 657806248, '2025-06-01'),
+(6, 'INNOCENT', 'MATHIAS', 'NGOWI', 'inno_math', 'innocent@gmail.com', 'inno_math', 6, 'PCM', 20, 'media/images/prof_pics/earth.jpg', NULL, 315285343, '2025-06-01'),
+(7, 'JOSHUA', 'JOHN', 'MARTIN', 'joshua_john', 'joshua@gmail.com', 'joshua_john', 6, 'PMC', 20, 'media/images/prof_pics/wallpaperflare.com_wallpaper (28).jpg', NULL, 636558955, '2025-06-01'),
+(22, 'KARISHMA', 'PUNIT', 'CHHATBAR', 'kari_punit', 'karishma@gmail.com', 'kari_punit', 6, 'PMC', 20, 'media/images/prof_pics/login.png', NULL, 525855277, '2025-06-01'),
+(5, 'MARCELO', 'SAMWEL', 'PENGO', 'marc_sam', 'marcelosamwel@gmail.com', 'marcelosamwel', 6, 'PCM', 20, 'media/images/prof_pics/wallpaperflare.com_wallpaper (25).jpg', NULL, 500111943, '2025-06-01'),
+(4, 'NAHIR', 'NAZIR', 'VIRSAM', 'nahir_nazir', 'nahirvirsam@gmail.com', 'nahir_nazir', 6, 'PCM', 20, 'media/images/prof_pics/red-car.jpg', NULL, 720861492, '2025-06-01'),
+(23, 'Nassor', 'Mohammed', 'Munir', 'nassor_munir', 'nassor@gmail.com', 'nassor_munir', 6, 'PCM', 20, 'media/images/prof_pics/pexels-azim-islam-460924-1188037.jpg', NULL, 558984056, '2025-06-01'),
+(2, 'Omar', 'Mohammed', 'Matumbo', 'omz', 'coolomar42@gmail.com', 'oozers12345', 6, 'PMC', 20, 'media/images/prof_pics/wallpaperflare.com_wallpaper (4).jpg', NULL, 959152665, '2025-06-01');
 
 -- --------------------------------------------------------
 
