@@ -19,7 +19,7 @@
                     $secondname = $row['secondname'];
                     $lastname = $row['lastname'];
                     $username = $row['username'];
-                    $privacy = $row['privacy'];
+                    $privacy = $row['privacy'];                    
                 }
             }
         }
