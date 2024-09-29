@@ -53,6 +53,9 @@
                               "<li><a href='account-admin.php?uname=$uname'>My Profile</a></li>
                               <li><a href='security.php?uname=$uname'>Privacy & Security</a></li>
                               <li><b><a href='home.php?uname=$uname'>Home</a></b></li>";
+                              if($rank == 1){
+                                   echo "<li><b><a href='suggestions.php?uname=$uname'>Suggestions</a></b></li>";
+                              }
                     ?>
                </ul>
           </div>
