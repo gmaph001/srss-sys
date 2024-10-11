@@ -1,0 +1,94 @@
+body{
+    overflow-x: hidden;
+}
+.body{
+    padding-top: 15vh;
+    background-color: aliceblue;
+}
+.main{
+    background-color: aliceblue;
+    padding: 5%;
+}
+.suggestions-area{
+    background-color: rgb(1, 0, 87);
+    color: white;
+    padding: 2%;
+    border-radius: 20px;
+    width: 50vw;
+    height: fit-content;
+    margin: 2vh auto;
+}
+.username{
+    font-size: 18pt;
+    font-weight: bold;
+}
+.suggestion{
+    background-color: white;
+    color: black;
+    font-size: 14pt;
+    font-family: candara;
+    margin-top: 2vh;
+    padding: 2%;
+    border-radius: 20px;
+    border: 2px solid black;
+}
+.suggestion p{
+    color: black;
+}
+.response{
+    margin-top: 2vh;
+}
+.response form{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.response form input{
+    background-color: rgb(213, 213, 213);
+    color: black;
+    border: 2px solid black;
+    padding: 1%;
+    width: 90%;
+    font-family: candara;
+}
+.sendbtn{
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 5px 5px;
+    cursor: pointer;
+}
+.sendbtn:hover{
+    background-color: green;
+}
+.sendpic{
+    width: 30px;
+    height: 30px;
+}
+@media(max-width: 900px){
+    .suggestions-area{
+        width: 80vw;
+        padding: 5%;
+    }
+    .username{
+        font-size: 14pt;
+    }
+    .suggestion p{
+        font-size: 12pt;
+    }
+    .response form input{
+        font-size: 12pt;
+        padding: 2%;
+    }
+    .sendbtn{
+        width: 40px;
+        height: 40px;
+        padding: 3px;
+    }
+    .sendpic{
+        width: 20px;
+        height: 20px;
+    }
+}
