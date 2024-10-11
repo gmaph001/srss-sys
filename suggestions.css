@@ -75,12 +75,16 @@ body{
     .username{
         font-size: 14pt;
     }
+    .suggestion{
+        border-radius: 10px;
+    }
     .suggestion p{
         font-size: 12pt;
     }
     .response form input{
         font-size: 12pt;
         padding: 2%;
+        border-radius: 10px;
     }
     .sendbtn{
         width: 40px;

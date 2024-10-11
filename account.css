@@ -258,6 +258,19 @@
      text-align: center;
      padding: 5% 5% 2% 5%;
 }
+.p-icons{
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     width: 70vw;
+     margin: auto;
+     padding: 2%;
+     position: center;
+}
+.p-icons .icons{
+     width: 100px;
+     height: 100px;
+}
 @keyframes open{
      from{
           width: 0;
