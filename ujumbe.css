@@ -1,0 +1,255 @@
+*{
+    margin: 0;
+    padding: 0;
+    transition: all 0.4s ease-in-out;
+}
+.main{
+    overflow-x: hidden;
+    display: flex;
+    justify-content: space-between;
+    background-color: aliceblue;
+}
+.mixed-chat{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.sidebar{
+    background-color: darkblue;
+    width: 25vw;
+    min-height: 100vh;
+    display: none;
+    animation: slide 1s ease-in-out normal both;
+}
+.sidebar.open{
+    display: block;
+}
+.sidebar-title{
+    top: 0;
+    position: fixed;
+    color: white;
+    background-color: darkblue;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20pt;
+    animation: appear3 1s ease-in-out normal both 1;
+}
+.icons{
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+.chats{
+    padding: 2%;
+    padding-top: 15vh;
+    animation: appear 2s ease-in-out normal both 1;
+    animation-delay: 1s;
+
+}
+.conversation{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    padding: 1vh 1vw;
+    font-size: 14pt;
+    margin-top: 2vh;
+    animation: appear5 2s ease-in-out normal both 1;
+}
+.conv-dp{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    animation: appear4 2s ease-in-out normal both 1;
+}
+.conv-name{
+    width: 70%;
+    font-size: 14pt;
+    color: white;
+    animation: appear6 2s ease-in-out normal both 1;
+    cursor: pointer;
+}
+.conv-name:hover{
+    color: rgb(0, 214, 0);
+}
+.active-chat{
+    position: fixed;
+    bottom: 0;
+    width: 19.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1vh 3vw 1vh 2vw;
+    background-color: darkblue;
+    color: black;
+    animation: appear2 2s ease-in-out normal both 1;
+    animation-delay: 1s;
+}
+.active-chat .conv-name{
+    width: 60%;
+}
+.main-chat{
+    min-height: 100vh;
+    background-color: aliceblue;
+    width: 100%;
+}
+.navigation{
+    width: 100%;
+    padding: 2vh 7vw 2vh 2vw;
+    background-color: darkblue;
+    top: 0;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    font-size: 18pt;
+    z-index: 100;
+}
+.dp{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 70px;
+}
+.conversation-box{
+    padding: 2%;
+    padding-top: 15vh;
+    color: black;
+    font-size: 14pt;
+    width: 95vw;
+}
+.chat-box{
+    padding: 2%;
+    position: relative;
+    height: fit-content;
+    margin: 4vh 0vw;
+}
+.sent{
+    right: 0;
+    position: absolute;
+    background-color: rgb(202, 202, 202);
+    min-width: 200px;
+    max-width: 20vw;
+    padding: 1vh 2vw;
+    border-radius: 20px 0px 20px 20px;
+}
+.received{
+    left: 0;
+    position: absolute;
+    margin-top: 5vh;
+    background-color: rgb(0, 0, 157);
+    color: white;
+    min-width: 200px;
+    max-width: 20vw;
+    padding: 1vh 2vw;
+    border-radius: 0px 20px 20px 20px;
+}
+.msg-box{
+    bottom: 0;
+    position: fixed;
+    width: 98vw;
+    background-color: rgb(0, 0, 157);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1vh 2vw;
+    margin: auto;
+}
+.message{
+    width: 85%;
+    padding: 1vh 2vw;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    font-size: 14pt;
+}
+.sendbtn{
+    padding: 8px;
+    border-radius: 50%;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+.sendbtn:hover{
+    background-color: rgb(0, 214, 0);
+}
+.sendpic{
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+}
+@keyframes slide{
+    from{
+        width: 0vw;
+    }
+    to{
+        width: 25vw;
+    }
+}
+@keyframes appear{
+    from{
+        display: none;
+    }
+    to{
+        display: block;
+    }
+}
+@keyframes appear2{
+    from{
+        display: none;
+    }
+    to{
+        display: flex;
+    }
+}
+@keyframes appear3 {
+    from{
+        width: 0;
+        color: darkblue;
+        font-size: 03pt;
+        padding: 0;
+    }
+    to{
+        width: 20vw;
+        color: white;
+        font-size: 24pt;
+        padding: 2vh 2vw;
+    }
+}
+@keyframes appear4 {
+    from{
+        width: 0;
+        height: 0;
+    }
+    to{
+        width: 60px;
+        height: 60px;
+    }
+}
+@keyframes appear5 {
+    from{
+        width: 0;
+    }
+    to{
+        width: 20vw;
+    }
+}
+@keyframes appear6 {
+    from{
+        font-size: 03pt;
+        color: black;
+    }
+    to{
+        font-size: 14pt;
+        color: white;
+    }
+}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>SRSS | Chat</title>
+     <link rel="stylesheet" type="text/css" href="ujumbe.css">
+     <link rel="icon" type="image/x-icon" href="media/images/srss-logo.jfif">
+</head>
+<body>
+     <div class="main">
+          <div class="sidebar">
+               <div class="sidebar-title">
+                    <h2>SRSS Chat</h2>
+               </div>
+               <div class="chats">
+                    <div class="conversation">
+                         <img src="media/images/prof_pics/1711895902133.jpg" class="conv-dp">
+                         <p class="conv-name">Username</p>
+                    </div>
+                    <div class="conversation">
+                         <img src="media/images/prof_pics/1711895902133.jpg" class="conv-dp">
+                         <p class="conv-name">Username</p>
+                    </div>
+                    <div class="conversation">
+                         <img src="media/images/prof_pics/1711895902133.jpg" class="conv-dp">
+                         <p class="conv-name">Username</p>
+                    </div>
+                    <div class="conversation">
+                         <img src="media/images/prof_pics/1711895902133.jpg" class="conv-dp">
+                         <p class="conv-name">Username</p>
+                    </div>
+                    <div class="conversation">
+                         <img src="media/images/prof_pics/1711895902133.jpg" class="conv-dp">
+                         <p class="conv-name">Username</p>
+                    </div>
+                    <div class="conversation">
+                         <img src="media/images/prof_pics/1711895902133.jpg" class="conv-dp">
+                         <p class="conv-name">Username</p>
+                    </div>
+                    <div class="conversation">
+                         <img src="media/images/prof_pics/1711895902133.jpg" class="conv-dp">
+                         <p class="conv-name">Username</p>
+                    </div>
+                    <div class="conversation">
+                         <img src="media/images/prof_pics/1711895902133.jpg" class="conv-dp">
+                         <p class="conv-name">Username</p>
+                    </div>
+                    <div class="conversation">
+                         <img src="media/images/prof_pics/1711895902133.jpg" class="conv-dp">
+                         <p class="conv-name">Username</p>
+                    </div>
+                    <div class="conversation">
+                         <img src="media/images/prof_pics/1711895902133.jpg" class="conv-dp">
+                         <p class="conv-name">Username</p>
+                    </div>
+                    <div class="conversation">
+                         <img src="media/images/prof_pics/1711895902133.jpg" class="conv-dp">
+                         <p class="conv-name">Username</p>
+                    </div>
+                    <div class="conversation">
+                         <img src="media/images/prof_pics/1711895902133.jpg" class="conv-dp">
+                         <p class="conv-name">Username</p>
+                    </div>
+                    <div class="conversation">
+                         <img src="media/images/prof_pics/1711895902133.jpg" class="conv-dp">
+                         <p class="conv-name">Username</p>
+                    </div>
+                    <div class="conversation">
+                         <img src="media/images/prof_pics/1711895902133.jpg" class="conv-dp">
+                         <p class="conv-name">Username</p>
+                    </div>
+                    <div class="conversation">
+                         <img src="media/images/prof_pics/1711895902133.jpg" class="conv-dp">
+                         <p class="conv-name">Username</p>
+                    </div>
+               </div>
+               <div class="active-chat">
+                    <img src="media/images/prof_pics/1711895902133.jpg" class="conv-dp">
+                    <p class="conv-name">Username</p>
+               </div>
+          </div>
+          <div class="main-chat">
+               <div class="navigation">
+                    <img src="media/images/icons/menu.png" class="icons sideopen">
+                    <h2>Chat with: </h2>
+                    <img src="media/images/prof_pics/hp.jpg" class="dp">
+               </div>
+               <div class="conversation-box">
+                    <div class="chat-box">
+                         <div class="sent">
+                              <p>Hi</p>
+                         </div>
+                         <div class="received">
+                              <p>Hi</p>
+                         </div>
+                    </div>
+                    <div class="chat-box">
+                         <div class="sent">
+                              <p>How are you?</p>
+                         </div>
+                         <div class="received">
+                              <p>I am fine. How about u?</p>
+                         </div>
+                    </div>
+               </div>
+               <form class="msg-box">
+                    <input type="text" name="msg" class="message" placeholder="Type anything...">
+                    <button class="sendbtn"><img src="media/icons/send-button.png" class="sendpic"></button>
+               </form>
+          </div>
+     </div>
+     <script>
+          let openside = document.querySelector('.sideopen');
+          let side = document.querySelector('.sidebar');
+          let main = document.querySelector('.main-chat');
+          let conversation = document.querySelector('.conversation-box');
+          let msg = document.querySelector('.msg-box');
+          let navbar = document.querySelector('.navigation');
+          let chat = document.querySelector('.chat-box');
+
+          let n = 0;
+
+          function even(n){
+               if(n%2 == 0){
+                    return true;
+               }
+               else{
+                    return false;
+               }
+          }
+
+          openside.addEventListener('click', function(){
+               
+               n++;
+
+               if(even(n)){
+                    side.style.display = "none";
+                    main.style.width = "100vw";
+                    navbar.style.width = "98vw";
+                    conversation.style.width = "95vw";
+                    msg.style.width = "98vw";
+                    openside.src = "media/images/icons/menu.png";
+               }
+               else{
+                    side.style.display = "block";
+                    main.style.width = "75vw";
+                    navbar.style.width = "75vw";
+                    msg.style.width = "72vw";
+                    conversation.style.width = "72vw";
+                    openside.src = "media/images/icons/remove.png";
+               }
+
+               
+          })
+
+          
+     </script>
+</body>
+</html

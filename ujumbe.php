@@ -1,176 +1,189 @@
 <?php
-     $uname = $_GET['uname'];
 
-     require "config.php";
-
-     $query = "SELECT * FROM students";
-     $query2 = "SELECT * FROM chat";
-     $query3 = "SELECT * FROM admin";
-
-     $result = mysqli_query($db, $query);
-     $result2 = mysqli_query($db, $query2);
-     $result3 = mysqli_query($db, $query3);
-
-     $present = false;
      $size = 0;
      $size2 = 0;
      $size3 = 0;
      $size4 = 0;
-     $messagesent[$size] = [];
-     $messagereceived[$size2] = [];
-     $messagetimesend[$size3] = [];
+
+     $receivers[$size];
+     $receiversdp[$size];
+     $received[$size2];
+     $sent[$size3];
+     $received1[$size3];
+
+     $tuma[$size4];
+     $pokea[$size4];
+
+     $uname = $_GET['uname'];
+     $receiver = $_GET['receiver'];
+
+     require "config.php";
+
+     $query = "SELECT * FROM students";
+     $result = mysqli_query($db, $query);
 
      if($result){
-          for($i = 0; $i<mysqli_num_rows($result); $i++){
+          for($i=0; $i<mysqli_num_rows($result); $i++){
                $row = mysqli_fetch_array($result);
-               if($uname === $row['userkey']){
-                    $dp = $row['photo'];
-                    $username = $row['username'];
+
+               if($row['userkey'] === $uname){
+                    $sender = $row['username'];
+                    $senderdp = $row['photo'];
+               }
+               else{
+                    $receivers[$size] = $row['username'];
+                    $receiversdp[$size] = $row['photo'];
+                    $size++;
                }
           }
      }
-     if($result3){
-          for($i=0; $i<mysqli_num_rows($result3); $i++){
-               $row = mysqli_fetch_array($result3);
-               if($row['codename'] === "HM"){
-                    $username = $row['username'];
-                    $dp1 = $row['photo'];
-                    $dp = $dp1;
-                    $rank = $row['rank'];
-               }
-          }
-     }
+
+     $query2 = "SELECT * FROM ujumbe";
+     $result2 = mysqli_query($db, $query2);
 
      if($result2){
           for($i=0; $i<mysqli_num_rows($result2); $i++){
                $row = mysqli_fetch_array($result2);
-               if($username === $row['kutoka']){
-                    $messagesent[$size] = $row['ujumbe'];
-                    $messagetimesend[$size3] = $row['muda'];
-                    $size++;
-                    $size3++;
-               }
-               else{
-                    if($username === $row['kwenda']){
-                         $messagereceived[$size2] = $row['ujumbe'];
-                         $messagetimesend[$size3] = $row['muda'];
-                         $size2++;
+
+               if($row['kutoka'] === $sender && $row['kwenda'] === $receiver){
+                    if($row['kutoka'] === $sender){
+                         $sent[$size3] = $row['ujumbe'];
                          $size3++;
-                         echo $size2;
+                    }
+               }
+               else if($row['kwenda'] === $sender){
+                    $received[$size2] = $row['ujumbe'];
+                    $size2++;
+               }
+               if($row['kutoka'] === $receiver && $row['kwenda'] === $sender){
+                    if($row['kutoka'] === $receiver){
+                         $received1[$size3] = $row['ujumbe'];
+                         $size3++;
                     }
                }
           }
      }
+
+     echo $size3;
+
+     $lastrec = "none";
+
+     for($i=0; $i<$size2; $i++){
+
+          if($i = $size2-1){
+               $lastrec = $received[$i];
+          }
+     }
+
+     $lastrecp = "none";
+
+     $query3 = "SELECT * FROM ujumbe";
+     $result3 = mysqli_query($db, $query3);
+
+     if($result3){
+          for($i=0; $i<mysqli_num_rows($result3); $i++){
+               $row = mysqli_fetch_array($result3);
+     
+               if($row['ujumbe'] === $lastrec){
+                    $lastrecp = $row['kutoka'];
+               }
+          }
+     }
+
+     $lastrecpdp = "none";
+
+     $query4 = "SELECT * FROM students";
+     $result4 = mysqli_query($db, $query4);
+
+     if($result4){
+          for($i=0; $i<mysqli_num_rows($result4); $i++){
+               $row = mysqli_fetch_array($result4);
+               if($lastrecp === $row['username']){
+                    $lastrecpdp = $row['photo'];
+               }
+          }
+     }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>SRSS | Chat</title>
-     <link rel="stylesheet" type="text/css" href="chat.css">
+     <link rel="stylesheet" type="text/css" href="ujumbe.css">
      <link rel="icon" type="image/x-icon" href="media/images/srss-logo.jfif">
 </head>
 <body>
-     <div class="navigation">
-          <img src="media/images/icons/menu.png" class="menu">
-          <?php
-               echo "<img src='$dp1' id='logo-img'>";
-               if($rank == 0){
-                   echo "<li><a href='account.php?uname=$uname' class='dp'><img src='$dp' class='dp'></a></li>";
-               }
-               else{
-                   echo "<li><a href='account-admin.php?uname=$uname' class='dp'><img src='$dp' class='dp'></a></li>";
-               }        
-          ?>
-     </div>
-     <div class="body">
-          <div class="chats">
-               <div class="chat">
-                    <img src="media/images/prof_pics/earth.jpg" class="chat-dp">
-                    <a href="chat-block.html">
-                         <div class="details">
-                              <p class="username">Username</p>
-                         </div>
-                    </a>
+     <div class="main">
+          <div class="sidebar">
+               <div class="sidebar-title">
+                    <h2>SRSS Chat</h2>
                </div>
-               <div class="chat">
-                    <img src="media/images/prof_pics/IMG_20180819_121654 (2).jpg" class="chat-dp">
-                    <a href="chat-block.html">
-                         <div class="details">
-                              <p class="username">Username</p>
-                         </div>
-                    </a>
-               </div>
-               <div class="chat">
-                    <img src="media/images/prof_pics/pexels-azim-islam-460924-1188037.jpg" class="chat-dp">
-                    <a href="chat-block.html">
-                         <div class="details">
-                              <p class="username">Username</p>
-                         </div>
-                    </a>
-               </div>
-          </div>
-          <div class="textarea">
-               <?php
-
-                    if($size>0 || $size2>0){
-                         if($size>0){
-                              for($i=$size-1; $i>=0; $i--){
-                                   echo
-                                        "
-                                        <div class='chat-block'>
-                                             <p class='sent'>
-                                                  <span class='send'>$messagesent[$i]</span>
-                                                  <span class='time'>$messagetimesend[$i]</span>
-                                             </p><br><br>
-                                             ";
-                              }
-                         }
-                         if($size2>0){
-                              for($i=$size2-1; $i>=0; $i--){
-                                   echo 
-                                        "
-                                             <p class='received'>
-                                                       <span class='receive'>$messagereceived[$i]</span>
-                                                       <span class='time2'>$messagetimesend[$i]</span>
-                                                  </p><br><br>
-                                             </div>
-                                        ";
-                              }
-                         }
-                    }
-                    else{
-                         echo
+               <div class="chats">
+                    <?php
+                         for($i=0; $i<$size; $i++){
+                              echo 
                               "
-                                   <div class='chat-block'>
-                                        <p class='note'>
-                                             Welcome to SRSS-Chat box!
-                                        </p><br><br>
+                                   <div class='conversation'>
+                                        <img src='$receiversdp[$i]' class='conv-dp'>
+                                        <p class='conv-name'>$receivers[$i]</p>
                                    </div>
                               ";
-                    }                   
-               ?>
+                         }
+                    ?>
+               </div>
+               <div class="active-chat">
+                    <?php
+                         echo
+                         "
+                              <img src='$senderdp' class='conv-dp'>
+                              <p class='conv-name'>$sender</p>
+                         ";
+                    ?>
+               </div>
           </div>
-          <div class="message">
-               <?php echo "<form action='message.php?uname=$uname' method='POST' enctype='multipart/form-data' name='meseji' class='sms'>";?>
-                    <input type="text" name="ujumbe" class="msg" placeholder="Type your message here...">
-                    <button onclick="msg()" class="sendbtn" id="go" name="send"><img src="media/icons/send-button.png" class="sendpic"></button>
+          <div class="main-chat">
+               <div class="navigation">
+                    <img src="media/images/icons/menu.png" class="icons sideopen">
+                    <h2>Chat with: </h2>
+                    <?php echo "<img src='$lastrecpdp' class='dp'>";?>
+               </div>
+               <div class="conversation-box">
+                    <div class='chat-box'>
+                         <?php
+                              for($i=0; $i<$size3; $i++){
+                                   echo 
+                                   "
+                                        <div class='sent'>
+                                             <p>$sent[$i]</p>
+                                        </div>
+                                        <div class='received'>
+                                             <p>$received1[$i]</p>
+                                        </div>
+                                   ";
+                              }
+                         ?>
+                    </div>
+               </div>
+               <form class="msg-box">
+                    <input type="text" name="msg" class="message" placeholder="Type anything...">
+                    <button class="sendbtn"><img src="media/icons/send-button.png" class="sendpic"></button>
                </form>
           </div>
      </div>
      <script>
+          let openside = document.querySelector('.sideopen');
+          let side = document.querySelector('.sidebar');
+          let main = document.querySelector('.main-chat');
+          let conversation = document.querySelector('.conversation-box');
+          let msg = document.querySelector('.msg-box');
+          let navbar = document.querySelector('.navigation');
+          let chat = document.querySelector('.chat-box');
 
-          let menu = document.querySelector('.menu');
-          let chat = document.querySelector('.chats');
-          let time = document.querySelector('.time');
-          let time2 = document.querySelector('.time2');
-          let message1 = document.querySelector('.sent');
-          let message2 = document.querySelector('.received');
-          let message = document.querySelector('.message');
           let n = 0;
 
-          function clicked(n){
+          function even(n){
                if(n%2 == 0){
                     return true;
                }
@@ -179,40 +192,31 @@
                }
           }
 
-          menu.onclick = function(){
-               chat.classList.toggle('open');
-               message.style.display = "none";
-               chat.style.height = "81vh";
+          openside.addEventListener('click', function(){
+               
                n++;
-               if(clicked(n)){
-                    menu.src = "media/images/icons/menu.png";
-                    message.style.display = "block";
+
+               if(even(n)){
+                    side.style.display = "none";
+                    main.style.width = "100vw";
+                    navbar.style.width = "98vw";
+                    conversation.style.width = "95vw";
+                    msg.style.width = "98vw";
+                    openside.src = "media/images/icons/menu.png";
                }
                else{
-                    menu.src = "media/images/icons/remove.png";
-                    message.style.display = "none";
+                    side.style.display = "block";
+                    main.style.width = "75vw";
+                    navbar.style.width = "75vw";
+                    msg.style.width = "72vw";
+                    conversation.style.width = "72vw";
+                    openside.src = "media/images/icons/remove.png";
                }
 
-          }
+               
+          })
 
-          function msg(){
-               if(document.meseji.ujumbe.value == ""){
-                    alert("Sorry! You cannot send an empty suggestion!");
-                    event.preventDefault();
-               }
-          }
-
-          // message1.onclick = function(){
-          //      time.classList.toggle('open');
-          // }
-
-          // message2.onclick = function(){
-          //      time2.classList.toggle('open');
-          // }
-
-          function show(e){
-              time.classList.toggle('open');
-          }
+          
      </script>
 </body>
-</html>
+</html

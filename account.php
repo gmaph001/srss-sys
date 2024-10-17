@@ -113,7 +113,7 @@
           </div>
      <div class="footer">
           <div class="p-icons">
-               <a href="ujumbe.php" class="icons-link"><img src="media/icons/live-chat.png" class="icons"></a>
+               <!-- <?php echo "<a href='via.php?uname=$uname' class='icons-link'><img src='media/icons/live-chat.png' class='icons'></a>";?> -->
           </div>
           <p>&copy; Shaaban Robert Secondary School 2024.</p>
      </div>

@@ -116,7 +116,13 @@ $uname = $_GET['uname'];
                 </ul>
             </div>
             <div class="classes">
-               <div class="row">
+                <div class="search">
+                        <input type="text" class="search" id="search" name="search">
+                </div>
+                <div class="results" id="result">
+                        <p></p>
+                </div>
+                <div class="row">
                     <?php
                         if($size>0){
                             for($i=$size-1; $i>=0; $i--){
@@ -133,7 +139,7 @@ $uname = $_GET['uname'];
                             }
                         }
                     ?>
-               </div>
+                </div>
             </div>
             <div class="footer">
                 <p>
@@ -188,19 +194,46 @@ $uname = $_GET['uname'];
                             </div>
                         </div>";
                 ?>
-   </body>
-   <script>
-          let menubtn = document.querySelector('.vertical_menu');
-          let dropdownlist = document.querySelector('.dropdown_menu');
-          let multimenu = document.querySelector('.multi_menu');
-          let submenu = document.querySelector('.sub_menu');
-  
-          menubtn.onclick = function(){
-              dropdownlist.classList.toggle('open');
-          }
-  
-          multimenu.onclick = function(){
-              submenu.classList.toggle('open');
-          }
-      </script>
+    
+        <script>
+                let menubtn = document.querySelector('.vertical_menu');
+                let dropdownlist = document.querySelector('.dropdown_menu');
+                let multimenu = document.querySelector('.multi_menu');
+                let submenu = document.querySelector('.sub_menu');
+        
+                menubtn.onclick = function(){
+                    dropdownlist.classList.toggle('open');
+                }
+        
+                multimenu.onclick = function(){
+                    submenu.classList.toggle('open');
+                }
+        </script>
+        <script src="jquery/jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+
+                $("#search").keyup(function(){
+
+                    var input = $(this).val();
+                    // alert(input);
+
+                    if(input != ""){
+                        $.ajax({
+                            url: "search3.php",
+                            method: "POST",
+                            data: {input:input},
+
+                            success:function(data){
+                                $("#result").html(data);
+                                $("#result").css("display","block");
+                            }
+                        });
+                    }
+                    else{
+                        $("#result").css("display","none");
+                    }
+                })
+            })    
+        </script>
    </html>

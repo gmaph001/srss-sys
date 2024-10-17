@@ -96,13 +96,6 @@
                                     <div class='suggestion'>
                                         <p>$suggestions[$i]</p>
                                     </div>
-                                    <div class='response'>
-                                        <form action='suggest-response?uname=$uname' method='POST' enctype='multipart/form-data'>
-                                            <input type='text' name='username' value='username' style='display: none;'>
-                                            <input type='text' name='response'  placeholder='Respond to user $username[$i]'>
-                                            <button name='respond' class='sendbtn' ><img src='media/icons/send-button.png' class='sendpic'></button>
-                                        </form>
-                                    </div>
                                 </div>
                             ";
                     }
