@@ -60,7 +60,7 @@ $uname = $_GET['uname'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form 6 | Notes</title>
+    <title>Form 5 | Notes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
@@ -117,7 +117,7 @@ $uname = $_GET['uname'];
             </div>
             <div class="classes">
                 <div class="search">
-                        <input type="text" class="search" id="search" name="search">
+                    <input type="text" class="searchbar" id="search" name="search" placeholder="Search Notes">
                 </div>
                 <div class="results" id="result">
                         <p></p>

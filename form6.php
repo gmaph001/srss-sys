@@ -117,7 +117,7 @@ $uname = $_GET['uname'];
             </div>
             <div class="classes">
                 <div class="search">
-                        <input type="text" class="search" id="search" name="search">
+                    <input type="text" class="searchbar" id="search" name="search" placeholder="Search Notes">
                 </div>
                 <div class="results" id="result">
                         <p></p>

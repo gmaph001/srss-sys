@@ -3,11 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="results.css">
 </head>
 <body>
+    <div class="tokeo">
     <?php
 
         require_once("config.php");
+
+        $size = 0;
+        $subject[$size];
+        $notes[$size];
+        $topic[$size];
 
         if(isset($_POST['input'])){
 
@@ -15,27 +22,32 @@
 
             $input = strtoupper($_POST['input']);
 
-            $query = "SELECT * FROM form6 WHERE subjectname LIKE '{$input}%'";
+            $query = "SELECT * FROM form6 WHERE subjectname LIKE '{$input}%' OR topic LIKE '{$input}%'";
 
             $result = mysqli_query($db,$query);
 
-            if(mysqli_num_rows($result)> 0){
-                $row = mysqli_fetch_array($result);
+            if($result){
+                while($row = mysqli_fetch_assoc($result)){
+                    $subject[$size] = $row['subjectname'];
+                    $notes[$size] = $row['notes'];
+                    $topic[$size] = $row['topic'];
+                    $size++;
+                }
+            }
 
-                for($i=0; $i<mysqli_num_rows($result); $i++){
-                    $subject = $row['subjectname'];
-                    $notes = $row['notes'];
-                    $topic = $row['topic'];
 
-                    echo "<a href='media/documents/$notes'>$subject</a>";
-                    echo "<br><br>";
+            if($size>0){
+                for($i=$size-1; $i>=0; $i--){
+                    echo "<p><a href='media/documents/$notes[$i]'>$subject[$i] <br> Topic: $topic[$i]</a></p>";
+                    echo "<br>";
                 }
             }
             else{
-                echo "No data found";
+                echo "<p>No notes found!</p>";
             }
 
         }
     ?>
+    </div>
 </body>
 </html>

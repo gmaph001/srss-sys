@@ -111,6 +111,12 @@
                     <li><a href="index.php"><b>login</b></a></li>
                </ul>
           </div>
+          <div class="search">
+               <input type="text" class="searchbar" id="search" name="search" placeholder="Search Assignment">
+          </div>
+          <div class="results" id="result">
+               <p></p>
+          </div>
           <div class="assignments">
                <?php
                     if($size > 0){
@@ -237,5 +243,32 @@
                submenu.classList.toggle('open');
           }
      </script>
+     <script src="jquery/jquery.js"></script>
+          <script>
+               $(document).ready(function(){
+
+                    $("#search").keyup(function(){
+
+                         var input = $(this).val();
+                         // alert(input);
+
+                         if(input != ""){
+                         $.ajax({
+                              url: "searchassign.php",
+                              method: "POST",
+                              data: {input:input},
+
+                              success:function(data){
+                                   $("#result").html(data);
+                                   $("#result").css("display","block");
+                              }
+                         });
+                         }
+                         else{
+                         $("#result").css("display","none");
+                         }
+                    })
+               })    
+          </script>
 </body>
 </html>

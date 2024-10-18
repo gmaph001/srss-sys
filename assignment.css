@@ -45,6 +45,51 @@
      animation: write 2s 1s ease-in-out normal both;
      animation: beauty 0.5s 2s ease-in-out infinite normal both;
 }
+.search{
+     width: 70vw;
+     background-color: darkblue;
+     border-radius: 15px;
+     padding: 20px;
+     margin: auto;
+     display: flex;
+     align-items: center;
+     justify-content: space-around;
+}
+.searchbar{
+     margin: auto;
+     width: 80%;
+     font-size: 14pt;
+     font-family: candara;
+     padding: 5px 15px;
+     border-radius: 10px;
+     background-color: aliceblue;
+}
+.results{
+     background-color: rgb(194, 192, 192);
+     width: 80vw;
+     border-radius: 10px;
+     font-size: 14pt;
+     margin: 1vh auto;
+     padding: 20px;
+     display: none;
+}
+.results p{
+     background-color: black;
+     text-align: center;
+     color: white;
+     width: 50%;
+     padding: 10px 15px;
+     margin: auto;
+     border-radius: 15px;
+}
+.results p a{
+     text-decoration: none;
+     color: white;
+     font-weight: bold;
+}
+.results p a:hover{
+     color: rgb(2, 192, 255);
+}
 .assign{
      display: flex;
      align-items: center;
@@ -437,6 +482,15 @@
      }
 }
 @media(max-width: 800px){
+     .search{
+          width: 80vw;
+          padding: 10px;
+          background-color: transparent;
+     }
+     .searchbar{
+          width: 100%;
+          text-align: center;
+     }
      .assignments{
           display: flex;
           flex-direction: column;

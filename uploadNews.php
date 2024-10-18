@@ -37,17 +37,22 @@
                          $headline = $_POST['headline'];
                          $news = $_POST['news'];
                          $news_date = $_POST['date'];
-                         $update = $_POST['update'];
                          $photo = $_FILES['photo']['name'];
                          $news_photo = $_FILES['photo']['tmp_name'];
+                         $update = $_POST['update'];
                          $announcerID = $uname;
 
+                         if($photo == ""){
+                              $photo = "tangazo.webp";
+                              $news_photo = "media/images/news/tangazo.webp";
+                              $folder = "media/images/news/".$photo;
+                         }
+
                          $news_pic = 'media/images/news/'.$photo;
-                         $folder = "media/images/news/".$photo;
+                         $folder = "/media/images/news/".$photo;
 
                          move_uploaded_file($news_photo, $folder);
-
-                         
+          
                          $news = mysqli_real_escape_string($db, $news);
 
                          $query = "INSERT INTO news(announcer_rank, announcer_name, news_class, headline, news_main, news_date, news_updates, news_photo, announcer_ID) VALUES('$announcer_rank', '$announcer_name', '$news_class', '$headline', '$news', '$news_date', '$update', '$news_pic', '$announcerID')";
