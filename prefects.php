@@ -92,7 +92,7 @@
 
           if($result && $result2 && $result3){
                echo "Prefect successfully registered!";
-               // header('location:prefects-signUp.html');
+               header('location:prefects-signUp.html');
           }
           else{
                echo "There was an error while registering the student!";
