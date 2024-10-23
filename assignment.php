@@ -265,7 +265,7 @@
                          });
                          }
                          else{
-                         $("#result").css("display","none");
+                              $("#result").css("display","none");
                          }
                     })
                })    

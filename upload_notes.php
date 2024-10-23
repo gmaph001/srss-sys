@@ -32,7 +32,7 @@
 
                          $file = $_FILES['notes']['tmp_name'];
 
-                         $foldername = "media/documents/" . $notes;
+                         $foldername = "media/documents/notes/" . $notes;
                          
                          move_uploaded_file($file, $foldername);
 
