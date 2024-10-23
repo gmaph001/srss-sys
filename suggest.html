@@ -1,6 +1,3 @@
-<?php
-    $uname = $_GET['uname'];
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,21 +10,21 @@
 <body>
     <div class="body">
         <div class="form">
-            <?php echo "<form name='form' action='suggestions-box.php?uname=$uname' method='POST' enctype='multipart/form-data'>";?>
+            <form name='fomu' method='POST' enctype='multipart/form-data'>
                 <p class="qn">Do you want your name to be seen? <input type="checkbox" name="seen" value="weka" class="choice"/></p><br>
                 <textarea name="suggestions" class="suggestions" placeholder="You can suggest anything here..."></textarea>
                 <p id="result" class="alert"></p><br>
-                <button class="sendbtn" onclick="send()" name="tuma">Post</button>
+                <button onclick="send()" class="sendbtn" name="tuma">Post</button>
             </form>
         </div>
     </div>
-    <script>
-        function send(){
-            if(document.form.suggestions.value === ""){
-                document.getElementById("result").innerHTML = "*Please insert your suggestions here!*";
-                event.preventDefault();
-            }
-        }
-    </script>
 </body>
+<script>
+    function send(){
+        if(document.fomu.suggestions.value === ""){
+            document.getElementById("result").innerHTML = "*Please insert your suggestions here!*";
+            event.preventDefault();
+        }
+    }
+</script>
 </html>

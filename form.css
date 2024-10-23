@@ -98,6 +98,8 @@ input:focus{
      }
      .form{
           padding: 3%;
+          width: 90%;
+          margin: auto;
      }
      .input{
           width: 80vw;
