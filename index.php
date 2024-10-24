@@ -15,7 +15,7 @@
           <div class="title"></div><br><br>
           <div class="body">
                <div class="form">
-                    <form name='form' action='lookup.php' method='POST' enctype='multipart/form-data'>
+                    <form name='form' action='lookup2.php' method='POST' enctype='multipart/form-data'>
                          <div class="input">
                               <input type="text" name="uname" id="fname" placeholder="Username">
                               <img src="media/icons/profile.png" class="icon">
