@@ -46,12 +46,12 @@
                               $photo = "tangazo.webp";
                               $news_photo = "media/images/news/tangazo.webp";
                               $folder = "media/images/news/".$photo;
+                         }else{
+                              $news_pic = 'media/images/news/'.$photo;
+                              $folder = "/media/images/news/".$photo;
+                              move_uploaded_file($news_photo, $folder);
                          }
-
-                         $news_pic = 'media/images/news/'.$photo;
-                         $folder = "/media/images/news/".$photo;
-
-                         move_uploaded_file($news_photo, $folder);
+                    
           
                          $news = mysqli_real_escape_string($db, $news);
 
