@@ -452,7 +452,7 @@
      .notification{
           position: fixed;
           width: 30vw;
-          bottom: 82vh;
+          bottom: 10vh;
           animation: beauty 0.5s 2s ease-in-out infinite normal both;
      }
      #notification{
@@ -503,7 +503,7 @@
      .notification{
           position: fixed;
           width: 70vw;
-          bottom: 75vh;
+          bottom: 12vh;
           animation: beauty 0.5s 2s ease-in-out infinite normal both;
      }
      #notification{
