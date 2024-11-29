@@ -12,9 +12,9 @@
         require_once("config.php");
 
         $size = 0;
-        $subject[$size];
-        $notes[$size];
-        $topic[$size];
+        $subject = [];
+        $notes = [];
+        $topic = [];
 
         if(isset($_POST['input'])){
 

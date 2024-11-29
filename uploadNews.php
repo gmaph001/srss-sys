@@ -48,7 +48,7 @@
                               $folder = "media/images/news/".$photo;
                          }else{
                               $news_pic = 'media/images/news/'.$photo;
-                              $folder = "/media/images/news/".$photo;
+                              $folder = "media/images/news/".$photo;
                               move_uploaded_file($news_photo, $folder);
                          }
                     
