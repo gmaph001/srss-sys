@@ -16,17 +16,12 @@
           <div class="body">
                <div class="form">
                     <form name='form' action='lookup2.php' method='POST' enctype='multipart/form-data'>
-                         <div class="input">
-                              <input type="text" name="uname" id="fname" placeholder="Username">
+                         <div class="input" id="user">
+                              <input type="text" name="uname" id="fname" placeholder="Username/Email">
                               <img src="media/icons/profile.png" class="icon">
                          </div>
                          <p id="result1" class="alert"></p><br>
-                         <div class="input">
-                              <input type="email" name="email" id="email" placeholder="Email">
-                              <img src="media/icons/email.png" class="icon">
-                         </div>
-                         <p id="result2" class="alert"></p><br>
-                         <div class="input">
+                         <div class="input" id="secret">
                               <input type="password" name="pass" id="pword" placeholder="Password">
                               <img src="media/icons/hidden.png" class="icon pass">
                          </div>

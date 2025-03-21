@@ -12,7 +12,6 @@
           <?php
                if(isset($_POST['login'])){
                     $username = $_POST['uname'];
-                    $email = $_POST['email'];
                     $password = $_POST['pass'];
 
                     require_once "config.php";
@@ -52,18 +51,13 @@
 
                               $size++;
 
-                              if($username === $row['username']){
-                                   if($email === $row['email']){
-                                        if($password === $row['password']){
-                                            $userkey = $row['userkey'];
-                                            header("location:home.php?uname=$userkey");
-                                        }
-                                        else{
-                                             $pvalid = false;
-                                        }
+                              if($username === $row['username'] || $username === $row['email']){
+                                   if($password === $row['password']){
+                                       $userkey = $row['userkey'];
+                                       header("location:home.php?uname=$userkey");
                                    }
                                    else{
-                                        $evalid = false;
+                                        $pvalid = false;
                                    }
                               }
                               else{
@@ -81,22 +75,17 @@
 
                               $size++;
 
-                              if($username === $row['username']){
-                                   if($email === $row['email']){
-                                        if($password === $row['password']){
-                                             $userkey = $row['userkey'];
-                                             if($row['codename'] === "PRF"){
-                                                $userkey = $row['userkey'];
-                                                header("location:home.php?uname=$userkey");
-                                             }
-                                             header("location:home.php?uname=$userkey");
+                              if($username === $row['username'] || $username === $row['email']){
+                                   if($password === $row['password']){
+                                        $userkey = $row['userkey'];
+                                        if($row['codename'] === "PRF"){
+                                           $userkey = $row['userkey'];
+                                           header("location:home.php?uname=$userkey");
                                         }
-                                        else{
-                                             $pvalid = false;
-                                        }
+                                        header("location:home.php?uname=$userkey");
                                    }
                                    else{
-                                        $evalid = false;
+                                        $pvalid = false;
                                    }
                               }
                               else{
@@ -113,8 +102,8 @@
                          break;
                     }
                     else{
-                         if($email === $address[$i]){
-                              $valid = true;
+                         if($username === $address[$i]){
+                              $evalid = true;
                               break;
                          }
                          else{
@@ -142,7 +131,7 @@
                                    echo "<p>User not found!</p>";
                               }
                               else{
-                                   echo "<p>Invalid username!</p>";
+                                   echo "<p>Invalid username or email!</p>";
                               }
                          }
                     }

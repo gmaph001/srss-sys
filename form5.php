@@ -129,13 +129,13 @@ $uname = $_GET['uname'];
                                 echo "
                                     <div class='file'>
                                         <div class='$subjectname[$i]'>
-                                            <a href='media/documents/$notes[$i]' target='_blank' id='subject'>$subjectname[$i]</a>'
+                                            <a href='media/documents/notes/$notes[$i]' target='_blank' id='subject'>$subjectname[$i]</a>'
                                         </div>
                                         <div class='topic'>
                                             <p>TOPIC: </p>
                                             <p id='head'>$topic[$i].</p>
                                         </div>
-                                    </div>";       
+                                    </div>";           
                             }
                         }
                     ?>
