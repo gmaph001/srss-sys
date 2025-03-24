@@ -14,10 +14,8 @@
                $row = mysqli_fetch_array($result);
 
                if($row['userkey'] === $uname){
-                    $firstname = $row['firstname'];
-                    $secondname = $row['secondname'];
-                    $lastname = $row['lastname'];
-                    $age = $row['age'];
+                    $username = $row['username'];
+                    $email = $row['email'];
                     $class = $row['form'];
                     $stream = $row['stream'];
                     $photo = $row['photo'];
@@ -59,18 +57,22 @@
           </div>
           <div class="main">
                <?php
+                         echo "<form action='update-user.php?uname=$uname' method='POST' class='update' name='updateUser' enctype='multipart/form-data'>";
+                    ?>
+                         <fieldset>
+                              <legend><b>Username & Email</b></legend>
+                              <label><b>Username: </b></label>&nbsp;&nbsp;<?php echo $username;?> &nbsp;&nbsp;<input type="text" name="username"><br>
+                              <p id="alert4" class="alert"></p> <br>
+                              <label><b>Email: </b></label>&nbsp;&nbsp;<?php echo $email;?> &nbsp;&nbsp;<input type="email" name="email"><br>
+                              <p id="alert5" class="alert"></p><br>
+                              <button onclick="save2()" class="save" name="send">Save</button>
+                         </fieldset>
+                    </form><br><br>
+               <?php
                     echo
                          "<form action='update.php?uname=$uname' method='POST' name='upload' class='update' enctype='multipart/form-data'>
                          <fieldset>
-                         <legend><b>My Profile</b></legend> 
-                                   <label><b>First Name: </b></label> <input type='text' name='firstname' value='$firstname' placeholder='change'><br>
-                                   <p id='alert' class='alert'></p><br>
-                                   <label><b>Second Name: </b></label> <input type='text' name='secondname' value='$secondname' placeholder='change'><br>
-                                   <p id='alert2' class='alert'></p><br>
-                                   <label><b>Last Name: </b></label> <input type='text' name='lastname' value='$lastname' placeholder='change'><br>
-                                   <p id='alert3' class='alert'></p><br>
-                                   <label><b>Age: </b></label> <input type='number' name='age' value='$age' placeholder='change'><br>
-                                   <p id='alert4' class='alert'></p><br>
+                         <legend><b>My Profile</b></legend>
                                    <label><b>Class: </b></label> <input type='number' name='class' value='$class' placeholder='change'><br>
                                    <p id='alert5' class='alert'></p><br>
                                    <label><b>Stream: </b></label> <input type='text' name='stream' value='$stream' placeholder='change'><br>

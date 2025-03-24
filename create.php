@@ -5,16 +5,12 @@
                <?php
                     
                     if(isset($_POST['signup'])){
-                         $firstname = $_POST['firstname'];
-                         $secondname = $_POST['secondname'];
-                         $lastname = $_POST['lastname'];
                          $username = $_POST['username'];
                          $email = $_POST['email'];
                          $password = $_POST['secret'];
                          $userkey = rand(100000000, 999999999);
                          $form = $_POST['class'];
                          $stream = $_POST['stream'];
-                         $age = $_POST['age'];
                          $dp = $_FILES['photo']['name'];
                          $file = $_FILES['photo']['tmp_name'];
 
@@ -73,9 +69,9 @@
                               }
                          }
 
-                         $sql = "INSERT INTO students (firstname, secondname, lastname, username, email, password, form, stream, age, photo, userkey, tarehe) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+                         $sql = "INSERT INTO students (username, email, password, form, stream, photo, userkey, tarehe) VALUES (?,?,?,?,?,?,?,?)";
                          $stmtinsert = $db->prepare($sql);
-                         $result = $stmtinsert->execute([$firstname, $secondname, $lastname, $username, $email, $password, $form, $stream, $age, $profile, $userkey, $expire]);
+                         $result = $stmtinsert->execute([$username, $email, $password, $form, $stream, $profile, $userkey, $expire]);
                          if($result){
                               header("location:home.php?uname=$userkey");
                               echo $tarehe;

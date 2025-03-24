@@ -14,33 +14,22 @@
           <div class="form">
                <form action="create.php" method="post" name="login" enctype="multipart/form-data">
                     <fieldset>
-                         <legend><b>Name of Student</b></legend>
-                         <label><b>First name: </b></label> <input type="text" name="firstname" id="fname"><br>
-                         <p id="result"></p><br>
-                         <label><b>Second name: </b></label> <input type="text" name="secondname" id="sname"><br>
-                         <p id="result2"></p><br>
-                         <label><b>Last name: </b></label> <input type="text" name="lastname" id="lname"><br>
-                         <p id="result3"></p><br>
-                    </fieldset><br><br>
-                    <fieldset>
                          <legend><b>Username</b></legend>
-                         <label><b>Username: </b></label><input type="text" name="username" id="uname"><br>
+                         <label><b>Username: </b></label><input type="text" required name="username" id="uname"><br>
                          <p id="result4"></p><br>
-                         <label><b>Email: </b></label><input type="email" name="email" id="email"><br>
+                         <label><b>Email: </b></label><input type="email" required name="email" id="email"><br>
                          <p id="result5"></p><br>
-                         <label><b>Enter Password: </b></label> <input type="password" name="secret" id="e-pword" placeholder="At least 9 characters"><br><br>
+                         <label><b>Enter Password: </b></label> <input type="password" required name="secret" id="e-pword" placeholder="At least 9 characters"><br><br>
                          <p id="result6"></p><br>
-                         <label><b>Confirm Password: </b></label> <input type="password" name="confirm" id="c-pword" placeholder="Confirm password"><br>
+                         <label><b>Confirm Password: </b></label> <input type="password" required name="confirm" id="c-pword" placeholder="Confirm password"><br>
                          <p id="result7"></p><br>
                     </fieldset><br><br>
                     <fieldset>
                          <legend><b>Class credentials</b></legend>
-                         <label><b>You are in Form: </b></label><input type="number" name="class" id="numb" placeholder="In digits"><br>
+                         <label><b>You are in Form: </b></label><input type="number" required name="class" id="numb" placeholder="In digits"><br>
                          <p id="result8"></p><br>
-                         <label><b>You are in stream: </b></label><input type="text" name="stream" id="strm" placeholder="Write in uppercase"><br>
+                         <label><b>You are in stream: </b></label><input type="text" required name="stream" id="strm" placeholder="Write in uppercase"><br>
                          <p id="strmresult"></p><br>
-                         <label><b>Age: </b></label><input type="number" name="age" id="agenumb" placeholder="Not more than 21"><br>
-                         <p id="ageresult"></p><br>
                     </fieldset><br><br>
                     <fieldset>
                          <legend><b>Photo</b></legend>
@@ -78,64 +67,66 @@
                let stream = ['T', 'K', 'U', 'E', 'A', 'B', 'PCM', 'PMC', 'PGM', 'PCB', 'CBG', 'ECA', 'EGM', 'HKL', 'HGL', 'HGE']; //Array for confirming the streams of classes a user enters
                let d = document.getElementById("strm").value; //Representation of streams
                let result = 'Please enter the correct stream!'; //Result to displayed if the stream entered is not correct
-               let e = document.getElementById("agenumb").value; //representation of the age
                let ageresult = 'Please enter your correct age!'; //the result to be displayed if the age entered is out of range.
                let checkclass= false;
                let alert = '*This field is required!*';
+               let classresult = "*Please enter the correct class!*";
                let pass = '*Please enter more than 9 characters!*';
                let comb = '*Please enter the correct stream!*';
                let confirm = '*Please recheck your password!*';
                let dpresult = "*You cannot submit form with file this large!*";
                let picresponse = check();
 
-               if(document.login.firstname.value=="") //code to check if the user has not entered his/her first name
-               {
-                    document.getElementById('result').innerHTML = alert;
-                    event.preventDefault();
-               }
-
-               if(document.login.secondname.value=="") //code to check if the user has not entered his/her second name
-               {
-                    document.getElementById('result2').innerHTML = alert;
-                    event.preventDefault();
-               }
-
-               if(document.login.lastname.value=="") // code to check if the user has not entered his/her last name
-               {
-                    document.getElementById('result3').innerHTML = alert;
-                    event.preventDefault();
-               }
+               
 
                if(document.login.email.value=="") // code to check if the user has not entered his/her email
                {
                     document.getElementById('result5').innerHTML = alert;
                     event.preventDefault();
                }
+               else{
+                    document.getElementById('result5').innerHTML = "";
+               }
                if(document.login.uname.value=="")// code to check if the user has entered the username
                {
                     document.getElementById('result4').innerHTML = alert;
                     event.preventDefault();
+               }
+               else{
+                    document.getElementById('result4').innerHTML = "";
                }
                if(a=="" && b=="") // code to check is the user has not entered any password
                {
                     document.getElementById('result6').innerHTML = alert;
                     event.preventDefault();
                }
+               else{
+                    document.getElementById('result6').innerHTML = "";
+               }
                if(a!==b) // code to check if the password entered and the one confirmed are equivalent
                {
                     document.getElementById('result7').innerHTML = confirm;
                     event.preventDefault();
+               }
+               else{
+                    document.getElementById('result7').innerHTML = "";
                }
                if(document.login.secret.value.length<9) // code to make sure that the number of characters entered in password are 9 characters
                {
                     document.getElementById('result6').innerHTML = pass;
                     event.preventDefault();
                }
+               else{
+                    document.getElementById('result6').innerHTML = "";
+               }
                
                if(c=0 || c<1 || c>6) // code to check if the class entered is from 1-6 only
                {
-                    document.getElementById('result8').innerHTML = alert;
+                    document.getElementById('result8').innerHTML = classresult;
                     event.preventDefault();
+               }
+               else{
+                    document.getElementById('result8').innerHTML = "";
                }
 
                if(d=="") // code to check if the user has entered his/her stream
@@ -155,22 +146,17 @@
                     {
                          document.getElementById("strmresult").innerHTML = comb;
                     }
-               }
-
-               if(document.login.age.value == "") // code to check if the user has entered his/her age
-               {
-                    document.getElementById('ageresult').innerHTML = alert;
-                    event.preventDefault();
-               }
-               else if(e<11 || e>22) //code to check if the age entered by the user is from 12 - 20 years of age
-                    {
-                    document.getElementById("ageresult").innerHTML = ageresult;
-                    event.preventDefault();    
+                    else{
+                         document.getElementById("strmresult").innerHTML = "";
+                    }
                }
 
                if(!picresponse){
                     document.getElementById("dpresult").innerHTML = dpresult;
                     event.preventDefault();
+               }
+               else{
+                    document.getElementById("dpresult").innerHTML = "";
                }
           }
 

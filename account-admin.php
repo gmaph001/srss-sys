@@ -14,9 +14,6 @@
                $row = mysqli_fetch_array($result);
 
                if($row['userkey'] === $uname){
-                    $firstname = $row['firstname'];
-                    $secondname = $row['secondname'];
-                    $lastname = $row['lastname'];
                     $rank = $row['rank'];
                     $codename = $row['codename'];
                     $photo = $row['photo'];
@@ -60,6 +57,18 @@
                </ul>
           </div>
           <div class="main">
+                    <?php
+                         echo "<form action='update-user.php?uname=$uname' method='POST' class='update' name='updateUser' enctype='multipart/form-data'>";
+                    ?>
+                         <fieldset>
+                              <legend><b>Username & Email</b></legend>
+                              <label><b>Username: </b></label>&nbsp;&nbsp;<?php echo $username;?> &nbsp;&nbsp;<input type="text" name="username"><br>
+                              <p id="alert4" class="alert"></p> <br>
+                              <label><b>Email: </b></label>&nbsp;&nbsp;<?php echo $email;?> &nbsp;&nbsp;<input type="email" name="email"><br>
+                              <p id="alert5" class="alert"></p><br>
+                              <button onclick="save2()" class="save" name="send">Save</button>
+                         </fieldset>
+                    </form><br><br>
                <?php
                     echo
                          "<form action='update2.php?uname=$uname' method='POST' name='upload' class='update' enctype='multipart/form-data'>

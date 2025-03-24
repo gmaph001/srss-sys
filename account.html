@@ -26,18 +26,22 @@
                </ul>
           </div>
           <div class="main">
+               <form action='update-user.php?uname=$uname' method='POST' name='updateUser' class="update" enctype='multipart/form-data'>
+                    <fieldset>
+                         <legend><b>Username & Email</b></legend>
+                         <label><b>Username: </b></label>&nbsp;&nbsp;<?php echo $username;?> &nbsp;&nbsp;<input type="text" name="username"><br>
+                         <p id="alert4" class="alert"></p> <br>
+                         <label><b>Email: </b></label>&nbsp;&nbsp;<?php echo $email;?> &nbsp;&nbsp;<input type="email" name="email"><br>
+                         <p id="alert5" class="alert"></p><br>
+                         <button onclick="save2()" class="save" name="send">Save</button>
+                    </fieldset>
+               </form><br><br>
                <form action="update.php" method="POST" name="upload" class="update" enctype="multipart/form-data">
                     <fieldset>
-                         <label><b>First Name: </b></label> <input type='text' name='firstname' placeholder='change'><br>
-                                   <p id='alert' class='alert'></p><br>
-                                   <label><b>Second Name: </b></label> <input type='text' name='secondname' placeholder='change'><br>
-                                   <p id='alert2' class='alert'></p><br>
-                                   <label><b>Last Name: </b></label> <input type='text' name='lastname' placeholder='change'><br>
-                                   <p id='alert3' class='alert'></p><br>
-                                   <label><b>Rank: </b></label> <input type='number' name='rank' placeholder='change'><br>
-                                   <p id='alert4' class='alert'></p><br>
-                                   <label><b>Codename: </b></label> <input type='text' name='codename' placeholder='change'><br>
-                                   <p id='alert5' class='alert'></p><br>
+                         <label><b>Rank: </b></label> <input type='number' name='rank' placeholder='change'><br>
+                         <p id='alert4' class='alert'></p><br>
+                         <label><b>Codename: </b></label> <input type='text' name='codename' placeholder='change'><br>
+                         <p id='alert5' class='alert'></p><br>
                          <button onclick="save()" class="save" name="save">Save</button> 
                     </fieldset>
                </form>

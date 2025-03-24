@@ -9,10 +9,6 @@
 
      if(isset($_POST['save'])){
 
-          $firstname = $_POST['firstname'];
-          $secondname = $_POST['secondname'];
-          $lastname = $_POST['lastname'];
-          $age = $_POST['age'];
           $class = $_POST['class'];
           $stream = strtoupper($_POST['stream']);
 
@@ -34,8 +30,7 @@
                }
           }
 
-          $query = "UPDATE students SET firstname = '$firstname', secondname = '$secondname', lastname = '$lastname', 
-                    age = '$age', form = '$class', stream = '$stream', tarehe = '$expire' WHERE userkey = '$uname'";
+          $query = "UPDATE students SET form = '$class', stream = '$stream', tarehe = '$expire' WHERE userkey = '$uname'";
 
           $result = mysqli_query($db, $query);
 

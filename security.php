@@ -89,18 +89,6 @@
                               <button onclick="save()" class="save" name="send">Save Password</button>
                          </fieldset>
                     </form><br><br>
-                    <?php
-                         echo "<form action='update-user.php?uname=$uname' method='POST' name='updateUser' enctype='multipart/form-data'>";
-                    ?>
-                         <fieldset>
-                              <legend><b>Username & Email</b></legend>
-                              <label><b>Username: </b></label>&nbsp;&nbsp;<?php echo $username;?> &nbsp;&nbsp;<input type="text" name="username"><br>
-                              <p id="alert4" class="alert"></p> <br>
-                              <label><b>Email: </b></label>&nbsp;&nbsp;<?php echo $email;?> &nbsp;&nbsp;<input type="email" name="email"><br>
-                              <p id="alert5" class="alert"></p><br>
-                              <button onclick="save2()" class="save" name="send">Save</button>
-                         </fieldset>
-                    </form>
                     <script>
                          function save(){
 

@@ -15,9 +15,6 @@
           <div class="register">
                <?php
                     if(isset($_POST['signup'])){
-                         $firstname = $_POST['firstname'];
-                         $secondname = $_POST['secondname'];
-                         $lastname = $_POST['lastname'];
                          $username = $_POST['username'];
                          $email = $_POST['email'];
                          $password = $_POST['secret'];
@@ -52,9 +49,9 @@
                               }
                          }
 
-                         $sql = "INSERT INTO admin (firstname, secondname, lastname, username, email, password, rank, codename, photo, userkey) VALUES (?,?,?,?,?,?,?,?,?,?)";
+                         $sql = "INSERT INTO admin (username, email, password, rank, codename, photo, userkey) VALUES (?,?,?,?,?,?,?)";
                          $stmtinsert = $db->prepare($sql);
-                         $result = $stmtinsert->execute([$firstname, $secondname, $lastname, $username, $email, $password, $rank, $codename, $profile, $userkey]);
+                         $result = $stmtinsert->execute([$username, $email, $password, $rank, $codename, $profile, $userkey]);
                          if($codename === "TEA" || $codename === "DM"){
                               header("location:teacher.php?uname=".$userkey);
                          }
