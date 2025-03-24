@@ -3,10 +3,6 @@
      require_once "config.php";
 
      if(isset($_POST['signup'])){
-          $firstname = $_POST['firstname'];
-          $secondname = $_POST['secondname'];
-          $lastname = $_POST['lastname'];
-          $age = $_POST['age'];
           $username = $_POST['username'];
           $email = $_POST['email'];
           $password = $_POST['secret'];
@@ -80,11 +76,11 @@
                }
           }
 
-          $query = "INSERT INTO prefects (firstname, secondname, lastname, age, username, email, password, class, stream, rank, photo, userkey, expire) VALUES ('$firstname', '$secondname', '$lastname', '$age', '$username', '$email', '$password', '$class', '$stream', '$rank', '$profile', '$userkey', '$expire2')";
+          $query = "INSERT INTO prefects (username, email, password, class, stream, rank, photo, userkey) VALUES ('$username', '$email', '$password', '$class', '$stream', '$rank', '$profile', '$userkey')";
 
-          $query2 = "INSERT INTO admin (firstname, secondname, lastname, username, email, password, rank, codename, photo, userkey) VALUES ('$firstname', '$secondname', '$lastname', '$username', '$email', '$password', '$position', '$codename', '$profile', '$userkey')";
+          $query2 = "INSERT INTO admin (username, email, password, rank, codename, photo, userkey) VALUES ('$username', '$email', '$password', '$position', '$codename', '$profile', '$userkey')";
 
-          $query3 = "INSERT INTO students (firstname, secondname, lastname, username, email, password, form, stream, age, photo, userkey, tarehe) VALUES ('$firstname', '$secondname', '$lastname', '$username', '$email', '$password', '$class', '$stream', '$age', '$profile', '$userkey', '$expire')";
+          $query3 = "INSERT INTO students (username, email, password, form, stream, photo, userkey) VALUES ('$username', '$email', '$password', '$class', '$stream', '$profile', '$userkey')";
 
           $result = mysqli_query($db, $query);
           $result2 = mysqli_query($db, $query2);

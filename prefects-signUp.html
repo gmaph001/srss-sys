@@ -14,15 +14,6 @@
           <div class="form">
                <form action="prefects.php" method="POST" name="admin" enctype="multipart/form-data">
                     <fieldset>
-                         <legend><b>Name of Student</b></legend>
-                         <label><b>First name: </b></label> <input type="text" name="firstname" id="fname"><br>
-                         <p id="result"></p><br>
-                         <label><b>Second name: </b></label> <input type="text" name="secondname" id="sname"><br>
-                         <p id="result2"></p><br>
-                         <label><b>Last name: </b></label> <input type="text" name="lastname" id="lname"><br>
-                         <p id="result3"></p><br>
-                    </fieldset><br><br>
-                    <fieldset>
                          <legend><b>Username</b></legend>
                          <label><b>Username: </b></label><input type="text" name="username" id="uname"><br>
                          <p id="result4"></p><br>
@@ -41,8 +32,6 @@
                          <p id="result9"></p><br>
                          <label><b>Stream: </b></label><input type="text" name="stream" id="strm" placeholder="Write in uppercase"><br>
                          <p id="strmresult"></p><br>
-                         <label><b>Age: </b></label><input type="number" name="age" id="agenumb" placeholder="Not more than 21"><br>
-                         <p id="ageresult"></p><br>
                     </fieldset><br><br>
                     <fieldset>
                          <legend><b>Photo</b></legend>
@@ -79,7 +68,6 @@
                let stream = ['T', 'K', 'U', 'E', 'A', 'B', 'PCM', 'PMC', 'PGM', 'PCB', 'CBG', 'ECA', 'EGM', 'HKL', 'HGL', 'HGE']; //Array for confirming the streams of classes a user enters
                let d = document.getElementById("strm").value; //Representation of streams
                let strm = 'Please enter the correct stream!'; //Result to displayed if the stream entered is not correct
-               let e = document.getElementById("agenumb").value; //representation of the age
                let ageresult = 'Please enter your correct age!'; //the result to be displayed if the age entered is out of range.
                let checkclass= false;
                let result = 'Please enter the correct rank!'; //Result to displayed if the stream entered is not correct
@@ -91,33 +79,22 @@
                let rank = "*The rank is not known!*";
                let picresponse = check();
 
-               if(document.admin.firstname.value=="") //code to check if the user has not entered his/her first name
-               {
-                    document.getElementById('result').innerHTML = alert;
-                    event.preventDefault();
-               }
-
-               if(document.admin.secondname.value=="") //code to check if the user has not entered his/her second name
-               {
-                    document.getElementById('result2').innerHTML = alert;
-                    event.preventDefault();
-               }
-
-               if(document.admin.lastname.value=="") // code to check if the user has not entered his/her last name
-               {
-                    document.getElementById('result3').innerHTML = alert;
-                    event.preventDefault();
-               }
-
                if(document.admin.email.value=="") // code to check if the user has not entered his/her email
                {
                     document.getElementById('result5').innerHTML = alert;
                     event.preventDefault();
                }
+               else{
+                    document.getElementById('result5').innerHTML = "";
+               }
+
                if(document.admin.uname.value=="")// code to check if the user has entered the username
                {
                     document.getElementById('result4').innerHTML = alert;
                     event.preventDefault();
+               }
+               else{
+                    document.getElementById('result4').innerHTML = "";
                }
                if(a=="" && b=="") // code to check is the user has not entered any password
                {
@@ -129,31 +106,45 @@
                     document.getElementById('result7').innerHTML = confirm;
                     event.preventDefault();
                }
+               else{
+                    document.getElementById('result7').innerHTML = "";
+               }
                if(document.admin.secret.value.length<9) // code to make sure that the number of characters entered in password are 9 characters
                {
                     document.getElementById('result6').innerHTML = pass;
                     event.preventDefault();
                }
+               else{
+                    document.getElementById('result6').innerHTML = "";
+               }
                if(document.admin.rank.value==""){
                     document.getElementById('result8').innerHTML = alert;
                     event.preventDefault();
+               }
+               else{
+                    document.getElementById('result8').innerHTML = "";
                }
                if(document.admin.rank.value>7 || document.admin.rank.value<0){
                     document.getElementById('result8').innerHTML = alert;
                     event.preventDefault();
                }
-               if(document.admin.age.value=="" || e<0 || e>22){
-                    document.getElementById('ageresult').innerHTML = ageresult;
-                    event.preventDefault();
+               else{
+                    document.getElementById('result8').innerHTML = "";
                }
                if(document.admin.class.value==""){
                     document.getElementById('result9').innerHTML = alert;
                     event.preventDefault();
                }
+               else{
+                    document.getElementById('result9').innerHTML = "";
+               }
                if(c=0 || c<1 || c>7) // code to check if the class entered is from 1-6 only
                {
                     document.getElementById('result8').innerHTML = result;
                     event.preventDefault();
+               }
+               else{
+                    document.getElementById('result8').innerHTML = "";
                }
 
                if(d=="") // code to check if the user has entered his/her stream
@@ -172,6 +163,9 @@
                     if(checkclass == false)
                     {
                          document.getElementById("strmresult").innerHTML = strm;
+                    }
+                    else{
+                         document.getElementById('strmresult').innerHTML = "";
                     }
                }
 
