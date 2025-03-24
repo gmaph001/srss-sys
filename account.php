@@ -61,9 +61,9 @@
                     ?>
                          <fieldset>
                               <legend><b>Username & Email</b></legend>
-                              <label><b>Username: </b></label>&nbsp;&nbsp;<?php echo $username;?> &nbsp;&nbsp;<input type="text" name="username"><br>
+                              <label><b>Username: </b></label>&nbsp;&nbsp;<?php echo $username;?> &nbsp;&nbsp;<input type="text" name="username" required><br>
                               <p id="alert4" class="alert"></p> <br>
-                              <label><b>Email: </b></label>&nbsp;&nbsp;<?php echo $email;?> &nbsp;&nbsp;<input type="email" name="email"><br>
+                              <label><b>Email: </b></label>&nbsp;&nbsp;<?php echo $email;?> &nbsp;&nbsp;<input type="email" name="email" required><br>
                               <p id="alert5" class="alert"></p><br>
                               <button onclick="save2()" class="save" name="send">Save</button>
                          </fieldset>
@@ -73,9 +73,9 @@
                          "<form action='update.php?uname=$uname' method='POST' name='upload' class='update' enctype='multipart/form-data'>
                          <fieldset>
                          <legend><b>My Profile</b></legend>
-                                   <label><b>Class: </b></label> <input type='number' name='class' value='$class' placeholder='change'><br>
+                                   <label><b>Class: </b></label> <input type='number' name='class' value='$class' placeholder='change' required><br>
                                    <p id='alert5' class='alert'></p><br>
-                                   <label><b>Stream: </b></label> <input type='text' name='stream' value='$stream' placeholder='change'><br>
+                                   <label><b>Stream: </b></label> <input type='text' name='stream' value='$stream' placeholder='change' required><br>
                                    <p id='alert6' class='alert'></p><br>";
                ?>
                          <button onclick="sasisha()" class="save" name="save">Save</button> 

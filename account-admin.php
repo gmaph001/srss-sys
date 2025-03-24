@@ -14,6 +14,8 @@
                $row = mysqli_fetch_array($result);
 
                if($row['userkey'] === $uname){
+                    $username = $row['username'];
+                    $email = $row['email'];
                     $rank = $row['rank'];
                     $codename = $row['codename'];
                     $photo = $row['photo'];
@@ -62,9 +64,9 @@
                     ?>
                          <fieldset>
                               <legend><b>Username & Email</b></legend>
-                              <label><b>Username: </b></label>&nbsp;&nbsp;<?php echo $username;?> &nbsp;&nbsp;<input type="text" name="username"><br>
+                              <label><b>Username: </b></label>&nbsp;&nbsp;<?php echo $username;?> &nbsp;&nbsp;<input type="text" name="username" required><br>
                               <p id="alert4" class="alert"></p> <br>
-                              <label><b>Email: </b></label>&nbsp;&nbsp;<?php echo $email;?> &nbsp;&nbsp;<input type="email" name="email"><br>
+                              <label><b>Email: </b></label>&nbsp;&nbsp;<?php echo $email;?> &nbsp;&nbsp;<input type="email" name="email" required><br>
                               <p id="alert5" class="alert"></p><br>
                               <button onclick="save2()" class="save" name="send">Save</button>
                          </fieldset>
@@ -74,15 +76,9 @@
                          "<form action='update2.php?uname=$uname' method='POST' name='upload' class='update' enctype='multipart/form-data'>
                          <fieldset>
                          <legend><b>My Profile</b></legend> 
-                                   <label><b>First Name: </b></label> <input type='text' name='firstname'value='$firstname' placeholder='change'><br>
-                                   <p id='alert' class='alert'></p><br>
-                                   <label><b>Second Name: </b></label> <input type='text' name='secondname' value='$secondname' placeholder='change'><br>
-                                   <p id='alert2' class='alert'></p><br>
-                                   <label><b>Last Name: </b></label> <input type='text' name='lastname' value='$lastname' placeholder='change'><br>
-                                   <p id='alert3' class='alert'></p><br>
-                                   <label><b>Rank: </b></label> <input type='number' name='rank' value='$rank' placeholder='change'><br>
+                                   <label><b>Rank: </b></label> <input type='number' name='rank' value='$rank' placeholder='change' required><br>
                                    <p id='alert4' class='alert'></p><br>
-                                   <label><b>Codename: </b></label> <input type='text' name='codename' value='$codename' placeholder='change'><br>
+                                   <label><b>Codename: </b></label> <input type='text' name='codename' value='$codename' placeholder='change' required><br>
                                    <p id='alert5' class='alert'></p><br>";
                ?>
                          <button onclick="sasisha()" class="save" name="save">Save</button> 
@@ -138,21 +134,6 @@
                               document.getElementById("alert4").innerHTML = rankres;
                               event.preventDefault();
                          }
-                    }
-
-                    if(document.upload.firstname.value == ""){
-                         document.getElementById("alert").innerHTML = result;
-                         event.preventDefault();
-                    }
-
-                    if(document.upload.secondname.value == ""){
-                         document.getElementById("alert2").innerHTML = result;
-                         event.preventDefault();
-                    }
-
-                    if(document.upload.lastname.value == ""){
-                         document.getElementById("alert3").innerHTML = result;
-                         event.preventDefault();
                     }
 
                     if(document.upload.codename.value == ""){

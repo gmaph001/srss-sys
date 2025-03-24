@@ -46,7 +46,6 @@
                     }
                     if($result){
                          echo "<p>Username & Email updated successfully!</p><br><br>";
-                         $uname = $username;
                          echo "<p>You can &nbsp; &nbsp; &nbsp; <a href='security.php?uname=$uname'><b>Continue</b></a></p>";
                     }
                     else{
