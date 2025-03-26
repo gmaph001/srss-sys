@@ -25,9 +25,7 @@
                               for($i=0; $i<mysqli_num_rows($result1); $i++){
                                    $row = mysqli_fetch_array($result1);
                                    if($uname === $row['userkey']){
-                                        $firstname = $row['firstname'];
-                                        $lastname  = $row['lastname'];
-                                        $announcer_name = "$firstname $lastname";
+                                        $announcer_name = $row['username'];
                                         $announcer_rank = $row['rank'];
                                    }
                               }
@@ -44,7 +42,7 @@
 
                          if($photo == ""){
                               $photo = "tangazo.webp";
-                              $news_photo = "media/images/news/tangazo.webp";
+                              $news_pic = "media/images/news/tangazo.webp";
                               $folder = "media/images/news/".$photo;
                          }else{
                               $news_pic = 'media/images/news/'.$photo;

@@ -5,6 +5,7 @@
      $news = $_GET['news'];
 
      $uname = $_GET['uname'];
+     $edit = false;
      $rank = 0;
      
      $query = "SELECT * FROM news";
@@ -68,6 +69,10 @@
                     else{
                          $announcer_rank = "DEVELOPER";
                     }
+               }
+
+               if($uname === $announcerID){
+                    $edit = true;
                }
           }
      }
@@ -144,22 +149,40 @@
                     <?php
                          echo 
                               "
-                              <p class='announcer'>
-                                   <img src='$dp2' class='announcer-pic'>
-                              </p><br>
-                              <div class='habari'>
-                                   <a href='$newsphoto' target='_blank'><img src='$newsphoto' class='newsphoto'></a>
-                                   <p class='main-news'>
-                                        $news_main
-                                   </p>
-                              </div><br>
-                              <p class='remarks'>
-                                   <i>By $announcerName</i><br>
-                                   $announcer_rank.
-                              </p>
+                                   <p class='announcer'>
+                                        <img src='$dp2' class='announcer-pic'>
+                                   </p><br>
+                                   <div class='habari'>
+                                        <a href='$newsphoto' target='_blank'><img src='$newsphoto' class='newsphoto'></a>
+                                        <p class='main-news'>
+                                             $news_main
+                                        </p>
+                                   </div><br>
+                                   <div class='bottom-post'>
+                                        <p class='remarks'>
+                                             <i>By $announcerName</i><br>
+                                             $announcer_rank.
+                                        </p>
+                                   ";
+                         
+                         if($edit){
+                              echo "
+                                        <a href='newsedit.php?uname=$uname&&news=$news' class='edit'>Edit</a>
+                                        <a class='delete' id='show'>Delete</a>
+                                   </div>
                               ";
+                         }
                               
                     ?>
+               </div>
+          </div>
+          <div class="popup">
+               <div class="popup-content">
+                    <p>Are you sure you want to delete this post?</p><br>
+                    <div class="popbtns">
+                         <?php echo "<a href='deleteNews.php?uname=$uname&&news=$news' class='edit'>Yes</a>";?>
+                         <a class="delete" id="close">No</a>
+                    </div>
                </div>
           </div>
      </div>
@@ -222,12 +245,24 @@
           let multimenu = document.querySelector('.multi_menu');
           let submenu = document.querySelector('.sub_menu');
 
+          let delbtn = document.getElementById('show');
+          let pop = document.querySelector('.popup');
+          let closebtn = document.getElementById('close');
+
           menubtn.onclick = function(){
                dropdownlist.classList.toggle('open');
           }
 
           multimenu.onclick = function(){
                submenu.classList.toggle('open');
+          }
+
+          document.getElementById("show").addEventListener('click', function(){
+               pop.style.display = "block";
+          })
+
+          closebtn.onclick = function(){
+               pop.style.display = "none";
           }
      </script>
 </body>

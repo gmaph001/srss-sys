@@ -60,10 +60,70 @@ body{
      text-align: justify;
      font-family: baskerville;
 }
+.bottom-post{
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+}
 .remarks{
      font-size: 18pt;
      font-family: Candara;
      font-weight: bold;
+}
+.edit{
+     padding: 5px 20px;
+     cursor: pointer;
+     font-size: 14pt;
+     text-decoration: none;
+     font-weight: bold;
+     border-radius: 5px;
+     background-color: green;
+     color: white;
+}
+.edit:hover{
+     background-color: blue;
+}
+.delete{
+     background-color: red;
+     text-decoration: none;
+     font-weight: bold;
+     padding: 5px 20px;
+     border-radius: 5px;
+     cursor: pointer;
+     font-size: 14pt;
+     color: white;
+}
+.delete:hover{
+     color: white;
+     background-color: black;
+}
+.popup{
+     display: none;
+     position: fixed;
+     z-index: 100;
+     top: 2vh;
+     padding: 30vh 15vw;
+     background-color: rgba(0, 0, 0, 0.322);
+     width: 100vw;
+     height: 100vh;
+}
+.popup-content{
+     background-color: aliceblue;
+     border-radius: 20px;
+     border: 3px solid black;
+     width: 20vw;
+     padding: 2vh 2vw;
+     margin: auto;
+}
+.popup-content p{
+     color: black;
+     font-size: 14pt;
+     font-style: italic;
+}
+.popbtns{
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
 }
 @media(max-width: 800px){
      .body{
@@ -81,5 +141,34 @@ body{
      .main-news{
           width: 100%;
           margin-top: 2vh;
+     }
+     .bottom-post{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+     }
+     .edit{
+          margin-top: 2vh;
+          text-align: center;
+          width: 96%;
+     }
+     .delete{
+          margin-top: 2vh;
+          text-align: center;
+          width: 95%;
+     }
+     .popup{
+          padding: 30vh 5vw;
+     }
+     .popup-content{
+          width: 80vw;
+          padding: 3vh 3vw;
+     }
+     .popbtns{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
      }
 }
