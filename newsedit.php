@@ -106,7 +106,7 @@
                                     <center>
                                         <h1>Edit your post here:</h1><br>
                                         <textarea rows='3' id='habari' name='news' class='correct'>$post</textarea><br><br>
-                                        <button onclick='correct()' class='edit'>Edit</button>
+                                        <button onclick='correct()' name='submit' class='edit'>Edit</button>
                                     </center>
                                 </form>
                             </div>

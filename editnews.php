@@ -6,14 +6,19 @@
     $uname = $_GET['uname'];
     $news = $_GET['news'];
 
-    $post = $_POST['news'];
+    if(isset($_POST['submit'])){
+        $post = $_POST['news'];
 
-    $query = "UPDATE news SET news_main = '$post' WHERE news_no = '$news'";
-    $result = mysqli_query($db, $query);
+        $newspost = mysqli_real_escape_string($db, $post);
 
-    if($result){
-        header("location:newsphotoedit.php?uname=$uname&&news=$news");
+        $query = "UPDATE news SET news_main = '$newspost' WHERE news_no = '$news'";
+        $result = mysqli_query($db, $query);
+
+        if($result){
+            header("location:newsphotoedit.php?uname=$uname&&news=$news");
+        }
+        else{
+            echo "Error while editing user!";
+        }
     }
-    else{
-        echo "Error while editing user!";
-    }
+?>
