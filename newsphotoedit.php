@@ -37,7 +37,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SRSS | News-Sports</title>
+    <title>SRSS | Edit News Photo</title>
     <link rel="stylesheet" href="navBar.css">
     <link rel="stylesheet" href="newsInfo.css">
     <link rel="icon" type="image/x-icon" href="media/images/srss-logo.jfif">
@@ -132,40 +132,44 @@
         </div>
     </div>
     
-    <div class="bottom">
-     <div class="bottom-home">
-          <a href='home.html' class="home">
-               <img src="media/icons/home.png" class="icon">
-          </a>
-     </div>
-     <div class="bottom-nav">
-          <ul type="none">
-               <li>
-                    <a href='news.html' class="buttons">
-                         <img src="media/icons/news.png" class="icon">  
-                         <p>News</p>
-                    </a>
-               </li>
-               <li>
-                    <a href='notes.html' class="buttons" id="left">
-                         <img src="media/icons/notes.png" class="icon">  
-                         <p>Notes</p>
-                    </a>
-               </li>
-               <li>
-                    <a href='assignment.html' class="buttons" id="right">
-                         <img src="media/icons/assignment.png" class="icon">  
-                         <p>Assignments</p>
-                    </a>
-               </li>
-               <li>
-                    <a href='user.php' class="buttons">
-                         <img src="media/icons/user.png" class="icon">  
-                         <p>Login</p>
-                    </a>
-               </li>
-          </ul>
-     </div>
+    <?php
+          echo "
+               <div class='bottom'>
+                    <div class='bottom-home'>
+                         <a href='home.php?uname=$uname' class='home'>
+                              <img src='media/icons/home.png' class='icon'>
+                         </a>
+                    </div>
+                    <div class='bottom-nav'>
+                         <ul type='none'>
+                              <li>
+                                   <a href='news.php?uname=$uname' class='buttons'>
+                                        <img src='media/icons/news.png' class='icon'>  
+                                        <p>News</p>
+                                   </a>
+                              </li>
+                              <li>
+                                   <a href='notes.php?uname=$uname' class='buttons' id='left'>
+                                        <img src='media/icons/notes.png' class='icon'>  
+                                        <p>Notes</p>
+                                   </a>
+                              </li>
+                              <li>
+                                   <a href='check3.php?uname=$uname' class='buttons' id='right'>
+                                        <img src='media/icons/assignment.png' class='icon'>  
+                                        <p>Assignments</p>
+                                   </a>
+                              </li>
+                              <li>
+                                   <a href='user.php?uname=$uname' class='buttons'>
+                                        <img src='media/icons/user.png' class='icon'>  
+                                        <p>Login</p>
+                                   </a>
+                              </li>
+                         </ul>
+                    </div>
+               </div>";
+     ?>
     <script>
         let menubtn = document.querySelector('.vertical_menu');
         let dropdownlist = document.querySelector('.dropdown_menu');
