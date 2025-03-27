@@ -18,6 +18,7 @@
      $receiver = $_GET['receiver'];
 
      require "config.php";
+     require "address.php";
 
      $query = "SELECT * FROM students";
      $result = mysqli_query($db, $query);

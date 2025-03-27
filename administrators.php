@@ -12,6 +12,7 @@
           <?php
 
                require_once('config.php');
+               require "address.php";
 
                $username = $_POST['username'];
                $email = $_POST['email'];

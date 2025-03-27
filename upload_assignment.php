@@ -1,5 +1,6 @@
 <?php
      $uname = $_GET['uname'];
+     require "address.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">

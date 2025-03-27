@@ -3,6 +3,16 @@
 ?>
 
                <?php
+
+                    if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+                         $ip = $_SERVER['HTTP_CLIENT_IP'];
+                    }
+                    elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+                         $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+                    }
+                    else{
+                         $ip = $_SERVER['REMOTE_ADDR'];
+                    }
                     
                     if(isset($_POST['signup'])){
                          $username = $_POST['username'];
@@ -69,9 +79,9 @@
                               }
                          }
 
-                         $sql = "INSERT INTO students (username, email, password, form, stream, photo, userkey, tarehe) VALUES (?,?,?,?,?,?,?,?)";
+                         $sql = "INSERT INTO students (username, email, password, form, stream, photo, userkey, tarehe, security) VALUES (?,?,?,?,?,?,?,?,?)";
                          $stmtinsert = $db->prepare($sql);
-                         $result = $stmtinsert->execute([$username, $email, $password, $form, $stream, $profile, $userkey, $expire]);
+                         $result = $stmtinsert->execute([$username, $email, $password, $form, $stream, $profile, $userkey, $expire, $ip]);
                          if($result){
                               header("location:home.php?uname=$userkey");
                               echo $tarehe;

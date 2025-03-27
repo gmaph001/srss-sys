@@ -1,7 +1,9 @@
 <?php
 
-require_once "config.php";
-$uname = $_GET['uname'];
+    require_once "config.php";
+    require "address.php";
+    
+    $uname = $_GET['uname'];
 
      $query = "SELECT * FROM form3";
 

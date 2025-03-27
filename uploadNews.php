@@ -15,6 +15,7 @@
                <?php
                     if(isset($_POST['upload'])){
                          require_once ("config.php");
+                         require "address.php";
 
                          $uname = $_GET['uname'];
 

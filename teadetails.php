@@ -1,6 +1,7 @@
 <?php
 
      $uname = $_GET['uname'];
+     require "address.php";
 
      require_once "config.php";
 

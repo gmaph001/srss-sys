@@ -45,6 +45,16 @@
                }
           }
 
+          if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+               $ip = $_SERVER['HTTP_CLIENT_IP'];
+          }
+          elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+               $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+          }
+          else{
+               $ip = $_SERVER['REMOTE_ADDR'];
+          }
+
           $query1 = "SELECT * FROM prefects";
           $reference1 = mysqli_query($db, $query1);
           $query2 = "SELECT * FROM admin";
@@ -76,11 +86,11 @@
                }
           }
 
-          $query = "INSERT INTO prefects (username, email, password, class, stream, rank, photo, userkey) VALUES ('$username', '$email', '$password', '$class', '$stream', '$rank', '$profile', '$userkey')";
+          $query = "INSERT INTO prefects (username, email, password, class, stream, rank, photo, userkey, security) VALUES ('$username', '$email', '$password', '$class', '$stream', '$rank', '$profile', '$userkey', '$ip')";
 
-          $query2 = "INSERT INTO admin (username, email, password, rank, codename, photo, userkey) VALUES ('$username', '$email', '$password', '$position', '$codename', '$profile', '$userkey')";
+          $query2 = "INSERT INTO admin (username, email, password, rank, codename, photo, userkey, security) VALUES ('$username', '$email', '$password', '$position', '$codename', '$profile', '$userkey', '$ip')";
 
-          $query3 = "INSERT INTO students (username, email, password, form, stream, photo, userkey) VALUES ('$username', '$email', '$password', '$class', '$stream', '$profile', '$userkey')";
+          $query3 = "INSERT INTO students (username, email, password, form, stream, photo, userkey, security) VALUES ('$username', '$email', '$password', '$class', '$stream', '$profile', '$userkey', '$ip')";
 
           $result = mysqli_query($db, $query);
           $result2 = mysqli_query($db, $query2);

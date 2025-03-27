@@ -13,6 +13,7 @@
           <?php
 
                require_once "config.php";
+               require "address.php";
 
                $uname = $_GET['uname'];
                $valid = 0;

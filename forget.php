@@ -1,5 +1,6 @@
 <?php
      require_once "config.php";
+     require "address.php";
 
      $number = rand(100000, 999999);
      use PHPMailer\PHPMailer\PHPMailer;

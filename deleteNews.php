@@ -1,5 +1,6 @@
 <?php
     require "config.php";
+    require "address.php";
 
     $uname = $_GET['uname'];
     $news = $_GET['news'];

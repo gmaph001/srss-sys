@@ -1,5 +1,6 @@
 <?php
     require "config.php";
+    require "address.php";
 
     $uname = $_GET['uname'];
     $news = $_GET['news'];
@@ -101,7 +102,7 @@
                 <?php
                     echo 
                         "
-                                <form action='editphoto.php' class='editnews'>
+                                <form action='editphoto.php?uname=$uname&&news=$news' class='editnews' method='POST' enctype='multipart/form-data'>
                                     <center>
                                         <h1>Edit your posted photo here:</h1><br>
                                         <img src='$photo' class='photo'><br><br>

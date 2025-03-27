@@ -3,6 +3,7 @@
      $uname = $_GET['uname'];
 
      require("config.php");
+     require "address.php";
 
      $query = "SELECT * FROM admin";
      $result = mysqli_query($db, $query);

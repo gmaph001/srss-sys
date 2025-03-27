@@ -1,6 +1,7 @@
 <?php
 
     require_once "config.php";
+    require "address.php";
 
     $query = "SELECT * FROM news";
     $result = mysqli_query($db, $query);

@@ -16,6 +16,16 @@
 
                     require_once "config.php";
 
+                    if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+                         $ip = $_SERVER['HTTP_CLIENT_IP'];
+                    }
+                    elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+                         $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+                    }
+                    else{
+                         $ip = $_SERVER['REMOTE_ADDR'];
+                    }
+
                     $query = "SELECT * FROM students";
                     $query2 = "SELECT * FROM admin";
                     $query3 = "SELECT * FROM prefects";
@@ -53,8 +63,13 @@
 
                               if($username === $row['username'] || $username === $row['email']){
                                    if($password === $row['password']){
-                                       $userkey = $row['userkey'];
-                                       header("location:home.php?uname=$userkey");
+                                        $userkey = $row['userkey'];
+                                        $queryupd = "UPDATE students SET security = '$ip' WHERE userkey = '$userkey'";
+                                        $resultupd = mysqli_query($db, $queryupd);
+
+                                        if($resultupd){
+                                             header("location:home.php?uname=$userkey");
+                                        }
                                    }
                                    else{
                                         $pvalid = false;
@@ -79,10 +94,19 @@
                                    if($password === $row['password']){
                                         $userkey = $row['userkey'];
                                         if($row['codename'] === "PRF"){
-                                           $userkey = $row['userkey'];
-                                           header("location:home.php?uname=$userkey");
+                                             $queryupd = "UPDATE admin SET security = '$ip' WHERE userkey = '$userkey'";
+                                             $resultupd = mysqli_query($db, $queryupd);
+     
+                                             if($resultupd){
+                                                  header("location:home.php?uname=$userkey");
+                                             }
                                         }
-                                        header("location:home.php?uname=$userkey");
+                                        $queryupd = "UPDATE admin SET security = '$ip' WHERE userkey = '$userkey'";
+                                        $resultupd = mysqli_query($db, $queryupd);
+
+                                        if($resultupd){
+                                             header("location:home.php?uname=$userkey");
+                                        }
                                    }
                                    else{
                                         $pvalid = false;

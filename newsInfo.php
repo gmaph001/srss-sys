@@ -1,6 +1,7 @@
 <?php
 
      require_once "config.php";
+     require "address.php";
 
      $news = $_GET['news'];
 

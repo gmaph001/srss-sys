@@ -15,6 +15,7 @@
                <?php
 
                     require_once "config.php";
+                    require "address.php";
 
                     error_reporting(0);
 

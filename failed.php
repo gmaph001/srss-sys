@@ -11,6 +11,8 @@
      <div class="register">
           <?php
                require_once "config.php";
+               require "address.php";
+               
                $uname = $_GET['uname'];
                echo "<p>You are not authorized for this!</p><br>";
                echo "<p>Go back!!</p><br>";

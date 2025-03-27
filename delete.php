@@ -3,6 +3,7 @@
      $uname = $_GET['uname'];
 
      require_once "config.php";
+     require "address.php";
 
      $query = "SELECT * FROM admin";
      $query2 = "SELECT * FROM students";
