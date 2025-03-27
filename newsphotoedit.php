@@ -1,3 +1,36 @@
+<?php
+    require "config.php";
+
+    $uname = $_GET['uname'];
+    $news = $_GET['news'];
+
+    $query = "SELECT * FROM news";
+    $result = mysqli_query($db, $query);
+
+    if($result){
+        for($i=0; $i<mysqli_num_rows($result); $i++){
+            $row = mysqli_fetch_array($result);
+
+            if($row['news_no'] === $news){
+                $photo = $row['news_photo'];
+            }
+        }
+    }
+
+    $query2 = "SELECT * FROM admin";
+    $result2 = mysqli_query($db, $query2);
+
+    if($result2){
+        for($i=0; $i<mysqli_num_rows($result2); $i++){
+            $row = mysqli_fetch_array($result2);
+
+            if($uname === $row['userkey']){
+                $dp = $row['photo'];
+                $rank = $row['rank'];
+            }
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,20 +43,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-     <nav class="navigation">
+    <nav class="navigation">
           <div class="pics">
                <img src="media/images/srss-og.png" alt="shaaban robert logo" id="logo-img">
-               <a href="account.html" class="dp1"><img src="media/images/prof_pics/1711895902133.jpg" class='dp'></a>
+               <?php 
+                    if($rank == 0){
+                         echo "<li><a href='account.php?uname=$uname' class='dp1'><img src='$dp' class='dp'></a></li>";
+                    }
+                    else{
+                         echo "<li><a href='account-admin.php?uname=$uname' class='dp1'><img src='$dp' class='dp'></a></li>";
+                    }        
+               ?>
           </div>
           <div class="menu">
-               <span id="srss">Shaaban Robert Sec School</span>
+               <span id="srss"><b>Shaaban Robert Sec School</b></span>
                <div class="horizontal_menu">
                     <ul type="none">
-                         <li><a href='home.php?uname=$uname' class="home">Home</a></li>
-                         <li><a href='news.php?uname=$uname' class="news">News</a></li>
-                         <li><a href='notes.html?uname=$uname' class="notes">Notes</a></li>
+                         <li><?php echo "<a href='home.php?uname=$uname' class=home>Home</a></li>";?>
+                         <li><?php echo "<a href='news.php?uname=$uname' class=news>News</a></li>";?>
+                         <li><?php echo "<a href='notes.php?uname=$uname' class=notes>Notes</a></li>";?>
+                         <li><?php echo "<a href='check3.php?uname=$uname'>Assign</a>";?> </li>
                          <li class="multi_menu"><a>login</a></li>
-                         <li><a href="account.html"><img src="media/images/prof_pics/1711895902133.jpg" width='50px' height='50px' class='dp'></a></li>
+                         <li>
+                         <?php 
+                              if($rank == 0){
+                                   echo "<li><a href='account.php?uname=$uname' class='dp'><img src='$dp' class='dp'></a></li>";
+                              }
+                              else{
+                                   echo "<li><a href='account-admin.php?uname=$uname' class='dp'><img src='$dp' class='dp'></a></li>";
+                              }        
+                         ?>
+                         </li>
                     </ul>
                </div>
                <div class="vertical_menu">
@@ -32,30 +82,36 @@
           </div>
           <div class="dropdown_menu">
                <ul type="none">
-                    <li><a href='home.php?uname=$uname' class=home>Home</a></li>
-                    <li><a href='news.php?uname=$uname' class=news>News</a></li>
-                    <li><a href='notes.html?uname=$uname' class=notes>Notes</a></li>
-                    <li><a href="index.html">Student</a></li>
-                    <li><a href="val_admin.php">Admin</a></li>
+                    <li><?php echo "<a href='home.php?uname=$uname' class=home>Home</a></li>";?>
+                    <li><?php echo "<a href='news.php?uname=$uname' class=news>News</a></li>";?>
+                    <li><?php echo "<a href='notes.php?uname=$uname' class=notes>Notes</a></li>";?>
+                    <li><a href="index.php">Student</a></li>
+                    <li><?php echo "<a href='leaders.php?uname=$uname'>Admin</a></li>";?>
           </div>
      </nav>
      <div class="main">
-        <div class="sub_menu">
-            <ul>
-                <li><a href="val_admin.php"><b>Admin</b></a></li>
-                <li><a href="index.html"><b>Student</b></a></li>
-            </ul>
-        </div>
+          <div class="sub_menu">
+               <ul>
+                    <li><?php echo "<a href='leaders.php?uname=$uname'>Admin</a></li>";?>
+                    <li><a href="index.php"><b>login</b></a></li>
+               </ul>
+          </div>
         <div class="body">
             <div class="newsedit">
-                <form action="editphoto.php" class="editnews">
-                    <center>
-                        <h1>Edit your posted photo here:</h1><br>
-                        <img src="media/images/chemistry.jpg" class="photo"><br><br>
-                        <input type="file" id="habari" name="news" class="correct"><br><br>
-                        <button onclick="correct()" class="edit">Edit</button>
-                    </center>
-                </form>
+                <?php
+                    echo 
+                        "
+                                <form action='editphoto.php' class='editnews'>
+                                    <center>
+                                        <h1>Edit your posted photo here:</h1><br>
+                                        <img src='$photo' class='photo'><br><br>
+                                        <input type='file' id='habari' name='news' class='correct'><br><br>
+                                        <button onclick='correct()' class='edit'>Edit</button>
+                                    </center>
+                                </form>
+                        ";
+                ?>
+                
             </div>
         </div>
         <div class="footer">
