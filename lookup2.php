@@ -11,10 +11,13 @@
      <div class="register">
           <?php
                if(isset($_POST['login'])){
-                    $username = $_POST['uname'];
-                    $password = $_POST['pass'];
+                    $u = $_POST['uname'];
+                    $p = $_POST['pass'];
 
                     require_once "config.php";
+
+                    $username = mysqli_real_escape_string($db, $u);
+                    $password = mysqli_real_escape_string($db, $p);
 
                     if(!empty($_SERVER['HTTP_CLIENT_IP'])){
                          $ip = $_SERVER['HTTP_CLIENT_IP'];

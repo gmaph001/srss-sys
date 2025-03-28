@@ -24,6 +24,7 @@
                 $notes[$size] = $rows['notes'];
                 $subjectname[$size] = strtolower($rows['subjectname']);
                 $topic[$size] = $rows['topic'];
+                $poster[$size] = $rows['teachername'];
                 $size++;
           }
      }
@@ -136,6 +137,7 @@
                                         <div class='topic'>
                                             <p>TOPIC: </p>
                                             <p id='head'>$topic[$i].</p>
+                                            <p>By $poster[$i]</p>
                                         </div>
                                     </div>";           
                             }

@@ -158,7 +158,7 @@
                                         </div>
                                    </div>
                                    <div class='details'>
-                                        <div class='subjectname'>
+                                        <div class='subjecttitle'>
                                              <p>Assignment ID: $assignment_no[$i]</p>
                                         </div>
                                         <div class='dates'>

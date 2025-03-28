@@ -108,10 +108,10 @@
      border-radius: 20px;
      padding: 2%;
      text-align: center;
-     margin-top: 2vh;
+     margin: 2vh auto;
 }
 .subjectname{
-     max-width: 100%;
+     max-width: 94%;
      margin: auto;
 }
 .subjectname a{
@@ -129,9 +129,19 @@
      color: yellow;
      font-size: 32pt;
 }
+.subjecttitle{
+     width: 98%;
+     background-color: black;
+     border-radius: 20px 20px 7px 7px;
+     padding: 7px 15px;
+}
+.subjecttitle p{
+     font-weight: bold;
+     font-size: 16pt;
+}
 .subjectname p{
      background-color: black;
-     font-size: 24pt;
+     font-size: 18pt;
      color: white;
      padding: 3%;
      width: max-content;
@@ -520,8 +530,18 @@
           width: 80vw;
           background-position: center;
      }
+     .dates{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+     }
      .due, .assigned{
           font-size: 12pt;
+          width: 70vw;
+     }
+     .due{
+          margin-top: 2vh;
      }
      @keyframes shift{
           from{

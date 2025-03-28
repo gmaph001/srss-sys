@@ -28,6 +28,9 @@ p{
         width: 80%;
         margin: 20% auto;
     }
+    .intro p{
+        font-size: 14pt;
+    }
     fieldset{
         width: 80%;
     }
