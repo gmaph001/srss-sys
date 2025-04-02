@@ -10,7 +10,7 @@
 <body>
     <div class="register">
         <?php
-            error_reporting(E_ALL);
+            error_reporting(0);
 
             require_once "config.php";
             require "address.php";
@@ -30,9 +30,6 @@
                     for($i=0; $i<mysqli_num_rows($result); $i++){
                         $row = mysqli_fetch_array($result);
                         if($row['userkey'] === $uname){
-                            $firstname = $row['firstname'];
-                            $secondname = $row['secondname'];
-                            $lastname = $row['lastname'];
                             $username = $row['username']; 
                             $user_ID = $row['userkey'];
                         }
@@ -47,9 +44,9 @@
                 }
             }
 
-            $sql = "INSERT INTO suggestions (user_ID, firstname, secondname, lastname, username, suggestions, privacy) VALUES (?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO suggestions (user_ID, username, suggestions, privacy) VALUES (?,?,?,?)";
             $stmtinsert = $db->prepare($sql);
-            $result2 = $stmtinsert->execute([$user_ID, $firstname, $secondname, $lastname, $username, $suggestions, $privacy]);
+            $result2 = $stmtinsert->execute([$user_ID, $username, $suggestions, $privacy]);
 
             if ($result2) {
                 echo "<p>Thank You For Your Suggestions!</p><br>";
@@ -61,5 +58,6 @@
             }
         ?>
     </div>
+    <script src="timer.js"></script>
 </body>
 </html>

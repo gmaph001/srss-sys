@@ -65,10 +65,8 @@
                     ?>
                          <fieldset>
                               <legend><b>Username & Email</b></legend>
-                              <label><b>Username: </b></label>&nbsp;&nbsp;<?php echo $username;?> &nbsp;&nbsp;<input type="text" name="username" required><br>
-                              <p id="alert4" class="alert"></p> <br>
-                              <label><b>Email: </b></label>&nbsp;&nbsp;<?php echo $email;?> &nbsp;&nbsp;<input type="email" name="email" required><br>
-                              <p id="alert5" class="alert"></p><br>
+                              <label><b>Username: </b></label>&nbsp;&nbsp;<?php echo $username;?> &nbsp;&nbsp;<input type="text" name="username" required><br><br>
+                              <label><b>Email: </b></label>&nbsp;&nbsp;<?php echo $email;?> &nbsp;&nbsp;<input type="email" name="email" required><br><br>
                               <button onclick="save2()" class="save" name="send">Save</button>
                          </fieldset>
                     </form><br><br>
@@ -114,8 +112,14 @@
                          }
                     }
 
-
+                    if($rank == 7){
+                         echo 
+                              "
+                                 <a href='seckeys.php?uname=$uname' class='save'>Security Keys.</a>  
+                              ";
+                    }
                ?>
+
           </div>
           <script>
                let result = "*Please fill this field!*";
@@ -197,5 +201,6 @@
           <p>&copy; Shaaban Robert Secondary School 2024.</p>
      </div>
      <script src="account.js"></script>
+     <script src="timer.js"></script>
 </body>
 </html>

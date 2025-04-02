@@ -23,8 +23,9 @@
 
                          $teachername = $_POST['teachername'];
                          $subjectname = strtoupper($_POST['subjectname']);
-                         $class = 'form'.$_POST['class'];
-                         $topic = $_POST['topic'];
+                         $class = $_POST['class'];
+                         $t = $_POST['topic'];
+                         $topic = mysqli_real_escape_string($db, $t);
                          
                          $notes = $_FILES["notes"]["name"];
                          $file_type = $_FILES['notes']['type'];
@@ -39,13 +40,13 @@
 
                          $topic = mysqli_real_escape_string($db, $topic);
 
-                         $query = "INSERT INTO $class(subjectname, teachername, topic, notes) VALUES('$subjectname', '$teachername', '$topic', '$notes')";
+                         $query = "INSERT INTO notes(subjectname, teachername, topic, notes, class) VALUES('$subjectname', '$teachername', '$topic', '$notes', '$class')";
                               
                          $result = mysqli_query($db, $query);
 
                          if($result){
                               echo "<p>Upload Successful</p>
-                                   <p>You can now view your notes <a href='$class.php?uname=$uname'>here</a></p>";
+                                   <p>You can now view your notes <a href='class.php?uname=$uname&&class=$class'>here</a></p>";
 
                          }else{
 
@@ -55,5 +56,6 @@
                ?>
           </div>
      </div>
+     <script src="timer.js"></script>
 </body>
 </html>

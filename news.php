@@ -172,7 +172,7 @@
                 </div>
                 <div class="collectives">
                     <div class="events">
-                        <?php echo "<a href='events.php?uname=$uname'><img src='media/images/event.jpeg' height='200px' width='250px' style='border: 5px dashed grey; border-radius: 10px;'></a>";?>
+                        <?php echo "<a href='events.php?uname=$uname'><img src='media/images/event.jpg' height='200px' width='250px' style='border: 5px dashed grey; border-radius: 10px;'></a>";?>
                     </div>
                     <div class="announcements-words">
                         <span><b>Events</b></span>
@@ -248,5 +248,6 @@
             submenu.classList.toggle('open');
         }
     </script>
+    <script src="timer.js"></script>
 </body>
 </html>

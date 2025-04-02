@@ -20,7 +20,7 @@
                          $password = $_POST['secret'];
                          $userkey = rand(100000000, 999999999);
                          $form = $_POST['class'];
-                         $stream = $_POST['stream'];
+                         $stream = strtoupper($_POST['stream']);
                          $dp = $_FILES['photo']['name'];
                          $file = $_FILES['photo']['tmp_name'];
 
@@ -33,24 +33,6 @@
                               $profile = 'media/images/prof_pics/' . $dp;
                               $foldername = "media/images/prof_pics/" . $dp;
                               move_uploaded_file($file, $foldername);
-                         }
-                         
-                         $date = date_default_timezone_set('Africa/Nairobi');
-                         if($date){
-                              $year = Date('Y');
-                              
-                              if($form<5){
-                                   $period = 5-$form;
-                                   $year+=$period;
-
-                                   $expire = Date("$year-01-01");
-                              }
-                              else{
-                                   $period = 7-$form;
-                                   $year+=$period;
-
-                                   $expire = Date("$year-06-01");
-                              }
                          }
 
                          $query = "SELECT * FROM students";
@@ -79,12 +61,11 @@
                               }
                          }
 
-                         $sql = "INSERT INTO students (username, email, password, form, stream, photo, userkey, tarehe, security) VALUES (?,?,?,?,?,?,?,?,?)";
+                         $sql = "INSERT INTO students (username, email, password, form, stream, photo, userkey, security) VALUES (?,?,?,?,?,?,?,?)";
                          $stmtinsert = $db->prepare($sql);
-                         $result = $stmtinsert->execute([$username, $email, $password, $form, $stream, $profile, $userkey, $expire, $ip]);
+                         $result = $stmtinsert->execute([$username, $email, $password, $form, $stream, $profile, $userkey, $ip]);
                          if($result){
                               header("location:home.php?uname=$userkey");
-                              echo $tarehe;
                               echo $profile;
                          }
                          else{

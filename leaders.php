@@ -127,6 +127,7 @@
             </div>";
     ?>
      <script src="fetch.js"></script>
+     <script src="timer.js"></script>
  </body>
  </html>
 <?php

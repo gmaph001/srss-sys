@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Sep 28, 2024 at 08:22 AM
+-- Host: 127.0.0.1
+-- Generation Time: Apr 01, 2025 at 10:46 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -29,9 +29,6 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `admin_ID` int(11) NOT NULL,
-  `firstname` varchar(255) NOT NULL,
-  `secondname` varchar(255) NOT NULL,
-  `lastname` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `email` varchar(40) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -40,23 +37,28 @@ CREATE TABLE `admin` (
   `photo` varchar(500) DEFAULT NULL,
   `OTP` int(6) DEFAULT NULL,
   `userkey` int(9) NOT NULL,
-  `subject` text DEFAULT NULL
+  `subject` text DEFAULT NULL,
+  `security` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`admin_ID`, `firstname`, `secondname`, `lastname`, `username`, `email`, `password`, `rank`, `codename`, `photo`, `OTP`, `userkey`, `subject`) VALUES
-(29, 'MUHADDITHA', 'YUSUPH', 'SULEIMAN', '@_muhyy', 'muhy@gmail.com', 'muhadditha100%', 6, 'PRF', 'media/images/prof_pics/wp3998050-5k-wallpapers.jpg', NULL, 362587771, NULL),
-(8, 'DENIS', 'MPUMELELA', 'DUBE', 'deni_dube', 'denisdube@gmail.com', '123456789', 5, 'TEA', 'media/images/prof_pics/wp3998050-5k-wallpapers.jpg', NULL, 892439796, 'MATHEMATICS'),
-(26, 'GEORGE', 'GODSON', 'MAPHOLE', 'gmaph__001', 'gmaph001@gmail.com', 'SRSS14552', 7, 'PRGM', 'media/images/prof_pics/wallpaperflare.com_wallpaper (3).jpg', NULL, 657806248, NULL),
-(20, 'JOSEPH', 'JOSHUA', 'NCHIMBI', 'joe_nchimbi', 'joenchimbi@gmail.com', '987654321', 3, 'AM', 'media/images/prof_pics/chris-barbalis-KyuNQkQacLE-unsplash.jpg', NULL, 283369292, NULL),
-(36, 'SILILO', 'DEOGRATIUS', 'KALUGABA', 'kalu_G', 'kalugabasililo@gmail.com', 'sililo_kalu', 5, 'TEA', 'media/images/prof_pics/wallpaperflare.com_wallpaper (26).jpg', NULL, 964841902, 'MATHEMATICS'),
-(30, 'NAHIR', 'NAZIR', 'VIRSAM', 'nahir_nazir', 'nahirvirsam@gmail.com', 'nahir_nazir', 6, 'PRF', 'media/images/prof_pics/red-car.jpg', NULL, 720861492, NULL),
-(27, 'Omar', 'Mohammed', 'Matumbo', 'omz', 'coolomar42@gmail.com', 'oozers12345', 6, 'PRF', 'media/images/prof_pics/wallpaperflare.com_wallpaper (4).jpg', NULL, 959152665, NULL),
-(9, 'SURYAKANT', 'SHARUKHAN', 'RAMJI', 'S.D.Ramji', 'ramjisrss@gmail.com', 's.d.ramji', 1, 'HM', 'media/images/prof_pics/wallpaperflare.com_wallpaper (15).jpg', NULL, 449277543, NULL),
-(21, 'SALIM', 'KIBWANA', 'SHOMARI', 'salim_kibwana', 'salimkibwana05@gmail.com', '123456789', 5, 'TEA', 'media/images/prof_pics/peakpx (6).jpg', NULL, 204413985, 'PHYSICS');
+INSERT INTO `admin` (`admin_ID`, `username`, `email`, `password`, `rank`, `codename`, `photo`, `OTP`, `userkey`, `subject`, `security`) VALUES
+(29, '@_muhyy', 'muhy@gmail.com', 'muhadditha100%', 6, 'PRF', 'media/images/prof_pics/wp3998050-5k-wallpapers.jpg', NULL, 362587771, NULL, ''),
+(40, 'ann_mosha', 'annmosha02@gmail.com', 'MOSHA1970', 5, 'TEA', 'media/images/prof_pics/login.png', NULL, 565854186, NULL, ''),
+(8, 'deni_dube', 'denisdube@gmail.com', '123456789', 5, 'TEA', 'media/images/prof_pics/wp3998050-5k-wallpapers.jpg', NULL, 892439796, 'MATHEMATICS', '::1'),
+(44, 'gmaph001', 'gmaph001@gmail.com', '123456789', 6, 'PRF', 'media/images/prof_pics/MacOS Hello 4K.jpeg', NULL, 803236010, NULL, ''),
+(49, 'gmaph__001', 'gmaph001@gmail.com', 'SRSS14552', 7, 'PRGM', 'media/images/prof_pics/wallpaperflare.com_wallpaper (3).jpg', NULL, 657806248, NULL, '::1'),
+(20, 'joe_nchimbi', 'joenchimbi@gmail.com', '987654321', 3, 'AM', 'media/images/prof_pics/chris-barbalis-KyuNQkQacLE-unsplash.jpg', NULL, 283369292, NULL, ''),
+(36, 'kalu_G', 'kalugabasililo@gmail.com', 'sililo_kalu', 5, 'TEA', 'media/images/prof_pics/wallpaperflare.com_wallpaper (26).jpg', NULL, 964841902, 'MATHEMATICS', ''),
+(50, 'kari_punit', 'karishma@gmail.com', 'kari_punit', 7, 'PRGM', 'media/images/prof_pics/peakpx (1).jpg', NULL, 525855277, NULL, ''),
+(30, 'nahir_nazir', 'nahirvirsam@gmail.com', 'nahir_nazir', 6, 'PRF', 'media/images/prof_pics/red-car.jpg', NULL, 720861492, NULL, ''),
+(27, 'omz', 'coolomar42@gmail.com', 'oozers12345', 7, 'PRGM', 'media/images/prof_pics/wallpaperflare.com_wallpaper (4).jpg', NULL, 959152665, NULL, '::1'),
+(37, 'prud_nyaru', 'gmaph001@gmail.com', '123456789', 5, 'TEA', 'media/images/prof_pics/login.png', NULL, 989735618, NULL, ''),
+(9, 'S.D.Ramji', 'ramjisrss@gmail.com', 's.d.ramji', 1, 'HM', 'media/images/prof_pics/wallpaperflare.com_wallpaper (15).jpg', NULL, 449277543, NULL, '::1'),
+(21, 'salim_kibwana', 'salimkibwana05@gmail.com', '123456789', 5, 'TEA', 'media/images/prof_pics/peakpx (6).jpg', NULL, 204413985, 'PHYSICS', '');
 
 -- --------------------------------------------------------
 
@@ -220,7 +222,11 @@ INSERT INTO `assignments` (`assign_ID`, `teacher`, `subject`, `assignment`, `cla
 (138, 'MR. SALIM', 'PHYSICS', 'media/documents/assignments/Physics1-F6-2004.pdf', 6, 'PGM', '2024-08-28', '2024-08-31'),
 (139, 'MR. JOANES', 'BIOLOGY', 'media/documents/assignments/CELL STRUCTURE AND ORGANIZATION O-Level(1).docx', 1, 'T', '2024-09-02', '2024-09-30'),
 (140, 'MR. JOANES', 'BIOLOGY', 'media/documents/assignments/CELL STRUCTURE AND ORGANIZATION O-Level(1).docx', 1, 'K', '2024-09-02', '2024-09-30'),
-(141, 'MR. JOANES', 'BIOLOGY', 'media/documents/assignments/CELL STRUCTURE AND ORGANIZATION O-Level(1).docx', 1, 'U', '2024-09-02', '2024-09-30');
+(141, 'MR. JOANES', 'BIOLOGY', 'media/documents/assignments/CELL STRUCTURE AND ORGANIZATION O-Level(1).docx', 1, 'U', '2024-09-02', '2024-09-30'),
+(151, 'MR. NYARUKA', 'PHYSICS', 'media/documents/assignments/001-PHYSICS-1-SERIES-1.pdf', 6, 'PMC', '2024-11-29', '2025-01-06'),
+(152, 'MR. NYARUKA', 'PHYSICS', 'media/documents/assignments/001-PHYSICS-1-SERIES-1.pdf', 6, 'PCM', '2024-11-29', '2025-01-06'),
+(153, 'MR. NYARUKA', 'PHYSICS', 'media/documents/assignments/001-PHYSICS-1-SERIES-1.pdf', 6, 'PCB', '2024-11-29', '2025-01-06'),
+(154, 'MR. NYARUKA', 'PHYSICS', 'media/documents/assignments/001-PHYSICS-1-SERIES-1.pdf', 6, 'PGM', '2024-11-29', '2025-01-06');
 
 -- --------------------------------------------------------
 
@@ -250,126 +256,6 @@ INSERT INTO `chat` (`id`, `kutoka`, `ujumbe`, `kwenda`, `muda`, `tarehe`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `form1`
---
-
-CREATE TABLE `form1` (
-  `id` int(255) NOT NULL,
-  `subjectname` varchar(255) NOT NULL,
-  `teachername` varchar(255) NOT NULL,
-  `topic` varchar(300) NOT NULL,
-  `notes` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `form2`
---
-
-CREATE TABLE `form2` (
-  `id` int(255) NOT NULL,
-  `subjectname` varchar(255) NOT NULL,
-  `teachername` varchar(255) NOT NULL,
-  `topic` varchar(300) NOT NULL,
-  `notes` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `form2`
---
-
-INSERT INTO `form2` (`id`, `subjectname`, `teachername`, `topic`, `notes`) VALUES
-(1, 'BIOLOGY', 'MR. MATOLA', 'CLASSIFICATION', 'Kingdom Plantae O-Level.pptx'),
-(2, 'BIOLOGY', 'MR. JOANES', 'NUTRITION', 'NUTRITION FORM TWO.docx');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `form3`
---
-
-CREATE TABLE `form3` (
-  `id` int(255) NOT NULL,
-  `subjectname` varchar(255) NOT NULL,
-  `teachername` varchar(255) NOT NULL,
-  `topic` varchar(300) NOT NULL,
-  `notes` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `form3`
---
-
-INSERT INTO `form3` (`id`, `subjectname`, `teachername`, `topic`, `notes`) VALUES
-(1, 'BIOLOGY', 'MR. JOANES', 'ALL TOPICS', 'Biology_f3_Study_notes.pdf'),
-(2, 'GEOGRAPHY', 'MR. RAMADHAN', 'ALL NOTES', 'MY PAMPHLATE GEOGRAPHY.pdf');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `form4`
---
-
-CREATE TABLE `form4` (
-  `id` int(255) NOT NULL,
-  `subjectname` varchar(255) NOT NULL,
-  `teachername` varchar(255) NOT NULL,
-  `topic` varchar(300) NOT NULL,
-  `notes` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `form5`
---
-
-CREATE TABLE `form5` (
-  `id` int(255) NOT NULL,
-  `subjectname` varchar(255) NOT NULL,
-  `teachername` varchar(255) NOT NULL,
-  `topic` varchar(300) NOT NULL,
-  `notes` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `form5`
---
-
-INSERT INTO `form5` (`id`, `subjectname`, `teachername`, `topic`, `notes`) VALUES
-(1, 'PHYSICS', 'MR. SALIM', 'MECHANICS', 'MECHANICS + Projectile Motion.pdf'),
-(2, 'COMPUTER', 'MR. LIMBU', 'PROGRAMMING LANGUAGES', 'C++ notes.pdf'),
-(3, 'COMPUTER', 'MR. LIMBU', 'PROGRAMMING LANGUAGES', 'C++ notes.pdf'),
-(4, 'COMPUTER', 'MR. MSESE', 'COMPUTER BASICS', 'Computer-Notes-Form-5.pdf'),
-(5, 'COMPUTER', 'MR. MSESE', 'COMPUTER BASICS', 'Computer-Notes-Form-5.pdf');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `form6`
---
-
-CREATE TABLE `form6` (
-  `id` int(255) NOT NULL,
-  `subjectname` varchar(255) NOT NULL,
-  `teachername` varchar(255) NOT NULL,
-  `topic` varchar(300) NOT NULL,
-  `notes` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `form6`
---
-
-INSERT INTO `form6` (`id`, `subjectname`, `teachername`, `topic`, `notes`) VALUES
-(1, 'PHYSICS', 'MR. NYARUKA', 'ELECTROSTATICS', 'ELECTROSTATICSSS.pdf'),
-(2, 'COMPUTER', 'MR. LIMBU', 'DATA STRUCTURE AND ALGORITHMS', 'DSA-lecture-15.pdf'),
-(3, 'COMPUTER', 'MR. MSESE', 'VISUAL PROGRAMMING', 'VISUAL PROGRAMMING.pdf');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `news`
 --
 
@@ -391,43 +277,63 @@ CREATE TABLE `news` (
 --
 
 INSERT INTO `news` (`news_no`, `announcer_rank`, `announcer_name`, `news_class`, `headline`, `news_main`, `news_date`, `news_updates`, `news_photo`, `announcer_ID`) VALUES
-(1, '7', 'GEORGE MAPHOLE', 'sports', 'The season of this year is about to start!', 'Welcome to the season of this year. This year\'s season, the season is going to start in March. If you are excited with this news, you can register your name to the sports master or the sports prefect!', '2024-08-17', 'important', 'media/images/news/sports5.jpg', 657806248),
-(2, '7', 'GEORGE MAPHOLE', 'academics', 'The exam is about to start.', 'The exams are about to start, are you ready? If you are, congratulation. If you are not, please study to make you and your teachers proud', '2024-08-17', 'important', 'media/images/news/class.jpg', 657806248),
 (13, '1', 'SURYAKANT RAMJI', 'events', 'Welcome to Talent Night!', 'Good morning dear students! I am very delighted to announce to you the coming of Talent night event. It will be a spectacular event that will be visited by many people from outside the country. Please, I urge you all to attend. The entrance fees will be Tshs. 10,000/=, per each person. You can also invite your parents also to attend. You are all welcome!', '2024-08-23', 'important', 'media/images/news/IMG-20221203-WA0118.jpg', 449277543),
 (15, '7', 'GEORGE MAPHOLE', 'events', 'Welcome to the ICT week!', 'It is a wonderful day! I am glad to welcome you all to the great technological week. This week will be the Shaaban Robert ICT week! You are all welcome to enjoy the week. The week will be accompanied by very many delightful funny moments, such as games and many others. Also, the launching of official Shaaban Robert\'s student\'s <a href=\"https://shaabanrobertsystem.infinityfreeapp.com\" target=\"_blank\">website</a>)! Please, get ready to enjoy! \r\n\r\nFor any questions, please query <a href=\'form.php\'>here!</a>', '2024-08-28', 'important', 'media/images/news/wallpaperflare.com_wallpaper (11).jpg', 657806248),
-(16, '3', 'JOSEPH NCHIMBI', 'academics', 'Form Four Achievements!', 'It\'s my honor to announce the outstanding achievements of our Form Four students, providing us with outstanding performance in their NECTA examinations. We will be awarding them on the next Thursday\'s Assembly! Please attend to learn', '2024-09-01', 'important', 'media/images/news/IMG-20220521-WA0001.jpg', 283369292);
+(16, '3', 'JOSEPH NCHIMBI', 'academics', 'Form Four Achievements!', 'It\'s my honor to announce the outstanding achievements of our Form Four students, providing us with outstanding performance in their NECTA examinations. We will be awarding them on the next Thursday\'s Assembly! Please attend to learn', '2024-09-01', 'important', 'media/images/news/IMG-20220521-WA0001.jpg', 283369292),
+(23, '1', 'S.D.Ramji', 'academics', 'Exam Time', 'You are all reminded to get ready for the exams which are expected to commence from Thu, 03/04/25. Get ready! And I wish you all success!!', '2025-03-31', 'important', 'media/images/news/wallpaperflare-cropped.jpg', 449277543);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prefects`
+-- Table structure for table `notes`
 --
 
-CREATE TABLE `prefects` (
-  `prefect_ID` int(11) NOT NULL,
-  `firstname` text NOT NULL,
-  `secondname` text NOT NULL,
-  `lastname` text NOT NULL,
-  `age` int(50) NOT NULL,
-  `username` text NOT NULL,
-  `email` varchar(400) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `class` int(1) NOT NULL,
-  `stream` varchar(3) NOT NULL,
-  `rank` varchar(50) NOT NULL,
-  `photo` varchar(300) NOT NULL,
-  `userkey` int(9) NOT NULL
+CREATE TABLE `notes` (
+  `notes_ID` int(11) NOT NULL,
+  `teachername` varchar(500) NOT NULL,
+  `subjectname` varchar(100) NOT NULL,
+  `topic` varchar(500) NOT NULL,
+  `notes` varchar(1000) NOT NULL,
+  `class` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `prefects`
+-- Dumping data for table `notes`
 --
 
-INSERT INTO `prefects` (`prefect_ID`, `firstname`, `secondname`, `lastname`, `age`, `username`, `email`, `password`, `class`, `stream`, `rank`, `photo`, `userkey`) VALUES
-(2, 'GEORGE', 'GODSON', 'MAPHOLE', 20, 'gmaph__001', 'gmaph001@gmail.com', 'SRSS14552', 6, 'PMC', 'PREFECT', 'media/images/prof_pics/wallpaperflare.com_wallpaper (3).jpg', 657806248),
-(3, 'Omar', 'Mohammed', 'Matumbo', 20, 'omz', 'coolomar42@gmail.com', 'oozers12345', 6, 'PMC', 'PREFECT', 'media/images/prof_pics/wallpaperflare.com_wallpaper (4).jpg', 959152665),
-(5, 'MUHADDITHA', 'YUSUPH', 'SULEIMAN', 20, '@_muhyy', 'muhy@gmail.com', 'muhadditha100%', 6, 'PCM', 'SPORTS-PREFECT', 'media/images/prof_pics/wp3998050-5k-wallpapers.jpg', 362587771),
-(6, 'NAHIR', 'NAZIR', 'VIRSAM', 20, 'nahir_nazir', 'nahirvirsam@gmail.com', 'nahir_nazir', 6, 'PCM', 'HEAD-PREFECT', 'media/images/prof_pics/red-car.jpg', 720861492);
+INSERT INTO `notes` (`notes_ID`, `teachername`, `subjectname`, `topic`, `notes`, `class`) VALUES
+(1, 'MR. LIMBU', 'COMPUTER', 'DATA STRUCTURE AND ALGORITHMS', 'DATA STRUCTURE AND ALGORITHMS.pdf', 6),
+(2, 'MR. EDMUND', 'COMPUTER', 'DBMS', '3. Database as information systems.pptx', 3),
+(3, 'MS. STUMAI', 'GEOGRAPHY', 'ALL TOPICS', 'MY PAMPHLATE GEOGRAPHY.pdf', 3),
+(4, 'MR. JOANES', 'BIOLOGY', 'CELL STRUCTURE AND ORGANIZATION', 'CELL STRUCTURE AND ORGANIZATION O-Level(1).docx', 1),
+(5, 'MR. DASTAN', 'BIOLOGY', 'CLASSIFICATION', 'KINGDOM FUNGI O LEVEL.pptx', 2),
+(6, 'MR. MSESE', 'COMPUTER', 'DBMS', '1. DBMS.pptx', 4),
+(7, 'MR. JOANES', 'BIOLOGY', 'GROWTH', 'GROWTH AND DEVELOPMENT O-LEVEL.docx', 4),
+(8, 'MR. MKWAMA', 'GEOGRAPHY', 'RESEARCH', 'RESEARCH.pdf', 4),
+(9, 'MR. LIMBU', 'COMPUTER', 'WEB DEVELOPMENT', 'web development.pdf', 5),
+(10, 'MR. LIMBU', 'COMPUTER', 'C++', 'C++ notes.pdf', 5),
+(11, 'MR. LIMBU', 'COMPUTER', 'SDLC', 'SYSTEM DEVELOPMENT 2.pdf', 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `seckeys`
+--
+
+CREATE TABLE `seckeys` (
+  `key_ID` int(11) NOT NULL,
+  `username` varchar(500) NOT NULL,
+  `OTP` int(9) NOT NULL,
+  `id` int(9) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `seckeys`
+--
+
+INSERT INTO `seckeys` (`key_ID`, `username`, `OTP`, `id`) VALUES
+(1, 'kari_punit', 434138213, 525855277),
+(2, 'gmaph__001', 316090202, 657806248);
 
 -- --------------------------------------------------------
 
@@ -437,35 +343,32 @@ INSERT INTO `prefects` (`prefect_ID`, `firstname`, `secondname`, `lastname`, `ag
 
 CREATE TABLE `students` (
   `Students_ID` int(255) NOT NULL,
-  `firstname` varchar(255) NOT NULL,
-  `secondname` varchar(255) NOT NULL,
-  `lastname` varchar(255) NOT NULL,
   `username` varchar(500) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(100) NOT NULL,
   `form` int(1) NOT NULL,
   `stream` varchar(3) NOT NULL,
-  `age` int(2) NOT NULL,
   `photo` varchar(500) DEFAULT NULL,
   `OTP` int(6) DEFAULT NULL,
   `userkey` int(20) NOT NULL,
-  `tarehe` date NOT NULL
+  `security` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`Students_ID`, `firstname`, `secondname`, `lastname`, `username`, `email`, `password`, `form`, `stream`, `age`, `photo`, `OTP`, `userkey`, `tarehe`) VALUES
-(3, 'MUHADDITHA', 'YUSUPH', 'SULEIMAN', '@_muhyy', 'muhy@gmail.com', 'muhadditha100%', 6, 'PCM', 20, 'media/images/prof_pics/wp3998050-5k-wallpapers.jpg', NULL, 362587771, '2025-06-01'),
-(1, 'GEORGE', 'GODSON', 'MAPHOLE', 'gmaph__001', 'gmaph001@gmail.com', 'SRSS14552', 6, 'PMC', 20, 'media/images/prof_pics/wallpaperflare.com_wallpaper (3).jpg', NULL, 657806248, '2025-06-01'),
-(6, 'INNOCENT', 'MATHIAS', 'NGOWI', 'inno_math', 'innocent@gmail.com', 'inno_math', 6, 'PCM', 20, 'media/images/prof_pics/earth.jpg', NULL, 315285343, '2025-06-01'),
-(7, 'JOSHUA', 'JOHN', 'MARTIN', 'joshua_john', 'joshua@gmail.com', 'joshua_john', 6, 'PMC', 20, 'media/images/prof_pics/wallpaperflare.com_wallpaper (28).jpg', NULL, 636558955, '2025-06-01'),
-(22, 'KARISHMA', 'PUNIT', 'CHHATBAR', 'kari_punit', 'karishma@gmail.com', 'kari_punit', 6, 'PMC', 20, 'media/images/prof_pics/login.png', NULL, 525855277, '2025-06-01'),
-(5, 'MARCELO', 'SAMWEL', 'PENGO', 'marc_sam', 'marcelosamwel@gmail.com', 'marcelosamwel', 6, 'PCM', 20, 'media/images/prof_pics/wallpaperflare.com_wallpaper (25).jpg', NULL, 500111943, '2025-06-01'),
-(4, 'NAHIR', 'NAZIR', 'VIRSAM', 'nahir_nazir', 'nahirvirsam@gmail.com', 'nahir_nazir', 6, 'PCM', 20, 'media/images/prof_pics/red-car.jpg', NULL, 720861492, '2025-06-01'),
-(23, 'Nassor', 'Mohammed', 'Munir', 'nassor_munir', 'nassor@gmail.com', 'nassor_munir', 6, 'PCM', 20, 'media/images/prof_pics/pexels-azim-islam-460924-1188037.jpg', NULL, 558984056, '2025-06-01'),
-(2, 'Omar', 'Mohammed', 'Matumbo', 'omz', 'coolomar42@gmail.com', 'oozers12345', 6, 'PMC', 20, 'media/images/prof_pics/wallpaperflare.com_wallpaper (4).jpg', NULL, 959152665, '2025-06-01');
+INSERT INTO `students` (`Students_ID`, `username`, `email`, `password`, `form`, `stream`, `photo`, `OTP`, `userkey`, `security`) VALUES
+(3, '@_muhyy', 'muhy@gmail.com', 'muhadditha100%', 6, 'PCM', 'media/images/prof_pics/wp3998050-5k-wallpapers.jpg', NULL, 362587771, '::1'),
+(24, 'gmaph001', 'gmaph001@gmail.com', '123456789', 5, 'PMC', 'media/images/prof_pics/MacOS Hello 4K.jpeg', NULL, 803236010, '::1'),
+(1, 'gmaph__001', 'gmaph001@gmail.com', 'SRSS14552', 6, 'PMC', 'media/images/prof_pics/wallpaperflare.com_wallpaper (3).jpg', 287313, 657806248, '::1'),
+(6, 'inno_math', 'innocent@gmail.com', 'inno_math', 6, 'PCM', 'media/images/prof_pics/earth.jpg', NULL, 315285343, '::1'),
+(7, 'joshua_john', 'joshua@gmail.com', 'joshua_john', 6, 'PMC', 'media/images/prof_pics/wallpaperflare.com_wallpaper (28).jpg', NULL, 636558955, ''),
+(22, 'kari_punit', 'karishma@gmail.com', 'kari_punit', 6, 'PMC', 'media/images/prof_pics/peakpx (1).jpg', NULL, 525855277, '::1'),
+(5, 'marc_sam', 'marcelosamwel@gmail.com', 'marcelosamwel', 6, 'PCM', 'media/images/prof_pics/wallpaperflare.com_wallpaper (25).jpg', NULL, 500111943, ''),
+(4, 'nahir_nazir', 'nahirvirsam@gmail.com', 'nahir_nazir', 6, 'PCM', 'media/images/prof_pics/red-car.jpg', NULL, 720861492, ''),
+(23, 'nassor_munir', 'nassor@gmail.com', 'nassor_munir', 6, 'PCM', 'media/images/prof_pics/pexels-azim-islam-460924-1188037.jpg', NULL, 558984056, ''),
+(2, 'omz', 'coolomar42@gmail.com', 'oozers12345', 6, 'PMC', 'media/images/prof_pics/wallpaperflare.com_wallpaper (4).jpg', NULL, 959152665, '::1');
 
 -- --------------------------------------------------------
 
@@ -476,12 +379,19 @@ INSERT INTO `students` (`Students_ID`, `firstname`, `secondname`, `lastname`, `u
 CREATE TABLE `suggestions` (
   `suggest_ID` int(11) NOT NULL,
   `user_ID` int(9) NOT NULL,
-  `firstname` varchar(255) NOT NULL,
-  `secondname` varchar(500) NOT NULL,
-  `lastname` varchar(500) NOT NULL,
   `username` varchar(1000) NOT NULL,
-  `suggestions` text NOT NULL
+  `suggestions` text NOT NULL,
+  `privacy` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `suggestions`
+--
+
+INSERT INTO `suggestions` (`suggest_ID`, `user_ID`, `username`, `suggestions`, `privacy`) VALUES
+(1, 657806248, 'gmaph__001', 'Can you improve the timings of the Friday break?', 'public'),
+(2, 657806248, 'gmaph__001', 'I suggest that the student\'s council of our school should be reelcted! I am not subtle with this year\'s student\'s council!', 'private'),
+(3, 657806248, 'gmaph__001', 'I suggest that the student\'s council of our school should be reelcted! I am not subtle with this year\'s student\'s council!', 'private');
 
 --
 -- Indexes for dumped tables
@@ -507,52 +417,22 @@ ALTER TABLE `chat`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `form1`
---
-ALTER TABLE `form1`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `form2`
---
-ALTER TABLE `form2`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `form3`
---
-ALTER TABLE `form3`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `form4`
---
-ALTER TABLE `form4`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `form5`
---
-ALTER TABLE `form5`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `form6`
---
-ALTER TABLE `form6`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `news`
 --
 ALTER TABLE `news`
   ADD PRIMARY KEY (`news_no`);
 
 --
--- Indexes for table `prefects`
+-- Indexes for table `notes`
 --
-ALTER TABLE `prefects`
-  ADD PRIMARY KEY (`prefect_ID`,`username`(50));
+ALTER TABLE `notes`
+  ADD PRIMARY KEY (`notes_ID`);
+
+--
+-- Indexes for table `seckeys`
+--
+ALTER TABLE `seckeys`
+  ADD PRIMARY KEY (`key_ID`);
 
 --
 -- Indexes for table `students`
@@ -575,13 +455,13 @@ ALTER TABLE `suggestions`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `admin_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `assignments`
 --
 ALTER TABLE `assignments`
-  MODIFY `assign_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
+  MODIFY `assign_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
 
 --
 -- AUTO_INCREMENT for table `chat`
@@ -590,64 +470,34 @@ ALTER TABLE `chat`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `form1`
---
-ALTER TABLE `form1`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `form2`
---
-ALTER TABLE `form2`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `form3`
---
-ALTER TABLE `form3`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `form4`
---
-ALTER TABLE `form4`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `form5`
---
-ALTER TABLE `form5`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `form6`
---
-ALTER TABLE `form6`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `news_no` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `news_no` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT for table `prefects`
+-- AUTO_INCREMENT for table `notes`
 --
-ALTER TABLE `prefects`
-  MODIFY `prefect_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `notes`
+  MODIFY `notes_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `seckeys`
+--
+ALTER TABLE `seckeys`
+  MODIFY `key_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `Students_ID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `Students_ID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `suggestions`
 --
 ALTER TABLE `suggestions`
-  MODIFY `suggest_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `suggest_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

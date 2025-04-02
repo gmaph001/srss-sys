@@ -165,5 +165,6 @@
      </div>
      <script src="account.js"></script>
      <script src="pop.js"></script>
+     <script src="timer.js"></script>
 </body>
 </html>

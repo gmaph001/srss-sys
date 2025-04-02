@@ -78,12 +78,10 @@ h1#update{
     padding: 20px;
 }
 .announcements a img{
-    transition: 0.5s ease-in-out;
+    transition: 0.7s ease-in-out;
 }
 .announcements a img:hover{
-    rotate: 5deg;
-    height: 104%;
-    width: 102%;
+    rotate: 365deg;
 }
 .collectives{
     display: flex;

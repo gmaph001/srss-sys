@@ -19,5 +19,6 @@
                echo "<a href = 'home.php?uname=$uname'>Enter</a><br>";
           ?>
      </div>
+     <script src="timer.js"></script>
 </body>
 </html>

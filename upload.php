@@ -1,6 +1,30 @@
 <?php
-     $uname = $_GET['uname'];
+     require_once "config.php";
      require "address.php";
+
+     $uname = $_GET['uname'];
+
+     $exist = false;
+
+     $query = "SELECT * FROM admin";
+     $result = mysqli_query($db, $query);
+
+     if($result){
+          for($i=0; $i<mysqli_num_rows($result); $i++){
+               $row = mysqli_fetch_array($result);
+
+               if($uname === $row['userkey']){
+                    $rank = $row['rank'];
+                    $exist = true;
+                    break;
+               }
+          }
+     }
+     if(!$exist){
+          header("location:failed.php?uname=$uname"); 
+     }
+     else{
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -79,5 +103,9 @@
                }
           }
      </script>
+     <script src="timer.js"></script>
 </body>
 </html>
+<?php
+     }
+?>

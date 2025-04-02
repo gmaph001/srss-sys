@@ -9,29 +9,89 @@
      $result1 = mysqli_query($db, $query1);
 
      if(isset($_POST['save'])){
-
-          $firstname = $_POST['firstname'];
-          $secondname = $_POST['secondname'];
-          $lastname = $_POST['lastname'];
           $rank = $_POST['rank'];
           $codename = strtoupper($_POST['codename']);
 
-          $query = "UPDATE admin SET firstname = '$firstname', secondname = '$secondname', lastname = '$lastname', 
-                    rank = '$rank', codename = '$codename' WHERE userkey = '$uname'";
+          if($rank === "7" && $codename === "PRGM"){
+               $otp = rand(100000000, 999999999);
 
-          $result = mysqli_query($db, $query);
+               $fetch = "SELECT * FROM students";
+               $feres = mysqli_query($db, $fetch);
 
-          if($result){
-               echo "Data updated successfully!";
-               header('location: account-admin.php?uname='.$uname);
+               for($i=0; $i<mysqli_num_rows($feres); $i++){
+                    $row = mysqli_fetch_array($feres);
 
+                    if($uname === $row['userkey']){
+                         $username = $row['username'];
+                    }
+               }
+
+               $query = "SELECT * FROM seckeys";
+               $result = mysqli_query($db, $query);
+
+               $exist = false;
+
+               if(mysqli_num_rows($result)>0){
+                    for($i=0; $i<mysqli_num_rows($result); $i++){
+                         $row = mysqli_fetch_array($result);
+
+                         if($uname === $row['id']){
+                              $exist = true;
+                         }
+                    }
+               }
+               else{
+                    $query3 = "INSERT INTO seckeys(username, OTP, id) VALUES('$username', '$otp', '$uname')";
+                    $result3 = mysqli_query($db, $query3);
+
+                    if($result3){
+                         header("Location: checkdev.php?uname=$uname");
+                    }
+                    else{
+                         echo "Error while inserting data!";
+                    }
+               }
+
+               if($exist){
+                    $query2 = "UPDATE seckeys SET OTP = '$otp' WHERE id = '$uname'";
+                    $result2 = mysqli_query($db, $query2);
+
+                    if($result2){
+                         header("Location: checkdev.php?uname=$uname");
+                    }
+                    else{
+                         echo "Failed to update table!";
+                    }
+               }
+               else{
+                    $query4 = "INSERT INTO seckeys(username, OTP, id) VALUES('$username', '$otp', '$uname')";
+                    $result4 = mysqli_query($db, $query4);
+
+                    if($result4){
+                         header("Location: checkdev.php?uname=$uname");
+                    }
+                    else{
+                         echo "Error while inserting data!";
+                    }
+               }
           }
           else{
-               echo "Error updating data!";
+               if($codename === "PRF" && $rank === "6"){
+                    $query = "UPDATE admin SET rank = '$rank', codename = '$codename' WHERE userkey = '$uname'";
+                    $result = mysqli_query($db, $query);
+
+                    if($result){
+                         echo "Data updated successfully!";
+                         header('location: account-admin.php?uname='.$uname);
+
+                    }
+                    else{
+                         echo "Error updating data!";
+                    }
+               }
+               else{
+                    header("Location:account-admin.php?uname=$uname");
+               }
           }
      }
-
-
-
-
-     
+?>     

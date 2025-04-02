@@ -259,5 +259,6 @@
                submenu.classList.toggle('open');
           }
      </script>
+     <script src="timer.js"></script>
 </body>
 </html>

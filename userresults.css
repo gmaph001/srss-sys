@@ -1,0 +1,106 @@
+.account{
+    background-image: linear-gradient(135deg, #000000, #060040, #09005c, #0b0072, #1200b1, #1900ff);
+    padding: 3vh 2vw;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    width: 25vw;
+    margin-top: 5vh;
+    box-shadow: 0px 0px 7px 7px #06003a97;
+}
+.prof_pic{
+    width: 90%;
+    height: 200px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 5px 5px rgba(208, 166, 0, 0.601);
+}
+.profile{
+    width: 98%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    margin-top: 2vh;
+    padding: 2vh 2vw;
+}
+.profile p{
+    color: white;
+    font-size: 14pt;
+    text-align: left;
+}
+.detail{
+    color: rgb(255, 98, 0);
+    font-weight: bold;
+}
+.btns{
+    padding: 2vh 2vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.approve{
+    background-color: green;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14pt;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 15px;
+    width: 20vw;
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 255, 0.5);
+}
+.approve:hover{
+    background-color: rgb(0, 0, 62);
+    color: rgb(0, 255, 0);
+    box-shadow: 0px 0px 2px 2px rgba(0, 128, 0, 0.532);
+}
+.revoke{
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 2vh;
+    font-size: 14pt;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 15px;
+    width: 20vw;
+}
+.revoke:hover{
+    background-color: white;
+    color: red;
+    box-shadow: 0px 0px 2px 2px rgba(255, 0, 0, 0.51);
+}
+.noresult{
+    background-color: rgb(0, 0, 62);
+    color: white;
+    padding: 2vh 2vw;
+    width: 80vw;
+    border-radius: 20px;
+    margin: auto;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.459);
+}
+.noresult p{
+    color: white;
+    font-size: 16pt;
+    text-align: center;
+}
+@media(max-width: 900px){
+    .account{
+         width: 85vw;
+    }
+    .prof_pic{
+         width: 70vw;
+    }
+    .approve{
+         width: 70vw;
+    }
+    .revoke{
+         width: 70vw;
+    }
+}

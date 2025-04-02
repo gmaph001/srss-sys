@@ -31,11 +31,9 @@
 
                     $query = "SELECT * FROM students";
                     $query2 = "SELECT * FROM admin";
-                    $query3 = "SELECT * FROM prefects";
 
                     $result = mysqli_query($db, $query);
                     $result2 = mysqli_query($db, $query2);
-                    $result3 = mysqli_query($db, $query3);
 
                     $valid = true;
                     $uvalid = true;
@@ -47,12 +45,6 @@
                     $user[$size] = [];
                     $address[$size] = [];
                     $pass[$size] = [];
-
-                    $date = date_default_timezone_set('Africa/Nairobi');
-                    $default = 21000000000;
-                    if($date){
-                         $today = Date("Y-m-d");
-                    }
 
                     if($result){
                          for($i=0; $i<mysqli_num_rows($result); $i++){

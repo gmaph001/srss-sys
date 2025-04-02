@@ -137,14 +137,15 @@
                else{
                     for(let i=0; i<stream.length; i++) //code to check if the stream entered corresponds to the values of the streams stored in the array
                     {
-                         if(d==stream[i]){
+                         if(d.toUpperCase()==stream[i]){
                               checkclass = true;
                               break;
                          }
                     }
-                    if(checkclass == false)
+                    if(!checkclass)
                     {
                          document.getElementById("strmresult").innerHTML = comb;
+                         event.preventDefault();
                     }
                     else{
                          document.getElementById("strmresult").innerHTML = "";

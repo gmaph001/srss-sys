@@ -31,5 +31,6 @@
           </div>
      </div>
      <script src="form.js"></script>
+     <script src="timer.js"></script>
 </body>
 </html>

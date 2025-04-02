@@ -170,8 +170,13 @@
                               echo "
                                         <a href='newsedit.php?uname=$uname&&news=$news' class='edit'>Edit</a>
                                         <a class='delete' id='show'>Delete</a>
-                                   </div>
                               ";
+                         }
+                         else if($rank<5){
+                              echo "
+                                        <a class='delete' id='show'>Delete</a>
+                                   </div>
+                                   ";
                          }
                               
                     ?>
@@ -266,5 +271,6 @@
                pop.style.display = "none";
           }
      </script>
+     <script src="timer.js"></script>
 </body>
 </html>

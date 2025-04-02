@@ -102,12 +102,18 @@ input:focus{
           margin: auto;
      }
      .input{
-          width: 80vw;
+          width: 70vw;
+          margin: auto;
      }
      input{
           width: 50vw;
      }
+     .suggestions{
+          padding: 2vh 5vw;
+          width: 65vw;
+          margin: auto;
+     }
      .sendbtn{
-          width: 100%;
+          width: 75vw;
      }
 }

@@ -82,7 +82,7 @@
                                                        echo "<p>Error in account expiry!</p>";
                                                   }
                                              }
-                                             elseif($leo>=$yr && $mon>=$mwezi){
+                                             else if($leo>=$yr && $mon>=$mwezi){
                                                   $delquery = "DELETE FROM students WHERE userkey = '$userkey'";
                                                   $delresult = mysqli_query($db, $delquery);
 
@@ -153,7 +153,7 @@
                                                        echo "<p>Error in account expiry!</p>";
                                                   }
                                              }
-                                             elseif($leo>=$yr && $mon>=$mwezi){
+                                             else if($leo>=$yr && $mon>=$mwezi){
                                                   $delquery = "DELETE FROM students WHERE userkey = '$userkey'";
                                                   $delresult = mysqli_query($db, $delquery);
 

@@ -12,19 +12,13 @@
     $result2 = mysqli_query($db, $query2);
 
     $size = 0;
-    $firstname[$size];
-    $secondname[$size];
-    $lastname[$size];
-    $username[$size];
-    $suggestions[$size];
+    $username = [];
+    $suggestions = [];
 
     if($result){
         for($i=0; $i<mysqli_num_rows($result); $i++){
             $row = mysqli_fetch_array($result);
             
-            $firstname[$size] = $row['firstname'];
-            $secondname[$size] = $row['secondname'];
-            $lastname[$size] = $row['lastname'];
             $suggestions[$size] = $row['suggestions'];
             if($row['privacy'] === "private"){
                 $username[$size] = $row['user_ID'];
@@ -152,5 +146,6 @@
                 submenu.classList.toggle('open');
             }
         </script>
+        <script src="timer.js"></script>
 </body>
 </html>

@@ -108,10 +108,10 @@
                                 Hello!! Dear Form 1, you're welcome at SRSS. This part is for you to 
                                 get all the necessary materials for Form 1. All necessary notes are here,
                                  you're welcome. <i>Click the button below to get the materials you need.</i>
-                            </p>
+                            </p><br><br>
                             <center>
                                 <?php 
-                                    echo "<button><a href='form1.php?uname=$uname'><b>Form 1</b></a></button>";
+                                    echo "<a href='class.php?uname=$uname&&class=1' class='button'><b>Form 1</b></a>";
                                 ?>
                             </center>
                         </div>
@@ -126,10 +126,10 @@
                                 you're welcome. As usual, all necessary materials for form 2 are here. You may
                                  download them if you want.
                                  <i>Click the button below.</i>
-                            </p>
+                            </p><br><br>
                             <center>
                                 <?php 
-                                    echo "<button><a href='form2.php?uname=$uname'><b>Form 2</b></a></button>";
+                                    echo "<a href='class.php?uname=$uname&&class=2' class='button'><b>Form 2</b></a>";
                                 ?>
                             </center>
                         </div>
@@ -142,10 +142,10 @@
                             <p>
                                 It's another warm day, and now you're in Form three. What are you waiting for?
                                  <i>Click the button below and get all the notes you need, or else it is your loss.</i>
-                            </p>
+                            </p><br><br>
                             <center>
                                 <?php 
-                                    echo "<button><a href='form3.php?uname=$uname'><b>Form 3</b></a></button>";
+                                    echo "<a href='class.php?uname=$uname&&class=3' class='button'><b>Form 3</b></a>";
                                 ?>
                             </center>
                         </div>
@@ -159,10 +159,10 @@
                                 We do not want to say much, you're grown ups now. You know what to do and how to do 
                                 it. So, don't waste time and get all your materials now, go study you kid. 
                                 <i>Click the button below.</i>
-                            </p>
+                            </p><br><br>
                             <center>
                                 <?php 
-                                    echo "<button><a href='form4.php?uname=$uname'><b>Form 4</b></a></button>";
+                                    echo "<a href='class.php?uname=$uname&&class=4' class='button'><b>Form 4</b></a>";
                                 ?>
                             </center>
                         </div> 
@@ -177,10 +177,10 @@
                                 materials in this website. Please, get in, dive, dig and get all necessary 
                                 materials for any combination you're studying. 
                                 <i>Click the link below to get the materials.</i>
-                            </p>
+                            </p><br><br>
                             <center>
                                 <?php 
-                                    echo "<button><a href='form5.php?uname=$uname'><b>Form 5</b></a></button>";
+                                    echo "<a href='class.php?uname=$uname&&class=5' class='button'><b>Form 5</b></a>";
                                 ?>
                             </center>
                         </div>
@@ -193,10 +193,10 @@
                             <p>
                                 Hi! We as developers, welcome you in this website to now end your secondary 
                                 school journey, happily. How will you do that? Please, <i>Click the button below.</i>
-                            </p>
+                            </p><br><br>
                             <center>
                                 <?php 
-                                    echo "<button><a href='form6.php?uname=$uname'><b>Form 6</b></a></button>";
+                                    echo "<a href='class.php?uname=$uname&&class=6' class='button'><b>Form 6</b></a>";
                                 ?>
                             </center>
                         </div>
@@ -271,5 +271,6 @@
             submenu.classList.toggle('open');
         }
     </script>
+    <script src="timer.js"></script>
 </body>
 </html>
