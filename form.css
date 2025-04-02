@@ -108,6 +108,9 @@ input:focus{
      input{
           width: 50vw;
      }
+     .qn{
+          width: 70vw;
+     }
      .suggestions{
           padding: 2vh 5vw;
           width: 65vw;

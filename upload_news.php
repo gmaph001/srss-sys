@@ -59,13 +59,13 @@
                          <label>
                               Is this news an update?
                          </label>&nbsp; &nbsp;
-                         <label>Yes</label><input type="radio" name="update" value="important" id="yes">&nbsp; &nbsp;
-                         <label>No</label><input type="radio" name="update" value="not_important" id="no"><br>
+                         <label>Yes</label><input type="radio" name="update" value="important" id="yes" class="radio">&nbsp; &nbsp;
+                         <label>No</label><input type="radio" name="update" value="not_important" id="no" class="radio"><br>
                          <p id="result5"></p><br>
                          <label>
                               Do you have any photo to upload?
                          </label>&nbsp; &nbsp;
-                         <label>Yes</label><input type="checkbox" name="updatephoto" value="photo" onclick="showphoto()" id="true">&nbsp; &nbsp;
+                         <label>Yes</label><input type="checkbox" name="updatephoto" value="photo" class="radio" onclick="showphoto()" id="true">&nbsp; &nbsp;
                          <!-- <label>No</label><input type="checkbox" name="update" value="no" onclick="hidephoto()" id="false"><br> -->
                          <p id="result7"></p><br>
                          <label class="upload-photo">

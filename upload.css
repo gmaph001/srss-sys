@@ -390,10 +390,13 @@ a:active{
           width: 75vw;
      }
      .form fieldset{
-          width: 50vw;
+          width: 75vw;
+     }
+     .radio{
+          width: 10vw;
      }
      input{
-          width: fit-content;
+          width: 50vw;
           padding: 3px;
           font-size: 12pt;
      }
@@ -410,7 +413,7 @@ a:active{
 }
 @media(max-width:400px){
      .form fieldset{
-          width: 50vw;
+          width: 75vw;
           margin-left: -4vw;
      }
 }
