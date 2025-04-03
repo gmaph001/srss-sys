@@ -1,6 +1,5 @@
 <?php
      require_once('config.php');
-     require "address.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,45 +24,147 @@
                          $dp = $_FILES['photo']['name'];
                          $userkey = rand(100000000, 999999999);
 
-                         if($photofile == ""){
-                              $profile = 'media/images/prof_pics/login.png';
-                              echo $profile;
-                              echo "<br>";
+                         $true = false;
+                         $exist = false;
+
+                         if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+                              $ip = $_SERVER['HTTP_CLIENT_IP'];
+                         }
+                         elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+                              $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
                          }
                          else{
-                              $profile = 'media/images/prof_pics/' . $dp;
-                              $foldername = "media/images/prof_pics/" . $dp;
-                              move_uploaded_file($file, $foldername);
+                              $ip = $_SERVER['REMOTE_ADDR'];
                          }
 
-                         $query = "SELECT * FROM admin";
+                         if($rank == 1 && $codename === "HM"){
+                              $chkquery = "SELECT * FROM admin";
+                              $chkresult = mysqli_query($db, $chkquery);
 
-                         $reference = mysqli_query($db, $query);
+                              if($chkresult){
+                                   for($i=0; $i<mysqli_num_rows($chkresult); $i++){
+                                        $row = mysqli_fetch_array($chkresult);
 
-                         if($reference){
-                              for($i=0; $i<mysqli_num_rows($reference); $i++){
-                                   $row = mysqli_fetch_array($reference);
-
-                                   if($userkey === $row['userkey']){
-                                        $userkey = rand(100000000, 999999999);
+                                        if($row['rank'] == 1 && $row['codename'] === "HM"){
+                                             $exist = true;
+                                             break;
+                                        }
                                    }
                               }
-                         }
 
-                         $sql = "INSERT INTO admin (username, email, password, rank, codename, photo, userkey) VALUES (?,?,?,?,?,?,?)";
-                         $stmtinsert = $db->prepare($sql);
-                         $result = $stmtinsert->execute([$username, $email, $password, $rank, $codename, $profile, $userkey]);
-                         if($codename === "TEA" || $codename === "DM"){
-                              header("location:teacher.php?uname=".$userkey);
+                              if(!$exist){
+                                   $true = true;
+                              }
+
                          }
-                         else{
-                              if($result){
-                                   echo "<p>Successfully registered.</p><br>";
-                                   header('location:home.php?uname='.$userkey);
+                         elseif($rank == 2 && $codename === "DHM"){
+                              $chkquery = "SELECT * FROM admin";
+                              $chkresult = mysqli_query($db, $chkquery);
+
+                              if($chkresult){
+                                   for($i=0; $i<mysqli_num_rows($chkresult); $i++){
+                                        $row = mysqli_fetch_array($chkresult);
+
+                                        if($row['rank'] == 2 && $row['codename'] === "DHM"){
+                                             $exist = true;
+                                             break;
+                                        }
+                                   }
+                              }
+
+                              if(!$exist){
+                                   $true = true;
+                              }
+                         }
+                         elseif($rank == 3 && $codename === "AM"){
+                              $chkquery = "SELECT * FROM admin";
+                              $chkresult = mysqli_query($db, $chkquery);
+
+                              if($chkresult){
+                                   for($i=0; $i<mysqli_num_rows($chkresult); $i++){
+                                        $row = mysqli_fetch_array($chkresult);
+
+                                        if($row['rank'] == 3 && $row['codename'] === "AM"){
+                                             $exist = true;
+                                             break;
+                                        }
+                                   }
+                              }
+
+                              if(!$exist){
+                                   $true = true;
+                              }
+                         }
+                         elseif($rank == 4 && $codename === "DM"){
+                              $chkquery = "SELECT * FROM admin";
+                              $chkresult = mysqli_query($db, $chkquery);
+
+                              if($chkresult){
+                                   for($i=0; $i<mysqli_num_rows($chkresult); $i++){
+                                        $row = mysqli_fetch_array($chkresult);
+
+                                        if($row['rank'] == 4 && $row['codename'] === "DM"){
+                                             $exist = true;
+                                             break;
+                                        }
+                                   }
+                              }
+
+                              if(!$exist){
+                                   $true = true;
+                              }
+                         }
+                         elseif($rank == 5 && $codename === "TEA"){
+                              $true = true;
+                         }
+                         elseif($rank == 7 && $codename === "PRGM"){
+                              $true = true;
+                         }
+                         
+                         if($true){
+                              if($photofile == ""){
+                                   $profile = 'media/images/prof_pics/login.png';
+                                   echo $profile;
+                                   echo "<br>";
                               }
                               else{
-                                   echo "<p>There were errors while saving the data.</p>";
-                              }    
+                                   $profile = 'media/images/prof_pics/' . $dp;
+                                   $foldername = "media/images/prof_pics/" . $dp;
+                                   move_uploaded_file($file, $foldername);
+                              }
+     
+                              $query = "SELECT * FROM admin";
+     
+                              $reference = mysqli_query($db, $query);
+     
+                              if($reference){
+                                   for($i=0; $i<mysqli_num_rows($reference); $i++){
+                                        $row = mysqli_fetch_array($reference);
+     
+                                        if($userkey === $row['userkey']){
+                                             $userkey = rand(100000000, 999999999);
+                                        }
+                                   }
+                              }
+     
+                              $sql = "INSERT INTO admin (username, email, password, rank, codename, photo, userkey, security) VALUES (?,?,?,?,?,?,?,?)";
+                              $stmtinsert = $db->prepare($sql);
+                              $result = $stmtinsert->execute([$username, $email, $password, $rank, $codename, $profile, $userkey, $ip]);
+                              if($codename === "TEA" || $codename === "DM"){
+                                   header("location:teacher.php?uname=".$userkey);
+                              }
+                              else{
+                                   if($result){
+                                        echo "<p>Successfully registered.</p><br>";
+                                        header('location:home.php?uname='.$userkey);
+                                   }
+                                   else{
+                                        echo "<p>There were errors while saving the data.</p>";
+                                   }    
+                              }
+                         }
+                         else{
+                              echo "<p>Rank or codename incorrect!</p>";
                          }
                     }
                ?>
