@@ -21,7 +21,6 @@ function send(){
     let b = document.getElementById("c-pword").value;
     let c = document.getElementById("numb").value;
     let d = document.getElementById("strm").value;
-    let stream = ['HM', 'DHM', 'AM', 'DM', 'TEA', 'PRF', 'PRGM'];
     let result = 'Please enter the correct rank!';
     let checkclass= false;
     let alert = '*This field is required!*';
@@ -85,23 +84,9 @@ function send(){
     {
          document.getElementById('strmresult').innerHTML = alert;
          event.preventDefault();
-    }
-    else{
-         for(let i=0; i<stream.length; i++) 
-         {
-              if(d==stream[i]){
-                   checkclass = true;
-                   break;
-              }
-         }
-         if(checkclass == false)
-         {
-              document.getElementById("strmresult").innerHTML = comb;
-              event.preventDefault();
-         }
-         else{
-              document.getElementById('strmresult').innerHTML = "";
-         }
+    }else{
+    
+          document.getElementById('strmresult').innerHTML = "";
     }
 
     if(!picresponse){
