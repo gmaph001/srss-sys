@@ -4,6 +4,8 @@
 
      $uname = $_GET['uname'];
 
+     require "timer.php";
+
      $query = "SELECT * FROM students";
      $query2 = "SELECT * FROM admin";
 
@@ -225,6 +227,5 @@
                     }
                }
           </script>
-     <script src="timer.js"></script>
 </body>
 </html>

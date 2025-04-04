@@ -5,6 +5,8 @@
     $uname = $_GET['uname'];
     $news = $_GET['news'];
 
+    require "timer.php";
+
     $query = "SELECT * FROM news";
     $result = mysqli_query($db, $query);
 
@@ -190,6 +192,5 @@
             }
         }
     </script>
-    <script src="timer.js"></script>
 </body>
 </html>

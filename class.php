@@ -6,6 +6,8 @@
     $uname = $_GET['uname'];
     $class = $_GET['class'];
 
+    require "timer.php";
+
     $query = "SELECT * FROM notes";
     $result = mysqli_query($db, $query);
 
@@ -244,5 +246,4 @@
                 })
             })    
         </script>
-        <script src="timer.js"></script>
    </html>

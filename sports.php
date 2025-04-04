@@ -5,6 +5,8 @@
 
     $uname = $_GET['uname'];
 
+    require "timer.php";
+
     $query = "SELECT * FROM news";
     $result = mysqli_query($db, $query);
 
@@ -270,6 +272,5 @@
             submenu.classList.toggle('open');
         }
     </script>
-    <script src="timer.js"></script>
    </body>
    </html>

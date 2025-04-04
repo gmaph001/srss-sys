@@ -17,6 +17,8 @@
                $uname = $_GET['uname'];
                $otp = $_POST['otp'];
 
+               require "timer.php";
+
                $query = "SELECT * FROM admin";
                $query2 = "SELECT * FROM students";
 
@@ -60,6 +62,5 @@
                echo "<p>ERROR!</p>";
           ?>
      </div>
-     <script src="timer.js"></script>
 </body>
 </html>

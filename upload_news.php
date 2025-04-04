@@ -4,6 +4,8 @@
 
      $uname = $_GET['uname'];
 
+     require "timer.php";
+
      $exist = false;
 
      $query = "SELECT * FROM admin";
@@ -218,7 +220,6 @@
                
           }
      </script>
-     <script src="timer.js"></script>
 </body>
 </html>
 <?php

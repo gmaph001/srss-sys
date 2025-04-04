@@ -17,6 +17,8 @@
 
                $uname = $_GET['uname'];
 
+               require "timer.php";
+
                if(isset($_POST['send'])){
                     $username = $_POST['username'];
                     $email = $_POST['email'];
@@ -57,6 +59,5 @@
                }
           ?>
      </div>
-     <script src="timer.js"></script>
 </body>
 </html>

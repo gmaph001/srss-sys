@@ -8,6 +8,8 @@
      $uname = $_GET['uname'];
      $edit = false;
      $rank = 0;
+
+     require "timer.php";
      
      $query = "SELECT * FROM news";
      $query1 = "SELECT * FROM students";
@@ -271,6 +273,5 @@
                pop.style.display = "none";
           }
      </script>
-     <script src="timer.js"></script>
 </body>
 </html>

@@ -17,6 +17,8 @@
 
             $uname = $_GET['uname'];
 
+            require "timer.php";
+
             $query = "SELECT * FROM students";
 
             $result = mysqli_query($db, $query);
@@ -58,6 +60,5 @@
             }
         ?>
     </div>
-    <script src="timer.js"></script>
 </body>
 </html>

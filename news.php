@@ -3,6 +3,10 @@
     require_once "config.php";
     require "address.php";
 
+    $uname = $_GET['uname'];
+
+    require "timer.php";
+
     $query = "SELECT * FROM news";
     $result = mysqli_query($db, $query);
 
@@ -26,7 +30,6 @@
         }
     }    
 
-    $uname = $_GET['uname'];
     $rank = 0;
 
     $query1 = "SELECT * FROM students";
@@ -248,6 +251,5 @@
             submenu.classList.toggle('open');
         }
     </script>
-    <script src="timer.js"></script>
 </body>
 </html>

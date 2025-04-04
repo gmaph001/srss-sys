@@ -16,6 +16,9 @@
                require "address.php";
 
                $uname = $_GET['uname'];
+
+               require "timer.php";
+
                $valid = 0;
                $valid1 = 0;
                $valid2 = false;
@@ -103,6 +106,5 @@
 
           ?>
      </div>
-     <script src="timer.js"></script>
 </body>
 </html>

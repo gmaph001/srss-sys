@@ -3,6 +3,9 @@
     require "address.php";
 
     $uname = $_GET['uname'];
+
+    require "timer.php";
+
     $rank = 0;
 
     $query = "SELECT * FROM students";
@@ -93,7 +96,7 @@
         <div class="sub_menu">
             <ul>
                 <li><?php echo "<a href='leaders.php?uname=$uname'>Admin</a></li>";?>
-                <li><a href="index.php"><b>login</b></a></li>
+                <li><?php echo "<a href='logout.php?uname=$uname'><b>Logout</b></a></li>";?>
             </ul>
         </div>
         <div class="intro">

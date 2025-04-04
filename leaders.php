@@ -5,6 +5,8 @@
 
      $uname = $_GET['uname'];
 
+     require "timer.php";
+
      $query = "SELECT * FROM admin";
 
      $result = mysqli_query($db, $query);
@@ -127,7 +129,6 @@
             </div>";
     ?>
      <script src="fetch.js"></script>
-     <script src="timer.js"></script>
  </body>
  </html>
 <?php

@@ -5,6 +5,8 @@
 
     $uname = $_GET['uname'];
 
+    require "timer.php";
+
     $query = "SELECT * FROM suggestions";
     $query2 = "SELECT * FROM admin";
 
@@ -146,6 +148,5 @@
                 submenu.classList.toggle('open');
             }
         </script>
-        <script src="timer.js"></script>
 </body>
 </html>

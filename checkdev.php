@@ -1,6 +1,7 @@
 <?php
     require "address.php";
     $uname = $_GET['uname'];
+    require "timer.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +26,5 @@
         </div>
     </div>
     <script src="form2.js"></script>
-    <script src="timer.js"></script>
 </body>
 </html>

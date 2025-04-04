@@ -21,6 +21,7 @@
 
                     $uname = $_GET['uname'];
 
+                    require "timer.php";
 
                     if(isset($_POST['upload'])){
 
@@ -78,6 +79,5 @@
                ?>
           </div>
      </div>
-     <script src="timer.js"></script>
 </body>
 </html>

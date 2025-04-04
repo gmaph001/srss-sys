@@ -4,6 +4,8 @@
 
      $uname = $_GET['uname'];
 
+     require "timer.php";
+
      $query = "SELECT * FROM admin";
      $query2 = "SELECT * FROM students";
 
@@ -201,6 +203,5 @@
           <p>&copy; Shaaban Robert Secondary School 2024.</p>
      </div>
      <script src="account.js"></script>
-     <script src="timer.js"></script>
 </body>
 </html>

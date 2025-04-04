@@ -37,7 +37,7 @@
                               $ip = $_SERVER['REMOTE_ADDR'];
                          }
 
-                         if($rank == 1 && $codename === "HM"){
+                         if($rank == 1 && $codename === "MKUU"){
                               $chkquery = "SELECT * FROM admin";
                               $chkresult = mysqli_query($db, $chkquery);
 
@@ -52,12 +52,14 @@
                                    }
                               }
 
+                              $codename = "HM";
+
                               if(!$exist){
                                    $true = true;
                               }
 
                          }
-                         elseif($rank == 2 && $codename === "DHM"){
+                         elseif($rank == 2 && $codename === "MSAIDIZI"){
                               $chkquery = "SELECT * FROM admin";
                               $chkresult = mysqli_query($db, $chkquery);
 
@@ -72,11 +74,13 @@
                                    }
                               }
 
+                              $codename = "DHM";
+
                               if(!$exist){
                                    $true = true;
                               }
                          }
-                         elseif($rank == 3 && $codename === "AM"){
+                         elseif($rank == 3 && $codename === "MTAALUMA"){
                               $chkquery = "SELECT * FROM admin";
                               $chkresult = mysqli_query($db, $chkquery);
 
@@ -91,11 +95,13 @@
                                    }
                               }
 
+                              $codename = "AM";
+
                               if(!$exist){
                                    $true = true;
                               }
                          }
-                         elseif($rank == 4 && $codename === "DM"){
+                         elseif($rank == 4 && $codename === "NIDHAMU"){
                               $chkquery = "SELECT * FROM admin";
                               $chkresult = mysqli_query($db, $chkquery);
 
@@ -110,14 +116,13 @@
                                    }
                               }
 
+                              $codename = "DM";
+
                               if(!$exist){
                                    $true = true;
                               }
                          }
                          elseif($rank == 5 && $codename === "TEA"){
-                              $true = true;
-                         }
-                         elseif($rank == 7 && $codename === "PRGM"){
                               $true = true;
                          }
                          

@@ -14,11 +14,13 @@
                require "address.php";
                
                $uname = $_GET['uname'];
+
+               require "timer.php";
+               
                echo "<p>You are not authorized for this!</p><br>";
                echo "<p>Go back!!</p><br>";
                echo "<a href = 'home.php?uname=$uname'>Enter</a><br>";
           ?>
      </div>
-     <script src="timer.js"></script>
 </body>
 </html>

@@ -19,6 +19,8 @@
 
                     $uname = $_GET['uname'];
 
+                    require "timer.php";
+
                     if(isset($_POST['signup'])){
 
                          $teachername = $_POST['teachername'];
@@ -56,6 +58,5 @@
                ?>
           </div>
      </div>
-     <script src="timer.js"></script>
 </body>
 </html>

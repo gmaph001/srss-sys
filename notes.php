@@ -5,6 +5,8 @@
     $uname = $_GET['uname'];
     $rank = 0;
 
+    require "timer.php";
+
     $query = "SELECT * FROM students";
     $query2 = "SELECT * FROM admin";
 
@@ -271,6 +273,5 @@
             submenu.classList.toggle('open');
         }
     </script>
-    <script src="timer.js"></script>
 </body>
 </html>

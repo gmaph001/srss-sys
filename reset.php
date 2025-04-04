@@ -17,6 +17,8 @@
                $uname = $_GET['uname'];
                $password = $_POST['password'];
 
+               require "timer.php";
+
                $query = "SELECT * FROM admin";
                $query2 = "SELECT * FROM students";
 
@@ -72,6 +74,5 @@
                }
           ?>
      </div>
-     <script src="timer.js"></script>
 </body>
 </html>
