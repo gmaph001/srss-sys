@@ -21,27 +21,16 @@
                          <li><a href='home.php?uname=$uname' class="home">Home</a></li>
                          <li><a href='news.php?uname=$uname' class="news">News</a></li>
                          <li><a href='notes.html?uname=$uname' class="notes">Notes</a></li>
-                         <li class="multi_menu"><a>login</a></li>
-                         <li><a href="account.html"><img src="media/images/prof_pics/1711895902133.jpg" width='50px' height='50px' class='dp'></a></li>
+                         <li><a href="#">Admin</a></li>
+                         <li><a class="multi_menu"><img src="media/images/prof_pics/1711895902133.jpg" class='dp'></a></li>
                     </ul>
                </div>
-               <div class="vertical_menu">
-                    <button><b>MENU</b></p></button>
-               </div>
-          </div>
-          <div class="dropdown_menu">
-               <ul type="none">
-                    <li><a href='home.php?uname=$uname' class=home>Home</a></li>
-                    <li><a href='news.php?uname=$uname' class=news>News</a></li>
-                    <li><a href='notes.html?uname=$uname' class=notes>Notes</a></li>
-                    <li><a href="index.html">Student</a></li>
-                    <li><a href="val_admin.php">Admin</a></li>
           </div>
      </nav>
      <div class="sub_menu">
           <ul>
-               <li><a href="val_admin.php"><b>Admin</b></a></li>
-               <li><a href="index.html"><b>Student</b></a></li>
+               <li><a href="val_admin.php"><b>My Profile</b></a></li>
+               <li><a href="index.html"><b>Logout</b></a></li>
           </ul>
      </div>
           <div class="background-image1">
@@ -104,17 +93,30 @@
           </div>
      </div>
      <script>
-          let menubtn = document.querySelector('.vertical_menu');
-          let dropdownlist = document.querySelector('.dropdown_menu');
           let multimenu = document.querySelector('.multi_menu');
           let submenu = document.querySelector('.sub_menu');
 
-          menubtn.onclick = function(){
-               dropdownlist.classList.toggle('open');
+          let n = 0;
+
+          function even(n){
+               if(n % 2 == 0){
+                    return true;
+               }
+               else{
+                    return false;
+               }
           }
 
           multimenu.onclick = function(){
+               n++;
                submenu.classList.toggle('open');
+
+               if(even(n)){
+                    submenu.setAttribute("class", "submenu");
+               }
+               else{
+                    submenu.setAttribute("class", "sub_menu open");
+               }
           }
      </script>
      <script src="timer.js"></script>

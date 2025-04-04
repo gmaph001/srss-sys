@@ -11,7 +11,7 @@
     align-items: center;
     background-color: #07004a;
     padding: 8px;
-    width: 100%;
+    width: 100vw;
     position: fixed;
     top: 0;
     z-index: 100;
@@ -20,7 +20,7 @@
 #logo-img {
     margin: 12px;
     margin-left: 42px;
-    width: 80px;
+    width: 70px;
 }
 
 #srss {
@@ -77,31 +77,58 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    float: right;
     z-index: 100;
-    margin-left: 80vw;
-    margin-right: 3%;
+    right: 0;
     height: max-content;
-    padding: 10px;
+    padding: 2vh 5vw 2vh 1vw;
     background-color: #07004a;
     transition: 0.4s ease-in-out;
-    border-radius: 0px 0px 15px 15px;
+    border-radius: 0px 0px 0px 15px;
+    animation: multimenu 1.5s ease-in-out normal;
 }
 .sub_menu.open ul{
     list-style: none;
 }
 .sub_menu.open ul li{
     padding: 5px;
+    margin-top: 5px;
 }
 .sub_menu.open ul li a{
     text-decoration: none;
+    animation: multimenu 1.5s ease-in-out normal;
     color: white;
     font-size: 18px;
-    transition: 0.3s ease;
 }
 .sub_menu.open ul li a:hover{
     color: rgb(0, 191, 255);
-    transition: 0.3s ease;
+}
+.submenu{
+    animation: disappear 1.5s ease-in-out normal;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    right: 0;
+    height: max-content;
+    padding: 2vh 5vw 2vh 1vw;
+    background-color: transparent;
+    color: transparent;
+    transition: 0.4s ease-in-out;
+    border-radius: 0px 0px 0px 15px;
+}
+.submenu ul{
+    list-style: none;
+}
+.submenu ul li{
+    padding: 5px;
+    margin-top: 5px;
+}
+.submenu ul li a{
+    color: transparent;
+    text-decoration: none;
+    font-size: 18px;
 }
 .vertical_menu{
     display: none;
@@ -124,8 +151,8 @@
     display: none;
 }
 .dp{
-    height: 9vh;
-    width: 5vw;
+    height: 70px;
+    width: 70px;
     border-radius: 50%;
 }
 .footer{
@@ -198,6 +225,28 @@ fieldset button:active{
 }
 .bottom{
     display: none;
+}
+@keyframes multimenu {
+    from{
+        transform: translateX(15vw);
+        color: transparent;
+    }
+    to{
+        transform: translateX(0);
+        color: white;
+    }
+}
+@keyframes disappear {
+    from{
+        background-color: #07004a;
+        color: white;
+        transform: translateX(0vw);
+    }
+    to{
+        background-color: transparent;
+        color: transparent;
+        transform: translateX(15vw);
+    }
 }
 @media(max-width: 1100px){
     #srss{
