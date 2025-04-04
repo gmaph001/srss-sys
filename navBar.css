@@ -1,9 +1,9 @@
-* {
+*{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-size: 'Open Sans' ,sans-serif;
-    transition: 0.5s ease-in-out;
+    transition: all 0.4s ease-in-out;
 }
 .navigation {
     display: flex;
@@ -16,19 +16,16 @@
     top: 0;
     z-index: 100;
 }
-
 #logo-img {
     margin: 12px;
     margin-left: 42px;
-    width: 70px;
+    width: 80px;
 }
-
 #srss {
     color: white;
     font-size: 250%;
     width: 800px;
     text-align: left;
-    font-family: Old English Text MT;
     margin-left: -15vw;
 }
 .menu{
@@ -41,7 +38,7 @@
 }
 .horizontal_menu{
     margin-left: 5%;
-    font-size: 300%;
+    font-size: 100%;
 }
 .horizontal_menu ul {
     display: flex;
@@ -55,14 +52,12 @@
     font-size: 18px;
     color: white;
     margin-right: 48px;
-    transition: 0.3s ease-in-out;
     border-radius: 12px;
 }
 
 .navigation ul li a:hover,
 .active {
     color: rgb(0, 191, 255);
-    transition: 0.3s ease;
 }
 .multi_menu{
     cursor: pointer;
@@ -70,6 +65,7 @@
 .sub_menu{
     display: none;
     transition: 0.4s ease-in-out;
+    margin-top: 100px;
 }
 .sub_menu.open{
     position: fixed;
@@ -80,9 +76,8 @@
     z-index: 100;
     right: 0;
     height: max-content;
-    padding: 2vh 5vw 2vh 1vw;
+    padding: 1vh 2vw 3vh 2vw;
     background-color: #07004a;
-    transition: 0.4s ease-in-out;
     border-radius: 0px 0px 0px 15px;
     animation: multimenu 1.5s ease-in-out normal;
 }
@@ -98,6 +93,24 @@
     animation: multimenu 1.5s ease-in-out normal;
     color: white;
     font-size: 18px;
+    text-align: center;
+}
+.logout{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 0, 0);
+    padding: 5px 35px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 2vh;
+    border-radius: 5px;
+    box-shadow: 0px 0px 2px 2px rgba(255, 255, 255, 0.544);
+    animation: logouttab 1.5s ease-in-out normal;
+}
+.logout:hover{
+    color: red;
+    background-color: white;
+    box-shadow: 0px 0px 2px 2px rgba(255, 0, 0, 0.548);
 }
 .sub_menu.open ul li a:hover{
     color: rgb(0, 191, 255);
@@ -105,17 +118,16 @@
 .submenu{
     animation: disappear 1.5s ease-in-out normal;
     position: fixed;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     z-index: 100;
     right: 0;
     height: max-content;
-    padding: 2vh 5vw 2vh 1vw;
+    padding: 1vh 5vw 2vh 1vw;
     background-color: transparent;
     color: transparent;
-    transition: 0.4s ease-in-out;
     border-radius: 0px 0px 0px 15px;
 }
 .submenu ul{
@@ -126,9 +138,16 @@
     margin-top: 5px;
 }
 .submenu ul li a{
+    display: none;
     color: transparent;
     text-decoration: none;
     font-size: 18px;
+}
+.submenu .logout{
+    display: none;
+    color: transparent;
+    background-color: transparent;
+    box-shadow: none;
 }
 .vertical_menu{
     display: none;
@@ -141,18 +160,12 @@
     border-radius: 15px;
     cursor: pointer;
 }
-.dropdown_menu{
-    display: none;
-    width: 100%;
-    height: max-content;
-    transition: 0.7s ease-in-out;
-}
 .dp1{
     display: none;
 }
 .dp{
-    height: 70px;
-    width: 70px;
+    height: 60px;
+    width: 60px;
     border-radius: 50%;
 }
 .footer{
@@ -236,16 +249,16 @@ fieldset button:active{
         color: white;
     }
 }
-@keyframes disappear {
+@keyframes logouttab {
     from{
-        background-color: #07004a;
-        color: white;
-        transform: translateX(0vw);
+        transform: translateX(15vw);
+        color: transparent;
+        background-color: transparent;
     }
     to{
-        background-color: transparent;
-        color: transparent;
-        transform: translateX(15vw);
+        transform: translateX(0);
+        color: rgb(255, 255, 255);
+        background-color: rgb(255, 0, 0);
     }
 }
 @media(max-width: 1100px){
@@ -350,8 +363,8 @@ fieldset button:active{
         display: block;
     }
     .dp{
-        height: 80px;
-        width: 85px;
+        height: 60px;
+        width: 60px;
     }
     .background-image1{
         margin: 200px auto 0 0;

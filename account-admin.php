@@ -36,14 +36,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SRSS | My Account</title>
     <link rel="stylesheet" href="account.css">
-    <link rel="icon" type="image/x-icon" href="media/images/srss-logo.jfif">
+    <link rel="icon" type="image/x-icon" href="media/images/srss-logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
      <nav class="navigation">
           <div class="title">
                <div class="menubtn"><img src="media/images/icons/menu.png" class="menu" id="menu"></div>
-               <span id="heading"><b>Shaaban Robert Secondary School</b></span>
+               <span id="heading"><b>Najifunza</b></span>
           </div>
           <img src="media/images/srss-og.png" class="logo">
      </nav>
@@ -200,7 +200,7 @@
                }
           </script>
      <div class="footer">
-          <p>&copy; Shaaban Robert Secondary School 2024.</p>
+          <p><b>&copy; Najifunza.org 2025</b></p>
      </div>
      <script src="account.js"></script>
 </body>

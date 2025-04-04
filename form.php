@@ -4,7 +4,7 @@
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>QUERY FORM</title>
-     <link rel="icon" type="image/x-icon" href="media/images/srss-logo.jfif">
+     <link rel="icon" type="image/x-icon" href="media/images/srss-logo.png">
      <link rel="stylesheet" type="text/css" href="form.css">
 </head>
 <body>

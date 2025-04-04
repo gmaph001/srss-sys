@@ -6,7 +6,7 @@
     <title>SRSS | Home</title>
     <link rel="stylesheet" href="navBar.css">
     <link rel="stylesheet" href="all.css">
-    <link rel="icon" type="image/x-icon" href="media/images/srss-logo.jfif">
+    <link rel="icon" type="image/x-icon" href="media/images/srss-logo.png">
 </head>
 <body>
      <nav class="navigation">
@@ -15,7 +15,7 @@
                <a href="account.html" class="dp1"><img src="media/images/prof_pics/1711895902133.jpg" class='dp'></a>
           </div>
           <div class="menu">
-               <span id="srss">Shaaban Robert Sec School</span>
+               <span id="srss">Najifunza</span>
                <div class="horizontal_menu">
                     <ul type="none">
                          <li><a href='home.php?uname=$uname' class="home">Home</a></li>
@@ -29,15 +29,18 @@
      </nav>
      <div class="sub_menu">
           <ul>
-               <li><a href="val_admin.php"><b>My Profile</b></a></li>
-               <li><a href="index.html"><b>Logout</b></a></li>
+               <li><a href="val_admin.php">My Profile</a></li>
+               <li><a href="val_admin.php">Assignments</a></li><br><br>
+               <a href="index.html" class="logout">Logout</a>
           </ul>
      </div>
           <div class="background-image1">
                <div class="intro">
                     <h2>About</h2>
-                    <p>This is an official website for Shaaban Robert Secondary School's teachers and students only. This is the website where all official school announcements are made. 
-                         It is also where students of Shaaban Robert Secondary School will get important materials to help them with their studies.
+                    <p>  Welcome to our Academic Resource Website
+                         This website is made for students and teachers in Tanzania.
+                         Here, you will find study materials, notes, past papers, and other useful resources to help with learning and teaching.
+                         Our goal is to make education easier and better for everyone.
                     </p>
                </div>
           </div>
@@ -54,7 +57,7 @@
                          <button><b>Send</b></button>
                     </fieldset>
                </form><br><br>
-               <p class="foot"><b>&copy; Shaaban Robert Secondary School 2024.</b></p>
+               <p class="foot"><b>&copy; Najifunza.org 2025</b></p>
           </div>
      </div>
      <div class="bottom">
@@ -92,33 +95,7 @@
                </ul>
           </div>
      </div>
-     <script>
-          let multimenu = document.querySelector('.multi_menu');
-          let submenu = document.querySelector('.sub_menu');
-
-          let n = 0;
-
-          function even(n){
-               if(n % 2 == 0){
-                    return true;
-               }
-               else{
-                    return false;
-               }
-          }
-
-          multimenu.onclick = function(){
-               n++;
-               submenu.classList.toggle('open');
-
-               if(even(n)){
-                    submenu.setAttribute("class", "submenu");
-               }
-               else{
-                    submenu.setAttribute("class", "sub_menu open");
-               }
-          }
-     </script>
+     <script src="navBar.js"></script>
      <script src="timer.js"></script>
 </body>
 </html>

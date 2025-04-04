@@ -2,7 +2,7 @@
      padding: 0;
      margin: 0;
      box-sizing: border-box;
-     font-size: 'Open Sans' ,sans-serif;
+     font-family: 'Open Sans' ,sans-serif;
      transition: 0.5s ease-in-out;
 }
 .navigation{
@@ -30,7 +30,6 @@
      font-size: 250%;
      width: 800px;
      text-align: left;
-     font-family: Old English Text MT;
 }
 .title{
      display: flex;

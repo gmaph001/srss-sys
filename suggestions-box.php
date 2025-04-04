@@ -5,7 +5,7 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Suggestion | SUCCESS</title>
      <link rel="stylesheet" type="text/css" href="register.css">
-     <link rel="icon" type="image/x-icon" href="media/images/srss-logo.jfif">
+     <link rel="icon" type="image/x-icon" href="media/images/srss-logo.png">
 </head>
 <body>
     <div class="register">

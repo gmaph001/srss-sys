@@ -37,10 +37,12 @@ body{
      justify-content: center;
 }
 .title{
-     background-image: url("media/images/logo.jpg");
+     margin: auto;
+     background-color: navy;
      background-size: cover;
      width: 100px;
      height: 100px;
+     padding: 2vh 1vw;
      border-radius: 20px;
 }
 .body{

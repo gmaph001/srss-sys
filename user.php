@@ -39,7 +39,7 @@
     <title>SRSS | Admin</title>
     <link rel="stylesheet" href="navBar.css">
     <link rel="stylesheet" href="leaders.css">
-    <link rel="icon" type="image/x-icon" href="media/images/srss-logo.jfif">
+    <link rel="icon" type="image/x-icon" href="media/images/srss-logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>

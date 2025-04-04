@@ -20,10 +20,10 @@
 .class{
      color: rgb(255, 255, 255);
      background-color: rgba(0, 0, 0, 0.5);
-     padding: 1vh 1vw;
+     padding: 5vh 1vw;
      border-radius: 10px;
      width: 350px;
-     height: 520px;
+     height: max-content;
      transition: 0.5s ease-in-out;
 }
 .class:hover{
@@ -35,7 +35,7 @@
      margin: auto;
 }
 .info p{
-     height: 200px;
+     height: max-content;
      margin: 10px auto;
      text-align: justify;
      color: rgb(255, 255, 255);
@@ -66,10 +66,10 @@
      color: rgb(0, 10, 64);
 }
 .form1{
-     background-image: url("media/images/class1.jpg");
+     background-image: url("media/images/class1.png");
      background-size: cover;
      width: 305px;
-     height: 200px;
+     height: 250px;
      color: indigo;
      padding: 50px;
      text-align: center;
@@ -87,10 +87,10 @@
      color: blue;
 }
 .form2{
-     background-image: url("media/images/class2.jpg");
+     background-image: url("media/images/class2.png");
      background-size: cover;
      width: 305px;
-     height: 200px;
+     height: 250px;
      color: green;
      padding: 50px;
      text-align: center;
@@ -99,10 +99,10 @@
      margin: auto 3%;
 }
 .form3{
-     background-image: url("media/images/class3.jpg");
+     background-image: url("media/images/class3.png");
      background-size: cover;
      width: 305px;
-     height: 200px;
+     height: 250px;
      color: blue;
      padding: 50px;
      text-align: center;
@@ -111,10 +111,10 @@
      margin: auto 3%;
 }
 .form4{
-     background-image: url("media/images/class4.jpg");
+     background-image: url("media/images/class4.png");
      background-size: cover;
      width: 305px;
-     height: 200px;
+     height: 250px;
      color: yellow;
      padding: 50px;
      text-align: center;
@@ -123,10 +123,10 @@
      margin: auto 3%;
 }
 .form5{
-     background-image: url("media/images/class5.jpg");
+     background-image: url("media/images/class5.png");
      background-size: cover;
      width: 305px;
-     height: 200px;
+     height: 250px;
      color: red;
      padding: 50px;
      text-align: center;
@@ -135,10 +135,10 @@
      margin: auto 3%;
 }
 .form6{
-     background-image: url("media/images/class6.jpg");
+     background-image: url("media/images/class6.png");
      background-size: cover;
      width: 305px;
-     height: 200px;
+     height: 250px;
      color: rgb(157, 52, 52);
      padding: 50px;
      text-align: center;

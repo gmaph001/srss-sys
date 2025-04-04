@@ -41,64 +41,63 @@
     <title>SRSS | Notes</title>
     <link rel="stylesheet" href="navBar.css">
     <link rel="stylesheet" href="notes.css">
-    <link rel="icon" type="image/x-icon" href="media/images/srss-logo.jfif">
+    <link rel="icon" type="image/x-icon" href="media/images/srss-logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
 <nav class="navigation">
         <div class="pics">
             <img src="media/images/srss-og.png" alt="shaaban robert logo" id="logo-img">
-            <?php 
+            <?php
                 if($rank == 0){
-                    echo "<li><a href='account.php?uname=$uname' class='dp1'><img src='$dp' class='dp'></a></li>";
+                    echo "<a href='account.php?uname=$uname' class='dp1'><img src='$dp' class='dp'></a>";
                 }
                 else{
-                    echo "<li><a href='account-admin.php?uname=$uname' class='dp1'><img src='$dp' class='dp'></a></li>";
-                }        
+                    echo "<a href='account-admin.php?uname=$uname' class='dp1'><img src='$dp' class='dp'></a>";
+                }
             ?>
+            <a href='account.html' class='dp1'><img src='media/images/prof_pics/1711895902133.jpg' class='dp'></a>
         </div>
         <div class="menu">
-            <span id="srss"><b>Shaaban Robert Sec School</b></span>
+            <span id="srss">Najifunza</span>
             <div class="horizontal_menu">
                 <ul type="none">
-                    <li><?php echo "<a href='home.php?uname=$uname' class=home>Home</a></li>";?>
-                    <li><?php echo "<a href='news.php?uname=$uname' class=news>News</a></li>";?>
-                    <li><?php echo "<a href='notes.php?uname=$uname' class=notes>Notes</a></li>";?>
-                    <li><?php echo "<a href='check3.php?uname=$uname'>Assign</a>";?> </li>
-                    <li class="multi_menu"><a>login</a></li>
-                    <li>
-                        <?php 
-                            if($rank == 0){
-                                echo "<li><a href='account.php?uname=$uname' class='dp'><img src='$dp' class='dp'></a></li>";
-                            }
-                            else{
-                                echo "<li><a href='account-admin.php?uname=$uname' class='dp'><img src='$dp' class='dp'></a></li>";
-                            }        
-                        ?>
-                    </li>
+                    <?php
+                        echo "<li><a href='home.php?uname=$uname' class='home'>Home</a></li>";
+                        echo "<li><a href='news.php?uname=$uname' class='news'>News</a></li>";
+                        echo "<li><a href='notes.php?uname=$uname' class='notes'>Notes</a></li>";
+                        
+                        if($rank>0){
+                            echo "<li><a href='leaders.php?uname=$uname'>Admin</a></li>";
+                        }
+                                                
+                        echo "<li><a class='multi_menu'><img src='$dp' class='dp'></a></li>";
+                    ?>
                 </ul>
             </div>
-            <div class="vertical_menu">
-                <button><b>MENU</b></p></button>
-            </div>
-        </div>
-        <div class="dropdown_menu">
-            <ul type="none">
-                <li><?php echo "<a href='home.php?uname=$uname' class=home>Home</a></li>";?>
-                <li><?php echo "<a href='news.php?uname=$uname' class=news>News</a></li>";?>
-                <li><?php echo "<a href='notes.php?uname=$uname' class=notes>Notes</a></li>";?>
-                <li><?php echo "<a href='assignment.php?uname=$uname'>Assign</a>";?> </li>
-                <li><a href="index.php">Student</a></li>
-                <li><?php echo "<a href='leaders.php?uname=$uname'>Admin</a></li>";?>
         </div>
     </nav>
-    <div class="body">
-        <div class="sub_menu">
-            <ul>
-                <li><?php echo "<a href='leaders.php?uname=$uname'>Admin</a></li>";?>
-                <li><a href="index.php"><b>login</b></a></li>
-            </ul>
-        </div>
+    <div class="sub_menu">
+        <ul>
+            <?php
+                if($rank == 0){
+                    echo "<li><a href='account.php?uname=$uname'>My Profile</a></li>";
+                    echo "<li><a href='assignment.php?uname=$uname' class='notes'>Assignments</a></li>";
+                }
+                else{
+                    echo "<li><a href='account-admin.php?uname=$uname'>My Profile</a></li>";
+                    if($rank<6){
+                        echo "<li><a href='assignment2.php?uname=$uname' class='notes'>Assignments</a></li><br><br>";
+                    }
+                    else{
+                        echo "<li><a href='assignment.php?uname=$uname' class='notes'>Assignments</a></li><br><br>";
+                    }
+                }
+                echo "<a href='logout.php?uname=$uname' class='logout'>Logout</a>";
+            ?>
+        </ul>
+    </div>
+        <div class="body">
             <div class="classes">
                 <div class="row">
                     <div class="class">
@@ -219,7 +218,7 @@
                   <button><b>Send</b></button>
               </fieldset>
           </form><br><br>
-          <p class="foot"><b>&copy; Shaaban Robert Secondary School 2024.</b></p>
+          <p class="foot"><b>&copy; Najifunza.org 2025</b></p>
       </div>
       <?php
         echo "
@@ -259,19 +258,6 @@
                 </div>
             </div>";
     ?>
-    <script>
-        let menubtn = document.querySelector('.vertical_menu');
-        let dropdownlist = document.querySelector('.dropdown_menu');
-        let multimenu = document.querySelector('.multi_menu');
-        let submenu = document.querySelector('.sub_menu');
-
-        menubtn.onclick = function(){
-            dropdownlist.classList.toggle('open');
-        }
-
-        multimenu.onclick = function(){
-            submenu.classList.toggle('open');
-        }
-    </script>
+    <script src="navBar.js"></script>
 </body>
 </html>
