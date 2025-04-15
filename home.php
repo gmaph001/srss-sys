@@ -109,18 +109,6 @@
         </div>
     </div>
     <div class="footer">
-        <p>
-            For any inquiry and suggestions about this website, please leave your comment below:
-        </p><br>
-        <form action="https://formspree.io/f/mwkgkgbv" method="POST" name="myForm">
-            <fieldset>
-                <label><b>Name:</b></label>&nbsp; <input type="text" name="name" id="fname"><br><br>
-                <label><b>Email:</b></label>&nbsp; <input type="text" name="email" id="email"><br><br>
-                <label><b>Suggestions:</b></label><br><br>
-                <textarea name="suggestions" cols="15" rows="5" maxlength="500"></textarea><br><br>
-                <button><b>Send</b></button>
-            </fieldset>
-        </form><br><br>
         <p class="foot"><b>&copy; Najifunza.org 2025</b></p>
     </div>
     <?php

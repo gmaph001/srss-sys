@@ -2,25 +2,65 @@ body{
     overflow-x: hidden;
 }
 .background-image1{
-    background-image:url("media/images/02.jpg");
+    background-image:url("media/images/exams.jpeg");
     background-size: cover;
     width: 100vw;
-    height: 620px; 
-    padding: 20px;
+    height: 95vh;
+    padding: 15vh 5vw 15vh 20vw;
+}
+.background{
+    background-image:url("media/images/assignment.jpg");
+    background-size: cover;
+    width: 100vw;
+    height: 95vh;
+    padding: 15vh 5vw 15vh 20vw;
+}
+.bground{
+    background-image:url("media/images/notes.jpg");
+    background-size: cover;
+    width: 100vw;
+    height: 95vh;
+    padding: 15vh 5vw 15vh 20vw;
 }
 .intro{
     color: rgba(255, 255, 255, 0.996);
     padding: 20px;
     text-align: left;
-    width: 60%;
+    width: 65vw;
     font-size: 28pt;
     background-color: rgba(0, 0, 0, 0.573);
     margin-top: 10%;
     border-radius: 20px;
+    animation: appear 2s ease-in-out normal;
 }
-p{
+.intro p{
     font-size: 16pt;
     color: rgb(255, 255, 255);
+    padding: 1vh 1vw;
+    border-radius: 10px;
+    animation: appear2 2s ease-in-out normal;
+}
+@keyframes appear {
+    from{
+        background-color: transparent;
+        color: transparent;
+    }
+    to{
+        background-color: rgba(0, 0, 0, 0.519);
+        color: white;
+    }
+}
+@keyframes appear2 {
+    from{
+        background-color: transparent;
+        color: transparent;
+        transform: translateX(-50vw);
+    }
+    to{
+        background-color: rgba(0, 0, 0, 0);
+        color: white;
+        transform: translateX(0vw);
+    }
 }
 @media(max-width: 850px){
     .background-image1{
